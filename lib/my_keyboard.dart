@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'init_view.dart';
 import 'my_database.dart';
 
 
@@ -18,16 +19,7 @@ SizedBox my_letter_key(String char){
           if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
         }
 
-        /**just to try ...*/
-        for (var i = 0; i < lettersArray.length; i+=5) {
-          print(lettersArray[i]);
-          print(lettersArray[i+1]);
-          print(lettersArray[i+2]);
-          print(lettersArray[i+3]);
-          print(lettersArray[i+4]);
-          print("-----");
-        }
-
+        runApp(MyApp());
       },
     ),
   );
@@ -48,15 +40,9 @@ SizedBox my_enter_key(){
           canWrite = true;
         }
 
-        /**just to try ...*/
-        for (var i = 0; i < lettersArray.length; i+=5) {
-          print(lettersArray[i]);
-          print(lettersArray[i+1]);
-          print(lettersArray[i+2]);
-          print(lettersArray[i+3]);
-          print(lettersArray[i+4]);
-          print("-----");
-        }
+
+
+        runApp(MyApp());
       },
     ),
   );
@@ -77,15 +63,8 @@ SizedBox my_backspace_icon(){
           canWrite = true;
         }
 
-        /**just to try ...*/
-        for (var i = 0; i < lettersArray.length; i+=5) {
-          print(lettersArray[i]);
-          print(lettersArray[i+1]);
-          print(lettersArray[i+2]);
-          print(lettersArray[i+3]);
-          print(lettersArray[i+4]);
-          print("-----");
-        }
+
+        runApp(MyApp());
       },
     ),
   );
