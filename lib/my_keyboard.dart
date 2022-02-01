@@ -34,10 +34,13 @@ SizedBox my_enter_key(){
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
         if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
-          /** COMPROBAR PALABRA +
-           *  +  DECIDE SI DEJAR ESCRIBIR Y SI CAMBIAR DE FILA */
-          currentRow++;
-          canWrite = true;
+          if (check_word()){
+            /** CORRECTO */
+            print("CORRECTOOOOOOOOO");
+          } else {
+            currentRow++;
+            canWrite = true;
+          }
         }
 
 
@@ -114,4 +117,12 @@ Column generate_keyboard(){
       ],),
     ],
   );
+}
+
+bool check_word(){
+  String input_word = lettersArray[currentRow*5]+lettersArray[currentRow*5+1]+
+      lettersArray[currentRow*5+2]+lettersArray[currentRow*5+3]+lettersArray[currentRow*5+4];
+
+  print("hint->" + wordOfTheDay);
+  return (input_word == wordOfTheDay);
 }

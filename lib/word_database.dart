@@ -1,1 +1,1 @@
-const List <String> wordsList = ["lucas","jorge","texto","playa","chapa"];
+const List <String> wordsList = ["LUCAS","JORGE","TEXTO"];
