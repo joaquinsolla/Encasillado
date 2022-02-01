@@ -99,9 +99,7 @@ void victoryDialog(BuildContext context) {
               SizedBox(height: 15,),
               Text("VICTORIA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
 
-
-
-            ],),
+              ],),
           )
       );
     },
