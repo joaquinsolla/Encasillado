@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'common_objects.dart';
+import 'common.dart';
 import 'my_keyboard.dart';
-import 'my_database.dart';
+import 'word_database.dart';
 
 
 class MyApp extends StatelessWidget {

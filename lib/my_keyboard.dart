@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'common.dart';
 import 'init_view.dart';
-import 'my_database.dart';
 
 
 SizedBox my_letter_key(String char){
@@ -36,7 +36,7 @@ SizedBox my_enter_key(){
         if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
           /** COMPROBAR PALABRA +
            *  +  DECIDE SI DEJAR ESCRIBIR Y SI CAMBIAR DE FILA */
-
+          currentRow++;
           canWrite = true;
         }
 

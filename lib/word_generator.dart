@@ -1,10 +1,11 @@
 import 'dart:math';
 
-import 'my_database.dart';
+import 'word_database.dart';
+import 'common.dart';
+
 
 void generateWord (){
   var rng = Random();
-
-  wordOfTheDay = fiveLettersList[rng.nextInt(fiveLettersList.length -1)];
+  wordOfTheDay = wordsList[rng.nextInt(wordsList.length -1)];
 }
 
