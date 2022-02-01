@@ -12,20 +12,18 @@ SizedBox my_letter_key(String char){
       child: Text(char),
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
-
         if (canWrite){
           lettersArray[currentCell] = char;
           currentCell++;
           if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
         }
-
         runApp(MyApp());
       },
     ),
   );
 }
 
-SizedBox my_enter_key(){
+SizedBox my_enter_key(BuildContext context){
   return SizedBox(
     height: (devWidth/6),
     width: (devWidth/5),
@@ -35,16 +33,12 @@ SizedBox my_enter_key(){
       onPressed: () {
         if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
           if (check_word()){
-            /** CORRECTO */
-            print("CORRECTOOOOOOOOO");
+            victoryDialog(context);
           } else {
             currentRow++;
             canWrite = true;
           }
         }
-
-
-
         runApp(MyApp());
       },
     ),
@@ -65,15 +59,13 @@ SizedBox my_backspace_icon(){
           lettersArray[currentCell] = "";
           canWrite = true;
         }
-
-
         runApp(MyApp());
       },
     ),
   );
 }
 
-Column generate_keyboard(){
+Column generate_keyboard(BuildContext context){
   return Column(children: [
       //ROW 1
       Row(children: [
@@ -105,7 +97,7 @@ Column generate_keyboard(){
 
       //ROW 3
       Row(children: [
-        my_enter_key(),
+        my_enter_key(context),
         my_letter_key("Z"),
         my_letter_key("X"),
         my_letter_key("C"),

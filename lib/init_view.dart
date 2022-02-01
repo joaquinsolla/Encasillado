@@ -38,7 +38,7 @@ class _InicioState extends State<Inicio> {
       body: Column (children: [
         cellsField(),
         Expanded(child: Text(""),),
-        generate_keyboard(),
+        generate_keyboard(context),
       ]),
     );
   }
