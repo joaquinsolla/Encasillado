@@ -25,6 +25,7 @@ class Inicio extends StatefulWidget {
   _InicioState createState() => _InicioState();
 }
 
+// Screen
 class _InicioState extends State<Inicio> {
 
   @override

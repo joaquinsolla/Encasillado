@@ -10,7 +10,25 @@ SizedBox my_letter_key(String char){
     child: TextButton(
       child: Text(char),
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
-      onPressed: () {/** TO DO . . . */},
+      onPressed: () {
+
+        if (canWrite){
+          lettersArray[currentCell] = char;
+          currentCell++;
+          if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
+        }
+
+        /**just to try ...*/
+        for (var i = 0; i < lettersArray.length; i+=5) {
+          print(lettersArray[i]);
+          print(lettersArray[i+1]);
+          print(lettersArray[i+2]);
+          print(lettersArray[i+3]);
+          print(lettersArray[i+4]);
+          print("-----");
+        }
+
+      },
     ),
   );
 }
@@ -22,7 +40,24 @@ SizedBox my_enter_key(){
     child: TextButton(
       child: const Text("PROBAR"),
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
-      onPressed: () {/** TO DO . . . */},
+      onPressed: () {
+        if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
+          /** COMPROBAR PALABRA +
+           *  +  DECIDE SI DEJAR ESCRIBIR Y SI CAMBIAR DE FILA */
+
+          canWrite = true;
+        }
+
+        /**just to try ...*/
+        for (var i = 0; i < lettersArray.length; i+=5) {
+          print(lettersArray[i]);
+          print(lettersArray[i+1]);
+          print(lettersArray[i+2]);
+          print(lettersArray[i+3]);
+          print(lettersArray[i+4]);
+          print("-----");
+        }
+      },
     ),
   );
 }
@@ -33,7 +68,25 @@ SizedBox my_backspace_icon(){
     width: (devWidth/10),
     child: IconButton(
       icon: const Icon(Icons.keyboard_backspace),
-      onPressed: () {/** TO DO . . . */},
+      onPressed: () {
+        if (currentCell == 0 || (currentCell == 5 && canWrite == true) || (currentCell == 10 && canWrite == true) ||
+            (currentCell == 15 && canWrite == true) || (currentCell == 20 && canWrite == true)){}
+        else {
+          currentCell--;
+          lettersArray[currentCell] = "";
+          canWrite = true;
+        }
+
+        /**just to try ...*/
+        for (var i = 0; i < lettersArray.length; i+=5) {
+          print(lettersArray[i]);
+          print(lettersArray[i+1]);
+          print(lettersArray[i+2]);
+          print(lettersArray[i+3]);
+          print(lettersArray[i+4]);
+          print("-----");
+        }
+      },
     ),
   );
 }
