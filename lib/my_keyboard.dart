@@ -111,10 +111,42 @@ Column generate_keyboard(BuildContext context){
   );
 }
 
-bool check_word(){
-  String inputWord = lettersArray[currentRow*5]+lettersArray[currentRow*5+1]+
-      lettersArray[currentRow*5+2]+lettersArray[currentRow*5+3]+lettersArray[currentRow*5+4];
-  String correctWord = wordOfTheDay[0]+wordOfTheDay[1]+wordOfTheDay[2]+wordOfTheDay[3]+wordOfTheDay[4];
+bool check_word() {
+  String inputWord = lettersArray[currentRow * 5] +
+      lettersArray[currentRow * 5 + 1] +
+      lettersArray[currentRow * 5 + 2] +
+      lettersArray[currentRow * 5 + 3] +
+      lettersArray[currentRow * 5 + 4];
+  String correctWord = wordOfTheDay[0] + wordOfTheDay[1] + wordOfTheDay[2] +
+      wordOfTheDay[3] + wordOfTheDay[4];
 
-  return (inputWord == correctWord);
+  if (inputWord == correctWord) {
+    /** PONER TODOS EN VERDE*/
+    return true;
+
+  } else {
+    for (var i = 0; i < 5; i++) {
+      //GREEN
+      if (lettersArray[currentRow * 5 + i] == wordOfTheDay[i]) {
+        /** PONER EN VERDE */
+
+      }
+      //YELLOW
+      else{
+        if (lettersArray[currentRow * 5 + i] == wordOfTheDay[0] || lettersArray[currentRow * 5 + i] == wordOfTheDay[1] ||
+            lettersArray[currentRow * 5 + i] == wordOfTheDay[2] ||lettersArray[currentRow * 5 + i] == wordOfTheDay[3] ||
+            lettersArray[currentRow * 5 + i] == wordOfTheDay[4]){
+          /** PONER EN AMARILLO */
+
+        }
+        //GREY
+        else {
+          /** PONER EN GRIS */
+
+        }
+      }
+    }
+
+    return false;
+  }
 }
