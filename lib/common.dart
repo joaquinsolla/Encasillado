@@ -13,6 +13,7 @@ bool canWrite = true;
 
 // Array of content of cells
 List <String> lettersArray = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
+List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B"];
 
 // Word of the day
 List <String> wordOfTheDay = ["","","","",""];
@@ -32,7 +33,14 @@ AppBar MainAppBar() {
   );
 }
 
-Container letterCell(String char){
+Container letterCell(String char, String col){
+
+  //COLOR SELECTION
+  Color? cellColor = Colors.white;
+  if (col == "V") cellColor = Colors.green;
+  if (col == "A") cellColor = Colors.yellow;
+  if (col == "G") cellColor = Colors.grey;
+
   return Container(
     width: (devWidth/5 - 10.0),
     height: (devWidth/5 - 10.0),
@@ -40,7 +48,7 @@ Container letterCell(String char){
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: cellColor,
       border: Border.all(color: Colors.black54, width: 3.0),
     ),
     child: Text(char, style: TextStyle(fontSize: 45.0, color: Colors.black),),
@@ -52,11 +60,11 @@ Row letterRow(int _from){
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      letterCell(lettersArray[_from]),
-      letterCell(lettersArray[_from+1]),
-      letterCell(lettersArray[_from+2]),
-      letterCell(lettersArray[_from+3]),
-      letterCell(lettersArray[_from+4]),
+      letterCell(lettersArray[_from], colorsArray[_from]),
+      letterCell(lettersArray[_from+1], colorsArray[_from+1]),
+      letterCell(lettersArray[_from+2], colorsArray[_from+2]),
+      letterCell(lettersArray[_from+3], colorsArray[_from+3]),
+      letterCell(lettersArray[_from+4], colorsArray[_from+4]),
     ],
   );
 }

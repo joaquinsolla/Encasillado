@@ -121,28 +121,34 @@ bool check_word() {
       wordOfTheDay[3] + wordOfTheDay[4];
 
   if (inputWord == correctWord) {
-    /** PONER TODOS EN VERDE*/
+    // PONER TODOS EN VERDE
+    colorsArray[currentRow * 5 + 0] = "V";
+    colorsArray[currentRow * 5 + 1] = "V";
+    colorsArray[currentRow * 5 + 2] = "V";
+    colorsArray[currentRow * 5 + 3] = "V";
+    colorsArray[currentRow * 5 + 4] = "V";
+
     return true;
 
   } else {
     for (var i = 0; i < 5; i++) {
       //GREEN
       if (lettersArray[currentRow * 5 + i] == wordOfTheDay[i]) {
-        /** PONER EN VERDE */
-
+        // PONER EN VERDE
+        colorsArray[currentRow * 5 + i] = "V";
       }
       //YELLOW
       else{
         if (lettersArray[currentRow * 5 + i] == wordOfTheDay[0] || lettersArray[currentRow * 5 + i] == wordOfTheDay[1] ||
             lettersArray[currentRow * 5 + i] == wordOfTheDay[2] ||lettersArray[currentRow * 5 + i] == wordOfTheDay[3] ||
             lettersArray[currentRow * 5 + i] == wordOfTheDay[4]){
-          /** PONER EN AMARILLO */
-
+          // PONER EN AMARILLO
+          colorsArray[currentRow * 5 + i] = "A";
         }
         //GREY
         else {
-          /** PONER EN GRIS */
-
+          // PONER EN GRIS
+          colorsArray[currentRow * 5 + i] = "G";
         }
       }
     }
