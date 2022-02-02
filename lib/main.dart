@@ -14,7 +14,7 @@ void main() {
   // testDB0
   // testDB1
   // bigDB
-  selectedDatabase = testDB1;
+  selectedDatabase = bigDB;
 
   generateWord();
   runApp(MyApp());
