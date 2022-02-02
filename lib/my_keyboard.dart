@@ -179,6 +179,12 @@ bool check_word() {
         }
       }
     }
+    //GREY
+    for (var i = 0; i < 5; i++) {
+      if (inputLetterByLetter[i] != "-"){
+        colorsArray[currentRow * 5 + i] = "G";
+      }
+    }
     return false;
   }
 }
