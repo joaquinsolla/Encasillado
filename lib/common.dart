@@ -44,8 +44,8 @@ AnimatedContainer letterCell(String char, String col){
   if (col == "G") cellColor = Colors.grey;
 
   return AnimatedContainer(
-    duration: Duration(milliseconds: 500),
-    curve: Curves.easeIn,
+    duration: Duration(milliseconds: 750),
+    curve: Curves.easeInOutCirc,
     width: (devWidth/5 - 10.0),
     height: (devWidth/5 - 10.0),
     margin: const EdgeInsets.fromLTRB(2.0,6.0,2.0,6.0),
