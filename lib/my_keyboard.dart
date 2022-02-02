@@ -1,18 +1,43 @@
 import 'package:flutter/material.dart';
 
-
 import 'common.dart';
 import 'init_view.dart';
-import 'word_database.dart';
+
+
+List <String> greenKeys = [];
+List <String> yellowKeys = [];
+List <String> greyKeys = [];
 
 
 SizedBox my_letter_key(String char){
+  Color? mycolor = Colors.white;
+
+  for (var i = 0; i < greenKeys.length; i++) {
+    if(char == greenKeys[i]) {
+      mycolor = Colors.green;
+    }
+  }
+  if (mycolor == Colors.white){
+    for (var i = 0; i < yellowKeys.length; i++) {
+      if(char == yellowKeys[i]) {
+        mycolor = Colors.yellow;
+      }
+    }
+  }
+  if (mycolor == Colors.white){
+    for (var i = 0; i < greyKeys.length; i++) {
+      if(char == greyKeys[i]) {
+        mycolor = Colors.grey;
+      }
+    }
+  }
+
   return SizedBox(
     height: (devWidth/6),
     width: (devWidth/10),
     child: TextButton(
       child: Text(char),
-      style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
+      style: TextButton.styleFrom(primary: Colors.black, backgroundColor: mycolor),
       onPressed: () {
         if (!finished){
           if (canWrite){
@@ -33,7 +58,7 @@ SizedBox my_enter_key(BuildContext context) {
     width: (devWidth / 5),
     child: TextButton(
       child: const Text("PROBAR"),
-      style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
+      style: TextButton.styleFrom(primary: Colors.black, backgroundColor: Colors.white),
       onPressed: () {
         if (currentCell == 5 || currentCell == 10 || currentCell == 15 ||
             currentCell == 20 || currentCell == 25 || currentCell == 30) {
@@ -164,6 +189,7 @@ bool check_word() {
     for (var i = 0; i < 5; i++) {
       if (inputMatrix[currentRow * 5 + i] == wordOfTheDay[i]) {
         colorsArray[currentRow * 5 + i] = "V";
+        greenKeys.insert(0,inputMatrix[currentRow * 5 + i]);
         correctLetterByLetter[i] = "";
         inputLetterByLetter[i] = "-";
       }
@@ -173,6 +199,7 @@ bool check_word() {
       for (var j = 0; j < 5; j++) {
         if (inputLetterByLetter[i] == correctLetterByLetter[j] && inputLetterByLetter[i] != "-" && correctLetterByLetter[j] != "") {
           colorsArray[currentRow * 5 + i] = "A";
+          yellowKeys.insert(0,inputLetterByLetter[i]);
           correctLetterByLetter[j] = "";
           inputLetterByLetter[i] = "-";
         }
@@ -182,6 +209,7 @@ bool check_word() {
     for (var i = 0; i < 5; i++) {
       if (inputLetterByLetter[i] != "-"){
         colorsArray[currentRow * 5 + i] = "G";
+        greyKeys.insert(0,inputLetterByLetter[i]);
       }
     }
     return false;

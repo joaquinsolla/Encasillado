@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'common.dart';
 import 'my_keyboard.dart';
-import 'word_database.dart';
 
 
 class MyApp extends StatelessWidget {

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 
-List <String> selectedDatabase = [];
 
 /** VARIABLES */
+
+List <String> selectedDatabase = [];
+
 // Device size
 double devHeight = 0;
 double devWidth = 0;
@@ -15,11 +17,11 @@ int currentRow = 0;
 bool canWrite = true;
 bool finished = false;
 
-// Array of content of cells
+// Content of each cell
 List <String> inputMatrix = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
 List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B"];
 
-// Word of the day
+// Word of the day letter by letter
 List <String> wordOfTheDay = ["","","","",""];
 
 
