@@ -42,19 +42,7 @@ SizedBox my_enter_key(BuildContext context){
               canWrite = true;
             }
           } else {
-            //word_doesnt_exist_snackbar(context);
-
-
-            if (check_word()){
-              victoryDialog(context);
-            } else {
-              currentRow++;
-              canWrite = true;
-            }
-
-
-
-
+            word_doesnt_exist_snackbar(context);
           }
         }
         runApp(MyApp());
