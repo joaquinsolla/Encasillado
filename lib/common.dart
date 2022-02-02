@@ -35,7 +35,7 @@ AppBar MainAppBar() {
   );
 }
 
-Container letterCell(String char, String col){
+AnimatedContainer letterCell(String char, String col){
 
   //COLOR SELECTION
   Color? cellColor = Colors.white;
@@ -43,7 +43,9 @@ Container letterCell(String char, String col){
   if (col == "A") cellColor = Colors.yellow;
   if (col == "G") cellColor = Colors.grey;
 
-  return Container(
+  return AnimatedContainer(
+    duration: Duration(milliseconds: 500),
+    curve: Curves.easeIn,
     width: (devWidth/5 - 10.0),
     height: (devWidth/5 - 10.0),
     margin: const EdgeInsets.fromLTRB(2.0,6.0,2.0,6.0),
