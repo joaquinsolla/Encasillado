@@ -14,32 +14,41 @@ SizedBox my_letter_key(String char){
       child: Text(char),
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
-        if (canWrite){
-          inputMatrix[currentCell] = char;
-          currentCell++;
-          if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
+        if (!finished){
+          if (canWrite){
+            inputMatrix[currentCell] = char;
+            currentCell++;
+            if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
+          }
+          runApp(MyApp());
         }
-        runApp(MyApp());
       },
     ),
   );
 }
 
-SizedBox my_enter_key(BuildContext context){
+SizedBox my_enter_key(BuildContext context) {
   return SizedBox(
-    height: (devWidth/6),
-    width: (devWidth/5),
+    height: (devWidth / 6),
+    width: (devWidth / 5),
     child: TextButton(
       child: const Text("PROBAR"),
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
-        if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
-          if (word_exists()){
-            if (check_word()){
-              victoryDialog(context);
+        if (currentCell == 5 || currentCell == 10 || currentCell == 15 ||
+            currentCell == 20 || currentCell == 25 || currentCell == 30) {
+          if (word_exists()) {
+            if (check_word()) {
+              finished = true;
+              victory_dialog(context);
             } else {
-              currentRow++;
-              canWrite = true;
+              if (currentCell == 30) {
+                finished = true;
+                defeat_dialog(context);
+              } else {
+                currentRow++;
+                canWrite = true;
+              }
             }
           } else {
             word_doesnt_exist_snackbar(context);
@@ -58,14 +67,16 @@ SizedBox my_backspace_icon(){
     child: IconButton(
       icon: const Icon(Icons.keyboard_backspace),
       onPressed: () {
-        if (currentCell == 0 || (currentCell == 5 && canWrite == true) || (currentCell == 10 && canWrite == true) ||
-            (currentCell == 15 && canWrite == true) || (currentCell == 20 && canWrite == true)){}
-        else {
-          currentCell--;
-          inputMatrix[currentCell] = "";
-          canWrite = true;
+        if (!finished){
+          if (currentCell == 0 || (currentCell == 5 && canWrite == true) || (currentCell == 10 && canWrite == true) ||
+              (currentCell == 15 && canWrite == true) || (currentCell == 20 && canWrite == true)){}
+          else {
+            currentCell--;
+            inputMatrix[currentCell] = "";
+            canWrite = true;
+          }
+          runApp(MyApp());
         }
-        runApp(MyApp());
       },
     ),
   );

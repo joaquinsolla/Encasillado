@@ -12,6 +12,7 @@ double devWidth = 0;
 int currentCell = 0;
 int currentRow = 0;
 bool canWrite = true;
+bool finished = false;
 
 // Array of content of cells
 List <String> inputMatrix = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
@@ -98,7 +99,7 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
-void victoryDialog(BuildContext context) {
+void victory_dialog(BuildContext context) {
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -120,6 +121,52 @@ void victoryDialog(BuildContext context) {
               SizedBox(height: 90, child: Image.asset('app_files/trophy.png'),),
               SizedBox(height: 15,),
               Text("VICTORIA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
+
+              ],),
+          )
+      );
+    },
+    transitionBuilder: (_, anim, __, child) {
+      Tween<Offset> tween;
+      if (anim.status == AnimationStatus.reverse) {
+        tween = Tween(begin: Offset(-1, 0), end: Offset.zero);
+      } else {
+        tween = Tween(begin: Offset(1, 0), end: Offset.zero);
+      }
+
+      return SlideTransition(
+        position: tween.animate(anim),
+        child: FadeTransition(
+          opacity: anim,
+          child: child,
+        ),
+      );
+    },
+  );
+}
+
+void defeat_dialog(BuildContext context) {
+  showGeneralDialog(
+    context: context,
+    barrierLabel: "Barrier",
+    barrierDismissible: true,
+    barrierColor: Colors.black.withOpacity(0.5),
+    transitionDuration: Duration(milliseconds: 700),
+    pageBuilder: (_, __, ___) {
+      return Center(
+          child: Container(
+            height: devHeight * 0.8,
+            width: devWidth * 0.8,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              color: Colors.white,),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 15,),
+                SizedBox(height: 90, child: Image.asset('app_files/defeat.png'),),
+                SizedBox(height: 15,),
+                Text("DERROTA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
 
               ],),
           )
