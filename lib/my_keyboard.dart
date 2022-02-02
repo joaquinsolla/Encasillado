@@ -112,9 +112,9 @@ Column generate_keyboard(BuildContext context){
 }
 
 bool check_word(){
-  String input_word = lettersArray[currentRow*5]+lettersArray[currentRow*5+1]+
+  String inputWord = lettersArray[currentRow*5]+lettersArray[currentRow*5+1]+
       lettersArray[currentRow*5+2]+lettersArray[currentRow*5+3]+lettersArray[currentRow*5+4];
+  String correctWord = wordOfTheDay[0]+wordOfTheDay[1]+wordOfTheDay[2]+wordOfTheDay[3]+wordOfTheDay[4];
 
-  print("hint->" + wordOfTheDay);
-  return (input_word == wordOfTheDay);
+  return (inputWord == correctWord);
 }

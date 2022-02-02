@@ -15,7 +15,7 @@ bool canWrite = true;
 List <String> lettersArray = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
 
 // Word of the day
-String wordOfTheDay = "";
+List <String> wordOfTheDay = ["","","","",""];
 
 
 /** METHODS & WIDGETS */
