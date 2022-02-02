@@ -14,7 +14,7 @@ int currentRow = 0;
 bool canWrite = true;
 
 // Array of content of cells
-List <String> lettersArray = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
+List <String> inputMatrix = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
 List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B"];
 
 // Word of the day
@@ -64,11 +64,11 @@ Row letterRow(int _from){
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      letterCell(lettersArray[_from], colorsArray[_from]),
-      letterCell(lettersArray[_from+1], colorsArray[_from+1]),
-      letterCell(lettersArray[_from+2], colorsArray[_from+2]),
-      letterCell(lettersArray[_from+3], colorsArray[_from+3]),
-      letterCell(lettersArray[_from+4], colorsArray[_from+4]),
+      letterCell(inputMatrix[_from], colorsArray[_from]),
+      letterCell(inputMatrix[_from+1], colorsArray[_from+1]),
+      letterCell(inputMatrix[_from+2], colorsArray[_from+2]),
+      letterCell(inputMatrix[_from+3], colorsArray[_from+3]),
+      letterCell(inputMatrix[_from+4], colorsArray[_from+4]),
     ],
   );
 }

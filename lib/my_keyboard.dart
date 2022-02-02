@@ -15,7 +15,7 @@ SizedBox my_letter_key(String char){
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
         if (canWrite){
-          lettersArray[currentCell] = char;
+          inputMatrix[currentCell] = char;
           currentCell++;
           if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
         }
@@ -42,7 +42,19 @@ SizedBox my_enter_key(BuildContext context){
               canWrite = true;
             }
           } else {
-            word_doesnt_exist_snackbar(context);
+            //word_doesnt_exist_snackbar(context);
+
+
+            if (check_word()){
+              victoryDialog(context);
+            } else {
+              currentRow++;
+              canWrite = true;
+            }
+
+
+
+
           }
         }
         runApp(MyApp());
@@ -62,7 +74,7 @@ SizedBox my_backspace_icon(){
             (currentCell == 15 && canWrite == true) || (currentCell == 20 && canWrite == true)){}
         else {
           currentCell--;
-          lettersArray[currentCell] = "";
+          inputMatrix[currentCell] = "";
           canWrite = true;
         }
         runApp(MyApp());
@@ -118,58 +130,66 @@ Column generate_keyboard(BuildContext context){
 }
 
 bool check_word() {
-  String inputWord = lettersArray[currentRow * 5] +
-      lettersArray[currentRow * 5 + 1] +
-      lettersArray[currentRow * 5 + 2] +
-      lettersArray[currentRow * 5 + 3] +
-      lettersArray[currentRow * 5 + 4];
+
+  String inputWord = inputMatrix[currentRow * 5] +
+      inputMatrix[currentRow * 5 + 1] +
+      inputMatrix[currentRow * 5 + 2] +
+      inputMatrix[currentRow * 5 + 3] +
+      inputMatrix[currentRow * 5 + 4];
+
   String correctWord = wordOfTheDay[0] + wordOfTheDay[1] + wordOfTheDay[2] +
       wordOfTheDay[3] + wordOfTheDay[4];
 
+
+  List <String> correctLetterByLetter = ["","","","",""];
+  for (var i = 0; i < 5; i++) {
+    correctLetterByLetter[i] = wordOfTheDay[i];
+  }
+
+  List <String> inputLetterByLetter = ["-","-","-","-","-"];
+  for (var i = 0; i < 5; i++) {
+    inputLetterByLetter[i] = inputMatrix[currentRow * 5 + i];
+  }
+
+
   if (inputWord == correctWord) {
-    // PONER TODOS EN VERDE
     colorsArray[currentRow * 5 + 0] = "V";
     colorsArray[currentRow * 5 + 1] = "V";
     colorsArray[currentRow * 5 + 2] = "V";
     colorsArray[currentRow * 5 + 3] = "V";
     colorsArray[currentRow * 5 + 4] = "V";
-
     return true;
 
   } else {
+    //GREEN
     for (var i = 0; i < 5; i++) {
-      //GREEN
-      if (lettersArray[currentRow * 5 + i] == wordOfTheDay[i]) {
-        // PONER EN VERDE
+      if (inputMatrix[currentRow * 5 + i] == wordOfTheDay[i]) {
         colorsArray[currentRow * 5 + i] = "V";
+        correctLetterByLetter[i] = "";
+        inputLetterByLetter[i] = "-";
       }
-      //YELLOW
-      else{
-        if (lettersArray[currentRow * 5 + i] == wordOfTheDay[0] || lettersArray[currentRow * 5 + i] == wordOfTheDay[1] ||
-            lettersArray[currentRow * 5 + i] == wordOfTheDay[2] ||lettersArray[currentRow * 5 + i] == wordOfTheDay[3] ||
-            lettersArray[currentRow * 5 + i] == wordOfTheDay[4]){
-          // PONER EN AMARILLO
+    }
+    //YELLOW
+    for (var i = 0; i < 5; i++) {
+      for (var j = 0; j < 5; j++) {
+        if (inputLetterByLetter[i] == correctLetterByLetter[j] && inputLetterByLetter[i] != "-" && correctLetterByLetter[j] != "") {
           colorsArray[currentRow * 5 + i] = "A";
-        }
-        //GREY
-        else {
-          // PONER EN GRIS
-          colorsArray[currentRow * 5 + i] = "G";
+          correctLetterByLetter[j] = "";
+          inputLetterByLetter[i] = "-";
         }
       }
     }
-
     return false;
   }
 }
 
 bool word_exists() {
 
-  String inputWord = lettersArray[currentRow * 5] +
-      lettersArray[currentRow * 5 + 1] +
-      lettersArray[currentRow * 5 + 2] +
-      lettersArray[currentRow * 5 + 3] +
-      lettersArray[currentRow * 5 + 4];
+  String inputWord = inputMatrix[currentRow * 5] +
+      inputMatrix[currentRow * 5 + 1] +
+      inputMatrix[currentRow * 5 + 2] +
+      inputMatrix[currentRow * 5 + 3] +
+      inputMatrix[currentRow * 5 + 4];
 
   for (var i = 0; i < wordsList.length; i++) {
     if (inputWord == wordsList[i]) return true;
