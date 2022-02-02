@@ -91,7 +91,8 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   Flushbar(
     message: "La palabra no existe",
     duration: Duration(seconds: 3),
-      flushbarPosition: FlushbarPosition.TOP,
+    backgroundColor: Colors.redAccent,
+    flushbarPosition: FlushbarPosition.TOP,
   ).show(context);
 }
 
