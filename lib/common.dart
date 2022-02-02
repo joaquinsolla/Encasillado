@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 
-List <String> wordsList = [];
+List <String> selectedDatabase = [];
 
 /** VARIABLES */
 // Device size

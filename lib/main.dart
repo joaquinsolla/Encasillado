@@ -13,7 +13,7 @@ void main() {
   /** DATABASE SELECTOR */
   // testDB
   // bigDB
-  wordsList = testDB;
+  selectedDatabase = testDB;
 
   generateWord();
   runApp(MyApp());

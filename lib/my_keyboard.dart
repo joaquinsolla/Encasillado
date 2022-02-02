@@ -196,8 +196,8 @@ bool word_exists() {
       inputMatrix[currentRow * 5 + 3] +
       inputMatrix[currentRow * 5 + 4];
 
-  for (var i = 0; i < wordsList.length; i++) {
-    if (inputWord == wordsList[i]) return true;
+  for (var i = 0; i < selectedDatabase.length; i++) {
+    if (inputWord == selectedDatabase[i]) return true;
   }
   return false;
 }
