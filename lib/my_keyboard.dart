@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+
 import 'common.dart';
 import 'init_view.dart';
+import 'word_database.dart';
 
 
 SizedBox my_letter_key(String char){
@@ -32,11 +34,15 @@ SizedBox my_enter_key(BuildContext context){
       style: TextButton.styleFrom(primary: Colors.grey, backgroundColor: Colors.white),
       onPressed: () {
         if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25){
-          if (check_word()){
-            victoryDialog(context);
+          if (word_exists()){
+            if (check_word()){
+              victoryDialog(context);
+            } else {
+              currentRow++;
+              canWrite = true;
+            }
           } else {
-            currentRow++;
-            canWrite = true;
+            word_doesnt_exist_snackbar(context);
           }
         }
         runApp(MyApp());
@@ -155,4 +161,18 @@ bool check_word() {
 
     return false;
   }
+}
+
+bool word_exists() {
+
+  String inputWord = lettersArray[currentRow * 5] +
+      lettersArray[currentRow * 5 + 1] +
+      lettersArray[currentRow * 5 + 2] +
+      lettersArray[currentRow * 5 + 3] +
+      lettersArray[currentRow * 5 + 4];
+
+  for (var i = 0; i < wordsList.length; i++) {
+    if (inputWord == wordsList[i]) return true;
+  }
+  return false;
 }

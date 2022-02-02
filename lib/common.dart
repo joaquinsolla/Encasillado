@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flushbar/flushbar.dart';
+import 'package:flushbar/flushbar_helper.dart';
 
 
 /** VARIABLES */
@@ -82,6 +84,15 @@ Column cellsField() {
         letterRow(20),
         letterRow(25),
       ]);
+}
+
+void word_doesnt_exist_snackbar(BuildContext context) {
+  //may cause problems with null sound safety
+  Flushbar(
+    message: "La palabra no existe",
+    duration: Duration(seconds: 3),
+      flushbarPosition: FlushbarPosition.TOP,
+  ).show(context);
 }
 
 void victoryDialog(BuildContext context) {
