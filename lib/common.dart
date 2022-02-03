@@ -94,7 +94,7 @@ AppBar MainAppBar() {
   return AppBar(
     backgroundColor: Color(0xff009688),
     title: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.asset('app_files/my_logo.png'),
       ],
