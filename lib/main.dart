@@ -11,10 +11,9 @@ void main() {
    *  --no-sound-null-safety */
 
   /** DATABASE SELECTOR */
-  // testDB0
-  // testDB1
-  // bigDB
-  selectedDatabase = bigDB;
+  //selectedDatabase = bigDB;
+  //selectedDatabase = testDB0;
+  selectedDatabase = testDB1;
 
   generateWord();
   runApp(MyApp());

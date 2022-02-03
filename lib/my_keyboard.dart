@@ -60,8 +60,8 @@ SizedBox my_enter_key(BuildContext context) {
       child: const Text("PROBAR"),
       style: TextButton.styleFrom(primary: Colors.black, backgroundColor: Colors.white),
       onPressed: () {
-        if (currentCell == 5 || currentCell == 10 || currentCell == 15 ||
-            currentCell == 20 || currentCell == 25 || currentCell == 30) {
+        if ((currentCell == 5 || currentCell == 10 || currentCell == 15 ||
+            currentCell == 20 || currentCell == 25 || currentCell == 30) && canWrite == false) {
           if (word_exists()) {
             if (check_word()) {
               finished = true;
