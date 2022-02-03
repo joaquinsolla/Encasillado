@@ -43,7 +43,7 @@ SizedBox my_letter_key(String char){
           if (canWrite){
             inputMatrix[currentCell] = char;
             currentCell++;
-            if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25) {canWrite = false;}
+            if (currentCell == 5 || currentCell == 10 || currentCell == 15 || currentCell == 20 || currentCell == 25 || currentCell == 30) {canWrite = false;}
           }
           runApp(MyApp());
         }
