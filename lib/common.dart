@@ -261,15 +261,26 @@ void victory_dialog(BuildContext context) {
               ),
               textAlign: TextAlign.center,
             ),
+            Text(
+              "¡Bien hecho!",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.normal,
+                decoration: TextDecoration.none,
+                fontFamily: 'RaleWay',
+              ),
+              textAlign: TextAlign.center,
+            ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Text(
               "¿No sabes el significado de la palabra?",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
                 decoration: TextDecoration.none,
                 fontFamily: 'RaleWay',
               ),
@@ -307,6 +318,27 @@ void victory_dialog(BuildContext context) {
 }
 
 void defeat_dialog(BuildContext context) {
+  bool lineUsed = false;
+  String emojis = "";
+  for (var i = 0; i < colorsArray.length; i += 5) {
+    lineUsed = false;
+    for (var j = i; j < i + 5; j++) {
+      if (colorsArray[j] == "V") {
+        emojis += "🟩";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "A") {
+        emojis += "🟨";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "G") {
+        emojis += "⬜";
+        lineUsed = true;
+      }
+    }
+    if (lineUsed) emojis += "\n";
+  }
+
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -316,36 +348,103 @@ void defeat_dialog(BuildContext context) {
     pageBuilder: (_, __, ___) {
       return Center(
           child: Container(
-        height: devHeight * 0.8,
-        width: devWidth * 0.8,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          color: Colors.white,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 15,
+            height: devHeight * 0.8,
+            width: devWidth * 0.8,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              color: Colors.white,
             ),
-            SizedBox(
-              height: 90,
-              child: Image.asset('app_files/defeat.png'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 15,
+                ),
+                SizedBox(
+                  height: 90,
+                  child: Image.asset('app_files/defeat.png'),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "DERROTA",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  wordOfTheDayString +
+                      " - Intentos: " +
+                      (currentRow + 1).toString() +
+                      "/6",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  emojis,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "Más suerte la próxima :(",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "¿No sabes el significado de la palabra?",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TextButton(
+                    onPressed: _launchURL,
+                    style: TextButton.styleFrom(
+                        primary: Colors.white, backgroundColor: Color(0xff009688)),
+                    child: Text("Definición de " + wordOfTheDayString)),
+              ],
             ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "DERROTA",
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.black,
-                decoration: null,
-              ),
-            ),
-          ],
-        ),
-      ));
+          ));
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
