@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 /** VARIABLES */
@@ -23,6 +24,7 @@ List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","
 
 // Word of the day letter by letter
 List <String> wordOfTheDay = ["","","","",""];
+String definitionURL = "https://dle.rae.es/";
 
 
 /** METHODS & WIDGETS */
@@ -124,6 +126,8 @@ void victory_dialog(BuildContext context) {
               SizedBox(height: 90, child: Image.asset('app_files/trophy.png'),),
               SizedBox(height: 15,),
               Text("VICTORIA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
+              TextButton(onPressed: _launchURL,
+                  child: Text("link")),
 
               ],),
           )
@@ -192,4 +196,12 @@ void defeat_dialog(BuildContext context) {
       );
     },
   );
+}
+
+_launchURL() async {
+  if (await canLaunch(definitionURL)) {
+    await launch(definitionURL);
+  } else {
+    throw 'Could not launch $definitionURL';
+  }
 }

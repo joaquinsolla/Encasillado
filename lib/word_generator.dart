@@ -9,6 +9,7 @@ void generateWord (){
 
   for (var i = 0; i < 5; i++) {
     wordOfTheDay[i] = selectedWord.substring(i, i+1);
+    definitionURL += selectedWord.substring(i, i+1);
   }
 }
 
