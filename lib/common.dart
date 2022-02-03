@@ -3,10 +3,9 @@ import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 /** VARIABLES */
 
-List <String> selectedDatabase = [];
+List<String> selectedDatabase = [];
 
 // Device size
 double devHeight = 0;
@@ -19,14 +18,75 @@ bool canWrite = true;
 bool finished = false;
 
 // Content of each cell
-List <String> inputMatrix = ["","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","","",   "","","","",""];
-List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B"];
+List<String> inputMatrix = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+];
+List<String> colorsArray = [
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B"
+];
 
 // Word of the day letter by letter
-List <String> wordOfTheDayArray = ["","","","",""];
+List<String> wordOfTheDayArray = ["", "", "", "", ""];
 String wordOfTheDayString = "";
 String definitionURL = "https://dle.rae.es/";
-
 
 /** METHODS & WIDGETS */
 
@@ -42,8 +102,7 @@ AppBar MainAppBar() {
   );
 }
 
-AnimatedContainer letterCell(String char, String col){
-
+AnimatedContainer letterCell(String char, String col) {
   //COLOR SELECTION
   Color? cellColor = Colors.white;
   if (col == "V") cellColor = Colors.green;
@@ -53,29 +112,32 @@ AnimatedContainer letterCell(String char, String col){
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: (devWidth/5 - 10.0),
-    height: (devWidth/5 - 10.0),
-    margin: const EdgeInsets.fromLTRB(2.0,6.0,2.0,6.0),
+    width: (devWidth / 5 - 10.0),
+    height: (devWidth / 5 - 10.0),
+    margin: const EdgeInsets.fromLTRB(2.0, 6.0, 2.0, 6.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
     decoration: BoxDecoration(
       color: cellColor,
       border: Border.all(color: Colors.black54, width: 3.0),
     ),
-    child: Text(char, style: TextStyle(fontSize: 45.0, color: Colors.black),),
+    child: Text(
+      char,
+      style: TextStyle(fontSize: 45.0, color: Colors.black),
+    ),
   );
 }
 
-Row letterRow(int _from){
+Row letterRow(int _from) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       letterCell(inputMatrix[_from], colorsArray[_from]),
-      letterCell(inputMatrix[_from+1], colorsArray[_from+1]),
-      letterCell(inputMatrix[_from+2], colorsArray[_from+2]),
-      letterCell(inputMatrix[_from+3], colorsArray[_from+3]),
-      letterCell(inputMatrix[_from+4], colorsArray[_from+4]),
+      letterCell(inputMatrix[_from + 1], colorsArray[_from + 1]),
+      letterCell(inputMatrix[_from + 2], colorsArray[_from + 2]),
+      letterCell(inputMatrix[_from + 3], colorsArray[_from + 3]),
+      letterCell(inputMatrix[_from + 4], colorsArray[_from + 4]),
     ],
   );
 }
@@ -85,7 +147,9 @@ Column cellsField() {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 10.0,),
+        SizedBox(
+          height: 10.0,
+        ),
         letterRow(0),
         letterRow(5),
         letterRow(10),
@@ -106,15 +170,25 @@ void word_doesnt_exist_snackbar(BuildContext context) {
 }
 
 void victory_dialog(BuildContext context) {
-
+  bool lineUsed = false;
   String emojis = "";
-  for (var i = 0; i < colorsArray.length; i+=5) {
-    for (var j = i; j < i+5; j++) {
-      if (colorsArray[j] == "V") emojis += "🟩";
-      if (colorsArray[j] == "A") emojis += "🟨";
-      if (colorsArray[j] == "G") emojis += "⬜";
+  for (var i = 0; i < colorsArray.length; i += 5) {
+    lineUsed = false;
+    for (var j = i; j < i + 5; j++) {
+      if (colorsArray[j] == "V") {
+        emojis += "🟩";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "A") {
+        emojis += "🟨";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "G") {
+        emojis += "⬜";
+        lineUsed = true;
+      }
     }
-    emojis += "\n";
+    if (lineUsed) emojis += "\n";
   }
 
   showGeneralDialog(
@@ -126,43 +200,92 @@ void victory_dialog(BuildContext context) {
     pageBuilder: (_, __, ___) {
       return Center(
           child: Container(
-            height: devHeight * 0.8,
-            width: devWidth * 0.8,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              color: Colors.white,),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 15,),
-                SizedBox(
-                  height: 90, child: Image.asset('app_files/trophy.png'),),
-                SizedBox(height: 15,),
-
-                Text("VICTORIA", style: TextStyle(
-                  fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, decoration: TextDecoration.none),),
-                SizedBox(height: 20,),
-
-                Text(wordOfTheDayString + " - Intentos: "  + (currentRow+1).toString() + "/6", style: TextStyle(
-                  fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal, decoration: TextDecoration.none),),
-                SizedBox(height: 15,),
-                Text(emojis, style: TextStyle(
-                    fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal, decoration: TextDecoration.none),),
-
-
-
-
-
-
-
-
-                TextButton(
-                    onPressed: _launchURL,
-                    child: Text("link")),
-
-              ],),
-          )
-      );
+        height: devHeight * 0.8,
+        width: devWidth * 0.8,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.white,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              height: 90,
+              child: Image.asset('app_files/trophy.png'),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "VICTORIA",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.none,
+                fontFamily: 'RaleWay',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              wordOfTheDayString +
+                  " - Intentos: " +
+                  (currentRow + 1).toString() +
+                  "/6",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.normal,
+                decoration: TextDecoration.none,
+                fontFamily: 'RaleWay',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              emojis,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.normal,
+                decoration: TextDecoration.none,
+                fontFamily: 'RaleWay',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "¿No sabes el significado de la palabra?",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.normal,
+                decoration: TextDecoration.none,
+                fontFamily: 'RaleWay',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            TextButton(
+                onPressed: _launchURL,
+                style: TextButton.styleFrom(
+                    primary: Colors.white, backgroundColor: Color(0xff009688)),
+                child: Text("Definición de " + wordOfTheDayString)),
+          ],
+        ),
+      ));
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
@@ -193,22 +316,36 @@ void defeat_dialog(BuildContext context) {
     pageBuilder: (_, __, ___) {
       return Center(
           child: Container(
-            height: devHeight * 0.8,
-            width: devWidth * 0.8,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              color: Colors.white,),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 15,),
-                SizedBox(height: 90, child: Image.asset('app_files/defeat.png'),),
-                SizedBox(height: 15,),
-                Text("DERROTA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
-
-              ],),
-          )
-      );
+        height: devHeight * 0.8,
+        width: devWidth * 0.8,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.white,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              height: 90,
+              child: Image.asset('app_files/defeat.png'),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "DERROTA",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+                decoration: null,
+              ),
+            ),
+          ],
+        ),
+      ));
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
