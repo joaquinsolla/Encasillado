@@ -23,7 +23,8 @@ List <String> inputMatrix = ["","","","","",   "","","","","",   "","","","","",
 List <String> colorsArray = ["B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B",   "B","B","B","B","B"];
 
 // Word of the day letter by letter
-List <String> wordOfTheDay = ["","","","",""];
+List <String> wordOfTheDayArray = ["","","","",""];
+String wordOfTheDayString = "";
 String definitionURL = "https://dle.rae.es/";
 
 
@@ -105,6 +106,17 @@ void word_doesnt_exist_snackbar(BuildContext context) {
 }
 
 void victory_dialog(BuildContext context) {
+
+  String emojis = "";
+  for (var i = 0; i < colorsArray.length; i+=5) {
+    for (var j = i; j < i+5; j++) {
+      if (colorsArray[j] == "V") emojis += "🟩";
+      if (colorsArray[j] == "A") emojis += "🟨";
+      if (colorsArray[j] == "G") emojis += "⬜";
+    }
+    emojis += "\n";
+  }
+
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -117,17 +129,36 @@ void victory_dialog(BuildContext context) {
             height: devHeight * 0.8,
             width: devWidth * 0.8,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                color: Colors.white,),
+              borderRadius: BorderRadius.circular(40),
+              color: Colors.white,),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-              SizedBox(height: 15,),
-              SizedBox(height: 90, child: Image.asset('app_files/trophy.png'),),
-              SizedBox(height: 15,),
-              Text("VICTORIA", style: TextStyle(fontSize: 30, color: Colors.black, decoration: null, ),),
-              TextButton(onPressed: _launchURL,
-                  child: Text("link")),
+                SizedBox(height: 15,),
+                SizedBox(
+                  height: 90, child: Image.asset('app_files/trophy.png'),),
+                SizedBox(height: 15,),
+
+                Text("VICTORIA", style: TextStyle(
+                  fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, decoration: TextDecoration.none),),
+                SizedBox(height: 20,),
+
+                Text(wordOfTheDayString + " - Intentos: "  + (currentRow+1).toString() + "/6", style: TextStyle(
+                  fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal, decoration: TextDecoration.none),),
+                SizedBox(height: 15,),
+                Text(emojis, style: TextStyle(
+                    fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal, decoration: TextDecoration.none),),
+
+
+
+
+
+
+
+
+                TextButton(
+                    onPressed: _launchURL,
+                    child: Text("link")),
 
               ],),
           )

@@ -7,8 +7,10 @@ void generateWord (){
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
+  wordOfTheDayString = selectedWord;
+
   for (var i = 0; i < 5; i++) {
-    wordOfTheDay[i] = selectedWord.substring(i, i+1);
+    wordOfTheDayArray[i] = selectedWord.substring(i, i+1);
     definitionURL += selectedWord.substring(i, i+1);
   }
 }
