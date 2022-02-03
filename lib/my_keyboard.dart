@@ -77,11 +77,11 @@ SizedBox my_enter_key(BuildContext context) {
           if (word_exists()) {
             if (check_word()) {
               finished = true;
-              victory_dialog(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const victory_page()));
             } else {
               if (currentCell == 30) {
                 finished = true;
-                defeat_dialog(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const defeat_page()));
               } else {
                 currentRow++;
                 canWrite = true;

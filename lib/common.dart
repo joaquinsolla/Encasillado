@@ -169,6 +169,311 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
+_launchURL() async {
+  if (await canLaunch(definitionURL)) {
+    await launch(definitionURL);
+  } else {
+    throw 'Could not launch $definitionURL';
+  }
+}
+
+class victory_page extends StatelessWidget {
+  const victory_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    bool lineUsed = false;
+    String emojis = "";
+    for (var i = 0; i < colorsArray.length; i += 5) {
+      lineUsed = false;
+      for (var j = i; j < i + 5; j++) {
+        if (colorsArray[j] == "V") {
+          emojis += "🟩";
+          lineUsed = true;
+        }
+        if (colorsArray[j] == "A") {
+          emojis += "🟨";
+          lineUsed = true;
+        }
+        if (colorsArray[j] == "G") {
+          emojis += "⬜";
+          lineUsed = true;
+        }
+      }
+      if (lineUsed) emojis += "\n";
+    }
+
+    return Scaffold(
+        appBar: MainAppBar(),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 90,
+                child: Image.asset('app_files/trophy.png'),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "VICTORIA",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text("Estadísticas:", style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),),
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
+                wordOfTheDayString +
+                    " - Intentos: " +
+                    (currentRow + 1).toString() +
+                    "/6",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                emojis + "\n¡Bien hecho!",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¿No sabes el significado de la palabra?",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                  onPressed: _launchURL,
+                  style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Color(0xff009688)),
+                  child: Text("Definición de " + wordOfTheDayString)),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¡Compártelo con tus amigos!",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+
+
+
+            ],
+          ),
+        )
+    );
+  }
+}
+
+class defeat_page extends StatelessWidget {
+  const defeat_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    bool lineUsed = false;
+    String emojis = "";
+    for (var i = 0; i < colorsArray.length; i += 5) {
+      lineUsed = false;
+      for (var j = i; j < i + 5; j++) {
+        if (colorsArray[j] == "V") {
+          emojis += "🟩";
+          lineUsed = true;
+        }
+        if (colorsArray[j] == "A") {
+          emojis += "🟨";
+          lineUsed = true;
+        }
+        if (colorsArray[j] == "G") {
+          emojis += "⬜";
+          lineUsed = true;
+        }
+      }
+      if (lineUsed) emojis += "\n";
+    }
+
+    return Scaffold(
+        appBar: MainAppBar(),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 90,
+                child: Image.asset('app_files/defeat.png'),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "DERROTA",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text("Estadísticas:", style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),),
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
+                wordOfTheDayString +
+                    " - Intentos: X/6",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                emojis + "\nMás suerte la próxima :(",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¿No sabes el significado de la palabra?",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                  onPressed: _launchURL,
+                  style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Color(0xff009688)),
+                  child: Text("Definición de " + wordOfTheDayString)),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¡Compártelo con tus amigos!",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+
+
+
+            ],
+          ),
+        )
+    );
+  }
+}
+
+/*
 void victory_dialog(BuildContext context) {
   bool lineUsed = false;
   String emojis = "";
@@ -464,11 +769,4 @@ void defeat_dialog(BuildContext context) {
     },
   );
 }
-
-_launchURL() async {
-  if (await canLaunch(definitionURL)) {
-    await launch(definitionURL);
-  } else {
-    throw 'Could not launch $definitionURL';
-  }
-}
+*/
