@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.my_wordle">
    <application
-        android:label="my_wordle"
+        android:label="Joadle"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

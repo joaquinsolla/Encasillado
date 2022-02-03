@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_wordle/word_database.dart';
 
+import 'word_database.dart';
 import 'common.dart';
 import 'word_generator.dart';
 import 'init_view.dart';
