@@ -90,6 +90,10 @@ List<String> wordOfTheDayArray = ["", "", "", "", ""];
 String wordOfTheDayString = "";
 String definitionURL = "https://dle.rae.es/";
 
+// Stats
+String infoStats = "";
+String emojiStats = "";
+
 /** METHODS & WIDGETS */
 
 AppBar MainAppBar() {
@@ -184,26 +188,9 @@ class victory_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool lineUsed = false;
-    String emojis = "";
-    for (var i = 0; i < colorsArray.length; i += 5) {
-      lineUsed = false;
-      for (var j = i; j < i + 5; j++) {
-        if (colorsArray[j] == "V") {
-          emojis += "🟩";
-          lineUsed = true;
-        }
-        if (colorsArray[j] == "A") {
-          emojis += "🟨";
-          lineUsed = true;
-        }
-        if (colorsArray[j] == "G") {
-          emojis += "⬜";
-          lineUsed = true;
-        }
-      }
-      if (lineUsed) emojis += "\n";
-    }
+
+    update_stats();
+    infoStats = wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
 
     return Scaffold(
         appBar: MainAppBar(),
@@ -247,10 +234,7 @@ class victory_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
-                wordOfTheDayString +
-                    " - Intentos: " +
-                    (currentRow + 1).toString() +
-                    "/6",
+                infoStats,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -264,7 +248,7 @@ class victory_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojis + "\n¡Bien hecho!",
+                emojiStats + "\n¡Bien hecho!",
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -325,7 +309,7 @@ class victory_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      Clipboard.setData(ClipboardData(text: "your text"));
+                      copy_to_clipboard();
                     },
                     elevation: 1,
                     child: Image.asset('app_files/clipboard_logo.png'),  //Lienzo: 300px , img: 40px
@@ -498,9 +482,38 @@ class defeat_page extends StatelessWidget {
   }
 }
 
+void update_stats(){
+  bool lineUsed = false;
+  emojiStats = "";
+  for (var i = 0; i < colorsArray.length; i += 5) {
+    lineUsed = false;
+    for (var j = i; j < i + 5; j++) {
+      if (colorsArray[j] == "V") {
+        emojiStats += "🟩";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "A") {
+        emojiStats += "🟨";
+        lineUsed = true;
+      }
+      if (colorsArray[j] == "G") {
+        emojiStats += "⬜";
+        lineUsed = true;
+      }
+    }
+    if (lineUsed) emojiStats += "\n";
+  }
+}
+
+void copy_to_clipboard(){
+  String text = infoStats + "\n" + emojiStats + "\nJoadle by joa\nhttps://instagram.com/joako.peke";
+  Clipboard.setData(ClipboardData(text: text));
+}
+
 Future<void> wpp_share() async {
+  String text = infoStats + "\n" + emojiStats + "\nJoadle by joa\nhttps://instagram.com/joako.peke";
   await WhatsappShare.share(
-    text: 'Whatsapp share text',
+    text: text,
     linkUrl: '',
     phone: '911234567890',
   );
