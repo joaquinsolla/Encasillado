@@ -11,8 +11,8 @@ void main() {
 
   /** DATABASE SELECTOR */
   //selectedDatabase = bigDB;
-  //selectedDatabase = testDB0;
-  selectedDatabase = testDB1;
+  selectedDatabase = testDB0;
+  //selectedDatabase = testDB1;
 
   generateWord();
   runApp(MyApp());

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
+import 'package:whatsapp_share/whatsapp_share.dart';
 
 /** VARIABLES */
 
@@ -315,8 +317,31 @@ class victory_page extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-
-
+              SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: "your text"));
+                    },
+                    elevation: 1,
+                    child: Image.asset('app_files/clipboard_logo.png'),  //Lienzo: 300px , img: 40px
+                    fillColor: Colors.grey,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      wpp_share();
+                    },
+                    elevation: 1,
+                    child: Image.asset('app_files/whatsapp_logo.png'),  //Lienzo: 280px , img: 40px
+                    fillColor: Colors.green,
+                    shape: CircleBorder(),
+                  ),
+                ],),
 
 
             ],
@@ -471,6 +496,14 @@ class defeat_page extends StatelessWidget {
         )
     );
   }
+}
+
+Future<void> wpp_share() async {
+  await WhatsappShare.share(
+    text: 'Whatsapp share text',
+    linkUrl: '',
+    phone: '911234567890',
+  );
 }
 
 /*
