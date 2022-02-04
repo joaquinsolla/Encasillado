@@ -126,7 +126,7 @@ AppBar MainAppBar(BuildContext context, bool buttons) {
 
               },
               elevation: 0,
-              child: Image.asset('app_files/restart_icon.png'),
+              child: Image.asset('app_files/settings_icon.png'),
               fillColor: Color(0xff007066),
               shape: CircleBorder(),
             ),),
