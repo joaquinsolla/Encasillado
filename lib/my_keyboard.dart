@@ -1,3 +1,4 @@
+import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
@@ -103,29 +104,55 @@ SizedBox my_enter_key(BuildContext context) {
 }
 
 SizedBox my_backspace_icon() {
-  return SizedBox(
-    height: (devWidth / 6),
-    width: (devWidth / 10),
-    child: IconButton(
-      icon: const Icon(Icons.keyboard_backspace),
-      onPressed: () {
-        if (!finished) {
-          if (currentCell == 0 ||
-              (currentCell == 5 && canWrite == true) ||
-              (currentCell == 10 && canWrite == true) ||
-              (currentCell == 15 && canWrite == true) ||
-              (currentCell == 20 && canWrite == true) ||
-              (currentCell == 25 && canWrite == true)
-          ) {} else {
-            currentCell--;
-            inputMatrix[currentCell] = "";
-            canWrite = true;
+    if (nightMode) {
+    return SizedBox(
+      height: (devWidth / 6),
+      width: (devWidth / 10),
+      child: IconButton(
+        icon: const Icon(Icons.keyboard_backspace, color: Colors.white,),
+        onPressed: () {
+          if (!finished) {
+            if (currentCell == 0 ||
+                (currentCell == 5 && canWrite == true) ||
+                (currentCell == 10 && canWrite == true) ||
+                (currentCell == 15 && canWrite == true) ||
+                (currentCell == 20 && canWrite == true) ||
+                (currentCell == 25 && canWrite == true)
+            ) {} else {
+              currentCell--;
+              inputMatrix[currentCell] = "";
+              canWrite = true;
+            }
+            runApp(MyApp());
           }
-          runApp(MyApp());
-        }
-      },
-    ),
-  );
+        },
+      ),
+    );
+  } else {
+      return SizedBox(
+        height: (devWidth / 6),
+        width: (devWidth / 10),
+        child: IconButton(
+          icon: const Icon(Icons.keyboard_backspace, color: Colors.black,),
+          onPressed: () {
+            if (!finished) {
+              if (currentCell == 0 ||
+                  (currentCell == 5 && canWrite == true) ||
+                  (currentCell == 10 && canWrite == true) ||
+                  (currentCell == 15 && canWrite == true) ||
+                  (currentCell == 20 && canWrite == true) ||
+                  (currentCell == 25 && canWrite == true)
+              ) {} else {
+                currentCell--;
+                inputMatrix[currentCell] = "";
+                canWrite = true;
+              }
+              runApp(MyApp());
+            }
+          },
+        ),
+      );
+    }
 }
 
 Column generate_keyboard(BuildContext context) {
