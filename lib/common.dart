@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
@@ -248,6 +249,7 @@ class victory_page extends StatelessWidget {
         "/6";
 
     return Scaffold(
+        backgroundColor: myWhite,
         appBar: MainAppBar(context, false),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -465,7 +467,13 @@ class defeat_page extends StatelessWidget {
     update_stats();
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
+    String restartImage;
+    if (nightMode){restartImage = 'app_files/restart_icon_without_circle_BLACK.png';}
+    else {restartImage = 'app_files/restart_icon_without_circle.png';}
+
+
     return Scaffold(
+        backgroundColor: myWhite,
         appBar: MainAppBar(context, false),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -604,7 +612,7 @@ class defeat_page extends StatelessWidget {
                           width: 6,
                         ),
                         Image.asset(
-                          'app_files/restart_icon_without_circle.png',
+                          restartImage,
                           scale: 1.3,
                         ),
                       ],
@@ -821,34 +829,82 @@ class settings_page extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: ListView(
               children: [
-                //DALTONISMO
-                Switch(
-                  value: colorBlind,
-                  onChanged: (value) {
-                    colorBlind = (!colorBlind);
-                    /** PROVISIONAL */
-                    runApp(MyApp());
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const settings_page()));
-                  },
+                Text(
+                  "Ajustes",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: myBlack,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    //DALTONISMO
+                    Text(
+                      "Filtro para daltonismo:",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: myBlack,
+                        fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                    ),
+                    Expanded(child: Text("")),
+                    Switch(
+                      value: colorBlind,
+                      onChanged: (value) {
+                        colorBlind = (!colorBlind);
+                        /** PROVISIONAL */
+                        runApp(MyApp());
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const settings_page()));
+                      },
+                    ),
+                  ],
                 ),
 
                 //MODO OSCURO
-                Switch(
-                  value: nightMode,
-                  onChanged: (value) {
-                    nightMode = (!nightMode);
-                    /** PROVISIONAL */
-                    runApp(MyApp());
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const settings_page()));
-                  },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    //DALTONISMO
+                    Text(
+                      "Modo oscuro:",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: myBlack,
+                        fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                    ),
+                    Expanded(child: Text("")),
+                    Switch(
+                      value: nightMode,
+                      onChanged: (value) {
+                        nightMode = (!nightMode);
+                        /** PROVISIONAL */
+                        runApp(MyApp());
+                        Navigator.pop(context);
+                        /*
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const settings_page()));*/
+                      },
+                    ),
+                  ],
                 ),
 
                 //CONTACTO & AYUDA ETC...

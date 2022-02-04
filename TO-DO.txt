@@ -1,15 +1,13 @@
 ##### TO-DO list #####
 
 
--Reiniciar la partida
 -Mejorar la BD
 -Cambiar logo superior
--Incluir ajustes ?
 -Instagram
 -Twitter
 -borde teclas teclado
 -arreglar exception victory/dialog
--DALTONISMO todas las ventanas
+-DALTONISMO emojis
 -DALTONISMO fotos ayuda
 
 OPTIMIZAR CODIGO
