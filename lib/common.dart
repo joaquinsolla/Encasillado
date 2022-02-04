@@ -227,17 +227,18 @@ class victory_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     update_stats();
-    infoStats = wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
+    infoStats =
+        wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
 
     return Scaffold(
         appBar: MainAppBar(context, false),
         body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
           child: ListView(
             children: [
+              SizedBox(height: 15.0,),
               SizedBox(
                 height: 90,
                 child: Image.asset('app_files/trophy.png'),
@@ -311,26 +312,62 @@ class victory_page extends StatelessWidget {
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                      onPressed: _launchURL,
-                      style: TextButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor: Color(0xff009688),
-                      ),
-                      child: Text("Definición de " + wordOfTheDayString)),
-                ]
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: _launchURL,
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color(0xff009688),
+                        ),
+                        child: Text("Definición de " + wordOfTheDayString)),
+                  ]
               ),
               SizedBox(
-                height: 15,
+                height: 10,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Empieza una partida nueva:",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: (){
+
+                        },
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color(0xff009688),
+                        ),
+                        child: Row(children: [
+                          Text("Nueva partida"),
+                          SizedBox(width: 6,),
+                          Image.asset('app_files/restart_icon_without_circle.png', scale: 1.3,),
+                        ],)),
+                  ]
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -343,7 +380,6 @@ class victory_page extends StatelessWidget {
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
@@ -357,7 +393,8 @@ class victory_page extends StatelessWidget {
                       copy_to_clipboard(context);
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/clipboard_logo.png'),  //Lienzo: 300px , img: 40px
+                    child: Image.asset('app_files/clipboard_logo.png'),
+                    //Lienzo: 300px , img: 40px
                     fillColor: Colors.grey,
                     shape: CircleBorder(),
                   ),
@@ -366,7 +403,8 @@ class victory_page extends StatelessWidget {
                       wpp_share();
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/whatsapp_logo.png'),  //Lienzo: 280px , img: 40px
+                    child: Image.asset('app_files/whatsapp_logo.png'),
+                    //Lienzo: 280px , img: 40px
                     fillColor: Colors.green,
                     shape: CircleBorder(),
                   ),
@@ -400,17 +438,17 @@ class defeat_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     update_stats();
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     return Scaffold(
         appBar: MainAppBar(context, false),
         body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
           child: ListView(
             children: [
+              SizedBox(height: 15,),
               SizedBox(
                 height: 90,
                 child: Image.asset('app_files/defeat.png'),
@@ -484,7 +522,6 @@ class defeat_page extends StatelessWidget {
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
@@ -508,6 +545,43 @@ class defeat_page extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: Text(
+                  "Empieza una partida nueva:",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: (){
+
+                        },
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color(0xff009688),
+                        ),
+                        child: Row(children: [
+                          Text("Nueva partida"),
+                          SizedBox(width: 6,),
+                          Image.asset('app_files/restart_icon_without_circle.png', scale: 1.3,),
+                        ],)),
+                  ]
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
                   "¡Compártelo con tus amigos!",
                   style: TextStyle(
                     fontSize: 17,
@@ -516,7 +590,6 @@ class defeat_page extends StatelessWidget {
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
               SizedBox(
@@ -530,7 +603,8 @@ class defeat_page extends StatelessWidget {
                       copy_to_clipboard(context);
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/clipboard_logo.png'),  //Lienzo: 300px , img: 40px
+                    child: Image.asset('app_files/clipboard_logo.png'),
+                    //Lienzo: 300px , img: 40px
                     fillColor: Colors.grey,
                     shape: CircleBorder(),
                   ),
@@ -539,7 +613,8 @@ class defeat_page extends StatelessWidget {
                       wpp_share();
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/whatsapp_logo.png'),  //Lienzo: 280px , img: 40px
+                    child: Image.asset('app_files/whatsapp_logo.png'),
+                    //Lienzo: 280px , img: 40px
                     fillColor: Colors.green,
                     shape: CircleBorder(),
                   ),
@@ -560,7 +635,6 @@ class defeat_page extends StatelessWidget {
               SizedBox(
                 height: 60,
               ),
-
             ],
           ),
         )
