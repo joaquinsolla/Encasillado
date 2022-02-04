@@ -694,6 +694,19 @@ class explanation_page extends StatelessWidget {
         (currentRow + 1).toString() +
         "/6";
 
+    String ex_green;
+    String ex_yellow;
+    String ex_grey;
+    if (colorBlind){
+      ex_green = 'app_files/ex_green_COLORBLIND.png';
+      ex_yellow = 'app_files/ex_yellow_COLORBLIND.png';
+      ex_grey = 'app_files/ex_grey_COLORBLIND.png';
+    } else {
+      ex_green = 'app_files/ex_green.png';
+      ex_yellow = 'app_files/ex_yellow.png';
+      ex_grey = 'app_files/ex_grey.png';
+    }
+
     return Scaffold(
         backgroundColor: myWhite,
         appBar: MainAppBar(context, false),
@@ -734,7 +747,7 @@ class explanation_page extends StatelessWidget {
               ),
               Container(
                 height: 40,
-                child: Image.asset('app_files/ex_green.png'),
+                child: Image.asset(ex_green),
               ),
               SizedBox(
                 height: 5,
@@ -755,7 +768,7 @@ class explanation_page extends StatelessWidget {
               ),
               Container(
                 height: 40,
-                child: Image.asset('app_files/ex_yellow.png'),
+                child: Image.asset(ex_yellow),
               ),
               SizedBox(
                 height: 5,
@@ -776,7 +789,7 @@ class explanation_page extends StatelessWidget {
               ),
               Container(
                 height: 40,
-                child: Image.asset('app_files/ex_grey.png'),
+                child: Image.asset(ex_grey),
               ),
               SizedBox(
                 height: 5,
