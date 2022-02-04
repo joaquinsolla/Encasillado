@@ -1,0 +1,8 @@
+##### TO-DO list #####
+-Reiniciar la partida
+-Mejorar la BD
+-Cambiar logo superior
+-Incluir ajustes
+-Dialogo explicacion + botón (?)
+-Instagram
+-Twitter
