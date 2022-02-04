@@ -33,7 +33,7 @@ class _InicioState extends State<Inicio> {
     devHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: MainAppBar(),
+      appBar: MainAppBar(context, true),
       body: Column (children: [
         cellsField(),
         Expanded(child: Text(""),),

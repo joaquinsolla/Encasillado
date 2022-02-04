@@ -99,16 +99,52 @@ Duration playSeconds = endDate.difference(startDate);
 
 /** METHODS & WIDGETS */
 
-AppBar MainAppBar() {
-  return AppBar(
-    backgroundColor: Color(0xff009688),
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image.asset('app_files/my_logo.png'),
-      ],
-    ),
-  );
+AppBar MainAppBar(BuildContext context, bool buttons) {
+  AppBar myAppBar;
+
+  if (buttons) {
+    myAppBar = AppBar(
+      backgroundColor: Color(0xff009688),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset('app_files/my_logo.png'),
+          Expanded(child: Text("")),
+          Expanded(
+            child: RawMaterialButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const explanation_page()));
+              },
+              elevation: 0,
+              child: Image.asset('app_files/help_icon.png'),
+              fillColor: Color(0xff007066),
+              shape: CircleBorder(),
+            ),),
+          Expanded(
+            child: RawMaterialButton(
+              onPressed: () {
+
+              },
+              elevation: 0,
+              child: Image.asset('app_files/restart_icon.png'),
+              fillColor: Color(0xff007066),
+              shape: CircleBorder(),
+            ),),
+        ],
+      ),
+    );
+  } else {
+    myAppBar = AppBar(
+      backgroundColor: Color(0xff009688),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset('app_files/my_logo.png'),
+        ],
+      ),
+    );
+  }
+  return myAppBar;
 }
 
 AnimatedContainer letterCell(String char, String col) {
@@ -196,11 +232,11 @@ class victory_page extends StatelessWidget {
     infoStats = wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
 
     return Scaffold(
-        appBar: MainAppBar(),
+        appBar: MainAppBar(context, false),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
                 height: 90,
@@ -262,7 +298,7 @@ class victory_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 12,
+                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -281,14 +317,20 @@ class victory_page extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextButton(
-                  onPressed: _launchURL,
-                  style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Color(0xff009688)),
-                  child: Text("Definición de " + wordOfTheDayString)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      onPressed: _launchURL,
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor: Color(0xff009688),
+                      ),
+                      child: Text("Definición de " + wordOfTheDayString)),
+                ]
+              ),
               SizedBox(
-                height: 12,
+                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -363,11 +405,11 @@ class defeat_page extends StatelessWidget {
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     return Scaffold(
-        appBar: MainAppBar(),
+        appBar: MainAppBar(context, false),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
                 height: 90,
@@ -429,7 +471,7 @@ class defeat_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 12,
+                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -448,14 +490,20 @@ class defeat_page extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextButton(
-                  onPressed: _launchURL,
-                  style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Color(0xff009688)),
-                  child: Text("Definición de " + wordOfTheDayString)),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: _launchURL,
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Color(0xff009688),
+                        ),
+                        child: Text("Definición de " + wordOfTheDayString)),
+                  ]
+              ),
               SizedBox(
-                height: 12,
+                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -513,6 +561,29 @@ class defeat_page extends StatelessWidget {
                 height: 60,
               ),
 
+            ],
+          ),
+        )
+    );
+  }
+}
+
+class explanation_page extends StatelessWidget {
+  const explanation_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    update_stats();
+    infoStats = wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
+
+    return Scaffold(
+        appBar: MainAppBar(context, false),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            children: [
             ],
           ),
         )
@@ -578,160 +649,4 @@ String calculate_play_time (){
   String s = seconds.toString().padLeft(2, '0');
 
   return (h+":"+m+":"+s);
-}
-
-
-void explanation_dialog(BuildContext context) {
-  bool lineUsed = false;
-  String emojis = "";
-  for (var i = 0; i < colorsArray.length; i += 5) {
-    lineUsed = false;
-    for (var j = i; j < i + 5; j++) {
-      if (colorsArray[j] == "V") {
-        emojis += "🟩";
-        lineUsed = true;
-      }
-      if (colorsArray[j] == "A") {
-        emojis += "🟨";
-        lineUsed = true;
-      }
-      if (colorsArray[j] == "G") {
-        emojis += "⬜";
-        lineUsed = true;
-      }
-    }
-    if (lineUsed) emojis += "\n";
-  }
-
-  showGeneralDialog(
-    context: context,
-    barrierLabel: "Barrier",
-    barrierDismissible: true,
-    barrierColor: Colors.black.withOpacity(0.5),
-    transitionDuration: Duration(milliseconds: 700),
-    pageBuilder: (_, __, ___) {
-      return Center(
-          child: ListView(
-            children: [
-              Container(
-                height: devHeight * 0.8,
-                width: devWidth * 0.8,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.white,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 15,
-                    ),
-                    SizedBox(
-                      height: 90,
-                      child: Image.asset('app_files/trophy.png'),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "VICTORIA",
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      wordOfTheDayString +
-                          " - Intentos: " +
-                          (currentRow + 1).toString() +
-                          "/6",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      emojis,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "¡Bien hecho!",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "¿No sabes el significado de la palabra?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextButton(
-                        onPressed: _launchURL,
-                        style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Color(0xff009688)),
-                        child: Text("Definición de " + wordOfTheDayString)),
-                  ],
-                ),
-              ),
-            ],
-          )
-
-      );
-    },
-    transitionBuilder: (_, anim, __, child) {
-      Tween<Offset> tween;
-      if (anim.status == AnimationStatus.reverse) {
-        tween = Tween(begin: Offset(-1, 0), end: Offset.zero);
-      } else {
-        tween = Tween(begin: Offset(1, 0), end: Offset.zero);
-      }
-
-      return SlideTransition(
-        position: tween.animate(anim),
-        child: FadeTransition(
-          opacity: anim,
-          child: child,
-        ),
-      );
-    },
-  );
 }
