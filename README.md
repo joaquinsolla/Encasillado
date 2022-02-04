@@ -5,4 +5,4 @@ My version of wordle.
 ## Currently on process...
 
 Alfa version ready.
-App not finished.
+Working on beta version.
