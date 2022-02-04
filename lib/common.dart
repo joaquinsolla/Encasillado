@@ -1,9 +1,13 @@
+import 'package:Joadle/init_view.dart';
+import 'package:Joadle/word_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
+
+import 'my_keyboard.dart';
 
 /** VARIABLES */
 
@@ -353,8 +357,12 @@ class victory_page extends StatelessWidget {
                   children: [
                     TextButton(
                         onPressed: (){
-
-                        },
+                          restart_variables();
+                          generateWord();
+                          startDate = DateTime.now();
+                          Navigator.pop(context);
+                          runApp(MyApp());
+                          },
                         style: TextButton.styleFrom(
                           primary: Colors.white,
                           backgroundColor: Color(0xff009688),
@@ -563,7 +571,11 @@ class defeat_page extends StatelessWidget {
                   children: [
                     TextButton(
                         onPressed: (){
-
+                          restart_variables();
+                          generateWord();
+                          startDate = DateTime.now();
+                          Navigator.pop(context);
+                          runApp(MyApp());
                         },
                         style: TextButton.styleFrom(
                           primary: Colors.white,
@@ -758,11 +770,6 @@ class settings_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    update_stats();
-    infoStats =
-        wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() +
-            "/6";
-
     return Scaffold(
         appBar: MainAppBar(context, false),
         body: Container(
@@ -773,6 +780,22 @@ class settings_page extends StatelessWidget {
 
           ],)
         )
+    );
+  }
+}
+
+class new_game extends StatelessWidget {
+  const new_game({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(context, true),
+      body: Column (children: [
+        cellsField(),
+        Expanded(child: Text(""),),
+        generate_keyboard(context),
+      ]),
     );
   }
 }
@@ -835,4 +858,95 @@ String calculate_play_time (){
   String s = seconds.toString().padLeft(2, '0');
 
   return (h+":"+m+":"+s);
+}
+
+void restart_variables(){
+// Cell control
+  currentCell = 0;
+  currentRow = 0;
+  canWrite = true;
+  finished = false;
+
+// Content of each cell
+ inputMatrix = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
+  colorsArray = [
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B",
+    "B"
+  ];
+
+// Word of the day letter by letter
+  wordOfTheDayArray = ["", "", "", "", ""];
+  wordOfTheDayString = "";
+  definitionURL = "https://dle.rae.es/";
+
+// Stats
+  infoStats = "";
+  emojiStats = "";
+  startDate = DateTime.parse("2000-01-01 00:00:00.000000");
+  endDate = DateTime.parse("2000-01-01 00:00:00.000000");
+  playSeconds = endDate.difference(startDate);
+
+  greenKeys = [];
+  yellowKeys = [];
+  greyKeys = [];
+
 }

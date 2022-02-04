@@ -7,3 +7,5 @@
 -Twitter
 -borde teclas teclado
 -arreglar exception victory/dialog
+
+OPTIMIZAR CODIGO
