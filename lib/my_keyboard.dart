@@ -94,8 +94,6 @@ SizedBox my_enter_key(BuildContext context) {
         if (finished) {
           endDate = DateTime.now();
           playSeconds = endDate.difference(startDate);
-
-          print((playSeconds.inHours).toString() + ":" + (playSeconds.inMinutes).toString() + ":" + (playSeconds.inSeconds).toString());
         }
         runApp(MyApp());
       },

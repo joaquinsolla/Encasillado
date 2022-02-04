@@ -1,4 +1,4 @@
-# my_wordle
+# Joadle
 
 My version of wordle.
 
