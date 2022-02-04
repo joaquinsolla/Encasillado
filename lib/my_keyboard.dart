@@ -113,8 +113,9 @@ SizedBox my_backspace_icon() {
               (currentCell == 5 && canWrite == true) ||
               (currentCell == 10 && canWrite == true) ||
               (currentCell == 15 && canWrite == true) ||
-              (currentCell == 20 && canWrite == true)) {
-          } else {
+              (currentCell == 20 && canWrite == true) ||
+              (currentCell == 25 && canWrite == true)
+          ) {} else {
             currentCell--;
             inputMatrix[currentCell] = "";
             canWrite = true;
