@@ -93,6 +93,9 @@ String definitionURL = "https://dle.rae.es/";
 // Stats
 String infoStats = "";
 String emojiStats = "";
+DateTime startDate = DateTime.parse("2000-01-01 00:00:00.000000");
+DateTime endDate = DateTime.parse("2000-01-01 00:00:00.000000");
+Duration playSeconds = endDate.difference(startDate);
 
 /** METHODS & WIDGETS */
 
@@ -248,7 +251,7 @@ class victory_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStats + "\n¡Bien hecho!",
+                emojiStats + "\nTiempo: " + calculate_play_time(),
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -325,8 +328,23 @@ class victory_page extends StatelessWidget {
                     fillColor: Colors.green,
                     shape: CircleBorder(),
                   ),
-                ],),
-
+                ],
+              ),
+              Expanded(child: Text("")),
+              Text(
+                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 60,
+              ),
 
             ],
           ),
@@ -340,26 +358,9 @@ class defeat_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool lineUsed = false;
-    String emojis = "";
-    for (var i = 0; i < colorsArray.length; i += 5) {
-      lineUsed = false;
-      for (var j = i; j < i + 5; j++) {
-        if (colorsArray[j] == "V") {
-          emojis += "🟩";
-          lineUsed = true;
-        }
-        if (colorsArray[j] == "A") {
-          emojis += "🟨";
-          lineUsed = true;
-        }
-        if (colorsArray[j] == "G") {
-          emojis += "⬜";
-          lineUsed = true;
-        }
-      }
-      if (lineUsed) emojis += "\n";
-    }
+
+    update_stats();
+    infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     return Scaffold(
         appBar: MainAppBar(),
@@ -403,8 +404,7 @@ class defeat_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
-                wordOfTheDayString +
-                    " - Intentos: X/6",
+                infoStats,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -418,7 +418,7 @@ class defeat_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojis + "\nMás suerte la próxima :(",
+                emojiStats + "\nTiempo: " + calculate_play_time(),
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -471,9 +471,47 @@ class defeat_page extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-
-
-
+              SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {
+                      copy_to_clipboard();
+                    },
+                    elevation: 1,
+                    child: Image.asset('app_files/clipboard_logo.png'),  //Lienzo: 300px , img: 40px
+                    fillColor: Colors.grey,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      wpp_share();
+                    },
+                    elevation: 1,
+                    child: Image.asset('app_files/whatsapp_logo.png'),  //Lienzo: 280px , img: 40px
+                    fillColor: Colors.green,
+                    shape: CircleBorder(),
+                  ),
+                ],
+              ),
+              Expanded(child: Text("")),
+              Text(
+                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 60,
+              ),
 
             ],
           ),
@@ -506,17 +544,33 @@ void update_stats(){
 }
 
 void copy_to_clipboard(){
-  String text = infoStats + "\n" + emojiStats + "\nJoadle by joa\nhttps://instagram.com/joako.peke";
+  String text = infoStats + "\n" + emojiStats + "Tiempo: " + calculate_play_time() +"\n\nJoadle by joa\nhttps://instagram.com/joako.peke";
   Clipboard.setData(ClipboardData(text: text));
 }
 
 Future<void> wpp_share() async {
-  String text = infoStats + "\n" + emojiStats + "\nJoadle by joa\nhttps://instagram.com/joako.peke";
+  String text = infoStats + "\n" + emojiStats + "Tiempo: " + calculate_play_time() +"\n\nJoadle by joa\nhttps://instagram.com/joako.peke";
   await WhatsappShare.share(
     text: text,
     linkUrl: '',
     phone: '911234567890',
   );
+}
+
+String calculate_play_time (){
+  int hours;
+  int minutes;
+  int seconds;
+
+  hours = playSeconds.inHours;
+  minutes = playSeconds.inMinutes - hours*60;
+  seconds = playSeconds.inSeconds - hours*60*60 - minutes*60;
+
+  String h = hours.toString().padLeft(2, '0');
+  String m = minutes.toString().padLeft(2, '0');
+  String s = seconds.toString().padLeft(2, '0');
+
+  return (h+":"+m+":"+s);
 }
 
 /*
