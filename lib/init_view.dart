@@ -1,5 +1,7 @@
+import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
 import 'common.dart';
 import 'my_keyboard.dart';
 
@@ -29,10 +31,31 @@ class _InicioState extends State<Inicio> {
 
   @override
   Widget build(BuildContext context) {
+
     devWidth = MediaQuery.of(context).size.width;
     devHeight = MediaQuery.of(context).size.height;
 
+    /** CHECK SETTINGS */
+    if (colorBlind){
+      myGreen = Colors.orange;
+      myYellow = Colors.blue;
+    } else {
+      myGreen = Colors.green;
+      myYellow = Color(0xfff3d500);
+    }
+
+    if (nightMode){
+      myBlack = Colors.white;
+      myWhite = Color(0xff2d2d2d);
+      mySemiBlack = Colors.white;
+    } else {
+      myBlack = Colors.black;
+      myWhite = Colors.white;
+      mySemiBlack = Colors.black54;
+    }
+
     return Scaffold(
+      backgroundColor: myWhite,
       appBar: MainAppBar(context, true),
       body: Column (children: [
         cellsField(),

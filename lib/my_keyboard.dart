@@ -37,7 +37,7 @@ SizedBox my_letter_key(String char) {
     child: TextButton(
       child: Text(char),
       style:
-          TextButton.styleFrom(primary: Colors.black, backgroundColor: mycolor,),
+          TextButton.styleFrom(primary: myBlack, backgroundColor: mycolor,),
       onPressed: () {
         if (!finished) {
           if (canWrite) {
@@ -66,7 +66,7 @@ SizedBox my_enter_key(BuildContext context) {
     child: TextButton(
       child: const Text("PROBAR"),
       style: TextButton.styleFrom(
-          primary: Colors.black, backgroundColor: myWhite),
+          primary: myBlack, backgroundColor: myWhite),
       onPressed: () {
         if ((currentCell == 5 ||
                 currentCell == 10 ||

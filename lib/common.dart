@@ -1,3 +1,4 @@
+import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flushbar/flushbar.dart';
@@ -170,11 +171,11 @@ AnimatedContainer letterCell(String char, String col) {
     alignment: Alignment.center,
     decoration: BoxDecoration(
       color: cellColor,
-      border: Border.all(color: Colors.black54, width: 3.0),
+      border: Border.all(color: mySemiBlack, width: 0.0),
     ),
     child: Text(
       char,
-      style: TextStyle(fontSize: 45.0, color: Colors.black),
+      style: TextStyle(fontSize: 45.0, color: myBlack),
     ),
   );
 }
@@ -256,7 +257,7 @@ class victory_page extends StatelessWidget {
                 "VICTORIA",
                 style: TextStyle(
                   fontSize: 30,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -270,7 +271,7 @@ class victory_page extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text("Estadísticas:", style: TextStyle(
                   fontSize: 17,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -283,7 +284,7 @@ class victory_page extends StatelessWidget {
                 infoStats,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -297,7 +298,7 @@ class victory_page extends StatelessWidget {
                 emojiStats + "\nTiempo: " + calculate_play_time(),
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -313,7 +314,7 @@ class victory_page extends StatelessWidget {
                   "¿No sabes el significado de la palabra?",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -344,7 +345,7 @@ class victory_page extends StatelessWidget {
                   "Empieza una partida nueva:",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -385,7 +386,7 @@ class victory_page extends StatelessWidget {
                   "¡Compártelo con tus amigos!",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -470,7 +471,7 @@ class defeat_page extends StatelessWidget {
                 "DERROTA",
                 style: TextStyle(
                   fontSize: 30,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -484,7 +485,7 @@ class defeat_page extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text("Estadísticas:", style: TextStyle(
                   fontSize: 17,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -497,7 +498,7 @@ class defeat_page extends StatelessWidget {
                 infoStats,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -511,7 +512,7 @@ class defeat_page extends StatelessWidget {
                 emojiStats + "\nTiempo: " + calculate_play_time(),
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -527,7 +528,7 @@ class defeat_page extends StatelessWidget {
                   "¿No sabes el significado de la palabra?",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -558,7 +559,7 @@ class defeat_page extends StatelessWidget {
                   "Empieza una partida nueva:",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -599,7 +600,7 @@ class defeat_page extends StatelessWidget {
                   "¡Compártelo con tus amigos!",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: myBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -677,7 +678,7 @@ class explanation_page extends StatelessWidget {
               Text("¿Cómo jugar?",
                 style: TextStyle(
                   fontSize: 25,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -690,7 +691,7 @@ class explanation_page extends StatelessWidget {
                     "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -705,7 +706,7 @@ class explanation_page extends StatelessWidget {
                 "Verde: La letra B está en la palabra oculta y va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -721,7 +722,7 @@ class explanation_page extends StatelessWidget {
                 "Amarillo: La letra E está en la palabra oculta pero no va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -737,7 +738,7 @@ class explanation_page extends StatelessWidget {
                 "Gris: La letra N no está en la palabra oculta\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: myBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -779,6 +780,32 @@ class settings_page extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ListView(
             children: [
+              //DALTONISMO
+              Switch(
+                value: colorBlind,
+                onChanged: (value) {
+                  colorBlind = (!colorBlind);
+                  /** PROVISIONAL */
+                  runApp(MyApp());
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const settings_page()));
+                },
+              ),
+
+              //MODO OSCURO
+              Switch(
+                value: nightMode,
+                onChanged: (value) {
+                  nightMode = (!nightMode);
+                  /** PROVISIONAL */
+                  runApp(MyApp());
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const settings_page()));
+                },
+              ),
+
+
+              //CONTACTO & AYUDA ETC...
 
           ],)
         )
