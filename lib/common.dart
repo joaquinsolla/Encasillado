@@ -573,9 +573,10 @@ class explanation_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     update_stats();
-    infoStats = wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() + "/6";
+    infoStats =
+        wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() +
+            "/6";
 
     return Scaffold(
         appBar: MainAppBar(context, false),
@@ -584,6 +585,93 @@ class explanation_page extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ListView(
             children: [
+              SizedBox(height: 5,),
+              Text("¿Cómo jugar?",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,),
+              SizedBox(height: 10,),
+              Text(
+                "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
+                    "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                    "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,),
+              Container(
+                height: 40,
+                child: Image.asset('app_files/ex_green.png'),
+              ),
+              SizedBox(height: 5,),
+              Text(
+                "Verde: La letra B está en la palabra oculta y va en esa posición\n",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,),
+              SizedBox(height: 5,),
+              Container(
+                height: 40,
+                child: Image.asset('app_files/ex_yellow.png'),
+              ),
+              SizedBox(height: 5,),
+              Text(
+                "Amarillo: La letra E está en la palabra oculta pero no va en esa posición\n",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,),
+              SizedBox(height: 5,),
+              Container(
+                height: 40,
+                child: Image.asset('app_files/ex_grey.png'),
+              ),
+              SizedBox(height: 5,),
+              Text(
+                "Gris: La letra N no está en la palabra oculta\n",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,),
+
+              Container(
+                height: 50,
+                child: Row(children: [
+                  Expanded(child: Text("")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        backgroundColor: Color(0xff009688),
+                      ),
+                      child: Text("VAMOS ALLÁ")),
+                  Expanded(child: Text("")),
+                ],),
+              ),
             ],
           ),
         )

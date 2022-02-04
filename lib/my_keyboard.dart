@@ -36,7 +36,7 @@ SizedBox my_letter_key(String char) {
     child: TextButton(
       child: Text(char),
       style:
-          TextButton.styleFrom(primary: Colors.black, backgroundColor: mycolor),
+          TextButton.styleFrom(primary: Colors.black, backgroundColor: mycolor,),
       onPressed: () {
         if (!finished) {
           if (canWrite) {

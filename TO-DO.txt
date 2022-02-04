@@ -6,3 +6,4 @@
 -Dialogo explicacion + botón (?)
 -Instagram
 -Twitter
+-borde teclas teclado
