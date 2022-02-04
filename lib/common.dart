@@ -221,7 +221,7 @@ class victory_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -262,7 +262,7 @@ class victory_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 12,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -288,7 +288,7 @@ class victory_page extends StatelessWidget {
                       backgroundColor: Color(0xff009688)),
                   child: Text("Definición de " + wordOfTheDayString)),
               SizedBox(
-                height: 20,
+                height: 12,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -305,7 +305,7 @@ class victory_page extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -388,7 +388,7 @@ class defeat_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -429,7 +429,7 @@ class defeat_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 20,
+                height: 12,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -455,7 +455,7 @@ class defeat_page extends StatelessWidget {
                       backgroundColor: Color(0xff009688)),
                   child: Text("Definición de " + wordOfTheDayString)),
               SizedBox(
-                height: 20,
+                height: 12,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -472,7 +472,7 @@ class defeat_page extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
