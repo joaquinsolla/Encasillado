@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
 import 'common.dart';
 import 'init_view.dart';
 
@@ -8,24 +9,24 @@ List<String> yellowKeys = [];
 List<String> greyKeys = [];
 
 SizedBox my_letter_key(String char) {
-  Color? mycolor = Colors.white;
+  Color? mycolor = myWhite;
 
   for (var i = 0; i < greenKeys.length; i++) {
     if (char == greenKeys[i]) {
-      mycolor = Colors.green;
+      mycolor = myGreen;
     }
   }
-  if (mycolor == Colors.white) {
+  if (mycolor == myWhite) {
     for (var i = 0; i < yellowKeys.length; i++) {
       if (char == yellowKeys[i]) {
-        mycolor = Colors.yellow;
+        mycolor = myYellow;
       }
     }
   }
-  if (mycolor == Colors.white) {
+  if (mycolor == myWhite) {
     for (var i = 0; i < greyKeys.length; i++) {
       if (char == greyKeys[i]) {
-        mycolor = Colors.grey;
+        mycolor = myGrey;
       }
     }
   }
@@ -65,7 +66,7 @@ SizedBox my_enter_key(BuildContext context) {
     child: TextButton(
       child: const Text("PROBAR"),
       style: TextButton.styleFrom(
-          primary: Colors.black, backgroundColor: Colors.white),
+          primary: Colors.black, backgroundColor: myWhite),
       onPressed: () {
         if ((currentCell == 5 ||
                 currentCell == 10 ||

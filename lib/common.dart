@@ -1,13 +1,15 @@
-import 'package:Joadle/init_view.dart';
-import 'package:Joadle/word_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/services.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
+import 'init_view.dart';
+import 'word_generator.dart';
+import 'colors.dart';
 import 'my_keyboard.dart';
+
 
 /** VARIABLES */
 
@@ -153,10 +155,10 @@ AppBar MainAppBar(BuildContext context, bool buttons) {
 
 AnimatedContainer letterCell(String char, String col) {
   //COLOR SELECTION
-  Color? cellColor = Colors.white;
-  if (col == "V") cellColor = Colors.green;
-  if (col == "A") cellColor = Colors.yellow;
-  if (col == "G") cellColor = Colors.grey;
+  Color? cellColor = myWhite;
+  if (col == "V") cellColor = myGreen;
+  if (col == "A") cellColor = myYellow;
+  if (col == "G") cellColor = myGrey;
 
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
@@ -327,7 +329,7 @@ class victory_page extends StatelessWidget {
                     TextButton(
                         onPressed: _launchURL,
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
+                          primary: myWhite,
                           backgroundColor: Color(0xff009688),
                         ),
                         child: Text("Definición de " + wordOfTheDayString)),
@@ -364,7 +366,7 @@ class victory_page extends StatelessWidget {
                           runApp(MyApp());
                           },
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
+                          primary: myWhite,
                           backgroundColor: Color(0xff009688),
                         ),
                         child: Row(children: [
@@ -403,7 +405,7 @@ class victory_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/clipboard_logo.png'),
                     //Lienzo: 300px , img: 40px
-                    fillColor: Colors.grey,
+                    fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
@@ -413,7 +415,7 @@ class victory_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
                     //Lienzo: 280px , img: 40px
-                    fillColor: Colors.green,
+                    fillColor: myGreen,
                     shape: CircleBorder(),
                   ),
                 ],
@@ -423,7 +425,7 @@ class victory_page extends StatelessWidget {
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey,
+                  color: myGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -541,7 +543,7 @@ class defeat_page extends StatelessWidget {
                     TextButton(
                         onPressed: _launchURL,
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
+                          primary: myWhite,
                           backgroundColor: Color(0xff009688),
                         ),
                         child: Text("Definición de " + wordOfTheDayString)),
@@ -578,7 +580,7 @@ class defeat_page extends StatelessWidget {
                           runApp(MyApp());
                         },
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
+                          primary: myWhite,
                           backgroundColor: Color(0xff009688),
                         ),
                         child: Row(children: [
@@ -617,7 +619,7 @@ class defeat_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/clipboard_logo.png'),
                     //Lienzo: 300px , img: 40px
-                    fillColor: Colors.grey,
+                    fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
@@ -627,7 +629,7 @@ class defeat_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
                     //Lienzo: 280px , img: 40px
-                    fillColor: Colors.green,
+                    fillColor: myGreen,
                     shape: CircleBorder(),
                   ),
                 ],
@@ -637,7 +639,7 @@ class defeat_page extends StatelessWidget {
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey,
+                  color: myGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -751,7 +753,7 @@ class explanation_page extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
-                        primary: Colors.white,
+                        primary: myWhite,
                         backgroundColor: Color(0xff009688),
                       ),
                       child: Text("VAMOS ALLÁ")),
@@ -830,7 +832,7 @@ void copy_to_clipboard(BuildContext context){
   Flushbar(
     message: "Copiado al portapapeles",
     duration: Duration(milliseconds: 2500),
-    backgroundColor: Colors.grey,
+    backgroundColor: myGrey,
     flushbarPosition: FlushbarPosition.BOTTOM,
   ).show(context);
 }
