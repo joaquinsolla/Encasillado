@@ -10,10 +10,10 @@ void main() {
    *  --no-sound-null-safety */
 
   /** DATABASE SELECTOR */
-  //selectedDatabase = bigDB;
+  selectedDatabase = bigDB;
   //selectedDatabase = testDB0;
   //selectedDatabase = testDB1;
-  selectedDatabase = testDB2;
+  //selectedDatabase = testDB2;
 
   startDate = DateTime.now();
 

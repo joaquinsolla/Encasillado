@@ -2,8 +2,7 @@
 -Reiniciar la partida
 -Mejorar la BD
 -Cambiar logo superior
--Incluir ajustes
--Dialogo explicacion + botón (?)
+-Incluir ajustes ?
 -Instagram
 -Twitter
 -borde teclas teclado
