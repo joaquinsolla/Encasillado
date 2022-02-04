@@ -123,7 +123,7 @@ AppBar MainAppBar(BuildContext context, bool buttons) {
           Expanded(
             child: RawMaterialButton(
               onPressed: () {
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const settings_page()));
               },
               elevation: 0,
               child: Image.asset('app_files/settings_icon.png'),
@@ -748,6 +748,30 @@ class explanation_page extends StatelessWidget {
               ),
             ],
           ),
+        )
+    );
+  }
+}
+
+class settings_page extends StatelessWidget {
+  const settings_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    update_stats();
+    infoStats =
+        wordOfTheDayString + " - Intentos: " + (currentRow + 1).toString() +
+            "/6";
+
+    return Scaffold(
+        appBar: MainAppBar(context, false),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            children: [
+
+          ],)
         )
     );
   }
