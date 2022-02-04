@@ -8,6 +8,5 @@
 -borde teclas teclado
 -arreglar exception victory/dialog
 -DALTONISMO emojis
--DALTONISMO fotos ayuda
 
 OPTIMIZAR CODIGO
