@@ -740,7 +740,7 @@ class explanation_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Verde: La letra B está en la palabra oculta y va en esa posición\n",
+                "La letra A está en la palabra oculta y va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -761,7 +761,7 @@ class explanation_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Amarillo: La letra E está en la palabra oculta pero no va en esa posición\n",
+                "La letra E está en la palabra oculta pero no va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -782,7 +782,7 @@ class explanation_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Gris: La letra N no está en la palabra oculta\n",
+                "La letra T no está en la palabra oculta\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -862,13 +862,14 @@ class settings_page extends StatelessWidget {
                       value: colorBlind,
                       onChanged: (value) {
                         colorBlind = (!colorBlind);
-                        /** PROVISIONAL */
+
                         runApp(MyApp());
                         Navigator.pop(context);
+                        /*
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const settings_page()));
+                                builder: (context) => const settings_page()));*/
                       },
                     ),
                   ],
@@ -894,7 +895,7 @@ class settings_page extends StatelessWidget {
                       value: nightMode,
                       onChanged: (value) {
                         nightMode = (!nightMode);
-                        /** PROVISIONAL */
+
                         runApp(MyApp());
                         Navigator.pop(context);
                         /*
@@ -907,7 +908,8 @@ class settings_page extends StatelessWidget {
                   ],
                 ),
 
-                //CONTACTO & AYUDA ETC...
+                //SOBRE MI
+
               ],
             )));
   }
