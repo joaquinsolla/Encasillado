@@ -237,6 +237,22 @@ _launchURL() async {
   }
 }
 
+_launchWORDLE() async {
+  if (await canLaunch('https://www.powerlanguage.co.uk/wordle/')) {
+    await launch('https://www.powerlanguage.co.uk/wordle/');
+  } else {
+    throw 'Could not launch https://www.powerlanguage.co.uk/wordle/';
+  }
+}
+
+_launchJOSH() async {
+  if (await canLaunch('https://www.powerlanguage.co.uk/')) {
+    await launch('https://www.powerlanguage.co.uk/');
+  } else {
+    throw 'Could not launch https://www.powerlanguage.co.uk/';
+  }
+}
+
 class victory_page extends StatelessWidget {
   const victory_page({Key? key}) : super(key: key);
 
@@ -247,6 +263,13 @@ class victory_page extends StatelessWidget {
         " - Intentos: " +
         (currentRow + 1).toString() +
         "/6";
+
+    String restartImage;
+    if (nightMode) {
+      restartImage = 'app_files/restart_icon_without_circle_BLACK.png';
+    } else {
+      restartImage = 'app_files/restart_icon_without_circle.png';
+    }
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -388,7 +411,7 @@ class victory_page extends StatelessWidget {
                           width: 6,
                         ),
                         Image.asset(
-                          'app_files/restart_icon_without_circle.png',
+                          restartImage,
                           scale: 1.3,
                         ),
                       ],
@@ -468,9 +491,11 @@ class defeat_page extends StatelessWidget {
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     String restartImage;
-    if (nightMode){restartImage = 'app_files/restart_icon_without_circle_BLACK.png';}
-    else {restartImage = 'app_files/restart_icon_without_circle.png';}
-
+    if (nightMode) {
+      restartImage = 'app_files/restart_icon_without_circle_BLACK.png';
+    } else {
+      restartImage = 'app_files/restart_icon_without_circle.png';
+    }
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -697,7 +722,7 @@ class explanation_page extends StatelessWidget {
     String ex_green;
     String ex_yellow;
     String ex_grey;
-    if (colorBlind){
+    if (colorBlind) {
       ex_green = 'app_files/ex_green_COLORBLIND.png';
       ex_yellow = 'app_files/ex_yellow_COLORBLIND.png';
       ex_grey = 'app_files/ex_grey_COLORBLIND.png';
@@ -834,6 +859,10 @@ class settings_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String githubLogo;
+    if(nightMode) githubLogo = 'app_files/github_logo_BLACK.png';
+      else githubLogo = 'app_files/github_logo.png';
+
     return Scaffold(
         backgroundColor: myWhite,
         appBar: MainAppBar(context, false),
@@ -875,14 +904,8 @@ class settings_page extends StatelessWidget {
                       value: colorBlind,
                       onChanged: (value) {
                         colorBlind = (!colorBlind);
-
                         runApp(MyApp());
                         Navigator.pop(context);
-                        /*
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const settings_page()));*/
                       },
                     ),
                   ],
@@ -908,21 +931,141 @@ class settings_page extends StatelessWidget {
                       value: nightMode,
                       onChanged: (value) {
                         nightMode = (!nightMode);
-
                         runApp(MyApp());
                         Navigator.pop(context);
-                        /*
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const settings_page()));*/
                       },
                     ),
                   ],
                 ),
+                Expanded(child: Text("")),
+                Divider(
+                  color: myGrey,
+                ),
+                Text(
+                  "\nAdaptación para Android en español de",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: myGrey,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 60,
+                      child: TextButton(
+                        onPressed: _launchWORDLE,
+                        style: TextButton.styleFrom(
+                          primary: myGrey,
+                        ),
+                        child: Text("Wordle"),
+                      ),
+                    ),
+                    Text(
+                      "de",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: myGrey,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      width: 100,
+                      child: TextButton(
+                        onPressed: _launchJOSH,
+                        style: TextButton.styleFrom(
+                          primary: myGrey,
+                        ),
+                        child: Text("Josh Wardle"),
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: myGrey,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "\nSoy Joaquín, estudiante de ingeniería informática. "
+                      "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
+                      "\n\nPuedes encontrarme en:\n",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: myGrey,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    //INSTAGRAM BUTTON
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        RawMaterialButton(
+                          onPressed: () {
+                            // ------------------
+                          },
+                          elevation: 0,
+                          child: Image.asset('app_files/instagram_logo.png'),
+                          fillColor: myGrey,
+                          shape: CircleBorder(),
+                        ),
+                        Text(
+                          "Instagram",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: myGrey,
+                            fontWeight: FontWeight.w500,
+                            decoration: TextDecoration.none,
+                            fontFamily: 'RaleWay',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5,),
+                    //GITHUB BUTTON
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        RawMaterialButton(
+                          onPressed: () {
+                            // ------------------
+                          },
+                          elevation: 0,
+                          child: Image.asset(githubLogo),
+                          fillColor: myWhite,
+                          shape: CircleBorder(),
+                        ),
+                        Text(
+                          "GitHub",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: myGrey,
+                            fontWeight: FontWeight.w500,
+                            decoration: TextDecoration.none,
+                            fontFamily: 'RaleWay',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
 
-                //SOBRE MI
-
+                SizedBox(
+                  height: 40,
+                ),
               ],
             )));
   }

@@ -8,5 +8,10 @@
 -borde teclas teclado
 -arreglar exception victory/dialog
 -DALTONISMO emojis
+-rachas
+- añadir dividers
+
+MODOS DE JUEGO (primero optimizar codigo)
+-contrarreloj de 2mins
 
 OPTIMIZAR CODIGO
