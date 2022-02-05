@@ -17,14 +17,14 @@ SizedBox my_letter_key(String char) {
       mycolor = myGreen;
     }
   }
-  if (mycolor == myWhite) {
+  if (mycolor == keyColor) {
     for (var i = 0; i < yellowKeys.length; i++) {
       if (char == yellowKeys[i]) {
         mycolor = myYellow;
       }
     }
   }
-  if (mycolor == myWhite) {
+  if (mycolor == keyColor) {
     for (var i = 0; i < greyKeys.length; i++) {
       if (char == greyKeys[i]) {
         mycolor = myGrey;
@@ -118,17 +118,18 @@ SizedBox my_enter_key(BuildContext context) {
 }
 
 SizedBox my_backspace_icon() {
+  Color? mycolor = keyColor;
   if (nightMode) {
     return SizedBox(
       height: (devWidth / 6),
       width: (devWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
-        child: IconButton(
-          icon: const Icon(
-            Icons.keyboard_backspace,
-            color: Colors.white,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: mycolor,
           ),
+          child: Image.asset('app_files/backspace_icon_BLACK.png'),
           onPressed: () {
             if (!finished) {
               if (currentCell == 0 ||
@@ -154,11 +155,11 @@ SizedBox my_backspace_icon() {
       width: (devWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
-        child: IconButton(
-          icon: const Icon(
-            Icons.keyboard_backspace,
-            color: Colors.black,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: mycolor,
           ),
+          child: Image.asset('app_files/backspace_icon.png'),
           onPressed: () {
             if (!finished) {
               if (currentCell == 0 ||
