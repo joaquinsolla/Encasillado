@@ -115,7 +115,7 @@ AppBar MainAppBar(BuildContext context, bool buttons) {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset('app_files/my_logo.png'),
+          Image.asset('app_files/my_logo.png', scale: 9.5,),
           Expanded(child: Text("")),
           Expanded(
             child: RawMaterialButton(
@@ -154,7 +154,7 @@ AppBar MainAppBar(BuildContext context, bool buttons) {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset('app_files/my_logo.png'),
+          Image.asset('app_files/my_logo.png', scale: 9.5,),
         ],
       ),
     );

@@ -4,7 +4,6 @@
 -Mejorar la BD
 -Cambiar logo superior
 -Instagram & Twitter
--borde teclas teclado
 -arreglar exception victory/defeat + settings
 -rachas
 -calidad fotos iconos compartir etc
