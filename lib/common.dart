@@ -237,11 +237,19 @@ _launchURL() async {
   }
 }
 
-web_launch(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
+_launchMYINSTAGRAM() async {
+  if (await canLaunch('https://instagram.com/joako.peke')) {
+    await launch('https://instagram.com/joako.peke');
   } else {
-    throw 'Could not launch $url';
+    throw 'Could not launch https://instagram.com/joako.peke';
+  }
+}
+
+_launchMYGITHUB() async {
+  if (await canLaunch('https://www.github.com/joaquinsolla')) {
+    await launch('https://www.github.com/joaquinsolla');
+  } else {
+    throw 'Could not launch https://www.github.com/joaquinsolla';
   }
 }
 
@@ -967,7 +975,7 @@ class settings_page extends StatelessWidget {
                     ),
                     //INSTAGRAM BUTTON
                     TextButton(
-                      onPressed: (){web_launch("https://instagram.com/joako.peke");}, child: Row(
+                      onPressed: _launchMYINSTAGRAM, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset('app_files/instagram_logo.png'),
@@ -989,7 +997,7 @@ class settings_page extends StatelessWidget {
                     SizedBox(height: 5,),
                     //GITHUB BUTTON
                     TextButton(
-                      onPressed: (){web_launch("https://github.com/joaquinsolla");}, child: Row(
+                      onPressed: _launchMYGITHUB, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(githubLogo),

@@ -9,7 +9,8 @@
 -arreglar exception victory/defeat + settings
 -DALTONISMO emojis
 -rachas
-- añadir dividers
+-añadir dividers
+-calida fotos iconos compartir etc
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
