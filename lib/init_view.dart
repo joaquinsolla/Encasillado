@@ -39,19 +39,25 @@ class _InicioState extends State<Inicio> {
     if (colorBlind){
       myGreen = Colors.orange;
       myYellow = Colors.blue;
+      greenEmoji = "🟧";
+      yellowEmoji = "🟦";
     } else {
       myGreen = Colors.green;
       myYellow = Color(0xfff3d500);
+      greenEmoji = "🟩";
+      yellowEmoji = "🟨";
     }
 
     if (nightMode){
       myBlack = Colors.white;
       myWhite = Color(0xff2d2d2d);
       mySemiBlack = Colors.white;
+      whiteEmoji = "⬛";
     } else {
       myBlack = Colors.black;
       myWhite = Colors.white;
       mySemiBlack = Colors.black54;
+      whiteEmoji = "⬜";
     }
 
     return Scaffold(

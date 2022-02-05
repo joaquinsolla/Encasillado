@@ -1102,15 +1102,15 @@ void update_stats() {
     lineUsed = false;
     for (var j = i; j < i + 5; j++) {
       if (colorsArray[j] == "V") {
-        emojiStats += "🟩";
+        emojiStats += greenEmoji;
         lineUsed = true;
       }
       if (colorsArray[j] == "A") {
-        emojiStats += "🟨";
+        emojiStats += yellowEmoji;
         lineUsed = true;
       }
       if (colorsArray[j] == "G") {
-        emojiStats += "⬜";
+        emojiStats += whiteEmoji;
         lineUsed = true;
       }
     }
