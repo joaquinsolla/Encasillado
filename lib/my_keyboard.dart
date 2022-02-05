@@ -10,7 +10,7 @@ List<String> yellowKeys = [];
 List<String> greyKeys = [];
 
 SizedBox my_letter_key(String char) {
-  Color? mycolor = myWhite;
+  Color? mycolor = keyColor;
 
   for (var i = 0; i < greenKeys.length; i++) {
     if (char == greenKeys[i]) {
@@ -69,46 +69,50 @@ SizedBox my_enter_key(BuildContext context) {
   return SizedBox(
     height: (devWidth / 6),
     width: (devWidth / 5),
-    child: TextButton(
-      child: const Text("PROBAR"),
-      style: TextButton.styleFrom(primary: myBlack, backgroundColor: myWhite),
-      onPressed: () {
-        if ((currentCell == 5 ||
-                currentCell == 10 ||
-                currentCell == 15 ||
-                currentCell == 20 ||
-                currentCell == 25 ||
-                currentCell == 30) &&
-            canWrite == false) {
-          if (word_exists()) {
-            if (check_word()) {
-              finished = true;
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const victory_page()));
-            } else {
-              if (currentCell == 30) {
+    child: Container(
+      margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
+      child: TextButton(
+        child: const Text("PROBAR"),
+        style:
+            TextButton.styleFrom(primary: myBlack, backgroundColor: keyColor),
+        onPressed: () {
+          if ((currentCell == 5 ||
+                  currentCell == 10 ||
+                  currentCell == 15 ||
+                  currentCell == 20 ||
+                  currentCell == 25 ||
+                  currentCell == 30) &&
+              canWrite == false) {
+            if (word_exists()) {
+              if (check_word()) {
                 finished = true;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const defeat_page()));
+                        builder: (context) => const victory_page()));
               } else {
-                currentRow++;
-                canWrite = true;
+                if (currentCell == 30) {
+                  finished = true;
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const defeat_page()));
+                } else {
+                  currentRow++;
+                  canWrite = true;
+                }
               }
+            } else {
+              word_doesnt_exist_snackbar(context);
             }
-          } else {
-            word_doesnt_exist_snackbar(context);
           }
-        }
-        if (finished) {
-          endDate = DateTime.now();
-          playSeconds = endDate.difference(startDate);
-        }
-        runApp(MyApp());
-      },
+          if (finished) {
+            endDate = DateTime.now();
+            playSeconds = endDate.difference(startDate);
+          }
+          runApp(MyApp());
+        },
+      ),
     ),
   );
 }
@@ -118,54 +122,60 @@ SizedBox my_backspace_icon() {
     return SizedBox(
       height: (devWidth / 6),
       width: (devWidth / 10),
-      child: IconButton(
-        icon: const Icon(
-          Icons.keyboard_backspace,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          if (!finished) {
-            if (currentCell == 0 ||
-                (currentCell == 5 && canWrite == true) ||
-                (currentCell == 10 && canWrite == true) ||
-                (currentCell == 15 && canWrite == true) ||
-                (currentCell == 20 && canWrite == true) ||
-                (currentCell == 25 && canWrite == true)) {
-            } else {
-              currentCell--;
-              inputMatrix[currentCell] = "";
-              canWrite = true;
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
+        child: IconButton(
+          icon: const Icon(
+            Icons.keyboard_backspace,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            if (!finished) {
+              if (currentCell == 0 ||
+                  (currentCell == 5 && canWrite == true) ||
+                  (currentCell == 10 && canWrite == true) ||
+                  (currentCell == 15 && canWrite == true) ||
+                  (currentCell == 20 && canWrite == true) ||
+                  (currentCell == 25 && canWrite == true)) {
+              } else {
+                currentCell--;
+                inputMatrix[currentCell] = "";
+                canWrite = true;
+              }
+              runApp(MyApp());
             }
-            runApp(MyApp());
-          }
-        },
+          },
+        ),
       ),
     );
   } else {
     return SizedBox(
       height: (devWidth / 6),
       width: (devWidth / 10),
-      child: IconButton(
-        icon: const Icon(
-          Icons.keyboard_backspace,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          if (!finished) {
-            if (currentCell == 0 ||
-                (currentCell == 5 && canWrite == true) ||
-                (currentCell == 10 && canWrite == true) ||
-                (currentCell == 15 && canWrite == true) ||
-                (currentCell == 20 && canWrite == true) ||
-                (currentCell == 25 && canWrite == true)) {
-            } else {
-              currentCell--;
-              inputMatrix[currentCell] = "";
-              canWrite = true;
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
+        child: IconButton(
+          icon: const Icon(
+            Icons.keyboard_backspace,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            if (!finished) {
+              if (currentCell == 0 ||
+                  (currentCell == 5 && canWrite == true) ||
+                  (currentCell == 10 && canWrite == true) ||
+                  (currentCell == 15 && canWrite == true) ||
+                  (currentCell == 20 && canWrite == true) ||
+                  (currentCell == 25 && canWrite == true)) {
+              } else {
+                currentCell--;
+                inputMatrix[currentCell] = "";
+                canWrite = true;
+              }
+              runApp(MyApp());
             }
-            runApp(MyApp());
-          }
-        },
+          },
+        ),
       ),
     );
   }

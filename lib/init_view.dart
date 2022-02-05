@@ -53,11 +53,13 @@ class _InicioState extends State<Inicio> {
       myWhite = Color(0xff2d2d2d);
       mySemiBlack = Colors.white;
       whiteEmoji = "⬛";
+      keyColor = Color(0xff131313);
     } else {
       myBlack = Colors.black;
       myWhite = Colors.white;
       mySemiBlack = Colors.black54;
       whiteEmoji = "⬜";
+      keyColor = Color(0xffefefef);
     }
 
     return Scaffold(
