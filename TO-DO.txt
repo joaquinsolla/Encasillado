@@ -6,7 +6,7 @@
 -Instagram
 -Twitter
 -borde teclas teclado
--arreglar exception victory/dialog
+-arreglar exception victory/defeat + settings
 -DALTONISMO emojis
 -rachas
 - añadir dividers

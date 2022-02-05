@@ -237,6 +237,14 @@ _launchURL() async {
   }
 }
 
+web_launch(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 _launchWORDLE() async {
   if (await canLaunch('https://www.powerlanguage.co.uk/wordle/')) {
     await launch('https://www.powerlanguage.co.uk/wordle/');
@@ -869,7 +877,7 @@ class settings_page extends StatelessWidget {
         body: Container(
             margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
             alignment: Alignment.topCenter,
-            child: ListView(
+            child: Column(
               children: [
                 Text(
                   "Ajustes",
@@ -941,56 +949,6 @@ class settings_page extends StatelessWidget {
                 Divider(
                   color: myGrey,
                 ),
-                Text(
-                  "\nAdaptación para Android en español de",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: myGrey,
-                    fontWeight: FontWeight.normal,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 60,
-                      child: TextButton(
-                        onPressed: _launchWORDLE,
-                        style: TextButton.styleFrom(
-                          primary: myGrey,
-                        ),
-                        child: Text("Wordle"),
-                      ),
-                    ),
-                    Text(
-                      "de",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: myGrey,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 100,
-                      child: TextButton(
-                        onPressed: _launchJOSH,
-                        style: TextButton.styleFrom(
-                          primary: myGrey,
-                        ),
-                        child: Text("Josh Wardle"),
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  color: myGrey,
-                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -1008,55 +966,95 @@ class settings_page extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     //INSTAGRAM BUTTON
-                    Row(
+                    TextButton(
+                      onPressed: (){web_launch("https://instagram.com/joako.peke");}, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        RawMaterialButton(
-                          onPressed: () {
-                            // ------------------
-                          },
-                          elevation: 0,
-                          child: Image.asset('app_files/instagram_logo.png'),
-                          fillColor: myGrey,
-                          shape: CircleBorder(),
-                        ),
+                        Image.asset('app_files/instagram_logo.png'),
+                        SizedBox(width: 20,),
                         Text(
                           "Instagram",
                           style: TextStyle(
                             fontSize: 14,
                             color: myGrey,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             decoration: TextDecoration.none,
                             fontFamily: 'RaleWay',
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ],
-                    ),
+                    ),),
+
                     SizedBox(height: 5,),
                     //GITHUB BUTTON
-                    Row(
+                    TextButton(
+                      onPressed: (){web_launch("https://github.com/joaquinsolla");}, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        RawMaterialButton(
-                          onPressed: () {
-                            // ------------------
-                          },
-                          elevation: 0,
-                          child: Image.asset(githubLogo),
-                          fillColor: myWhite,
-                          shape: CircleBorder(),
-                        ),
+                        Image.asset(githubLogo),
+                        SizedBox(width: 20,),
                         Text(
                           "GitHub",
                           style: TextStyle(
                             fontSize: 14,
                             color: myGrey,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             decoration: TextDecoration.none,
                             fontFamily: 'RaleWay',
                           ),
                           textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),),
+                    SizedBox(height: 5,),
+                    Divider(
+                      color: myGrey,
+                    ),
+                    Text(
+                      "\nAdaptación para Android en español de",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: myGrey,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 60,
+                          child: TextButton(
+                            onPressed: _launchWORDLE,
+                            style: TextButton.styleFrom(
+                              primary: myGrey,
+                            ),
+                            child: Text("Wordle"),
+                          ),
+                        ),
+                        Text(
+                          "de",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: myGrey,
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.none,
+                            fontFamily: 'RaleWay',
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                          width: 100,
+                          child: TextButton(
+                            onPressed: _launchJOSH,
+                            style: TextButton.styleFrom(
+                              primary: myGrey,
+                            ),
+                            child: Text("Josh Wardle"),
+                          ),
                         ),
                       ],
                     ),
@@ -1064,7 +1062,7 @@ class settings_page extends StatelessWidget {
                 ),
 
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
               ],
             )));
