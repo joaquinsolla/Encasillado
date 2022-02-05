@@ -875,9 +875,9 @@ class settings_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String githubLogo;
-    if(nightMode) githubLogo = 'app_files/github_logo_BLACK.png';
-      else githubLogo = 'app_files/github_logo.png';
+    String githubImage;
+    if(nightMode) githubImage = 'app_files/github_image_BLACK.png';
+      else githubImage = 'app_files/github_image.png';
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -978,7 +978,7 @@ class settings_page extends StatelessWidget {
                       onPressed: _launchMYINSTAGRAM, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Image.asset('app_files/instagram_logo.png', scale: 19.5,),
+                        Image.asset('app_files/instagram_image.png', scale: 19.5,),
                         SizedBox(width: 20,),
                         Text(
                           "Instagram",
@@ -1000,7 +1000,7 @@ class settings_page extends StatelessWidget {
                       onPressed: _launchMYGITHUB, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Image.asset(githubLogo, scale: 13.5,),
+                        Image.asset(githubImage, scale: 13.5,),
                         SizedBox(width: 20,),
                         Text(
                           "GitHub",
