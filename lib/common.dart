@@ -978,7 +978,7 @@ class settings_page extends StatelessWidget {
                       onPressed: _launchMYINSTAGRAM, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Image.asset('app_files/instagram_logo.png'),
+                        Image.asset('app_files/instagram_logo.png', scale: 19.5,),
                         SizedBox(width: 20,),
                         Text(
                           "Instagram",
@@ -1000,7 +1000,7 @@ class settings_page extends StatelessWidget {
                       onPressed: _launchMYGITHUB, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Image.asset(githubLogo),
+                        Image.asset(githubLogo, scale: 13.5,),
                         SizedBox(width: 20,),
                         Text(
                           "GitHub",
