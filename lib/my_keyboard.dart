@@ -35,27 +35,32 @@ SizedBox my_letter_key(String char) {
   return SizedBox(
     height: (devWidth / 6),
     width: (devWidth / 10),
-    child: TextButton(
-      child: Text(char),
-      style:
-          TextButton.styleFrom(primary: myBlack, backgroundColor: mycolor,),
-      onPressed: () {
-        if (!finished) {
-          if (canWrite) {
-            inputMatrix[currentCell] = char;
-            currentCell++;
-            if (currentCell == 5 ||
-                currentCell == 10 ||
-                currentCell == 15 ||
-                currentCell == 20 ||
-                currentCell == 25 ||
-                currentCell == 30) {
-              canWrite = false;
+    child: Container(
+      margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
+      child: TextButton(
+        child: Text(char),
+        style: TextButton.styleFrom(
+          primary: myBlack,
+          backgroundColor: mycolor,
+        ),
+        onPressed: () {
+          if (!finished) {
+            if (canWrite) {
+              inputMatrix[currentCell] = char;
+              currentCell++;
+              if (currentCell == 5 ||
+                  currentCell == 10 ||
+                  currentCell == 15 ||
+                  currentCell == 20 ||
+                  currentCell == 25 ||
+                  currentCell == 30) {
+                canWrite = false;
+              }
             }
+            runApp(MyApp());
           }
-          runApp(MyApp());
-        }
-      },
+        },
+      ),
     ),
   );
 }
@@ -66,8 +71,7 @@ SizedBox my_enter_key(BuildContext context) {
     width: (devWidth / 5),
     child: TextButton(
       child: const Text("PROBAR"),
-      style: TextButton.styleFrom(
-          primary: myBlack, backgroundColor: myWhite),
+      style: TextButton.styleFrom(primary: myBlack, backgroundColor: myWhite),
       onPressed: () {
         if ((currentCell == 5 ||
                 currentCell == 10 ||
@@ -79,11 +83,17 @@ SizedBox my_enter_key(BuildContext context) {
           if (word_exists()) {
             if (check_word()) {
               finished = true;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const victory_page()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const victory_page()));
             } else {
               if (currentCell == 30) {
                 finished = true;
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const defeat_page()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const defeat_page()));
               } else {
                 currentRow++;
                 canWrite = true;
@@ -104,12 +114,15 @@ SizedBox my_enter_key(BuildContext context) {
 }
 
 SizedBox my_backspace_icon() {
-    if (nightMode) {
+  if (nightMode) {
     return SizedBox(
       height: (devWidth / 6),
       width: (devWidth / 10),
       child: IconButton(
-        icon: const Icon(Icons.keyboard_backspace, color: Colors.white,),
+        icon: const Icon(
+          Icons.keyboard_backspace,
+          color: Colors.white,
+        ),
         onPressed: () {
           if (!finished) {
             if (currentCell == 0 ||
@@ -117,8 +130,8 @@ SizedBox my_backspace_icon() {
                 (currentCell == 10 && canWrite == true) ||
                 (currentCell == 15 && canWrite == true) ||
                 (currentCell == 20 && canWrite == true) ||
-                (currentCell == 25 && canWrite == true)
-            ) {} else {
+                (currentCell == 25 && canWrite == true)) {
+            } else {
               currentCell--;
               inputMatrix[currentCell] = "";
               canWrite = true;
@@ -129,30 +142,33 @@ SizedBox my_backspace_icon() {
       ),
     );
   } else {
-      return SizedBox(
-        height: (devWidth / 6),
-        width: (devWidth / 10),
-        child: IconButton(
-          icon: const Icon(Icons.keyboard_backspace, color: Colors.black,),
-          onPressed: () {
-            if (!finished) {
-              if (currentCell == 0 ||
-                  (currentCell == 5 && canWrite == true) ||
-                  (currentCell == 10 && canWrite == true) ||
-                  (currentCell == 15 && canWrite == true) ||
-                  (currentCell == 20 && canWrite == true) ||
-                  (currentCell == 25 && canWrite == true)
-              ) {} else {
-                currentCell--;
-                inputMatrix[currentCell] = "";
-                canWrite = true;
-              }
-              runApp(MyApp());
-            }
-          },
+    return SizedBox(
+      height: (devWidth / 6),
+      width: (devWidth / 10),
+      child: IconButton(
+        icon: const Icon(
+          Icons.keyboard_backspace,
+          color: Colors.black,
         ),
-      );
-    }
+        onPressed: () {
+          if (!finished) {
+            if (currentCell == 0 ||
+                (currentCell == 5 && canWrite == true) ||
+                (currentCell == 10 && canWrite == true) ||
+                (currentCell == 15 && canWrite == true) ||
+                (currentCell == 20 && canWrite == true) ||
+                (currentCell == 25 && canWrite == true)) {
+            } else {
+              currentCell--;
+              inputMatrix[currentCell] = "";
+              canWrite = true;
+            }
+            runApp(MyApp());
+          }
+        },
+      ),
+    );
+  }
 }
 
 Column generate_keyboard(BuildContext context) {

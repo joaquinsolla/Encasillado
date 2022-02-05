@@ -3,11 +3,9 @@
 
 -Mejorar la BD
 -Cambiar logo superior
--Instagram
--Twitter
+-Instagram & Twitter
 -borde teclas teclado
 -arreglar exception victory/defeat + settings
--DALTONISMO emojis
 -rachas
 -calidad fotos iconos compartir etc
 
