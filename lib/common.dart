@@ -490,7 +490,7 @@ class victory_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 60,
+                height: 30,
               ),
             ],
           ),
@@ -716,7 +716,7 @@ class defeat_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 60,
+                height: 30,
               ),
             ],
           ),
