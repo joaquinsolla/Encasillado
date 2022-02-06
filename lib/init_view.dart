@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "My Wordle",
+      title: "Joadle",
       debugShowCheckedModeBanner: false,
       home: Inicio(),
     );
