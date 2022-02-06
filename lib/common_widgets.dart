@@ -136,7 +136,7 @@ Container streak_counter() {
   String streakCount = " x" + streak.toString();
 
   return Container(
-    margin: EdgeInsets.fromLTRB(0.0,0.0,7.5,7.5),
+    margin: EdgeInsets.fromLTRB(0.0,0.0,10.0,10.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
