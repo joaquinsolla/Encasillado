@@ -61,7 +61,7 @@ class _InicioState extends State<Inicio> {
 
     return Scaffold(
       backgroundColor: myWhite,
-      appBar: MainAppBar(context, true),
+      appBar: myAppBarWithButtons(context),
       body: Column(children: [
         cellsField(),
         Expanded(

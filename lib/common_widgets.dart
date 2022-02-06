@@ -3,66 +3,69 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flushbar/flushbar.dart';
 
+import 'common_imagepaths.dart';
 import 'common_variables.dart';
 import 'common_methods.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
-
-AppBar MainAppBar(BuildContext context, bool buttons) {
-  AppBar myAppBar;
-
-  if (buttons) {
-    myAppBar = AppBar(
-      backgroundColor: Color(0xff009688),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.asset('app_files/my_logo.png', scale: 9.5,),
-          Expanded(child: Text("")),
-          Expanded(
-            child: RawMaterialButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const explanation_page()));
-              },
-              elevation: 0,
-              child: Image.asset('app_files/help_icon.png'),
-              fillColor: Color(0xff007066),
-              shape: CircleBorder(),
-            ),
+AppBar myAppBarWithButtons(BuildContext context) {
+  return AppBar(
+    backgroundColor: appColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          banner_logo,
+          scale: 9.5,
+        ),
+        Expanded(child: Text("")),
+        Expanded(
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const explanation_page()));
+            },
+            elevation: 0,
+            child: Image.asset(help_icon),
+            fillColor: appDarkerColor,
+            shape: CircleBorder(),
           ),
-          Expanded(
-            child: RawMaterialButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const settings_page()));
-              },
-              elevation: 0,
-              child: Image.asset('app_files/settings_icon.png'),
-              fillColor: Color(0xff007066),
-              shape: CircleBorder(),
-            ),
+        ),
+        Expanded(
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const settings_page()));
+            },
+            elevation: 0,
+            child: Image.asset(settings_icon),
+            fillColor: appDarkerColor,
+            shape: CircleBorder(),
           ),
-        ],
-      ),
-    );
-  } else {
-    myAppBar = AppBar(
-      backgroundColor: Color(0xff009688),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.asset('app_files/my_logo.png', scale: 9.5,),
-        ],
-      ),
-    );
-  }
-  return myAppBar;
+        ),
+      ],
+    ),
+  );
+}
+
+AppBar myAppBarWithoutButtons(BuildContext context) {
+  return AppBar(
+    backgroundColor: appColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          banner_logo,
+          scale: 9.5,
+        ),
+      ],
+    ),
+  );
 }
 
 AnimatedContainer letterCell(String char, String col) {
@@ -144,15 +147,15 @@ class victory_page extends StatelessWidget {
         "/6";
 
     String restartImage;
-    if (nightMode) {
-      restartImage = 'app_files/restart_icon_without_circle_BLACK.png';
+    if (darkMode) {
+      restartImage = restart_icon_darkmode;
     } else {
-      restartImage = 'app_files/restart_icon_without_circle.png';
+      restartImage = restart_icon;
     }
 
     return Scaffold(
         backgroundColor: myWhite,
-        appBar: MainAppBar(context, false),
+        appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
@@ -163,7 +166,7 @@ class victory_page extends StatelessWidget {
               ),
               SizedBox(
                 height: 90,
-                child: Image.asset('app_files/trophy.png'),
+                child: Image.asset(victory_image),
               ),
               SizedBox(
                 height: 15,
@@ -244,10 +247,12 @@ class victory_page extends StatelessWidget {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
-                    onPressed: (){url_launcher(definitionURL);},
+                    onPressed: () {
+                      url_launcher(definitionURL);
+                    },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: Color(0xff009688),
+                      backgroundColor: appColor,
                     ),
                     child: Text("Definición de " + wordOfTheDayString)),
               ]),
@@ -281,7 +286,7 @@ class victory_page extends StatelessWidget {
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: Color(0xff009688),
+                      backgroundColor: appColor,
                     ),
                     child: Row(
                       children: [
@@ -323,7 +328,7 @@ class victory_page extends StatelessWidget {
                       copy_to_clipboard(context);
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/clipboard_logo.png'),
+                    child: Image.asset(clipboard_icon),
                     //Lienzo: 300px , img: 40px
                     fillColor: myGrey,
                     shape: CircleBorder(),
@@ -333,7 +338,7 @@ class victory_page extends StatelessWidget {
                       whatsapp_share();
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/whatsapp_logo.png'),
+                    child: Image.asset(whatsapp_icon),
                     //Lienzo: 280px , img: 40px
                     fillColor: wppColor,
                     shape: CircleBorder(),
@@ -370,15 +375,15 @@ class defeat_page extends StatelessWidget {
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     String restartImage;
-    if (nightMode) {
-      restartImage = 'app_files/restart_icon_without_circle_BLACK.png';
+    if (darkMode) {
+      restartImage = restart_icon_darkmode;
     } else {
-      restartImage = 'app_files/restart_icon_without_circle.png';
+      restartImage = restart_icon;
     }
 
     return Scaffold(
         backgroundColor: myWhite,
-        appBar: MainAppBar(context, false),
+        appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
@@ -389,7 +394,7 @@ class defeat_page extends StatelessWidget {
               ),
               SizedBox(
                 height: 90,
-                child: Image.asset('app_files/defeat.png'),
+                child: Image.asset(defeat_image),
               ),
               SizedBox(
                 height: 15,
@@ -470,10 +475,12 @@ class defeat_page extends StatelessWidget {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
-                    onPressed: (){url_launcher(definitionURL);},
+                    onPressed: () {
+                      url_launcher(definitionURL);
+                    },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: Color(0xff009688),
+                      backgroundColor: appColor,
                     ),
                     child: Text("Definición de " + wordOfTheDayString)),
               ]),
@@ -507,7 +514,7 @@ class defeat_page extends StatelessWidget {
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: Color(0xff009688),
+                      backgroundColor: appColor,
                     ),
                     child: Row(
                       children: [
@@ -549,7 +556,7 @@ class defeat_page extends StatelessWidget {
                       copy_to_clipboard(context);
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/clipboard_logo.png'),
+                    child: Image.asset(clipboard_icon),
                     //Lienzo: 300px , img: 40px
                     fillColor: myGrey,
                     shape: CircleBorder(),
@@ -559,7 +566,7 @@ class defeat_page extends StatelessWidget {
                       whatsapp_share();
                     },
                     elevation: 1,
-                    child: Image.asset('app_files/whatsapp_logo.png'),
+                    child: Image.asset(whatsapp_icon),
                     //Lienzo: 280px , img: 40px
                     fillColor: wppColor,
                     shape: CircleBorder(),
@@ -602,18 +609,18 @@ class explanation_page extends StatelessWidget {
     String ex_yellow;
     String ex_grey;
     if (colorBlind) {
-      ex_green = 'app_files/ex_green_COLORBLIND.png';
-      ex_yellow = 'app_files/ex_yellow_COLORBLIND.png';
-      ex_grey = 'app_files/ex_grey_COLORBLIND.png';
+      ex_green = example_green_colorblind;
+      ex_yellow = example_yellow_colorblind;
+      ex_grey = example_grey_colorblind;
     } else {
-      ex_green = 'app_files/ex_green.png';
-      ex_yellow = 'app_files/ex_yellow.png';
-      ex_grey = 'app_files/ex_grey.png';
+      ex_green = example_green;
+      ex_yellow = example_yellow;
+      ex_grey = example_grey;
     }
 
     return Scaffold(
         backgroundColor: myWhite,
-        appBar: MainAppBar(context, false),
+        appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
@@ -638,8 +645,8 @@ class explanation_page extends StatelessWidget {
               ),
               Text(
                 "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
-                    "Las palabras que pruebes deben estar en el diccionario.\n\n"
-                    "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
+                "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -720,7 +727,7 @@ class explanation_page extends StatelessWidget {
                         },
                         style: TextButton.styleFrom(
                           primary: myWhite,
-                          backgroundColor: Color(0xff009688),
+                          backgroundColor: appColor,
                         ),
                         child: Text("VAMOS ALLÁ")),
                     Expanded(child: Text("")),
@@ -739,12 +746,14 @@ class settings_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String githubImage;
-    if(nightMode) githubImage = 'app_files/github_image_BLACK.png';
-    else githubImage = 'app_files/github_image.png';
+    if (darkMode)
+      githubImage = github_image_darkmode;
+    else
+      githubImage = github_image;
 
     return Scaffold(
         backgroundColor: myWhite,
-        appBar: MainAppBar(context, false),
+        appBar: myAppBarWithoutButtons(context),
         body: Container(
             margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
             alignment: Alignment.topCenter,
@@ -807,9 +816,9 @@ class settings_page extends StatelessWidget {
                     ),
                     Expanded(child: Text("")),
                     Switch(
-                      value: nightMode,
+                      value: darkMode,
                       onChanged: (value) {
-                        nightMode = (!nightMode);
+                        darkMode = (!darkMode);
                         runApp(JoadleApp());
                         Navigator.pop(context);
                       },
@@ -825,8 +834,8 @@ class settings_page extends StatelessWidget {
                   children: [
                     Text(
                       "\nSoy Joaquín, estudiante de ingeniería informática. "
-                          "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
-                          "\n\nPuedes encontrarme en:\n",
+                      "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
+                      "\n\nPuedes encontrarme en:\n",
                       style: TextStyle(
                         fontSize: 12,
                         color: myGrey,
@@ -838,47 +847,69 @@ class settings_page extends StatelessWidget {
                     ),
                     //INSTAGRAM BUTTON
                     TextButton(
-                      onPressed: (){url_launcher(myInstagramURL);}, child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset('app_files/instagram_image.png', scale: 19.5,),
-                        SizedBox(width: 20,),
-                        Text(
-                          "Instagram",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: myGrey,
-                            fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
+                      onPressed: () {
+                        url_launcher(myInstagramURL);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            instagram_image,
+                            scale: 19.5,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Instagram",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: myGrey,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
 
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     //GITHUB BUTTON
                     TextButton(
-                      onPressed: (){url_launcher(myGitHubURL);}, child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image.asset(githubImage, scale: 13.5,),
-                        SizedBox(width: 20,),
-                        Text(
-                          "GitHub",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: myGrey,
-                            fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
+                      onPressed: () {
+                        url_launcher(myGitHubURL);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            githubImage,
+                            scale: 13.5,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),),
-                    SizedBox(height: 5,),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "GitHub",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: myGrey,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Divider(
                       color: myGrey,
                     ),
@@ -899,7 +930,9 @@ class settings_page extends StatelessWidget {
                         SizedBox(
                           width: 60,
                           child: TextButton(
-                            onPressed: (){url_launcher(officialWordleURL);},
+                            onPressed: () {
+                              url_launcher(officialWordleURL);
+                            },
                             style: TextButton.styleFrom(
                               primary: myGrey,
                             ),
@@ -920,7 +953,9 @@ class settings_page extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: TextButton(
-                            onPressed: (){url_launcher(joshWardleURL);},
+                            onPressed: () {
+                              url_launcher(joshWardleURL);
+                            },
                             style: TextButton.styleFrom(
                               primary: myGrey,
                             ),

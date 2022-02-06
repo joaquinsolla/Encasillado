@@ -7,7 +7,7 @@ double deviceWidth = 0;
 
 // User settings
 bool colorBlind = false;
-bool nightMode = false;
+bool darkMode = false;
 
 // Cell control
 int currentCell = 0;

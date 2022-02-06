@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'common_imagepaths.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
@@ -119,7 +120,7 @@ SizedBox my_enter_key(BuildContext context) {
 
 SizedBox my_backspace_icon() {
   Color? mycolor = keyColor;
-  if (nightMode) {
+  if (darkMode) {
     return SizedBox(
       height: (deviceWidth / 6),
       width: (deviceWidth / 10),
@@ -129,7 +130,7 @@ SizedBox my_backspace_icon() {
           style: TextButton.styleFrom(
             backgroundColor: mycolor,
           ),
-          child: Image.asset('app_files/backspace_icon_BLACK.png'),
+          child: Image.asset(backspace_icon_darkmode),
           onPressed: () {
             if (!finished) {
               if (currentCell == 0 ||
@@ -159,7 +160,7 @@ SizedBox my_backspace_icon() {
           style: TextButton.styleFrom(
             backgroundColor: mycolor,
           ),
-          child: Image.asset('app_files/backspace_icon.png'),
+          child: Image.asset(backspace_icon),
           onPressed: () {
             if (!finished) {
               if (currentCell == 0 ||

@@ -43,7 +43,7 @@ void check_settings(){
     yellowEmoji = "🟨";
   }
 
-  if (nightMode) {
+  if (darkMode) {
     myBlack = Colors.white;
     myWhite = Color(0xff2d2d2d);
     mySemiBlack = Colors.white;
@@ -72,7 +72,7 @@ class start_new_game extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(context, true),
+      appBar: myAppBarWithButtons(context),
       body: Column(children: [
         cellsField(),
         Expanded(

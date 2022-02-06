@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-/** COLORS */
+
+Color appColor = Color(0xff009688);
+Color appDarkerColor = Color(0xff007066);
 Color myGreen = Colors.green;
 Color myYellow = Color(0xfff3d500);
 Color myGrey = Colors.grey;
@@ -10,8 +12,6 @@ Color mySemiBlack = Colors.black54;
 Color keyColor = Color(0xffefefef);
 Color wppColor = Colors.green;
 
-
-/** EMOJIS */
 String greenEmoji = "🟩";
 String yellowEmoji = "🟨";
 String whiteEmoji = "⬜";
