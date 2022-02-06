@@ -3,9 +3,6 @@
 -Mejorar la BD
 -Instagram & Twitter
 -mirar exceptions
--rachas
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
-
----------CHECK WHEN NEW GAME ALL
