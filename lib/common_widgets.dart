@@ -135,16 +135,28 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
-class victory_page extends StatelessWidget {
-  const victory_page({Key? key}) : super(key: key);
+class game_finished_page extends StatelessWidget {
+  const game_finished_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     build_stats();
-    infoStats = wordOfTheDayString +
-        " - Intentos: " +
-        (currentRow + 1).toString() +
-        "/6";
+
+    String gameImage;
+    String gameText;
+    if(wonGame) {
+      infoStats = wordOfTheDayString +
+          " - Intentos: " +
+          (currentRow + 1).toString() +
+          "/6";
+      gameImage = victory_image;
+      gameText = "VICTORIA";
+    } else {
+      infoStats = wordOfTheDayString + " - Intentos: X/6";
+      gameImage = defeat_image;
+      gameText = "DERROTA";
+    }
 
     String restartImage;
     if (darkMode) {
@@ -166,13 +178,13 @@ class victory_page extends StatelessWidget {
               ),
               SizedBox(
                 height: 90,
-                child: Image.asset(victory_image),
+                child: Image.asset(gameImage),
               ),
               SizedBox(
                 height: 15,
               ),
               Text(
-                "VICTORIA",
+                gameText,
                 style: TextStyle(
                   fontSize: 30,
                   color: myBlack,
@@ -258,234 +270,6 @@ class victory_page extends StatelessWidget {
               ]),
               SizedBox(
                 height: 10,
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Empieza una partida nueva:",
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: myBlack,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                TextButton(
-                    onPressed: () {
-                      restart_game_variables();
-                      generate_new_word();
-                      startDate = DateTime.now();
-                      Navigator.pop(context);
-                      runApp(JoadleApp());
-                    },
-                    style: TextButton.styleFrom(
-                      primary: myWhite,
-                      backgroundColor: appColor,
-                    ),
-                    child: Row(
-                      children: [
-                        Text("Nueva partida"),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        Image.asset(
-                          restartImage,
-                          scale: 1.3,
-                        ),
-                      ],
-                    )),
-              ]),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "¡Compártelo con tus amigos!",
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: myBlack,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  RawMaterialButton(
-                    onPressed: () {
-                      copy_to_clipboard(context);
-                    },
-                    elevation: 1,
-                    child: Image.asset(clipboard_icon),
-                    //Lienzo: 300px , img: 40px
-                    fillColor: myGrey,
-                    shape: CircleBorder(),
-                  ),
-                  RawMaterialButton(
-                    onPressed: () {
-                      whatsapp_share();
-                    },
-                    elevation: 1,
-                    child: Image.asset(whatsapp_icon),
-                    //Lienzo: 280px , img: 40px
-                    fillColor: wppColor,
-                    shape: CircleBorder(),
-                  ),
-                ],
-              ),
-              Expanded(child: Text("")),
-              Text(
-                "Gracias por jugar a Joadle\n\nJoadle by joa",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: myGrey,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
-          ),
-        ));
-  }
-}
-
-class defeat_page extends StatelessWidget {
-  const defeat_page({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    build_stats();
-    infoStats = wordOfTheDayString + " - Intentos: X/6";
-
-    String restartImage;
-    if (darkMode) {
-      restartImage = restart_icon_darkmode;
-    } else {
-      restartImage = restart_icon;
-    }
-
-    return Scaffold(
-        backgroundColor: myWhite,
-        appBar: myAppBarWithoutButtons(context),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-          alignment: Alignment.topCenter,
-          child: ListView(
-            children: [
-              SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                height: 90,
-                child: Image.asset(defeat_image),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Text(
-                "DERROTA",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Estadísticas:",
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: myBlack,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
-                infoStats,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                emojiStats + "\nTiempo: " + game_duration_to_string(),
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "¿No sabes el significado de la palabra?",
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: myBlack,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                TextButton(
-                    onPressed: () {
-                      url_launcher(definitionURL);
-                    },
-                    style: TextButton.styleFrom(
-                      primary: myWhite,
-                      backgroundColor: appColor,
-                    ),
-                    child: Text("Definición de " + wordOfTheDayString)),
-              ]),
-              SizedBox(
-                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
