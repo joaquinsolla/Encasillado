@@ -8,6 +8,7 @@ Color myWhite = Colors.white;
 Color myBlack = Colors.black;
 Color mySemiBlack = Colors.black54;
 Color keyColor = Color(0xffefefef);
+Color wppColor = Colors.green;
 
 //If colorblind:
 //  myGreen = Colors.orange;

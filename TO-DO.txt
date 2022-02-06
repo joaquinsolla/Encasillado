@@ -2,11 +2,9 @@
 
 
 -Mejorar la BD
--Cambiar logo superior
 -Instagram & Twitter
 -arreglar exception victory/defeat + settings
 -rachas
--calidad fotos iconos compartir etc
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins

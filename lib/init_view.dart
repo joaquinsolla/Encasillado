@@ -6,9 +6,10 @@ import 'common.dart';
 import 'my_keyboard.dart';
 
 /** ADMOB */
+/*
 import 'package:Joadle/ad_helper.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
+*/
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -34,8 +35,10 @@ class Inicio extends StatefulWidget {
 class _InicioState extends State<Inicio> {
 
   /** ADMOB */
+  /*
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +46,7 @@ class _InicioState extends State<Inicio> {
     devHeight = MediaQuery.of(context).size.height;
 
     /** ADMOB */
+    /*
     _bannerAd = BannerAd(
       adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
@@ -61,6 +65,7 @@ class _InicioState extends State<Inicio> {
       ),
     );
     _bannerAd.load();
+    */
 
     /** CHECK SETTINGS */
     if (colorBlind) {
@@ -98,7 +103,9 @@ class _InicioState extends State<Inicio> {
           child: Text(""),
         ),
         generate_keyboard(context),
+
         /** ADMOB */
+        /*
         if (_isBannerAdReady)
           Align(
             alignment: Alignment.topCenter,
@@ -107,7 +114,8 @@ class _InicioState extends State<Inicio> {
               height: _bannerAd.size.height.toDouble(),
               child: AdWidget(ad: _bannerAd),
             ),
-          ),
+          ),*/
+
       ]),
     );
   }

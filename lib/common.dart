@@ -472,7 +472,7 @@ class victory_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
                     //Lienzo: 280px , img: 40px
-                    fillColor: myGreen,
+                    fillColor: wppColor,
                     shape: CircleBorder(),
                   ),
                 ],
@@ -698,7 +698,7 @@ class defeat_page extends StatelessWidget {
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
                     //Lienzo: 280px , img: 40px
-                    fillColor: myGreen,
+                    fillColor: wppColor,
                     shape: CircleBorder(),
                   ),
                 ],
