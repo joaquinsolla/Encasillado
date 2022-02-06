@@ -2,7 +2,6 @@
 
 My version of wordle.
 
-## Currently on process...
+## PlayStore released
 
-Alfa version ready.
-Working on beta version.
+Current Google PlayStore version: 3 (1.0.0)
