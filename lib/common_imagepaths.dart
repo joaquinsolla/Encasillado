@@ -16,5 +16,7 @@ String instagram_image = 'app_files/instagram_image.png';
 String restart_icon = 'app_files/restart_icon.png';
 String restart_icon_darkmode = 'app_files/restart_icon_darkmode.png';
 String settings_icon = 'app_files/settings_icon.png';
+String streak_gif = 'app_files/streak_gif.gif';
+String streak_gif_darkmode = 'app_files/streak_gif_darkmode.gif';
 String victory_image = 'app_files/victory_image.png';
 String whatsapp_icon = 'app_files/whatsapp_icon.png';

@@ -87,16 +87,22 @@ SizedBox my_enter_key(BuildContext context) {
               canWrite == false) {
             if (word_exists()) {
               if (correct_word()) {
-                finished = true;
-                wonGame = true;
+                if (!finished) {
+                  streak++;
+                  finished = true;
+                  wonGame = true;
+                }
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const game_finished_page()));
               } else {
                 if (currentCell == 30) {
-                  finished = true;
-                  wonGame = false;
+                  if (!finished) {
+                    streak=0;
+                    finished = true;
+                    wonGame = false;
+                  }
                   Navigator.push(
                       context,
                       MaterialPageRoute(

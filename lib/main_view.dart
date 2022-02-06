@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 //import 'package:Joadle/ad_helper.dart';
 //import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'common_variables.dart';
 import 'in_game_keyboard.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
@@ -68,6 +69,7 @@ class _InicioState extends State<Inicio> {
         Expanded(
           child: Text(""),
         ),
+        if (streak > 0) streak_counter(),
         generate_keyboard(context),
 
         //TODO: Implement AdMob

@@ -23,6 +23,7 @@ String wordOfTheDayString = "";
 bool wonGame = false;
 String infoStats = "";
 String emojiStats = "";
+int streak = 0;
 DateTime startDate = DateTime.parse("2000-01-01 00:00:00.000000");
 DateTime endDate = DateTime.parse("2000-01-01 00:00:00.000000");
 Duration playSeconds = endDate.difference(startDate);

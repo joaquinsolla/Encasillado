@@ -9,7 +9,6 @@ import 'common_methods.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
-
 AppBar myAppBarWithButtons(BuildContext context) {
   return AppBar(
     backgroundColor: appColor,
@@ -79,8 +78,8 @@ AnimatedContainer letterCell(String char, String col) {
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: (deviceWidth / 5 - 10.0),
-    height: (deviceWidth / 5 - 10.0),
+    width: (deviceWidth / 6 - 10.0),
+    height: (deviceWidth / 6 - 10.0),
     margin: const EdgeInsets.fromLTRB(2.0, 6.0, 2.0, 6.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
@@ -90,7 +89,7 @@ AnimatedContainer letterCell(String char, String col) {
     ),
     child: Text(
       char,
-      style: TextStyle(fontSize: 45.0, color: myBlack),
+      style: TextStyle(fontSize: 40.0, color: myBlack),
     ),
   );
 }
@@ -126,6 +125,52 @@ Column cellsField() {
       ]);
 }
 
+Container streak_counter() {
+  String gif;
+  if (darkMode) {
+    gif = streak_gif_darkmode;
+  } else {
+    gif = streak_gif;
+  }
+
+  String streakCount = " x" + streak.toString();
+
+  return Container(
+    margin: EdgeInsets.fromLTRB(0.0,0.0,7.5,7.5),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Expanded(child: Text("")),
+        Container(
+          padding: const EdgeInsets.fromLTRB(2.0,2.0,4.0,2.0),
+          decoration: BoxDecoration(
+            color: keyColor,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Image.asset(
+                gif,
+                scale: 15,
+              ),
+              Text(
+                streakCount,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    ),
+  );
+}
+
 void word_doesnt_exist_snackbar(BuildContext context) {
   //may cause problems with null sound safety
   Flushbar(
@@ -141,12 +186,11 @@ class game_finished_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     build_stats();
 
     String gameImage;
     String gameText;
-    if(wonGame) {
+    if (wonGame) {
       infoStats = wordOfTheDayString +
           " - Intentos: " +
           (currentRow + 1).toString() +

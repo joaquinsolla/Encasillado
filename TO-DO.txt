@@ -1,12 +1,11 @@
 ##### TO-DO list #####
 
-
 -Mejorar la BD
 -Instagram & Twitter
--arreglar exception victory/defeat + settings
+-mirar exceptions
 -rachas
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
 
-OPTIMIZAR CODIGO
+---------CHECK WHEN NEW GAME ALL
