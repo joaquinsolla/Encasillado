@@ -10,10 +10,6 @@ Color mySemiBlack = Colors.black54;
 Color keyColor = Color(0xffefefef);
 Color wppColor = Colors.green;
 
-//If colorblind:
-//  myGreen = Colors.orange;
-//  myYellow = Colors.blue;
-
 
 /** EMOJIS */
 String greenEmoji = "🟩";

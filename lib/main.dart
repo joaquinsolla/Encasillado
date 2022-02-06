@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'word_database.dart';
-import 'common.dart';
-import 'word_generator.dart';
-import 'init_view.dart';
+import 'word_databases.dart';
+import 'common_variables.dart';
+import 'common_methods.dart';
+import 'main_view.dart';
 
+
+//TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
 void main() {
-  /** RUN APP WITH ADITIONAL ARGS:
-   *  --no-sound-null-safety */
 
-  /** DATABASE SELECTOR */
-  selectedDatabase = bigDB;
-  //selectedDatabase = testDB0;
-  //selectedDatabase = testDB1;
-  //selectedDatabase = testDB2;
+  /** DATABASE SELECTOR
+   * 0 - testDB0
+   * 1 - testDB1
+   * 2 - testDB2
+   * 3 - hardDB * */
+  selectedDatabase = databasesList[1];
 
   startDate = DateTime.now();
+  generate_new_word();
 
-  generateWord();
-  runApp(MyApp());
+  runApp(JoadleApp());
 }

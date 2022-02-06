@@ -1,9 +1,9 @@
-import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
-import 'common.dart';
-import 'init_view.dart';
+import 'common_variables.dart';
+import 'common_widgets.dart';
+import 'common_colors.dart';
+import 'main_view.dart';
 
 List<String> greenKeys = [];
 List<String> yellowKeys = [];
@@ -33,8 +33,8 @@ SizedBox my_letter_key(String char) {
   }
 
   return SizedBox(
-    height: (devWidth / 6),
-    width: (devWidth / 10),
+    height: (deviceWidth / 6),
+    width: (deviceWidth / 10),
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
       child: TextButton(
@@ -57,7 +57,7 @@ SizedBox my_letter_key(String char) {
                 canWrite = false;
               }
             }
-            runApp(MyApp());
+            runApp(JoadleApp());
           }
         },
       ),
@@ -67,8 +67,8 @@ SizedBox my_letter_key(String char) {
 
 SizedBox my_enter_key(BuildContext context) {
   return SizedBox(
-    height: (devWidth / 6),
-    width: (devWidth / 5),
+    height: (deviceWidth / 6),
+    width: (deviceWidth / 5),
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
       child: TextButton(
@@ -84,7 +84,7 @@ SizedBox my_enter_key(BuildContext context) {
                   currentCell == 30) &&
               canWrite == false) {
             if (word_exists()) {
-              if (check_word()) {
+              if (correct_word()) {
                 finished = true;
                 Navigator.push(
                     context,
@@ -110,7 +110,7 @@ SizedBox my_enter_key(BuildContext context) {
             endDate = DateTime.now();
             playSeconds = endDate.difference(startDate);
           }
-          runApp(MyApp());
+          runApp(JoadleApp());
         },
       ),
     ),
@@ -121,8 +121,8 @@ SizedBox my_backspace_icon() {
   Color? mycolor = keyColor;
   if (nightMode) {
     return SizedBox(
-      height: (devWidth / 6),
-      width: (devWidth / 10),
+      height: (deviceWidth / 6),
+      width: (deviceWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
         child: TextButton(
@@ -143,7 +143,7 @@ SizedBox my_backspace_icon() {
                 inputMatrix[currentCell] = "";
                 canWrite = true;
               }
-              runApp(MyApp());
+              runApp(JoadleApp());
             }
           },
         ),
@@ -151,8 +151,8 @@ SizedBox my_backspace_icon() {
     );
   } else {
     return SizedBox(
-      height: (devWidth / 6),
-      width: (devWidth / 10),
+      height: (deviceWidth / 6),
+      width: (deviceWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
         child: TextButton(
@@ -173,7 +173,7 @@ SizedBox my_backspace_icon() {
                 inputMatrix[currentCell] = "";
                 canWrite = true;
               }
-              runApp(MyApp());
+              runApp(JoadleApp());
             }
           },
         ),
@@ -235,7 +235,7 @@ Column generate_keyboard(BuildContext context) {
   );
 }
 
-bool check_word() {
+bool correct_word() {
   String inputWord = inputMatrix[currentRow * 5] +
       inputMatrix[currentRow * 5 + 1] +
       inputMatrix[currentRow * 5 + 2] +

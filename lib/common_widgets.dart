@@ -1,110 +1,13 @@
-import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flushbar/flushbar.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsapp_share/whatsapp_share.dart';
 
-import 'init_view.dart';
-import 'word_generator.dart';
-import 'colors.dart';
-import 'my_keyboard.dart';
+import 'package:flushbar/flushbar.dart';
 
-/** VARIABLES */
+import 'common_variables.dart';
+import 'common_methods.dart';
+import 'common_colors.dart';
+import 'main_view.dart';
 
-List<String> selectedDatabase = [];
-
-// Device size
-double devHeight = 0;
-double devWidth = 0;
-
-// Cell control
-int currentCell = 0;
-int currentRow = 0;
-bool canWrite = true;
-bool finished = false;
-
-// Content of each cell
-List<String> inputMatrix = [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
-];
-List<String> colorsArray = [
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B",
-  "B"
-];
-
-// Word of the day letter by letter
-List<String> wordOfTheDayArray = ["", "", "", "", ""];
-String wordOfTheDayString = "";
-String definitionURL = "https://dle.rae.es/";
-
-// Stats
-String infoStats = "";
-String emojiStats = "";
-DateTime startDate = DateTime.parse("2000-01-01 00:00:00.000000");
-DateTime endDate = DateTime.parse("2000-01-01 00:00:00.000000");
-Duration playSeconds = endDate.difference(startDate);
-
-/** METHODS & WIDGETS */
 
 AppBar MainAppBar(BuildContext context, bool buttons) {
   AppBar myAppBar;
@@ -172,8 +75,8 @@ AnimatedContainer letterCell(String char, String col) {
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: (devWidth / 5 - 10.0),
-    height: (devWidth / 5 - 10.0),
+    width: (deviceWidth / 5 - 10.0),
+    height: (deviceWidth / 5 - 10.0),
     margin: const EdgeInsets.fromLTRB(2.0, 6.0, 2.0, 6.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
@@ -229,52 +132,12 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
-_launchURL() async {
-  if (await canLaunch(definitionURL)) {
-    await launch(definitionURL);
-  } else {
-    throw 'Could not launch $definitionURL';
-  }
-}
-
-_launchMYINSTAGRAM() async {
-  if (await canLaunch('https://instagram.com/joako.peke')) {
-    await launch('https://instagram.com/joako.peke');
-  } else {
-    throw 'Could not launch https://instagram.com/joako.peke';
-  }
-}
-
-_launchMYGITHUB() async {
-  if (await canLaunch('https://www.github.com/joaquinsolla')) {
-    await launch('https://www.github.com/joaquinsolla');
-  } else {
-    throw 'Could not launch https://www.github.com/joaquinsolla';
-  }
-}
-
-_launchWORDLE() async {
-  if (await canLaunch('https://www.powerlanguage.co.uk/wordle/')) {
-    await launch('https://www.powerlanguage.co.uk/wordle/');
-  } else {
-    throw 'Could not launch https://www.powerlanguage.co.uk/wordle/';
-  }
-}
-
-_launchJOSH() async {
-  if (await canLaunch('https://www.powerlanguage.co.uk/')) {
-    await launch('https://www.powerlanguage.co.uk/');
-  } else {
-    throw 'Could not launch https://www.powerlanguage.co.uk/';
-  }
-}
-
 class victory_page extends StatelessWidget {
   const victory_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    update_stats();
+    build_stats();
     infoStats = wordOfTheDayString +
         " - Intentos: " +
         (currentRow + 1).toString() +
@@ -350,7 +213,7 @@ class victory_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStats + "\nTiempo: " + calculate_play_time(),
+                emojiStats + "\nTiempo: " + game_duration_to_string(),
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -381,7 +244,7 @@ class victory_page extends StatelessWidget {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
-                    onPressed: _launchURL,
+                    onPressed: (){url_launcher(definitionURL);},
                     style: TextButton.styleFrom(
                       primary: myWhite,
                       backgroundColor: Color(0xff009688),
@@ -410,11 +273,11 @@ class victory_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      restart_variables();
-                      generateWord();
+                      restart_game_variables();
+                      generate_new_word();
                       startDate = DateTime.now();
                       Navigator.pop(context);
-                      runApp(MyApp());
+                      runApp(JoadleApp());
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
@@ -467,7 +330,7 @@ class victory_page extends StatelessWidget {
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      wpp_share();
+                      whatsapp_share();
                     },
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
@@ -503,7 +366,7 @@ class defeat_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    update_stats();
+    build_stats();
     infoStats = wordOfTheDayString + " - Intentos: X/6";
 
     String restartImage;
@@ -576,7 +439,7 @@ class defeat_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStats + "\nTiempo: " + calculate_play_time(),
+                emojiStats + "\nTiempo: " + game_duration_to_string(),
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -607,7 +470,7 @@ class defeat_page extends StatelessWidget {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
-                    onPressed: _launchURL,
+                    onPressed: (){url_launcher(definitionURL);},
                     style: TextButton.styleFrom(
                       primary: myWhite,
                       backgroundColor: Color(0xff009688),
@@ -636,11 +499,11 @@ class defeat_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      restart_variables();
-                      generateWord();
+                      restart_game_variables();
+                      generate_new_word();
                       startDate = DateTime.now();
                       Navigator.pop(context);
-                      runApp(MyApp());
+                      runApp(JoadleApp());
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
@@ -693,7 +556,7 @@ class defeat_page extends StatelessWidget {
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      wpp_share();
+                      whatsapp_share();
                     },
                     elevation: 1,
                     child: Image.asset('app_files/whatsapp_logo.png'),
@@ -729,7 +592,7 @@ class explanation_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    update_stats();
+    build_stats();
     infoStats = wordOfTheDayString +
         " - Intentos: " +
         (currentRow + 1).toString() +
@@ -775,8 +638,8 @@ class explanation_page extends StatelessWidget {
               ),
               Text(
                 "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
-                "Las palabras que pruebes deben estar en el diccionario.\n\n"
-                "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
+                    "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                    "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -877,7 +740,7 @@ class settings_page extends StatelessWidget {
   Widget build(BuildContext context) {
     String githubImage;
     if(nightMode) githubImage = 'app_files/github_image_BLACK.png';
-      else githubImage = 'app_files/github_image.png';
+    else githubImage = 'app_files/github_image.png';
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -920,7 +783,7 @@ class settings_page extends StatelessWidget {
                       value: colorBlind,
                       onChanged: (value) {
                         colorBlind = (!colorBlind);
-                        runApp(MyApp());
+                        runApp(JoadleApp());
                         Navigator.pop(context);
                       },
                     ),
@@ -947,7 +810,7 @@ class settings_page extends StatelessWidget {
                       value: nightMode,
                       onChanged: (value) {
                         nightMode = (!nightMode);
-                        runApp(MyApp());
+                        runApp(JoadleApp());
                         Navigator.pop(context);
                       },
                     ),
@@ -962,8 +825,8 @@ class settings_page extends StatelessWidget {
                   children: [
                     Text(
                       "\nSoy Joaquín, estudiante de ingeniería informática. "
-                      "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
-                      "\n\nPuedes encontrarme en:\n",
+                          "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
+                          "\n\nPuedes encontrarme en:\n",
                       style: TextStyle(
                         fontSize: 12,
                         color: myGrey,
@@ -975,7 +838,7 @@ class settings_page extends StatelessWidget {
                     ),
                     //INSTAGRAM BUTTON
                     TextButton(
-                      onPressed: _launchMYINSTAGRAM, child: Row(
+                      onPressed: (){url_launcher(myInstagramURL);}, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset('app_files/instagram_image.png', scale: 19.5,),
@@ -997,7 +860,7 @@ class settings_page extends StatelessWidget {
                     SizedBox(height: 5,),
                     //GITHUB BUTTON
                     TextButton(
-                      onPressed: _launchMYGITHUB, child: Row(
+                      onPressed: (){url_launcher(myGitHubURL);}, child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(githubImage, scale: 13.5,),
@@ -1036,7 +899,7 @@ class settings_page extends StatelessWidget {
                         SizedBox(
                           width: 60,
                           child: TextButton(
-                            onPressed: _launchWORDLE,
+                            onPressed: (){url_launcher(officialWordleURL);},
                             style: TextButton.styleFrom(
                               primary: myGrey,
                             ),
@@ -1057,7 +920,7 @@ class settings_page extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: TextButton(
-                            onPressed: _launchJOSH,
+                            onPressed: (){url_launcher(joshWardleURL);},
                             style: TextButton.styleFrom(
                               primary: myGrey,
                             ),
@@ -1075,182 +938,4 @@ class settings_page extends StatelessWidget {
               ],
             )));
   }
-}
-
-class new_game extends StatelessWidget {
-  const new_game({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(context, true),
-      body: Column(children: [
-        cellsField(),
-        Expanded(
-          child: Text(""),
-        ),
-        generate_keyboard(context),
-      ]),
-    );
-  }
-}
-
-void update_stats() {
-  bool lineUsed = false;
-  emojiStats = "";
-  for (var i = 0; i < colorsArray.length; i += 5) {
-    lineUsed = false;
-    for (var j = i; j < i + 5; j++) {
-      if (colorsArray[j] == "V") {
-        emojiStats += greenEmoji;
-        lineUsed = true;
-      }
-      if (colorsArray[j] == "A") {
-        emojiStats += yellowEmoji;
-        lineUsed = true;
-      }
-      if (colorsArray[j] == "G") {
-        emojiStats += whiteEmoji;
-        lineUsed = true;
-      }
-    }
-    if (lineUsed) emojiStats += "\n";
-  }
-}
-
-void copy_to_clipboard(BuildContext context) {
-  String text = infoStats +
-      "\n" +
-      emojiStats +
-      "Tiempo: " +
-      calculate_play_time() +
-      "\n\nJoadle by joa\nhttps://instagram.com/joako.peke";
-  Clipboard.setData(ClipboardData(text: text));
-  //may cause problems with null sound safety
-  Flushbar(
-    message: "Copiado al portapapeles",
-    duration: Duration(milliseconds: 2500),
-    backgroundColor: myGrey,
-    flushbarPosition: FlushbarPosition.BOTTOM,
-  ).show(context);
-}
-
-Future<void> wpp_share() async {
-  String text = infoStats +
-      "\n" +
-      emojiStats +
-      "Tiempo: " +
-      calculate_play_time() +
-      "\n\nJoadle by joa\nhttps://instagram.com/joako.peke";
-  await WhatsappShare.share(
-    text: text,
-    linkUrl: '',
-    phone: '911234567890',
-  );
-}
-
-String calculate_play_time() {
-  int hours;
-  int minutes;
-  int seconds;
-
-  hours = playSeconds.inHours;
-  minutes = playSeconds.inMinutes - hours * 60;
-  seconds = playSeconds.inSeconds - hours * 60 * 60 - minutes * 60;
-
-  String h = hours.toString().padLeft(2, '0');
-  String m = minutes.toString().padLeft(2, '0');
-  String s = seconds.toString().padLeft(2, '0');
-
-  return (h + ":" + m + ":" + s);
-}
-
-void restart_variables() {
-// Cell control
-  currentCell = 0;
-  currentRow = 0;
-  canWrite = true;
-  finished = false;
-
-// Content of each cell
-  inputMatrix = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ];
-  colorsArray = [
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B"
-  ];
-
-// Word of the day letter by letter
-  wordOfTheDayArray = ["", "", "", "", ""];
-  wordOfTheDayString = "";
-  definitionURL = "https://dle.rae.es/";
-
-// Stats
-  infoStats = "";
-  emojiStats = "";
-  startDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  endDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  playSeconds = endDate.difference(startDate);
-
-  greenKeys = [];
-  yellowKeys = [];
-  greyKeys = [];
 }

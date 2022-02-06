@@ -1,18 +1,16 @@
-import 'package:Joadle/user_settings.dart';
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
-import 'common.dart';
-import 'my_keyboard.dart';
+//TODO: Implement AdMob
+//import 'package:Joadle/ad_helper.dart';
+//import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-/** ADMOB */
-/*
-import 'package:Joadle/ad_helper.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-*/
+import 'in_game_keyboard.dart';
+import 'common_methods.dart';
+import 'common_widgets.dart';
+import 'common_colors.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class JoadleApp extends StatelessWidget {
+  const JoadleApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,23 +29,15 @@ class Inicio extends StatefulWidget {
   _InicioState createState() => _InicioState();
 }
 
-// Screen
 class _InicioState extends State<Inicio> {
-
-  /** ADMOB */
-  /*
-  late BannerAd _bannerAd;
-  bool _isBannerAdReady = false;
-  */
+  //TODO: Implement AdMob
+  //late BannerAd _bannerAd;
+  //bool _isBannerAdReady = false;
 
   @override
   Widget build(BuildContext context) {
-    devWidth = MediaQuery.of(context).size.width;
-    devHeight = MediaQuery.of(context).size.height;
-
-    /** ADMOB */
-    /*
-    _bannerAd = BannerAd(
+    //TODO: Implement AdMob
+    /*_bannerAd = BannerAd(
       adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,
@@ -64,35 +54,10 @@ class _InicioState extends State<Inicio> {
         },
       ),
     );
-    _bannerAd.load();
-    */
+    _bannerAd.load();*/
 
-    /** CHECK SETTINGS */
-    if (colorBlind) {
-      myGreen = Colors.orange;
-      myYellow = Colors.blue;
-      greenEmoji = "🟧";
-      yellowEmoji = "🟦";
-    } else {
-      myGreen = Colors.green;
-      myYellow = Color(0xfff3d500);
-      greenEmoji = "🟩";
-      yellowEmoji = "🟨";
-    }
-
-    if (nightMode) {
-      myBlack = Colors.white;
-      myWhite = Color(0xff2d2d2d);
-      mySemiBlack = Colors.white;
-      whiteEmoji = "⬛";
-      keyColor = Color(0xff131313);
-    } else {
-      myBlack = Colors.black;
-      myWhite = Colors.white;
-      mySemiBlack = Colors.black54;
-      whiteEmoji = "⬜";
-      keyColor = Color(0xffefefef);
-    }
+    check_device_size(context);
+    check_settings();
 
     return Scaffold(
       backgroundColor: myWhite,
@@ -104,9 +69,8 @@ class _InicioState extends State<Inicio> {
         ),
         generate_keyboard(context),
 
-        /** ADMOB */
-        /*
-        if (_isBannerAdReady)
+        //TODO: Implement AdMob
+        /*if (_isBannerAdReady)
           Align(
             alignment: Alignment.topCenter,
             child: Container(
@@ -115,7 +79,6 @@ class _InicioState extends State<Inicio> {
               child: AdWidget(ad: _bannerAd),
             ),
           ),*/
-
       ]),
     );
   }
