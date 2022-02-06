@@ -155,13 +155,27 @@ String game_duration_to_string() {
 }
 
 void restart_game_variables() {
-// Cell control
+
   currentCell = 0;
   currentRow = 0;
   canWrite = true;
   finished = false;
 
-// Content of each cell
+  wordOfTheDayArray = ["", "", "", "", ""];
+  wordOfTheDayString = "";
+  definitionURL = "https://dle.rae.es/";
+
+  wonGame = false;
+  infoStats = "";
+  emojiStats = "";
+  startDate = DateTime.parse("2000-01-01 00:00:00.000000");
+  endDate = DateTime.parse("2000-01-01 00:00:00.000000");
+  playSeconds = endDate.difference(startDate);
+
+  greenKeys = [];
+  yellowKeys = [];
+  greyKeys = [];
+
   inputMatrix = [
     "",
     "",
@@ -194,6 +208,7 @@ void restart_game_variables() {
     "",
     ""
   ];
+
   colorsArray = [
     "B",
     "B",
@@ -226,21 +241,4 @@ void restart_game_variables() {
     "B",
     "B"
   ];
-
-// Word of the day letter by letter
-  wordOfTheDayArray = ["", "", "", "", ""];
-  wordOfTheDayString = "";
-  definitionURL = "https://dle.rae.es/";
-
-// Stats
-  wonGame = false;
-  infoStats = "";
-  emojiStats = "";
-  startDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  endDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  playSeconds = endDate.difference(startDate);
-
-  greenKeys = [];
-  yellowKeys = [];
-  greyKeys = [];
 }

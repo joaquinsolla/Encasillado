@@ -9,6 +9,7 @@ import 'common_methods.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
+
 AppBar myAppBarWithButtons(BuildContext context) {
   return AppBar(
     backgroundColor: appColor,
