@@ -14,7 +14,7 @@ void main() {
    * 1 - testDB1
    * 2 - testDB2
    * 3 - hardDB * */
-  selectedDatabase = databasesList[3];
+  selectedDatabase = databasesList[2];
 
   startDate = DateTime.now();
   generate_new_word();
