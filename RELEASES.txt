@@ -11,3 +11,4 @@ flutter build appbundle --no-sound-null-safety
 LISTADO DE VERSIONES:
 3(1.0.0)
 5(1.0.1)
+6(1.0.2)
