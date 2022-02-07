@@ -29,12 +29,6 @@ DateTime startDate = DateTime.parse("2000-01-01 00:00:00.000000");
 DateTime endDate = DateTime.parse("2000-01-01 00:00:00.000000");
 Duration playSeconds = endDate.difference(startDate);
 
-// URLs
-String definitionURL = "https://dle.rae.es/";
-String officialWordleURL = "https://www.powerlanguage.co.uk/wordle/";
-String joshWardleURL = "https://www.powerlanguage.co.uk/";
-String myInstagramURL = "https://instagram.com/joako.peke";
-String myGitHubURL = "https://www.github.com/joaquinsolla";
 
 // Content of each cell
 List<String> inputMatrix = [

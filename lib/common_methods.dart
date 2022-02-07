@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mailto/mailto.dart';
 import 'dart:math';
 
 import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
+
 import 'in_game_keyboard.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
+import 'common_urls.dart';
 
 
 void generate_new_word (){
@@ -105,6 +108,16 @@ void build_stats() {
     }
     if (lineUsed) emojiStats += "\n";
   }
+}
+
+mail_to(String email) async {
+  final mailtoLink = Mailto(
+    to: [email],
+    cc: [''],
+    subject: 'Contacto vía Joadle',
+    body: '',
+  );
+  await launch('$mailtoLink');
 }
 
 void copy_to_clipboard(BuildContext context) {

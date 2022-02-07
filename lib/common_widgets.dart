@@ -7,6 +7,7 @@ import 'common_imagepaths.dart';
 import 'common_variables.dart';
 import 'common_methods.dart';
 import 'common_colors.dart';
+import 'common_urls.dart';
 import 'main_view.dart';
 
 AppBar myAppBarWithButtons(BuildContext context) {
@@ -831,45 +832,85 @@ class settings_page extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 60,
-                          child: TextButton(
-                            onPressed: () {
-                              url_launcher(officialWordleURL);
-                            },
-                            style: TextButton.styleFrom(
-                              primary: myGrey,
+                    Container(
+                      height: 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 60,
+                            child: TextButton(
+                              onPressed: () {
+                                url_launcher(officialWordleURL);
+                              },
+                              style: TextButton.styleFrom(
+                                primary: myGrey,
+                              ),
+                              child: Text("Wordle"),
                             ),
-                            child: Text("Wordle"),
                           ),
-                        ),
-                        Text(
-                          "de",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: myGrey,
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(
-                          width: 100,
-                          child: TextButton(
-                            onPressed: () {
-                              url_launcher(joshWardleURL);
-                            },
-                            style: TextButton.styleFrom(
-                              primary: myGrey,
+                          Text(
+                            "de",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: myGrey,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
                             ),
-                            child: Text("Josh Wardle"),
+                            textAlign: TextAlign.center,
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            width: 100,
+                            child: TextButton(
+                              onPressed: () {
+                                url_launcher(joshWardleURL);
+                              },
+                              style: TextButton.styleFrom(
+                                primary: myGrey,
+                              ),
+                              child: Text("Josh Wardle"),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      color: myGrey,
+                    ),
+                    Container(
+                      height: 40,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                mail_to(myDevEmail);
+                              },
+                              style: TextButton.styleFrom(
+                                primary: myGrey,
+                              ),
+                              child: Text(
+                                "Contacto",
+                                style: TextStyle(fontSize: 12.5),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                url_launcher(privacyPolicyURL);
+                              },
+                              style: TextButton.styleFrom(
+                                primary: myGrey,
+                              ),
+                              child: Text(
+                                "Política de privacidad",
+                                style: TextStyle(fontSize: 12.5),
+                              ),
+                            ),
+                          ]),
                     ),
                   ],
                 ),
@@ -936,7 +977,7 @@ class future_updates_page extends StatelessWidget {
               ),
               Text(
                 "Se está actualizando la base de palabras para que el juego sea más 'sencillo'. "
-                    "Por ejemplo, se eliminarán verbos conjugados, plurales, etc.\n\n",
+                "Por ejemplo, se eliminarán verbos conjugados, plurales, etc.\n\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,

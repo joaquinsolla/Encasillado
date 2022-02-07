@@ -33,6 +33,7 @@ dependencies:
   flushbar: ^1.10.4
   url_launcher: ^5.7.10
   whatsapp_share: ^1.1.1
+  mailto: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
