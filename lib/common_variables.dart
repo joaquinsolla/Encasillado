@@ -8,6 +8,7 @@ double deviceWidth = 0;
 // User settings
 bool colorBlind = false;
 bool darkMode = false;
+bool future_updates_pushed = false;
 
 // Cell control
 int currentCell = 0;

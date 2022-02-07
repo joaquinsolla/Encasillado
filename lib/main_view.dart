@@ -65,11 +65,11 @@ class _InicioState extends State<Inicio> {
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
+        icons_banner(context),
         cellsField(),
         Expanded(
           child: Text(""),
         ),
-        if (streak > 0) streak_counter(),
         generate_keyboard(context),
 
         //TODO: Implement AdMob

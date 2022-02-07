@@ -80,7 +80,7 @@ AnimatedContainer letterCell(String char, String col) {
     curve: Curves.easeInOutCirc,
     width: (deviceWidth / 6 - 10.0),
     height: (deviceWidth / 6 - 10.0),
-    margin: const EdgeInsets.fromLTRB(2.0, 6.0, 2.0, 6.0),
+    margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 5.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
     decoration: BoxDecoration(
@@ -125,50 +125,128 @@ Column cellsField() {
       ]);
 }
 
-Container streak_counter() {
-  String gif;
+Container icons_banner(BuildContext context) {
+  String streakGif;
   if (darkMode) {
-    gif = streak_gif_darkmode;
+    streakGif = streak_gif_darkmode;
   } else {
-    gif = streak_gif;
+    streakGif = streak_gif;
   }
 
   String streakCount = " x" + streak.toString();
 
   return Container(
-    margin: EdgeInsets.fromLTRB(0.0,0.0,10.0,10.0),
+    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Expanded(child: Text("")),
-        Container(
-          padding: const EdgeInsets.fromLTRB(2.0,2.0,4.0,2.0),
-          decoration: BoxDecoration(
-            color: keyColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
-            children: [
-              Image.asset(
-                gif,
-                scale: 15,
-              ),
-              Text(
-                streakCount,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
+        if (future_updates_pushed == false) future_updates_button_blinking(),
+        if (future_updates_pushed == true)
+          future_updates_button_not_blinking(context),
+        SizedBox(
+          width: 5.0,
+        ),
+        if (streak >= 0)
+          Container(
+            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+            decoration: BoxDecoration(
+              color: keyColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  streakGif,
+                  scale: 15,
                 ),
-              ),
-            ],
-          ),
-        )
+                Text(
+                  streakCount,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: myBlack,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ],
+            ),
+          )
       ],
     ),
   );
+}
+
+TextButton future_updates_button_not_blinking(BuildContext context) {
+  String updatesImage;
+  if (darkMode) {
+    updatesImage = future_updates_image_darkmode;
+  } else {
+    updatesImage = future_updates_image;
+  }
+
+  return TextButton(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(keyColor),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+    ),
+    onPressed: () {
+      if (future_updates_pushed == false) future_updates_pushed = true;
+      runApp(JoadleApp());
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const future_updates_page()));
+    },
+    child: Container(
+      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+      decoration: BoxDecoration(
+        color: keyColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Image.asset(
+        updatesImage,
+        scale: 9,
+      ),
+    ),
+  );
+}
+
+class future_updates_button_blinking extends StatefulWidget {
+  @override
+  _future_updates_button_blinkingState createState() =>
+      _future_updates_button_blinkingState();
+}
+
+class _future_updates_button_blinkingState
+    extends State<future_updates_button_blinking>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController = new AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1500));
+    _animationController.repeat(reverse: true);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: _animationController,
+      child: future_updates_button_not_blinking(context),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 }
 
 void word_doesnt_exist_snackbar(BuildContext context) {
@@ -801,5 +879,134 @@ class settings_page extends StatelessWidget {
                 ),
               ],
             )));
+  }
+}
+
+class future_updates_page extends StatelessWidget {
+  const future_updates_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: myWhite,
+        appBar: myAppBarWithoutButtons(context),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Futuras actualizaciones",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n\n",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Mejoras en el listado de palabras",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se está actualizando la base de palabras para que el juego sea más 'sencillo'. "
+                    "Por ejemplo, se eliminarán verbos conjugados, plurales, etc.\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Más vías para compartir tus partidas",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se están preparando funcionalidades para compartir el resultado de tu partida vía Instagram Stories o Twitter.\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Modos de juego",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se está estudiando la posibilidad de incorporar diferentes modos de juego.\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Expanded(child: Text("")),
+              Text(
+                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: myGrey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        ));
   }
 }
