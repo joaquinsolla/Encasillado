@@ -3,8 +3,8 @@
 -Mejorar la BD
 -Instagram & Twitter
 -mirar exceptions
--anadir politica de privacidad
--anadir panel novedades & futuras mejoras
+-altura teclas flexible
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
+-palabra diaria

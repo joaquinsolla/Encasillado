@@ -10,7 +10,6 @@ import 'common_methods.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
 
-
 class JoadleApp extends StatelessWidget {
   const JoadleApp({Key? key}) : super(key: key);
 
@@ -65,10 +64,13 @@ class _InicioState extends State<Inicio> {
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
-        icons_banner(context),
-        cellsField(),
         Expanded(
-          child: Text(""),
+            child: ListView(
+              children: [
+                icons_banner(context),
+                cellsField(),
+              ],
+            )
         ),
         generate_keyboard(context),
 
