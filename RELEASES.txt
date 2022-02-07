@@ -1,0 +1,13 @@
+Generar apk optimizado: 
+flutter build apk --release --no-sound-null-safety
+
+Probar el apk: 
+flutter install
+
+Compilar appbundle a partir del apk:
+flutter build appbundle --no-sound-null-safety
+
+
+LISTADO DE VERSIONES:
+3(1.0.0)
+5(1.0.1)
