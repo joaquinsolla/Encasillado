@@ -693,7 +693,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 8 (1.0.4) Beta:",
+                "Versión 8 (1.0.4):",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
@@ -718,8 +718,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "En esta versión beta se está probando el nuevo diseño de vista en el que los elementos son de "
-                    "tamaño variable según las dimensiones del dispositivo\n\n",
+                "Nuevo diseño de vista en el que los elementos son de tamaño variable según las dimensiones del dispositivo\n\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -745,7 +744,7 @@ class updates_page extends StatelessWidget {
               ),
               Text(
                 "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n"
-                    "*sigue en proceso de mejora*\n\n",
+                    "*Sigue en proceso de mejora.\n\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
