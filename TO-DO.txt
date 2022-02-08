@@ -1,6 +1,5 @@
 ##### TO-DO list #####
 
--Mejorar la BD
 -Instagram & Twitter
 -mirar exceptions
 -altura teclas flexible
