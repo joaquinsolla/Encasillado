@@ -30,7 +30,8 @@ void generate_new_word (){
 
 void check_device_size(BuildContext context){
   deviceWidth = MediaQuery.of(context).size.width;
-  deviceHeight = MediaQuery.of(context).size.height;
+  deviceHeight = MediaQuery.of(context).size.height - 56; //Do not consider AppBar heigth (56px)
+  keyHeight = (deviceHeight)*0.09;
 }
 
 void check_settings(){

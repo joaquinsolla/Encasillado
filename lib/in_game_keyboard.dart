@@ -35,7 +35,7 @@ SizedBox my_letter_key(String char) {
   }
 
   return SizedBox(
-    height: (deviceWidth / 6),
+    height: keyHeight,
     width: (deviceWidth / 10),
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
@@ -69,7 +69,7 @@ SizedBox my_letter_key(String char) {
 
 SizedBox my_enter_key(BuildContext context) {
   return SizedBox(
-    height: (deviceWidth / 6),
+    height: keyHeight,
     width: (deviceWidth / 5),
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
@@ -131,7 +131,7 @@ SizedBox my_backspace_icon() {
   Color? mycolor = keyColor;
   if (darkMode) {
     return SizedBox(
-      height: (deviceWidth / 6),
+      height: keyHeight,
       width: (deviceWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),

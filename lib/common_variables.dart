@@ -4,6 +4,7 @@ List<String> selectedDatabase = [];
 // Device size
 double deviceHeight = 0;
 double deviceWidth = 0;
+double keyHeight = 0;
 
 // User settings
 bool colorBlind = false;

@@ -64,14 +64,9 @@ class _InicioState extends State<Inicio> {
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
-        Expanded(
-            child: ListView(
-              children: [
-                icons_banner(context),
-                cellsField(),
-              ],
-            )
-        ),
+        icons_banner(context),
+        cellsField(),
+        Expanded(child: Text("")),
         generate_keyboard(context),
 
         //TODO: Implement AdMob

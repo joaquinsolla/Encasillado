@@ -79,8 +79,8 @@ AnimatedContainer letterCell(String char, String col) {
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: (deviceWidth / 6 - 10.0),
-    height: (deviceWidth / 6 - 10.0),
+    width: ((deviceHeight*0.5) / 6 - 10.0),
+    height: ((deviceHeight*0.5) / 6 - 10.0),
     margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 5.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
@@ -90,7 +90,7 @@ AnimatedContainer letterCell(String char, String col) {
     ),
     child: Text(
       char,
-      style: TextStyle(fontSize: 40.0, color: myBlack),
+      style: TextStyle(fontSize: ((deviceHeight*0.5) / 6 - 22.5), color: myBlack),
     ),
   );
 }
@@ -137,7 +137,8 @@ Container icons_banner(BuildContext context) {
   String streakCount = " x" + streak.toString();
 
   return Container(
-    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 0.0),
+    height: deviceHeight*0.07,
+    margin: EdgeInsets.fromLTRB(7.5, 0.0, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -940,7 +941,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 7 (1.0.3):",
+                "Versión 8 (1.0.4) Beta:",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
@@ -949,6 +950,32 @@ class updates_page extends StatelessWidget {
                   fontFamily: 'RaleWay',
                 ),
                 textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Tamaño de vista dinámico",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "En esta versión beta se está probando el nuevo diseño de vista en el que los elementos son de "
+                    "tamaño variable según las dimensiones del dispositivo\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
               ),
               SizedBox(
                 height: 10,

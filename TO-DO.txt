@@ -2,7 +2,7 @@
 
 -Instagram & Twitter
 -mirar exceptions
--altura teclas flexible
+-internacionalizacion?
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
