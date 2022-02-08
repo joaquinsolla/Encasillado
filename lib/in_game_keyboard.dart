@@ -161,7 +161,7 @@ SizedBox my_backspace_icon() {
     );
   } else {
     return SizedBox(
-      height: (deviceWidth / 6),
+      height: keyHeight,
       width: (deviceWidth / 10),
       child: Container(
         margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
