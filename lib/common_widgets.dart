@@ -142,8 +142,8 @@ Container icons_banner(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Expanded(child: Text("")),
-        if (future_updates_pushed == false) future_updates_button_blinking(),
-        if (future_updates_pushed == true)
+        if (updates_pushed == false) future_updates_button_blinking(),
+        if (updates_pushed == true)
           future_updates_button_not_blinking(context),
         SizedBox(
           width: 5.0,
@@ -197,10 +197,10 @@ TextButton future_updates_button_not_blinking(BuildContext context) {
       ),
     ),
     onPressed: () {
-      if (future_updates_pushed == false) future_updates_pushed = true;
+      if (updates_pushed == false) updates_pushed = true;
       runApp(JoadleApp());
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const future_updates_page()));
+          MaterialPageRoute(builder: (context) => const updates_page()));
     },
     child: Container(
       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
@@ -923,8 +923,8 @@ class settings_page extends StatelessWidget {
   }
 }
 
-class future_updates_page extends StatelessWidget {
-  const future_updates_page({Key? key}) : super(key: key);
+class updates_page extends StatelessWidget {
+  const updates_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -940,7 +940,46 @@ class future_updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Futuras actualizaciones",
+                "Versión 7 (1.0.3):",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Lista de palabras actualizada",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "En proceso:",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
@@ -957,29 +996,6 @@ class future_updates_page extends StatelessWidget {
                 "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Mejoras en el listado de palabras",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se está actualizando la base de palabras para que el juego sea más 'sencillo'. "
-                "Por ejemplo, se eliminarán verbos conjugados, plurales, etc.\n\n",
-                style: TextStyle(
-                  fontSize: 15,
                   color: myBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
