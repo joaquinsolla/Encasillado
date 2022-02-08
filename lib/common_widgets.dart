@@ -674,7 +674,7 @@ class settings_page extends StatelessWidget {
         body: Container(
             margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
             alignment: Alignment.topCenter,
-            child: Column(
+            child: ListView(
               children: [
                 Text(
                   "Ajustes",
@@ -742,7 +742,7 @@ class settings_page extends StatelessWidget {
                     ),
                   ],
                 ),
-                Expanded(child: Text("")),
+                SizedBox(height: deviceHeight*0.15,),
                 Divider(
                   color: myGrey,
                 ),
