@@ -46,6 +46,7 @@ class game_finished_page extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
           child: ListView(
+            addAutomaticKeepAlives: true,
             children: [
               SizedBox(
                 height: 15.0,
@@ -231,7 +232,7 @@ class game_finished_page extends StatelessWidget {
                   ),
                 ],
               ),
-              Expanded(child: Text("")),
+              SizedBox(height: 30,),
               Text(
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(
@@ -283,6 +284,7 @@ class explanation_page extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
           child: ListView(
+            addAutomaticKeepAlives: true,
             children: [
               SizedBox(
                 height: 5,
@@ -377,8 +379,8 @@ class explanation_page extends StatelessWidget {
               Container(
                 height: 50,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(child: Text("")),
                     TextButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -388,7 +390,6 @@ class explanation_page extends StatelessWidget {
                           backgroundColor: appColor,
                         ),
                         child: Text("VAMOS ALLÁ")),
-                    Expanded(child: Text("")),
                   ],
                 ),
               ),
@@ -416,6 +417,7 @@ class settings_page extends StatelessWidget {
             margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
             alignment: Alignment.topCenter,
             child: ListView(
+              addAutomaticKeepAlives: true,
               children: [
                 Text(
                   "Ajustes",
@@ -685,6 +687,7 @@ class updates_page extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
           child: ListView(
+            addAutomaticKeepAlives: true,
             children: [
               SizedBox(
                 height: 5,
@@ -741,7 +744,33 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n\n",
+                "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n"
+                    "*sigue en proceso de mejora*\n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Corrección de bugs",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se han corregido errores de la interfaz.\n\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -823,7 +852,7 @@ class updates_page extends StatelessWidget {
                 ),
                 textAlign: TextAlign.left,
               ),
-              Expanded(child: Text("")),
+              SizedBox(height: 10,),
               Text(
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(

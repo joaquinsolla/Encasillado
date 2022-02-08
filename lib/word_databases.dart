@@ -3,7 +3,7 @@ List <List <String>> databasesList = [testDB0,testDB1,testDB2,gameDB];
 
 //Test lists
 const List <String> testDB0 = ["AAAAA"];
-const List <String> testDB1 = ["SOSAS","SASAS","SOAAS","SOSSS","SSSAS","OOSAS","EEEEA","EEEEO"];
+const List <String> testDB1 = ["AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","AAAAA","ZZZZZ"];
 const List <String> testDB2 = ["PLATO","LUCAS","COCHE","NADAR","ABRIR","AAAAA","PLATO","LUCAS","COCHE","NADAR","ABRIR","PLATO","LUCAS","COCHE","NADAR","ABRIR","PLATO","LUCAS","COCHE","NADAR","ABRIR"];
 
 // 3868 words
