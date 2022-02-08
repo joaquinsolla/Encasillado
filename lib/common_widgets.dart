@@ -11,6 +11,10 @@ import 'common_urls.dart';
 import 'main_view.dart';
 
 AppBar myAppBarWithButtons(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 1080) imageScale = 13;
+  else imageScale = 9.5;
+
   return AppBar(
     backgroundColor: appColor,
     title: Row(
@@ -18,7 +22,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
       children: [
         Image.asset(
           banner_logo,
-          scale: 9.5,
+          scale: imageScale,
         ),
         Expanded(child: Text("")),
         Expanded(
@@ -55,6 +59,10 @@ AppBar myAppBarWithButtons(BuildContext context) {
 }
 
 AppBar myAppBarWithoutButtons(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 1080) imageScale = 13;
+  else imageScale = 9.5;
+
   return AppBar(
     backgroundColor: appColor,
     title: Row(
@@ -62,7 +70,7 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
       children: [
         Image.asset(
           banner_logo,
-          scale: 9.5,
+          scale: imageScale,
         ),
       ],
     ),
@@ -137,15 +145,15 @@ Container icons_banner(BuildContext context) {
   String streakCount = " x" + streak.toString();
 
   return Container(
-    height: deviceHeight*0.07,
-    margin: EdgeInsets.fromLTRB(7.5, 0.0, 7.5, 0.0),
+    height: deviceHeight*0.07 - 5.0,
+    margin: EdgeInsets.fromLTRB(7.5, 5.0, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Expanded(child: Text("")),
-        if (updates_pushed == false) future_updates_button_blinking(),
+        if (updates_pushed == false) updates_button_blinking(),
         if (updates_pushed == true)
-          future_updates_button_not_blinking(context),
+          updates_button_not_blinking(context),
         SizedBox(
           width: 5.0,
         ),
@@ -180,7 +188,7 @@ Container icons_banner(BuildContext context) {
   );
 }
 
-TextButton future_updates_button_not_blinking(BuildContext context) {
+TextButton updates_button_not_blinking(BuildContext context) {
   String updatesImage;
   if (darkMode) {
     updatesImage = future_updates_image_darkmode;
@@ -217,14 +225,14 @@ TextButton future_updates_button_not_blinking(BuildContext context) {
   );
 }
 
-class future_updates_button_blinking extends StatefulWidget {
+class updates_button_blinking extends StatefulWidget {
   @override
-  _future_updates_button_blinkingState createState() =>
-      _future_updates_button_blinkingState();
+  _updates_button_blinkingState createState() =>
+      _updates_button_blinkingState();
 }
 
-class _future_updates_button_blinkingState
-    extends State<future_updates_button_blinking>
+class _updates_button_blinkingState
+    extends State<updates_button_blinking>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
@@ -240,7 +248,7 @@ class _future_updates_button_blinkingState
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _animationController,
-      child: future_updates_button_not_blinking(context),
+      child: updates_button_not_blinking(context),
     );
   }
 
