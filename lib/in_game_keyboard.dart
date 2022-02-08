@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'common_imagepaths.dart';
+import 'common_pages.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
