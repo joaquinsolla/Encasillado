@@ -86,8 +86,8 @@ AnimatedContainer letterCell(String char, String col) {
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: ((deviceHeight*0.5) / 6 - 10.0),
-    height: ((deviceHeight*0.5) / 6 - 10.0),
+    width: ((deviceHeight*0.5) / 6 - 13.0),
+    height: ((deviceHeight*0.5) / 6 - 13.0),
     margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 5.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
@@ -97,7 +97,7 @@ AnimatedContainer letterCell(String char, String col) {
     ),
     child: Text(
       char,
-      style: TextStyle(fontSize: ((deviceHeight*0.5) / 6 - 22.5), color: myBlack),
+      style: TextStyle(fontSize: ((deviceHeight*0.5) / 6 - 25), color: myBlack),
     ),
   );
 }

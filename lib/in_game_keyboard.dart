@@ -75,7 +75,7 @@ SizedBox my_enter_key(BuildContext context) {
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
       child: TextButton(
-        child: const Text("PROBAR"),
+        child: const Text("PROBAR", style: TextStyle(fontSize: 12),),
         style:
             TextButton.styleFrom(primary: myBlack, backgroundColor: keyColor),
         onPressed: () {
