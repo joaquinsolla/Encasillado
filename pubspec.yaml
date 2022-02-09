@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # google_mobile_ads: ^0.13.0
+  google_mobile_ads: ^0.13.0
   flushbar: ^1.10.4
   url_launcher: ^5.7.10
   whatsapp_share: ^1.1.1

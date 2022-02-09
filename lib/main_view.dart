@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 //TODO: Implement AdMob
-//import 'package:Joadle/ad_helper.dart';
-//import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:Joadle/ad_helper.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'common_variables.dart';
 import 'in_game_keyboard.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
@@ -32,13 +31,13 @@ class Inicio extends StatefulWidget {
 
 class _InicioState extends State<Inicio> {
   //TODO: Implement AdMob
-  //late BannerAd _bannerAd;
-  //bool _isBannerAdReady = false;
+  late BannerAd _bannerAd;
+  bool _isBannerAdReady = false;
 
   @override
   Widget build(BuildContext context) {
     //TODO: Implement AdMob
-    /*_bannerAd = BannerAd(
+    _bannerAd = BannerAd(
       adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,
@@ -55,7 +54,7 @@ class _InicioState extends State<Inicio> {
         },
       ),
     );
-    _bannerAd.load();*/
+    _bannerAd.load();
 
     check_device_size(context);
     check_settings();
@@ -66,11 +65,11 @@ class _InicioState extends State<Inicio> {
       body: Column(children: [
         icons_banner(context),
         cellsField(),
-        Expanded(child: Text("")),
+        Expanded(child: Text(""),),
         generate_keyboard(context),
-
+        SizedBox(height: 5,),
         //TODO: Implement AdMob
-        /*if (_isBannerAdReady)
+        if (_isBannerAdReady)
           Align(
             alignment: Alignment.topCenter,
             child: Container(
@@ -78,7 +77,7 @@ class _InicioState extends State<Inicio> {
               height: _bannerAd.size.height.toDouble(),
               child: AdWidget(ad: _bannerAd),
             ),
-          ),*/
+          ),
       ]),
     );
   }
