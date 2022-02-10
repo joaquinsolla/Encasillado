@@ -693,7 +693,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 1.0.4:",
+                "Versión 1.0.5:",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
@@ -718,7 +718,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Nuevo diseño de vista en el que los elementos son de tamaño variable según las dimensiones del dispositivo\n\n",
+                "Nuevo diseño de vista en el que los elementos son de tamaño variable según las dimensiones del dispositivo\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -744,7 +744,7 @@ class updates_page extends StatelessWidget {
               ),
               Text(
                 "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n"
-                    "*Sigue en proceso de mejora.\n\n",
+                    "También se han añadido nuevas palabras.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -769,7 +769,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Se han corregido errores de la interfaz.\n\n",
+                "Se han corregido errores de la interfaz.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -797,7 +797,7 @@ class updates_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n\n",
+                "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -819,7 +819,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Se están preparando funcionalidades para compartir el resultado de tu partida vía Instagram Stories o Twitter.\n\n",
+                "Se están preparando funcionalidades para compartir el resultado de tu partida vía Instagram Stories o Twitter.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -841,7 +841,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Se está estudiando la posibilidad de incorporar diferentes modos de juego.\n\n",
+                "Se está estudiando la posibilidad de incorporar diferentes modos de juego.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
