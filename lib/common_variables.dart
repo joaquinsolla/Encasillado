@@ -18,6 +18,8 @@ bool canWrite = true;
 bool finished = false;
 
 // Word of the day letter by letter
+List<String> standardWordArray = ["", "", "", "", ""];
+String standardWordString = "";
 List<String> wordOfTheDayArray = ["", "", "", "", ""];
 String wordOfTheDayString = "";
 

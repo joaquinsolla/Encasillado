@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mailto/mailto.dart';
+//import 'package:ntp/ntp.dart';
 import 'dart:math';
 
 import 'package:flushbar/flushbar.dart';
@@ -16,17 +17,24 @@ import 'common_colors.dart';
 import 'common_urls.dart';
 
 
-void generate_new_word (){
+void generate_standard_word (){
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
-  wordOfTheDayString = selectedWord;
+  standardWordString = selectedWord;
 
   for (var i = 0; i < 5; i++) {
-    wordOfTheDayArray[i] = selectedWord.substring(i, i+1);
+    standardWordArray[i] = selectedWord.substring(i, i+1);
     definitionURL += selectedWord.substring(i, i+1);
   }
 }
+
+/*
+void generate_word_of_the_day (){
+  int todayIndex = (3.1415*).round();
+
+}
+ */
 
 void check_device_size(BuildContext context){
   deviceWidth = MediaQuery.of(context).size.width;
@@ -175,8 +183,8 @@ void restart_game_variables() {
   canWrite = true;
   finished = false;
 
-  wordOfTheDayArray = ["", "", "", "", ""];
-  wordOfTheDayString = "";
+  standardWordArray = ["", "", "", "", ""];
+  standardWordString = "";
   definitionURL = "https://dle.rae.es/";
 
   wonGame = false;

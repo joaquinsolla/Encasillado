@@ -255,7 +255,7 @@ bool correct_word() {
 
   List<String> correctLetterByLetter = ["", "", "", "", ""];
   for (var i = 0; i < 5; i++) {
-    correctLetterByLetter[i] = wordOfTheDayArray[i];
+    correctLetterByLetter[i] = standardWordArray[i];
   }
 
   List<String> inputLetterByLetter = ["-", "-", "-", "-", "-"];
@@ -263,7 +263,7 @@ bool correct_word() {
     inputLetterByLetter[i] = inputMatrix[currentRow * 5 + i];
   }
 
-  if (inputWord == wordOfTheDayString) {
+  if (inputWord == standardWordString) {
     colorsArray[currentRow * 5 + 0] = "V";
     colorsArray[currentRow * 5 + 1] = "V";
     colorsArray[currentRow * 5 + 2] = "V";
@@ -273,7 +273,7 @@ bool correct_word() {
   } else {
     //GREEN
     for (var i = 0; i < 5; i++) {
-      if (inputMatrix[currentRow * 5 + i] == wordOfTheDayArray[i]) {
+      if (inputMatrix[currentRow * 5 + i] == standardWordArray[i]) {
         colorsArray[currentRow * 5 + i] = "V";
         greenKeys.insert(0, inputMatrix[currentRow * 5 + i]);
         correctLetterByLetter[i] = "";

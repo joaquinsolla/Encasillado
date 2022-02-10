@@ -34,6 +34,7 @@ dependencies:
   url_launcher: ^5.7.10
   whatsapp_share: ^1.1.1
   mailto: ^2.0.0
+  #ntp: ^1.0.7
 
 
   # The following adds the Cupertino Icons font to your application.

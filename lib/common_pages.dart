@@ -20,14 +20,14 @@ class game_finished_page extends StatelessWidget {
     String gameImage;
     String gameText;
     if (wonGame) {
-      infoStats = wordOfTheDayString +
+      infoStats = standardWordString +
           " - Intentos: " +
           (currentRow + 1).toString() +
           "/6";
       gameImage = victory_image;
       gameText = "VICTORIA";
     } else {
-      infoStats = wordOfTheDayString + " - Intentos: X/6";
+      infoStats = standardWordString + " - Intentos: X/6";
       gameImage = defeat_image;
       gameText = "DERROTA";
     }
@@ -141,7 +141,7 @@ class game_finished_page extends StatelessWidget {
                       primary: myWhite,
                       backgroundColor: appColor,
                     ),
-                    child: Text("Definición de " + wordOfTheDayString)),
+                    child: Text("Definición de " + standardWordString)),
               ]),
               SizedBox(
                 height: 10,
@@ -166,7 +166,7 @@ class game_finished_page extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       restart_game_variables();
-                      generate_new_word();
+                      generate_standard_word();
                       startDate = DateTime.now();
                       Navigator.pop(context);
                       runApp(JoadleApp());
@@ -259,7 +259,7 @@ class explanation_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     build_stats();
-    infoStats = wordOfTheDayString +
+    infoStats = standardWordString +
         " - Intentos: " +
         (currentRow + 1).toString() +
         "/6";
@@ -693,7 +693,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 8 (1.0.4):",
+                "Versión 1.0.4:",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,

@@ -17,7 +17,7 @@ void main() {
   selectedDatabase = databasesList[3];
 
   startDate = DateTime.now();
-  generate_new_word();
+  generate_standard_word();
 
   runApp(JoadleApp());
 }

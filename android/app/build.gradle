@@ -13,7 +13,7 @@ if (flutterRoot == null) {
 
 /** AUMENTAR CON CADA UPDATE */
 //def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-def flutterVersionCode = 11
+def flutterVersionCode = 14
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
@@ -34,6 +34,8 @@ def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+
+android.defaultConfig.ndk.debugSymbolLevel = 'FULL'
 
 android {
 
