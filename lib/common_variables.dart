@@ -1,5 +1,7 @@
 int currentPage = 1;
 
+bool wordOfTheDayDialogShown = false;
+
 // Current word database
 List<String> selectedDatabase = [];
 

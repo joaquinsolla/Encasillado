@@ -183,6 +183,13 @@ String game_duration_to_string() {
   return (h + ":" + m + ":" + s);
 }
 
+Future<void> show_wotd_dialog(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    builder: (_) => word_of_the_day_dialog(context),
+  );
+}
+
 void restart_game_variables() {
 
   currentCell = 0;

@@ -1,3 +1,4 @@
+import 'package:Joadle/common_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -32,16 +33,20 @@ class MainViewState extends State<MainView> {
   void bottom_tapped(int index) {
     restart_game_variables();
     generate_standard_word();
-    startDate = DateTime.now();
-    runApp(JoadleApp());
+
     /** working on trial time */
     if(index == 2) {
       index = currentPage;
     }
     /** - */
+
     setState(() {
       currentPage = index;
     });
+
+    startDate = DateTime.now();
+    runApp(JoadleApp());
+    if (currentPage == 0 && wordOfTheDayDialogShown == false) show_wotd_dialog(context);
   }
 
   @override

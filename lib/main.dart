@@ -20,8 +20,7 @@ void main() {
   generate_standard_word();
   generate_word_of_the_day();
 
-  print(standardWordString);
-  print(wordOfTheDayString);
+  print("WOTD: " + wordOfTheDayString);
 
   runApp(JoadleApp());
 }

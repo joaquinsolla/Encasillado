@@ -158,17 +158,22 @@ Container game_banner(BuildContext context) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        SizedBox(width: 15,),
-        Text(gameString,
+        SizedBox(
+          width: 15,
+        ),
+        Text(
+          gameString,
           style: TextStyle(
             fontSize: 17,
             color: myBlack,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.none,
             fontFamily: 'RaleWay',
-          ),),
+          ),
+        ),
         Expanded(child: Text("")),
-        if (currentPage == 1)Container(
+        if (currentPage == 1)
+          Container(
             padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
             decoration: BoxDecoration(
               color: keyColor,
@@ -281,4 +286,27 @@ void word_doesnt_exist_snackbar(BuildContext context) {
     backgroundColor: Colors.redAccent,
     flushbarPosition: FlushbarPosition.TOP,
   ).show(context);
+}
+
+Widget word_of_the_day_dialog(BuildContext context) {
+  return AlertDialog(
+    title: Text('¡La palabra del día!'),
+    content: Text(
+      "Cada día hay una nueva palabra oculta.\n\n"
+      "¡La misma palabra para todos los jugadores!\n\n"
+      "Comparte tu resultado y compite con tus amigos por ver quién es el mejor cada día.",
+    ),
+    actions: <Widget>[
+      TextButton(
+          onPressed: () {
+            wordOfTheDayDialogShown = true;
+            Navigator.pop(context);
+          },
+          style: TextButton.styleFrom(
+            primary: myWhite,
+            backgroundColor: appColor,
+          ),
+          child: Text("VAMOS ALLÁ")),
+    ],
+  );
 }
