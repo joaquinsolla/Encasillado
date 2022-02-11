@@ -11,8 +11,10 @@ import 'main_view.dart';
 
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
-  if (deviceWidth < 340) imageScale = 13;
-  else imageScale = 9.5;
+  if (deviceWidth < 340)
+    imageScale = 13;
+  else
+    imageScale = 9.5;
 
   return AppBar(
     backgroundColor: appColor,
@@ -59,8 +61,10 @@ AppBar myAppBarWithButtons(BuildContext context) {
 
 AppBar myAppBarWithoutButtons(BuildContext context) {
   double imageScale;
-  if (deviceWidth < 340) imageScale = 13;
-  else imageScale = 9.5;
+  if (deviceWidth < 340)
+    imageScale = 13;
+  else
+    imageScale = 9.5;
 
   return AppBar(
     backgroundColor: appColor,
@@ -86,9 +90,9 @@ AnimatedContainer letterCell(String char, String col) {
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
     curve: Curves.easeInOutCirc,
-    width: ((deviceHeight*0.5) / 6 - 13.0),
-    height: ((deviceHeight*0.5) / 6 - 13.0),
-    margin: const EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 5.0),
+    width: ((deviceHeight * 0.5) / 6 - 13.0),
+    height: ((deviceHeight * 0.5) / 6 - 13.0),
+    margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
     padding: const EdgeInsets.all(0.0),
     alignment: Alignment.center,
     decoration: BoxDecoration(
@@ -97,7 +101,8 @@ AnimatedContainer letterCell(String char, String col) {
     ),
     child: Text(
       char,
-      style: TextStyle(fontSize: ((deviceHeight*0.5) / 6 - 25), color: myBlack),
+      style:
+          TextStyle(fontSize: ((deviceHeight * 0.5) / 6 - 25), color: myBlack),
     ),
   );
 }
@@ -133,7 +138,7 @@ Column cellsField() {
       ]);
 }
 
-Container icons_banner(BuildContext context) {
+Container game_banner(BuildContext context) {
   String streakGif;
   if (darkMode) {
     streakGif = streak_gif_darkmode;
@@ -142,22 +147,28 @@ Container icons_banner(BuildContext context) {
   }
 
   String streakCount = " x" + streak.toString();
+  String gameString = "Palabras infinitas";
+  if (currentPage == 0) gameString = "¡La palabra del día!";
+  if (currentPage == 1) gameString = "Palabras infinitas";
+  if (currentPage == 2) gameString = "Modo contrarreloj";
 
   return Container(
-    height: deviceHeight*0.07 - 5.0,
+    height: deviceHeight * 0.07 - 5.0,
     margin: EdgeInsets.fromLTRB(7.5, 5.0, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        SizedBox(width: 15,),
+        Text(gameString,
+          style: TextStyle(
+            fontSize: 17,
+            color: myBlack,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.none,
+            fontFamily: 'RaleWay',
+          ),),
         Expanded(child: Text("")),
-        if (updates_pushed == false) updates_button_blinking(),
-        if (updates_pushed == true)
-          updates_button_not_blinking(context),
-        SizedBox(
-          width: 5.0,
-        ),
-        if (streak >= 0)
-          Container(
+        if (currentPage == 1)Container(
             padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
             decoration: BoxDecoration(
               color: keyColor,
@@ -181,7 +192,12 @@ Container icons_banner(BuildContext context) {
                 ),
               ],
             ),
-          )
+          ),
+        SizedBox(
+          width: 5.0,
+        ),
+        if (updates_pushed == false) updates_button_blinking(),
+        if (updates_pushed == true) updates_button_not_blinking(context),
       ],
     ),
   );
@@ -230,8 +246,7 @@ class updates_button_blinking extends StatefulWidget {
       _updates_button_blinkingState();
 }
 
-class _updates_button_blinkingState
-    extends State<updates_button_blinking>
+class _updates_button_blinkingState extends State<updates_button_blinking>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

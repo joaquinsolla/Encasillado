@@ -25,16 +25,23 @@ void generate_standard_word (){
 
   for (var i = 0; i < 5; i++) {
     standardWordArray[i] = selectedWord.substring(i, i+1);
-    definitionURL += selectedWord.substring(i, i+1);
+    standardDefinitionURL += selectedWord.substring(i, i+1);
   }
 }
 
-/*
 void generate_word_of_the_day (){
-  int todayIndex = (3.1415*).round();
+  int dbLength = selectedDatabase.length;
+  int todayIndex = ((3.1415*DateTime.now().day*DateTime.now().month*(DateTime.now().year-2000)*1000)/dbLength).round() ;
 
+  String selectedWord = selectedDatabase[todayIndex-1];
+
+  wordOfTheDayString = selectedWord;
+
+  for (var i = 0; i < 5; i++) {
+    wordOfTheDayArray[i] = selectedWord.substring(i, i+1);
+    wordOfTheDayDefinitionURL += selectedWord.substring(i, i+1);
+  }
 }
- */
 
 void check_device_size(BuildContext context){
   deviceWidth = MediaQuery.of(context).size.width;
@@ -185,7 +192,7 @@ void restart_game_variables() {
 
   standardWordArray = ["", "", "", "", ""];
   standardWordString = "";
-  definitionURL = "https://dle.rae.es/";
+  standardDefinitionURL = "https://dle.rae.es/";
 
   wonGame = false;
   infoStats = "";

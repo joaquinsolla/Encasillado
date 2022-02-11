@@ -9,9 +9,208 @@ import 'common_colors.dart';
 import 'common_urls.dart';
 import 'main_view.dart';
 
+class word_of_the_day_finished_page extends StatelessWidget {
+  const word_of_the_day_finished_page({Key? key}) : super(key: key);
 
-class game_finished_page extends StatelessWidget {
-  const game_finished_page({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    build_stats();
+
+    String gameImage;
+    String gameText;
+    String today = DateTime.now().day.toString() +
+        "/" +
+        DateTime.now().month.toString() +
+        "/" +
+        DateTime.now().year.toString().substring(2,4);
+
+    if (wonGame) {
+      infoStats = "Palabra del " +
+          today +
+          "\nIntentos: " +
+          (currentRow + 1).toString() +
+          "/6";
+      gameImage = victory_image;
+      gameText = "VICTORIA";
+    } else {
+      infoStats = "Palabra del " + today + "\nIntentos: X/6";
+      gameImage = defeat_image;
+      gameText = "DERROTA";
+    }
+
+    return Scaffold(
+        backgroundColor: myWhite,
+        appBar: myAppBarWithoutButtons(context),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            addAutomaticKeepAlives: true,
+            children: [
+              SizedBox(
+                height: 15.0,
+              ),
+              SizedBox(
+                height: 90,
+                child: Image.asset(gameImage),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                gameText,
+                style: TextStyle(
+                  fontSize: 30,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Estadísticas:",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: myBlack,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
+                infoStats,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                emojiStats + "\nTiempo: " + game_duration_to_string(),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¿No sabes el significado de la palabra?",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: myBlack,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                TextButton(
+                    onPressed: () {
+                      url_launcher(wordOfTheDayDefinitionURL);
+                    },
+                    style: TextButton.styleFrom(
+                      primary: myWhite,
+                      backgroundColor: appColor,
+                    ),
+                    child: Text("Definición de " + wordOfTheDayString)),
+              ]),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "¡Compártelo con tus amigos!",
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: myBlack,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {
+                      copy_to_clipboard(context);
+                    },
+                    elevation: 1,
+                    child: Image.asset(clipboard_icon),
+                    //Lienzo: 300px , img: 40px
+                    fillColor: myGrey,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      whatsapp_share();
+                    },
+                    elevation: 1,
+                    child: Image.asset(whatsapp_icon),
+                    //Lienzo: 280px , img: 40px
+                    fillColor: wppColor,
+                    shape: CircleBorder(),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: myGrey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class palabras_infinitas_finished_page extends StatelessWidget {
+  const palabras_infinitas_finished_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +334,7 @@ class game_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      url_launcher(definitionURL);
+                      url_launcher(standardDefinitionURL);
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
@@ -232,7 +431,9 @@ class game_finished_page extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Text(
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(
@@ -305,8 +506,8 @@ class explanation_page extends StatelessWidget {
               ),
               Text(
                 "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
-                    "Las palabras que pruebes deben estar en el diccionario.\n\n"
-                    "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
+                "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -485,7 +686,9 @@ class settings_page extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: deviceHeight*0.15,),
+                SizedBox(
+                  height: deviceHeight * 0.15,
+                ),
                 Divider(
                   color: myGrey,
                 ),
@@ -494,8 +697,8 @@ class settings_page extends StatelessWidget {
                   children: [
                     Text(
                       "\nSoy Joaquín, estudiante de ingeniería informática. "
-                          "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
-                          "\n\nPuedes encontrarme en:\n",
+                      "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
+                      "\n\nPuedes encontrarme en:\n",
                       style: TextStyle(
                         fontSize: 12,
                         color: myGrey,
@@ -744,7 +947,7 @@ class updates_page extends StatelessWidget {
               ),
               Text(
                 "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n"
-                    "También se han añadido nuevas palabras.\n",
+                "También se han añadido nuevas palabras.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -851,7 +1054,9 @@ class updates_page extends StatelessWidget {
                 ),
                 textAlign: TextAlign.left,
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 "Gracias por jugar a Joadle\n\nJoadle by joa",
                 style: TextStyle(

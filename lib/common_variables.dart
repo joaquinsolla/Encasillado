@@ -1,3 +1,5 @@
+int currentPage = 1;
+
 // Current word database
 List<String> selectedDatabase = [];
 

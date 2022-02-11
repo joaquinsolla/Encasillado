@@ -1,5 +1,6 @@
 String joadlePlayStoreURL = "https://play.google.com/store/apps/details?id=com.joa.joadle";
-String definitionURL = "https://dle.rae.es/";
+String standardDefinitionURL = "https://dle.rae.es/";
+String wordOfTheDayDefinitionURL = "https://dle.rae.es/";
 String officialWordleURL = "https://www.powerlanguage.co.uk/wordle/";
 String joshWardleURL = "https://www.powerlanguage.co.uk/";
 String myInstagramURL = "https://instagram.com/joako.peke";

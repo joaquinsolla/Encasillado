@@ -18,6 +18,10 @@ void main() {
 
   startDate = DateTime.now();
   generate_standard_word();
+  generate_word_of_the_day();
+
+  print(standardWordString);
+  print(wordOfTheDayString);
 
   runApp(JoadleApp());
 }

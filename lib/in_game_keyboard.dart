@@ -89,25 +89,53 @@ SizedBox my_enter_key(BuildContext context) {
             if (word_exists()) {
               if (correct_word()) {
                 if (!finished) {
-                  streak++;
-                  finished = true;
-                  wonGame = true;
+                  if (currentPage == 0) {
+                    finished = true;
+                    wonGame = true;
+                  }
+                  if (currentPage == 1) {
+                    streak++;
+                    finished = true;
+                    wonGame = true;
+                  }
+                  if (currentPage == 2) {
+                    /** to implement */
+                  }
+
                 }
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const game_finished_page()));
+                if (currentPage == 0) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const word_of_the_day_finished_page()));
+                }
+                if (currentPage == 1) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const palabras_infinitas_finished_page()));
+                }
+                if (currentPage == 2) {
+                  /** to implement */
+                }
               } else {
                 if (currentCell == 30) {
                   if (!finished) {
-                    streak=0;
-                    finished = true;
-                    wonGame = false;
+                    if (currentPage == 0) {
+                      finished = true;
+                      wonGame = false;
+                    }
+                    if (currentPage == 1) {
+                      streak=0;
+                      finished = true;
+                      wonGame = false;
+                    }
+                    if (currentPage == 2) {}
                   }
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const game_finished_page()));
+                          builder: (context) => const palabras_infinitas_finished_page()));
                 } else {
                   currentRow++;
                   canWrite = true;
@@ -247,6 +275,14 @@ Column generate_keyboard(BuildContext context) {
 }
 
 bool correct_word() {
+
+  String selectedWordString = standardWordString;
+  List <String> selectedWordArray = standardWordArray;
+  if (currentPage == 0) {
+    selectedWordString = wordOfTheDayString;
+    selectedWordArray = wordOfTheDayArray;
+  }
+
   String inputWord = inputMatrix[currentRow * 5] +
       inputMatrix[currentRow * 5 + 1] +
       inputMatrix[currentRow * 5 + 2] +
@@ -255,7 +291,7 @@ bool correct_word() {
 
   List<String> correctLetterByLetter = ["", "", "", "", ""];
   for (var i = 0; i < 5; i++) {
-    correctLetterByLetter[i] = standardWordArray[i];
+    correctLetterByLetter[i] = selectedWordArray[i];
   }
 
   List<String> inputLetterByLetter = ["-", "-", "-", "-", "-"];
@@ -263,7 +299,7 @@ bool correct_word() {
     inputLetterByLetter[i] = inputMatrix[currentRow * 5 + i];
   }
 
-  if (inputWord == standardWordString) {
+  if (inputWord == selectedWordString) {
     colorsArray[currentRow * 5 + 0] = "V";
     colorsArray[currentRow * 5 + 1] = "V";
     colorsArray[currentRow * 5 + 2] = "V";
@@ -273,7 +309,7 @@ bool correct_word() {
   } else {
     //GREEN
     for (var i = 0; i < 5; i++) {
-      if (inputMatrix[currentRow * 5 + i] == standardWordArray[i]) {
+      if (inputMatrix[currentRow * 5 + i] == selectedWordArray[i]) {
         colorsArray[currentRow * 5 + i] = "V";
         greenKeys.insert(0, inputMatrix[currentRow * 5 + i]);
         correctLetterByLetter[i] = "";

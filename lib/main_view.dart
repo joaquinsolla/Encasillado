@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-//TODO: Implement AdMob
-//import 'package:Joadle/ad_helper.dart';
-//import 'package:google_mobile_ads/google_mobile_ads.dart';
-
+import 'common_variables.dart';
+import 'common_colors.dart';
 import 'in_game_keyboard.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
-import 'common_colors.dart';
+
 
 class JoadleApp extends StatelessWidget {
   const JoadleApp({Key? key}) : super(key: key);
@@ -17,46 +16,36 @@ class JoadleApp extends StatelessWidget {
     return MaterialApp(
       title: "Joadle",
       debugShowCheckedModeBanner: false,
-      home: Inicio(),
+      home: MainView(),
     );
   }
 }
 
-class Inicio extends StatefulWidget {
-  Inicio({Key? key}) : super(key: key);
+class MainView extends StatefulWidget {
 
   @override
-  _InicioState createState() => _InicioState();
+  MainViewState createState() => MainViewState();
 }
 
-class _InicioState extends State<Inicio> {
-  //TODO: Implement AdMob
-  //late BannerAd _bannerAd;
-  //bool _isBannerAdReady = false;
+class MainViewState extends State<MainView> {
+
+  void bottom_tapped(int index) {
+    restart_game_variables();
+    generate_standard_word();
+    startDate = DateTime.now();
+    runApp(JoadleApp());
+    /** working on trial time */
+    if(index == 2) {
+      index = currentPage;
+    }
+    /** - */
+    setState(() {
+      currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Implement AdMob
-    /*
-    _bannerAd = BannerAd(
-      adUnitId: AdHelper.bannerAdUnitId,
-      request: AdRequest(),
-      size: AdSize.banner,
-      listener: BannerAdListener(
-        onAdLoaded: (_) {
-          setState(() {
-            _isBannerAdReady = true;
-          });
-        },
-        onAdFailedToLoad: (ad, err) {
-          print('Failed to load a banner ad: ${err.message}');
-          _isBannerAdReady = false;
-          ad.dispose();
-        },
-      ),
-    );
-    _bannerAd.load();
-    */
 
     check_device_size(context);
     check_settings();
@@ -64,25 +53,36 @@ class _InicioState extends State<Inicio> {
     return Scaffold(
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
+
       body: Column(children: [
-        icons_banner(context),
+        game_banner(context),
         cellsField(),
         Expanded(child: Text(""),),
         generate_keyboard(context),
-
-        //TODO: Implement AdMob
-        /*
-        SizedBox(height: 5,),
-        if (_isBannerAdReady)
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              width: _bannerAd.size.width.toDouble(),
-              height: _bannerAd.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd),
-            ),
-          ),*/
+        SizedBox(height: 7.5,),
       ]),
+
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: appColor,
+        unselectedItemColor: Colors.black45,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_rounded),
+            label: '¡La palabra\n   del día!',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.loop_rounded),
+            label: 'Palabras\n infinitas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.timer_outlined),
+            label: '      Modo\nContrarreloj',
+          ),
+        ],
+        currentIndex: currentPage,
+        selectedItemColor: Colors.white,
+        onTap: bottom_tapped,
+      ),
     );
   }
 }

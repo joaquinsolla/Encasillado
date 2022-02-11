@@ -2,8 +2,9 @@
 
 -Instagram & Twitter
 -mirar exceptions
--internacionalizacion?
+-Antirrotación
+-Cuando resuelves una palabra no se actualiza el teclado
 
 MODOS DE JUEGO (primero optimizar codigo)
 -contrarreloj de 2mins
--palabra diaria!!!!!!!!!!!!!
+-palabra diaria
