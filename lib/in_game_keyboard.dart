@@ -92,6 +92,7 @@ SizedBox my_enter_key(BuildContext context) {
                   if (currentPage == 0) {
                     finished = true;
                     wonGame = true;
+                    wotdDone = true;
                   }
                   if (currentPage == 1) {
                     streak++;
@@ -124,6 +125,7 @@ SizedBox my_enter_key(BuildContext context) {
                     if (currentPage == 0) {
                       finished = true;
                       wonGame = false;
+                      wotdDone = true;
                     }
                     if (currentPage == 1) {
                       streak=0;

@@ -288,13 +288,18 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
-Widget word_of_the_day_dialog(BuildContext context) {
+Widget wotd_explanation_dialog(BuildContext context) {
   return AlertDialog(
-    title: Text('¡La palabra del día!'),
+    backgroundColor: myWhite,
+    title: Text(
+      '¡La palabra del día!',
+      style: TextStyle(color: myBlack),
+    ),
     content: Text(
       "Cada día hay una nueva palabra oculta.\n\n"
       "¡La misma palabra para todos los jugadores!\n\n"
       "Comparte tu resultado y compite con tus amigos por ver quién es el mejor cada día.",
+      style: TextStyle(color: myBlack),
     ),
     actions: <Widget>[
       TextButton(
@@ -307,6 +312,33 @@ Widget word_of_the_day_dialog(BuildContext context) {
             backgroundColor: appColor,
           ),
           child: Text("VAMOS ALLÁ")),
+    ],
+  );
+}
+
+Widget wotd_done_dialog(BuildContext context) {
+  return AlertDialog(
+    backgroundColor: myWhite,
+    title: Text(
+      '¡Ya has descubierto la palabra de hoy!',
+      style: TextStyle(color: myBlack),
+    ),
+    content: Text(
+      "Ya has completado el juego de hoy, pero mañana habrá otra palabra esperándote.\n\n"
+          "Una palabra nueva a las 00:00",
+      style: TextStyle(color: myBlack),
+    ),
+    actions: <Widget>[
+      TextButton(
+          onPressed: () {
+            wordOfTheDayDialogShown = true;
+            Navigator.pop(context);
+          },
+          style: TextButton.styleFrom(
+            primary: myWhite,
+            backgroundColor: appColor,
+          ),
+          child: Text("VALE")),
     ],
   );
 }

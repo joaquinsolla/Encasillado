@@ -46,14 +46,29 @@ class MainViewState extends State<MainView> {
 
     startDate = DateTime.now();
     runApp(JoadleApp());
-    if (currentPage == 0 && wordOfTheDayDialogShown == false) show_wotd_dialog(context);
+    if (currentPage == 0) {
+      if (wotdDone) {
+        finished = true;
+        show_wotd_done_dialog(context);
+      } else {
+        if (wordOfTheDayDialogShown == false) show_wotd_explanation_dialog(context);
+      }
+    }
+
   }
 
   @override
   Widget build(BuildContext context) {
 
-    check_device_size(context);
+    if (appStarted == false) {
+      var brightness = MediaQuery.of(context).platformBrightness;
+      darkMode = brightness == Brightness.dark;
+    }
+
+    check_device(context);
     check_settings();
+
+    appStarted = true;
 
     return Scaffold(
       backgroundColor: myWhite,

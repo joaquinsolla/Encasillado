@@ -937,6 +937,31 @@ class updates_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
+                "Tema automático",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "La app se iniciará automátiamente en el tema predeterminado del sistema (claro o escuro).\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
                 "En proceso:",
                 style: TextStyle(
                   fontSize: 25,

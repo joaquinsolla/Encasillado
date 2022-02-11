@@ -43,7 +43,7 @@ void generate_word_of_the_day (){
   }
 }
 
-void check_device_size(BuildContext context){
+void check_device(BuildContext context){
   deviceWidth = MediaQuery.of(context).size.width;
   deviceHeight = MediaQuery.of(context).size.height - 56; //Do not consider AppBar heigth (56px)
   keyHeight = (deviceHeight)*0.0825;
@@ -183,10 +183,17 @@ String game_duration_to_string() {
   return (h + ":" + m + ":" + s);
 }
 
-Future<void> show_wotd_dialog(BuildContext context) async {
+Future<void> show_wotd_explanation_dialog(BuildContext context) async {
   return showDialog<void>(
     context: context,
-    builder: (_) => word_of_the_day_dialog(context),
+    builder: (_) => wotd_explanation_dialog(context),
+  );
+}
+
+Future<void> show_wotd_done_dialog(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    builder: (_) => wotd_done_dialog(context),
   );
 }
 

@@ -1,6 +1,7 @@
 int currentPage = 1;
 
 bool wordOfTheDayDialogShown = false;
+bool appStarted = false;
 
 // Current word database
 List<String> selectedDatabase = [];
@@ -20,6 +21,7 @@ int currentCell = 0;
 int currentRow = 0;
 bool canWrite = true;
 bool finished = false;
+bool wotdDone = false;
 
 // Word of the day letter by letter
 List<String> standardWordArray = ["", "", "", "", ""];
