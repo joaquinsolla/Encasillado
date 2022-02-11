@@ -9,6 +9,7 @@ import 'common_colors.dart';
 import 'common_urls.dart';
 import 'main_view.dart';
 
+
 class word_of_the_day_finished_page extends StatelessWidget {
   const word_of_the_day_finished_page({Key? key}) : super(key: key);
 
@@ -896,7 +897,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 1.0.5:",
+                "Versión 2.0.0 Beta:",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
@@ -910,7 +911,7 @@ class updates_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Tamaño de vista dinámico",
+                "Nuevo menú y modos de juego",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -921,58 +922,8 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Nuevo diseño de vista en el que los elementos son de tamaño variable según las dimensiones del dispositivo\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Lista de palabras actualizada",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "La base de palabras ha sido mejorada: ya no contiene verbos conjugados, plurales, etc.\n"
-                "También se han añadido nuevas palabras.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Corrección de bugs",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se han corregido errores de la interfaz.\n",
+                "En esta versión de prueba se ha introducido un nuevo menú y el modo de juego 'La palabra del día'\n"
+                    "El modo 'Contrarreloj' todavía está en desarrollo.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
