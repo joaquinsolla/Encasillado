@@ -1,6 +1,6 @@
 # Encasillado
 
-A word game.
+A words game.
 
 ## PlayStore released
 
