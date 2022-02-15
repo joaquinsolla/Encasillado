@@ -1,6 +1,6 @@
 # Encasillado
 
-My version of wordle.
+A word game.
 
 ## PlayStore released
 
