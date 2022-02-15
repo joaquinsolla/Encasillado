@@ -99,9 +99,6 @@ SizedBox my_enter_key(BuildContext context) {
                     finished = true;
                     wonGame = true;
                   }
-                  if (currentPage == 2) {
-                    /** to implement */
-                  }
 
                 }
                 if (currentPage == 0) {
@@ -115,9 +112,6 @@ SizedBox my_enter_key(BuildContext context) {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const palabras_infinitas_finished_page()));
-                }
-                if (currentPage == 2) {
-                  /** to implement */
                 }
               } else {
                 if (currentCell == 30) {

@@ -33,12 +33,6 @@ class MainViewState extends State<MainView> {
     restart_game_variables();
     generate_standard_word();
 
-    /** working on trial time */
-    if(index == 2) {
-      index = currentPage;
-    }
-    /** - */
-
     setState(() {
       currentPage = index;
     });
@@ -92,10 +86,6 @@ class MainViewState extends State<MainView> {
           BottomNavigationBarItem(
             icon: Icon(Icons.loop_rounded),
             label: 'Palabras\n infinitas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.timer_outlined),
-            label: '      Modo\nContrarreloj',
           ),
         ],
         currentIndex: currentPage,
