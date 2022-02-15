@@ -191,7 +191,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -369,7 +369,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                       generate_standard_word();
                       startDate = DateTime.now();
                       Navigator.pop(context);
-                      runApp(JoadleApp());
+                      runApp(EncasilladoApp());
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
@@ -436,7 +436,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -654,7 +654,7 @@ class settings_page extends StatelessWidget {
                       value: colorBlind,
                       onChanged: (value) {
                         colorBlind = (!colorBlind);
-                        runApp(JoadleApp());
+                        runApp(EncasilladoApp());
                         Navigator.pop(context);
                       },
                     ),
@@ -681,7 +681,7 @@ class settings_page extends StatelessWidget {
                       value: darkMode,
                       onChanged: (value) {
                         darkMode = (!darkMode);
-                        runApp(JoadleApp());
+                        runApp(EncasilladoApp());
                         Navigator.pop(context);
                       },
                     ),
@@ -1034,7 +1034,7 @@ class updates_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -1104,7 +1104,7 @@ class word_of_the_day_explanation_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Gracias por jugar a Joadle\n\nJoadle by joa",
+                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,

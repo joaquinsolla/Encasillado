@@ -60,7 +60,7 @@ SizedBox my_letter_key(String char) {
                 canWrite = false;
               }
             }
-            runApp(JoadleApp());
+            runApp(EncasilladoApp());
           }
         },
       ),
@@ -151,7 +151,7 @@ SizedBox my_enter_key(BuildContext context) {
             endDate = DateTime.now();
             playSeconds = endDate.difference(startDate);
           }
-          runApp(JoadleApp());
+          runApp(EncasilladoApp());
         },
       ),
     ),
@@ -184,7 +184,7 @@ SizedBox my_backspace_icon() {
                 inputMatrix[currentCell] = "";
                 canWrite = true;
               }
-              runApp(JoadleApp());
+              runApp(EncasilladoApp());
             }
           },
         ),
@@ -214,7 +214,7 @@ SizedBox my_backspace_icon() {
                 inputMatrix[currentCell] = "";
                 canWrite = true;
               }
-              runApp(JoadleApp());
+              runApp(EncasilladoApp());
             }
           },
         ),

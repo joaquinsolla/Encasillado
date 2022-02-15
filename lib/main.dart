@@ -22,5 +22,5 @@ void main() {
 
   print("WOTD: " + wordOfTheDayString);
 
-  runApp(JoadleApp());
+  runApp(EncasilladoApp());
 }

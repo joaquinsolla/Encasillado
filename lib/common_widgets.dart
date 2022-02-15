@@ -227,7 +227,7 @@ TextButton updates_button_not_blinking(BuildContext context) {
     ),
     onPressed: () {
       if (updates_pushed == false) updates_pushed = true;
-      runApp(JoadleApp());
+      runApp(EncasilladoApp());
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const updates_page()));
     },

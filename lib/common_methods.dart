@@ -130,7 +130,7 @@ mail_to(String email) async {
   final mailtoLink = Mailto(
     to: [email],
     cc: [''],
-    subject: 'Contacto vía Joadle',
+    subject: 'Contacto vía Encasillado',
     body: '',
   );
   await launch('$mailtoLink');
@@ -142,7 +142,7 @@ void copy_to_clipboard(BuildContext context) {
       emojiStats +
       "Tiempo: " +
       game_duration_to_string() +
-      "\n\nJoadle by joa\n" + joadlePlayStoreURL;
+      "\n\nEncasillado by joa\n" + encasilladoPlayStoreURL;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
   Flushbar(
@@ -159,7 +159,7 @@ Future<void> whatsapp_share() async {
       emojiStats +
       "Tiempo: " +
       game_duration_to_string() +
-      "\n\nJoadle by joa\n" + joadlePlayStoreURL;
+      "\n\nEncasillado by joa\n" + encasilladoPlayStoreURL;
   await WhatsappShare.share(
     text: text,
     linkUrl: '',

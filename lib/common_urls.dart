@@ -1,4 +1,4 @@
-String joadlePlayStoreURL = "https://play.google.com/store/apps/details?id=com.joa.joadle";
+String encasilladoPlayStoreURL = "https://play.google.com/store/apps/details?id=com.joa.encasillado";
 String standardDefinitionURL = "https://dle.rae.es/";
 String wordOfTheDayDefinitionURL = "https://dle.rae.es/";
 String officialWordleURL = "https://www.powerlanguage.co.uk/wordle/";

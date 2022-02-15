@@ -1,4 +1,3 @@
-import 'package:Joadle/common_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -9,13 +8,13 @@ import 'common_methods.dart';
 import 'common_widgets.dart';
 
 
-class JoadleApp extends StatelessWidget {
-  const JoadleApp({Key? key}) : super(key: key);
+class EncasilladoApp extends StatelessWidget {
+  const EncasilladoApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Joadle",
+      title: "Encasillado",
       debugShowCheckedModeBanner: false,
       home: MainView(),
     );
@@ -45,7 +44,7 @@ class MainViewState extends State<MainView> {
     });
 
     startDate = DateTime.now();
-    runApp(JoadleApp());
+    runApp(EncasilladoApp());
     if (currentPage == 0) {
       if (wotdDone) {
         finished = true;
