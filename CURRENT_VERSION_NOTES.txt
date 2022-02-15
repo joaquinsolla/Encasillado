@@ -1,6 +1,0 @@
-Beta 17(2.0.0)
-
-Implementando:
-- Tema automático
-- Menú
-- Modos de juego
