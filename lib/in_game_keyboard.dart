@@ -126,12 +126,19 @@ SizedBox my_enter_key(BuildContext context) {
                       finished = true;
                       wonGame = false;
                     }
-                    if (currentPage == 2) {}
                   }
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const palabras_infinitas_finished_page()));
+                  if (currentPage == 0) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const word_of_the_day_finished_page()));
+                  }
+                  if (currentPage == 1) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const palabras_infinitas_finished_page()));
+                  }
                 } else {
                   currentRow++;
                   canWrite = true;

@@ -26,7 +26,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
         DateTime.now().year.toString().substring(2,4);
 
     if (wonGame) {
-      infoStats = "Palabra del " +
+      infoStats = "Encasillado de " +
           today +
           "\nIntentos: " +
           (currentRow + 1).toString() +
@@ -834,6 +834,17 @@ class settings_page extends StatelessWidget {
                     Divider(
                       color: myGrey,
                     ),
+                    Text(
+                      "\nPuedes contactarme para reportar errores o comunicar sugerencias:",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: myGrey,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                     Container(
                       height: 40,
                       child: Row(
@@ -973,76 +984,6 @@ class updates_page extends StatelessWidget {
               ),
               Text(
                 "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: myGrey,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
-          ),
-        ));
-  }
-}
-
-
-
-
-class word_of_the_day_explanation_page extends StatelessWidget {
-  const word_of_the_day_explanation_page({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: myWhite,
-        appBar: myAppBarWithoutButtons(context),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
-          alignment: Alignment.topCenter,
-          child: ListView(
-            addAutomaticKeepAlives: true,
-            children: [
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                "¡La palabra del día!",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Cada día una nueva palabra oculta.\n"
-                    "¡La misma palabra para todos los jugadores!\n\n"
-                    "Comparte tu resultado y compite con tus amigos por ver quién es el mejor cada día.",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,

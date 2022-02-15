@@ -186,6 +186,7 @@ String game_duration_to_string() {
 Future<void> show_wotd_explanation_dialog(BuildContext context) async {
   return showDialog<void>(
     context: context,
+    barrierDismissible: false,
     builder: (_) => wotd_explanation_dialog(context),
   );
 }
@@ -193,6 +194,7 @@ Future<void> show_wotd_explanation_dialog(BuildContext context) async {
 Future<void> show_wotd_done_dialog(BuildContext context) async {
   return showDialog<void>(
     context: context,
+    barrierDismissible: false,
     builder: (_) => wotd_done_dialog(context),
   );
 }
