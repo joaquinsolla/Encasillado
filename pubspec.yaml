@@ -1,4 +1,4 @@
-name: Joadle
+name: Encasillado
 description: My version of the words game
 
 # The following line prevents the package from being accidentally published to
@@ -34,7 +34,6 @@ dependencies:
   url_launcher: ^5.7.10
   whatsapp_share: ^1.1.1
   mailto: ^2.0.0
-  #ntp: ^1.0.7
 
 
   # The following adds the Cupertino Icons font to your application.

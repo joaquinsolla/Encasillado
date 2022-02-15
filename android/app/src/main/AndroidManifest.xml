@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.joa.encasillado">
+    package="com.example.my_wordle"> <!-- TO CHANGE-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <queries>
         <intent>

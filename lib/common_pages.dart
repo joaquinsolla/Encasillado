@@ -688,7 +688,7 @@ class settings_page extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: deviceHeight * 0.15,
+                  height: 15,
                 ),
                 Divider(
                   color: myGrey,
@@ -908,10 +908,10 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               Text(
-                "Nuevo menú y modos de juego",
+                "xxxxx",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -922,33 +922,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "En esta versión de prueba se ha introducido un nuevo menú y el modo de juego 'La palabra del día'\n"
-                    "El modo 'Contrarreloj' todavía está en desarrollo.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Tema automático",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "La app se iniciará automátiamente en el tema predeterminado del sistema (claro o escuro).\n",
+                "xxxxxxxxxxxxxxxxxxxxxxxxx\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -987,7 +961,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Más vías para compartir tus partidas",
+                "xxxxxxx",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -998,29 +972,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Se están preparando funcionalidades para compartir el resultado de tu partida vía Instagram Stories o Twitter.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Modos de juego",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se está estudiando la posibilidad de incorporar diferentes modos de juego.\n",
+                "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
