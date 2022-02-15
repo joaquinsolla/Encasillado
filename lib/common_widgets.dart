@@ -177,7 +177,7 @@ Container game_banner(BuildContext context) {
             padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
             decoration: BoxDecoration(
               color: keyColor,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
               children: [
@@ -201,81 +201,28 @@ Container game_banner(BuildContext context) {
         SizedBox(
           width: 5.0,
         ),
-        if (updates_pushed == false) updates_button_blinking(),
-        if (updates_pushed == true) updates_button_not_blinking(context),
+        current_version_button(context),
       ],
     ),
   );
 }
 
-TextButton updates_button_not_blinking(BuildContext context) {
-  String updatesImage;
-  if (darkMode) {
-    updatesImage = future_updates_image_darkmode;
-  } else {
-    updatesImage = future_updates_image;
-  }
-
+TextButton current_version_button(BuildContext context) {
   return TextButton(
-    style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(keyColor),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      ),
-    ),
     onPressed: () {
-      if (updates_pushed == false) updates_pushed = true;
       runApp(EncasilladoApp());
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const updates_page()));
     },
-    child: Container(
-      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-      decoration: BoxDecoration(
-        color: keyColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Image.asset(
-        updatesImage,
-        scale: 9,
-      ),
+    style: TextButton.styleFrom(
+      primary: myBlack,
+      backgroundColor: keyColor,
+    ),
+    child: Text(
+      currentVersion,
+      style: TextStyle(color: Colors.black),
     ),
   );
-}
-
-class updates_button_blinking extends StatefulWidget {
-  @override
-  _updates_button_blinkingState createState() =>
-      _updates_button_blinkingState();
-}
-
-class _updates_button_blinkingState extends State<updates_button_blinking>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-
-  @override
-  void initState() {
-    _animationController = new AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1500));
-    _animationController.repeat(reverse: true);
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _animationController,
-      child: updates_button_not_blinking(context),
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
 }
 
 void word_doesnt_exist_snackbar(BuildContext context) {
@@ -325,7 +272,7 @@ Widget wotd_done_dialog(BuildContext context) {
     ),
     content: Text(
       "Ya has completado el juego de hoy, pero mañana habrá otra palabra esperándote.\n\n"
-          "Una palabra nueva a las 00:00",
+      "Una palabra nueva a las 00:00",
       style: TextStyle(color: myBlack),
     ),
     actions: <Widget>[

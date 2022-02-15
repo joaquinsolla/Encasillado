@@ -1,3 +1,5 @@
+const String currentVersion = "1.0.0 beta";
+
 int currentPage = 1;
 
 bool wordOfTheDayDialogShown = false;
@@ -14,7 +16,6 @@ double keyHeight = 0;
 // User settings
 bool colorBlind = false;
 bool darkMode = false;
-bool updates_pushed = false;
 
 // Cell control
 int currentCell = 0;

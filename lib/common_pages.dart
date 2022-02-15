@@ -897,7 +897,7 @@ class updates_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Versión 1.0.0 Beta:",
+                "Versión " + currentVersion + ":",
                 style: TextStyle(
                   fontSize: 25,
                   color: myBlack,
