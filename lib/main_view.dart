@@ -7,7 +7,6 @@ import 'in_game_keyboard.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
 
-
 class EncasilladoApp extends StatelessWidget {
   const EncasilladoApp({Key? key}) : super(key: key);
 
@@ -22,37 +21,33 @@ class EncasilladoApp extends StatelessWidget {
 }
 
 class MainView extends StatefulWidget {
-
   @override
   MainViewState createState() => MainViewState();
 }
 
 class MainViewState extends State<MainView> {
-
   void bottom_tapped(int index) {
-    restart_game_variables();
-    generate_standard_word();
-
-    setState(() {
-      currentPage = index;
-    });
-
-    startDate = DateTime.now();
-    runApp(EncasilladoApp());
-    if (currentPage == 0) {
-      if (wotdDone) {
-        finished = true;
+    if (currentPage != index) {
+      if (index == 0 && wotdDone)
         show_wotd_done_dialog(context);
-      } else {
-        if (wordOfTheDayDialogShown == false) show_wotd_explanation_dialog(context);
+      else {
+        restart_game_variables();
+        generate_standard_word();
+
+        setState(() {
+          currentPage = index;
+        });
+
+        startDate = DateTime.now();
+        runApp(EncasilladoApp());
+        if (currentPage == 0 && wordOfTheDayDialogShown == false)
+          show_wotd_explanation_dialog(context);
       }
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     if (appStarted == false) {
       var brightness = MediaQuery.of(context).platformBrightness;
       darkMode = brightness == Brightness.dark;
@@ -66,15 +61,17 @@ class MainViewState extends State<MainView> {
     return Scaffold(
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
-
       body: Column(children: [
         game_banner(context),
         cellsField(),
-        Expanded(child: Text(""),),
+        Expanded(
+          child: Text(""),
+        ),
         generate_keyboard(context),
-        SizedBox(height: 7.5,),
+        SizedBox(
+          height: 7.5,
+        ),
       ]),
-
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: appColor,
         unselectedItemColor: Colors.black45,

@@ -220,7 +220,7 @@ TextButton current_version_button(BuildContext context) {
     ),
     child: Text(
       currentVersion,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: myBlack),
     ),
   );
 }
