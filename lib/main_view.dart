@@ -53,6 +53,17 @@ class MainViewState extends State<MainView> {
       darkMode = brightness == Brightness.dark;
     }
 
+    Color wotdButtonColor = appColor;
+    Color infiniteButtonColor = appDarkestColor;
+    if (currentPage == 0) {
+      wotdButtonColor = appDarkestColor;
+      infiniteButtonColor = appColor;
+    }
+    if (currentPage == 1) {
+      wotdButtonColor = appColor;
+      infiniteButtonColor = appDarkestColor;
+    }
+
     check_device(context);
     check_settings();
 
@@ -62,33 +73,56 @@ class MainViewState extends State<MainView> {
       backgroundColor: myWhite,
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
+        Container(
+          height: 50,
+          color: appDarkerColor,
+          padding: EdgeInsets.all(5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                child: TextButton(
+                    onPressed: () {
+                      bottom_tapped(0);
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: wotdButtonColor,
+                    ),
+                    child: Text(
+                      "¡La palabra del día!",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    )),
+              ),
+              Expanded(
+                child: TextButton(
+                    onPressed: () {
+                      bottom_tapped(1);
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: infiniteButtonColor,
+                    ),
+                    child: Text(
+                      "Palabras infinitas",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    )),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+            ],
+          ),
+        ),
         game_banner(context),
         cellsField(),
         Expanded(
           child: Text(""),
         ),
         generate_keyboard(context),
-        SizedBox(
-          height: 7.5,
-        ),
+        SizedBox(height: 2.5,),
       ]),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: appColor,
-        unselectedItemColor: Colors.black45,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
-            label: '¡La palabra\n   del día!',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.loop_rounded),
-            label: 'Palabras\n infinitas',
-          ),
-        ],
-        currentIndex: currentPage,
-        selectedItemColor: Colors.white,
-        onTap: bottom_tapped,
-      ),
     );
   }
 }

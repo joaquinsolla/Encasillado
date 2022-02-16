@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 Color appColor = Color(0xff009688);
 Color appDarkerColor = Color(0xff007066);
+Color appDarkestColor = Color(0xff00635a);
 Color keyColor = Color(0xffefefef);
 Color wppColor = Colors.green;
 Color myGreen = Colors.green;
