@@ -308,6 +308,11 @@ bool correct_word() {
     colorsArray[currentRow * 5 + 2] = "V";
     colorsArray[currentRow * 5 + 3] = "V";
     colorsArray[currentRow * 5 + 4] = "V";
+
+    for (var i = 0; i < 5; i++) {
+      greenKeys.insert(0, selectedWordArray[i]);
+    }
+
     return true;
   } else {
     //GREEN

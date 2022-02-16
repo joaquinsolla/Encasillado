@@ -2,7 +2,6 @@
 
 -Instagram & Twitter
 -mirar exceptions
--Antirrotación
--Cuando resuelves una palabra no se actualiza el
 -quitar color al deslizar listviews
 -cambiar nombre paquete androidmanifest
+-admob

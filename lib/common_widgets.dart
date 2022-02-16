@@ -40,6 +40,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
             shape: CircleBorder(),
           ),
         ),
+        SizedBox(width: 5,),
         Expanded(
           child: RawMaterialButton(
             onPressed: () {
