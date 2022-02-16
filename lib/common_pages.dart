@@ -1022,6 +1022,31 @@ class update_version_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
+                "Lista de palabras actualizada",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se han añadido nuevas palabras al juego.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
                 "Corrección de errores",
                 style: TextStyle(
                   fontSize: 16,
@@ -1099,7 +1124,7 @@ class update_version_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
-                "Lista de palabras en mejora",
+                "Lista de palabras en proceso de mejora",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
