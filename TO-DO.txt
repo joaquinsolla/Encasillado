@@ -3,5 +3,3 @@
 -Instagram & Twitter
 -mirar exceptions
 -quitar color al deslizar listviews
--cambiar nombre paquete androidmanifest
--admob
