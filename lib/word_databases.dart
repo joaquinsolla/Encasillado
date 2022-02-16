@@ -1549,7 +1549,7 @@ const List <String> gameDB = ["AARON",
   "TEDIO",
   "TEJER",
   "TEJON",
-  "TELAR"
+  "TELAR",
   "TELON",
   "TEMER",
   "TEMOR",
