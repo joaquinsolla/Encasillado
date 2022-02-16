@@ -890,8 +890,8 @@ class settings_page extends StatelessWidget {
   }
 }
 
-class updates_page extends StatelessWidget {
-  const updates_page({Key? key}) : super(key: key);
+class update_version_page extends StatelessWidget {
+  const update_version_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -922,7 +922,7 @@ class updates_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "xxxxx",
+                "Nuevo modo de juego",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -933,7 +933,8 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "xxxxxxxxxxxxxxxxxxxxxxxxx\n",
+                "El nuevo modo 'La palabra del día' retará a los jugadores por ver quién "
+                    "descubre la palabra oculta. La misma palabra para todos.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -944,7 +945,58 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                height: 10,
+                height: 7.5,
+              ),
+              Text(
+                "Interfaz actualizada",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Se ha mejorado la interfaz haciéndola más intuitiva y manejable.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
+                "Corrección de errores",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Corregidos varios errores tanto en la interfaz como en "
+                    "el funcionamiento del juego.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
               ),
               Text(
                 "En proceso:",
@@ -972,7 +1024,7 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "xxxxxxx",
+                "Más formas de compartir tus partidas",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -983,7 +1035,8 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n",
+                "Se está estudiando la forma de poder compartir el resultado de las"
+                    " partidas por otras vías como Instagram Stories o Twitter.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -994,10 +1047,34 @@ class updates_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                height: 10,
+                height: 7.5,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n",
+                "Lista de palabras en mejora",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Continuamente se está aumentando la lista de palabras del juego."
+                    " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
+                    " vía email en el apartado de ajustes.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "\nGracias por jugar a Encasillado\n",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,

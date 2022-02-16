@@ -3,8 +3,6 @@
 -Instagram & Twitter
 -mirar exceptions
 -Antirrotación
--Cuando resuelves una palabra no se actualiza el teclado
-
-MODOS DE JUEGO (primero optimizar codigo)
--contrarreloj de 2mins
--palabra diaria
+-Cuando resuelves una palabra no se actualiza el
+-quitar color al deslizar listviews
+-cambiar nombre paquete androidmanifest

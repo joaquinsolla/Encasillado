@@ -212,7 +212,7 @@ TextButton current_version_button(BuildContext context) {
     onPressed: () {
       runApp(EncasilladoApp());
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const updates_page()));
+          MaterialPageRoute(builder: (context) => const update_version_page()));
     },
     style: TextButton.styleFrom(
       primary: myBlack,
