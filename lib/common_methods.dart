@@ -142,7 +142,7 @@ void copy_to_clipboard(BuildContext context) {
       emojiStats +
       "Tiempo: " +
       game_duration_to_string() +
-      "\n\nEncasillado by joa\n" + encasilladoPlayStoreURL;
+      "\n\n" + encasilladoPlayStoreURL;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
   Flushbar(
@@ -159,7 +159,7 @@ Future<void> whatsapp_share() async {
       emojiStats +
       "Tiempo: " +
       game_duration_to_string() +
-      "\n\nEncasillado by joa\n" + encasilladoPlayStoreURL;
+      "\n\n" + encasilladoPlayStoreURL;
   await WhatsappShare.share(
     text: text,
     linkUrl: '',
