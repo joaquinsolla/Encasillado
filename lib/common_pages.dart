@@ -607,10 +607,13 @@ class settings_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String githubImage;
-    if (darkMode)
+    String coffeeImage;
+    if (darkMode){
       githubImage = github_image_darkmode;
-    else
+      coffeeImage = coffee_image_darkmode;}
+    else{
       githubImage = github_image;
+      coffeeImage = coffee_image;}
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -768,6 +771,52 @@ class settings_page extends StatelessWidget {
                             ),
                             textAlign: TextAlign.center,
                           ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    //BUYMEACOFFEE BUTTON
+                    TextButton(
+                      onPressed: () {
+                        url_launcher(buyMeACoffeeURL);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            coffeeImage,
+                            scale: 34,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Column(children: [
+                            Text(
+                              "¿Te gusta mi app?",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: myGrey,
+                                fontWeight: FontWeight.w600,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(height: 2,),
+                            Text(
+                              "¡Cómprame un café!",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: myGrey,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                          ],)
                         ],
                       ),
                     ),
