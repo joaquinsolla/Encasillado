@@ -12,9 +12,9 @@ import 'main_view.dart';
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
-    imageScale = 13;
+    imageScale = 11;
   else
-    imageScale = 9.5;
+    imageScale = 8;
 
   return AppBar(
     backgroundColor: appColor,
@@ -62,9 +62,9 @@ AppBar myAppBarWithButtons(BuildContext context) {
 AppBar myAppBarWithoutButtons(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
-    imageScale = 13;
+    imageScale = 11;
   else
-    imageScale = 9.5;
+    imageScale = 8;
 
   return AppBar(
     backgroundColor: appColor,
