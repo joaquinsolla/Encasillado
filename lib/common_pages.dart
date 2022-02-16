@@ -191,7 +191,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
+                "Gracias por jugar a Encasillado\n",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -436,7 +436,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
+                "Gracias por jugar a Encasillado\n",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -778,7 +778,7 @@ class settings_page extends StatelessWidget {
                       color: myGrey,
                     ),
                     Text(
-                      "\nAdaptación para Android en español de",
+                      "\nApp basada en el juego original ",
                       style: TextStyle(
                         fontSize: 12,
                         color: myGrey,
@@ -997,7 +997,7 @@ class updates_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n\nEncasillado by joa",
+                "Gracias por jugar a Encasillado\n",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
