@@ -78,7 +78,7 @@ class MainViewState extends State<MainView> {
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
         Container(
-          height: 50,
+          height: deviceHeight*0.072,
           color: appDarkerColor,
           padding: EdgeInsets.all(5.0),
           child: Row(

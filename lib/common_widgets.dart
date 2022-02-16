@@ -154,7 +154,7 @@ Container game_banner(BuildContext context) {
   if (currentPage == 2) gameString = "Modo contrarreloj";
 
   return Container(
-    height: deviceHeight * 0.07 - 5.0,
+    height: deviceHeight * 0.078 - 15.0,
     margin: EdgeInsets.fromLTRB(7.5, 5.0, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
