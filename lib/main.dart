@@ -20,5 +20,7 @@ void main() {
   generate_standard_word();
   generate_word_of_the_day();
 
+  //print("WOTD: " + wordOfTheDayString);
+
   runApp(EncasilladoApp());
 }

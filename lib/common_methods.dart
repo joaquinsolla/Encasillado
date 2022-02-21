@@ -31,7 +31,7 @@ void generate_standard_word (){
 
 void generate_word_of_the_day (){
   int dbLength = selectedDatabase.length;
-  int todayIndex = ((3.1415*DateTime.now().day*DateTime.now().month*(DateTime.now().year-2000)*1000)/dbLength).round() ;
+  int todayIndex = ((3.14159265359*DateTime.now().day*DateTime.now().month*DateTime.now().year*1000)%dbLength).round() ;
 
   String selectedWord = selectedDatabase[todayIndex-1];
 
