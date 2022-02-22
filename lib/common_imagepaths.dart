@@ -15,6 +15,7 @@ String github_image = 'app_files/github_image.png';
 String github_image_darkmode = 'app_files/github_image_darkmode.png';
 String help_icon = 'app_files/help_icon.png';
 String instagram_image = 'app_files/instagram_image.png';
+String my_website_img = 'app_files/my_website_img.png';
 String restart_icon = 'app_files/restart_icon.png';
 String restart_icon_darkmode = 'app_files/restart_icon_darkmode.png';
 String settings_icon = 'app_files/settings_icon.png';

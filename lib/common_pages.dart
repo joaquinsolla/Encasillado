@@ -777,6 +777,38 @@ class settings_page extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
+                    //MY WEBSITE BUTTON
+                    TextButton(
+                      onPressed: () {
+                        url_launcher(myWebsite);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            my_website_img,
+                            scale: 13.5,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            "Mi página web",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: myGrey,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     //BUYMEACOFFEE BUTTON
                     TextButton(
                       onPressed: () {
