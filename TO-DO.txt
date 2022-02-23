@@ -1,14 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
--teclado/cellfield independiente para cada modo
 -guardar wotd resuelta al cerrar app
 
 -------OTHERS----------
 
 -Instagram & Twitter
 -quitar color al deslizar listviews
-
-
-
-TIEMPOS DE ESTADISTICA
