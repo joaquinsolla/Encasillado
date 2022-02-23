@@ -270,30 +270,3 @@ void word_doesnt_exist_snackbar(BuildContext context) {
     flushbarPosition: FlushbarPosition.TOP,
   ).show(context);
 }
-
-//TODO: REMOVE
-Widget wotd_done_dialog(BuildContext context) {
-  return AlertDialog(
-    backgroundColor: myWhite,
-    title: Text(
-      '¡Ya has descubierto la palabra de hoy!',
-      style: TextStyle(color: myBlack),
-    ),
-    content: Text(
-      "Ya has completado el juego de hoy, pero mañana habrá otra palabra esperándote.\n\n"
-      "Una palabra nueva a las 00:00",
-      style: TextStyle(color: myBlack),
-    ),
-    actions: <Widget>[
-      TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          style: TextButton.styleFrom(
-            primary: myWhite,
-            backgroundColor: appMainColor,
-          ),
-          child: Text("VALE")),
-    ],
-  );
-}

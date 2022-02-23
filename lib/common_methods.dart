@@ -25,6 +25,8 @@ void generate_infinite_word (){
     infiniteArray[i] = selectedWord.substring(i, i+1);
     infiniteDefinitionURL += selectedWord.substring(i, i+1);
   }
+
+  print("INFINITE: " + infiniteString);
 }
 
 void generate_wotd (){
@@ -159,12 +161,12 @@ mail_to(String email) async {
   await launch('$mailtoLink');
 }
 
-void copy_to_clipboard(BuildContext context) {
-  String text = infoStatsInfinite +
+void copy_to_clipboard(BuildContext context, String stats, String emojis, String gameDuration) {
+  String text = stats +
       "\n" +
-      emojiStatsInfinite +
+      emojis +
       "Tiempo: " +
-      game_duration_to_string_infinite() +
+      gameDuration +
       "\n\n" + encasilladoPlayStoreURL;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
@@ -176,12 +178,12 @@ void copy_to_clipboard(BuildContext context) {
   ).show(context);
 }
 
-Future<void> whatsapp_share() async {
-  String text = infoStatsInfinite +
+Future<void> whatsapp_share(String stats, String emojis, String gameDuration) async {
+  String text = stats +
       "\n" +
-      emojiStatsInfinite +
+      emojis +
       "Tiempo: " +
-      game_duration_to_string_infinite() +
+      gameDuration +
       "\n\n" + encasilladoPlayStoreURL;
   await WhatsappShare.share(
     text: text,
@@ -221,15 +223,6 @@ String game_duration_to_string_wotd() {
   String s = seconds.toString().padLeft(2, '0');
 
   return (h + ":" + m + ":" + s);
-}
-
-//TODO: REMOVE
-Future<void> show_wotd_done_dialog(BuildContext context) async {
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false,
-    builder: (_) => wotd_done_dialog(context),
-  );
 }
 
 //TODO: OK

@@ -17,11 +17,11 @@ void main() {
   selectedDatabase = databasesList[3];
 
   startDateInfinite = DateTime.now();
+  startDateWotd = DateTime.now();
   generate_infinite_word();
   generate_wotd();
 
   print("WOTD: " + wotdString);
-  print("INFINITE: " + infiniteString);
 
   runApp(EncasilladoApp());
 }

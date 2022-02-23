@@ -10,7 +10,6 @@ import 'common_urls.dart';
 import 'main_view.dart';
 
 
-//TODO: OK
 class wotd_finished_page extends StatelessWidget {
   const wotd_finished_page({Key? key}) : super(key: key);
 
@@ -168,21 +167,19 @@ class wotd_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      copy_to_clipboard(context);
+                      copy_to_clipboard(context, infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
                     },
                     elevation: 1,
                     child: Image.asset(clipboard_icon),
-                    //Lienzo: 300px , img: 40px
                     fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      whatsapp_share();
+                      whatsapp_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
                     },
                     elevation: 1,
                     child: Image.asset(whatsapp_icon),
-                    //Lienzo: 280px , img: 40px
                     fillColor: wppColor,
                     shape: CircleBorder(),
                   ),
@@ -211,7 +208,6 @@ class wotd_finished_page extends StatelessWidget {
   }
 }
 
-//TODO: OK
 class infinite_finished_page extends StatelessWidget {
   const infinite_finished_page({Key? key}) : super(key: key);
 
@@ -414,7 +410,7 @@ class infinite_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      copy_to_clipboard(context);
+                      copy_to_clipboard(context, infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
                     },
                     elevation: 1,
                     child: Image.asset(clipboard_icon),
@@ -424,7 +420,7 @@ class infinite_finished_page extends StatelessWidget {
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      whatsapp_share();
+                      whatsapp_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
                     },
                     elevation: 1,
                     child: Image.asset(whatsapp_icon),
@@ -457,7 +453,6 @@ class infinite_finished_page extends StatelessWidget {
   }
 }
 
-//TODO: OK
 class explanation_page extends StatelessWidget {
   const explanation_page({Key? key}) : super(key: key);
 
