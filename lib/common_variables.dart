@@ -1,8 +1,6 @@
 const String currentVersion = "1.0.1";
 
-int currentPage = 1;
-
-bool wordOfTheDayDialogShown = false;
+int currentPage = 0;
 bool appStarted = false;
 
 // Current word database

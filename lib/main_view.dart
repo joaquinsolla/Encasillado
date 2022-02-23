@@ -44,8 +44,6 @@ class MainViewState extends State<MainView> {
 
         startDate = DateTime.now();
         runApp(EncasilladoApp());
-        if (currentPage == 0 && wordOfTheDayDialogShown == false)
-          show_wotd_explanation_dialog(context);
       }
     }
   }
@@ -59,13 +57,20 @@ class MainViewState extends State<MainView> {
 
     Color wotdButtonColor = appColor;
     Color infiniteButtonColor = appDarkestColor;
+    TextStyle wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
+    TextStyle infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
+
     if (currentPage == 0) {
       wotdButtonColor = appDarkestColor;
       infiniteButtonColor = appColor;
+      wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
+      infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
     }
     if (currentPage == 1) {
       wotdButtonColor = appColor;
       infiniteButtonColor = appDarkestColor;
+      wotdStyle = TextStyle(color: Colors.white, fontSize: 12,);
+      infiniteStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
     }
 
     check_device(context);
@@ -97,7 +102,7 @@ class MainViewState extends State<MainView> {
                     ),
                     child: Text(
                       "¡La palabra del día!",
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: wotdStyle,
                     )),
               ),
               Expanded(
@@ -110,7 +115,7 @@ class MainViewState extends State<MainView> {
                     ),
                     child: Text(
                       "Palabras infinitas",
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: infiniteStyle,
                     )),
               ),
               SizedBox(
