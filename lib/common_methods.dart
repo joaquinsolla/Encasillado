@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mailto/mailto.dart';
-//import 'package:ntp/ntp.dart';
 import 'dart:math';
 
 import 'package:flushbar/flushbar.dart';
