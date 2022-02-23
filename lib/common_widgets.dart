@@ -41,7 +41,9 @@ AppBar myAppBarWithButtons(BuildContext context) {
             shape: CircleBorder(),
           ),
         ),
-        SizedBox(width: 5,),
+        SizedBox(
+          width: 5,
+        ),
         Expanded(
           child: RawMaterialButton(
             onPressed: () {
@@ -115,10 +117,14 @@ Row letterRowInfinite(int _from) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       letterCell(inputMatrixInfinite[_from], colorsArrayInfinite[_from]),
-      letterCell(inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1]),
-      letterCell(inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2]),
-      letterCell(inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3]),
-      letterCell(inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4]),
+      letterCell(
+          inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1]),
+      letterCell(
+          inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2]),
+      letterCell(
+          inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3]),
+      letterCell(
+          inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4]),
     ],
   );
 }
@@ -172,14 +178,6 @@ Column cellsFieldWotd() {
 }
 
 Container game_banner(BuildContext context) {
-  String streakGif;
-  if (darkMode) {
-    streakGif = streak_gif_darkmode;
-  } else {
-    streakGif = streak_gif;
-  }
-
-  String streakCount = " x" + streak.toString();
   String gameString = "Palabras infinitas";
   if (currentPage == 0) gameString = "¡La palabra del día!";
   if (currentPage == 1) gameString = "Palabras infinitas";
@@ -204,54 +202,14 @@ Container game_banner(BuildContext context) {
           ),
         ),
         Expanded(child: Text("")),
-        if (currentPage == 1)
-          Container(
-          height: 38,
-          alignment: Alignment.center,
-          padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-          decoration: BoxDecoration(
-            color: keyColor,
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Text(
-            " Puntos: " + pointsInfinite.toString() + " ",
-            style: TextStyle(
-              fontSize: 15,
-              color: myBlack,
-              fontWeight: FontWeight.normal,
-              decoration: TextDecoration.none,
-              fontFamily: 'RaleWay',
-            ),
-          ),
-        ),
+        if (currentPage == 1) points_button(context),
         SizedBox(
           width: 5.0,
         ),
         if (currentPage == 1)
-          Container(
-            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-            decoration: BoxDecoration(
-              color: keyColor,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Row(
-              children: [
-                Image.asset(
-                  streakGif,
-                  scale: 15,
-                ),
-                Text(
-                  streakCount,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: myBlack,
-                    fontWeight: FontWeight.normal,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                ),
-              ],
-            ),
+          SizedBox(
+            height: 36,
+            child: streak_button(context),
           ),
         if (currentPage == 0) current_version_button(context),
       ],
@@ -273,6 +231,70 @@ TextButton current_version_button(BuildContext context) {
     child: Text(
       currentVersion,
       style: TextStyle(color: myBlack),
+    ),
+  );
+}
+
+TextButton points_button(BuildContext context) {
+  return TextButton(
+    onPressed: () {
+      runApp(EncasilladoApp());
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const points_page()));
+    },
+    style: TextButton.styleFrom(
+      primary: myBlack,
+      backgroundColor: keyColor,
+    ),
+    child: Text(
+      " Puntos: " + pointsInfinite.toString() + " ",
+      style: TextStyle(
+        fontSize: 15,
+        color: myBlack,
+        fontWeight: FontWeight.normal,
+        decoration: TextDecoration.none,
+        fontFamily: 'RaleWay',
+      ),
+    ),
+  );
+}
+
+TextButton streak_button(BuildContext context) {
+  String streakGif;
+  if (darkMode) {
+    streakGif = streak_gif_darkmode;
+  } else {
+    streakGif = streak_gif;
+  }
+
+  String streakCount = " x" + streak.toString();
+
+  return TextButton(
+    onPressed: () {
+      runApp(EncasilladoApp());
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const streak_page()));
+    },
+    style: TextButton.styleFrom(
+      primary: myBlack,
+      backgroundColor: keyColor,
+    ),
+    child: Row(
+      children: [
+        Image.asset(
+          streakGif,
+        ),
+        Text(
+          streakCount,
+          style: TextStyle(
+            fontSize: 15,
+            color: myBlack,
+            fontWeight: FontWeight.normal,
+            decoration: TextDecoration.none,
+            fontFamily: 'RaleWay',
+          ),
+        ),
+      ],
     ),
   );
 }

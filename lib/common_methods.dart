@@ -26,7 +26,7 @@ void generate_infinite_word (){
     infiniteDefinitionURL += selectedWord.substring(i, i+1);
   }
 
-  //print("INFINITE: " + infiniteString);
+  print("INFINITE: " + infiniteString);
 }
 
 void generate_wotd (){

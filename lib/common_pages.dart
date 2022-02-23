@@ -964,6 +964,367 @@ class settings_page extends StatelessWidget {
   }
 }
 
+class points_page extends StatelessWidget {
+  const points_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: myWhite,
+        appBar: myAppBarWithoutButtons(context),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            addAutomaticKeepAlives: true,
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Tu puntuación actual: " + pointsInfinite.toString(),
+                style: TextStyle(
+                  fontSize: 25,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Puntuación = (900 - tiempo) x (7 - intentos) x (1 + racha x 0.1)\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Tiempo de partida",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Si la partida suma menos de 15 minutos, se puntuará. Cada partida comienza con 900 puntos"
+                    "y por cada segundo que pasa se resta 1 punto.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Intentos",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "En cada partida se dispone de hasta 6 intentos. Si se acierta a la primera, los puntos "
+                    "obtenidos según el tiempo se multiplicarán por 6. Si se acierta al segundo intento se"
+                    " multiplican por 5, y así hasta llegar al sexto intento en el que se multiplica por 1.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Racha",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Si tienes una racha de partidas ganadas, tu puntuación por partida"
+                    " será multiplicada por una pequeña bonificación.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Penalizaciones",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Acertar una palabra en más de 15 minutos no suma ni resta puntos.\n"
+                    "No acertar una palabra resta 1000 puntos.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: TextButton.styleFrom(
+                          primary: myWhite,
+                          backgroundColor: appMainColor,
+                        ),
+                        child: Text("VALE")),
+                  ],
+                ),
+              ),
+              Text(
+                "\nGracias por jugar a Encasillado\n",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: myGrey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class streak_page extends StatelessWidget {
+  const streak_page({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    String streakGif;
+    if (darkMode) {
+      streakGif = streak_gif_darkmode;
+    } else {
+      streakGif = streak_gif;
+    }
+
+    return Scaffold(
+        backgroundColor: myWhite,
+        appBar: myAppBarWithoutButtons(context),
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+          alignment: Alignment.topCenter,
+          child: ListView(
+            addAutomaticKeepAlives: true,
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Rachas",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "¿Cómo funciona?",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "El juego comienza con racha de 0 aciertos. Cada vez que aciertes una palabra tu racha aumentará "
+                    "en 1, pero si no aciertas, volverá a 0.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Bonificador",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Las rachas actúan de bonificación para obtener más puntos de cada acierto.\n"
+                    "La puntuación extra por racha se calcula de la forma:\n\n"
+                    "Extra = Puntuación x (racha x 0.1)\n\n"
+                    "¿Hasta cuánto podrás llegar?\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Tu racha actual:  ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: myBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                    decoration: BoxDecoration(
+                      color: keyColor,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          " x" + streak.toString(),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: myBlack,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.none,
+                            fontFamily: 'RaleWay',
+                          ),
+                        ),
+                        Image.asset(
+                          streakGif,
+                          scale: 15,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: TextButton.styleFrom(
+                          primary: myWhite,
+                          backgroundColor: appMainColor,
+                        ),
+                        child: Text("VALE")),
+                  ],
+                ),
+              ),
+              Text(
+                "\nGracias por jugar a Encasillado\n",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: myGrey,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
 class update_version_page extends StatelessWidget {
   const update_version_page({Key? key}) : super(key: key);
 
@@ -1033,7 +1394,7 @@ class update_version_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Seha añadido al modo 'Palabras infinitas' un sistema de puntuación que funciona "
+                "Se ha añadido al modo 'Palabras infinitas' un sistema de puntuación que funciona "
                     "según lo rápido que se acierte la palabra, los intentos y la racha actual.\n",
                 style: TextStyle(
                   fontSize: 15,
