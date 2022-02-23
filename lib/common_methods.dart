@@ -128,6 +128,7 @@ void build_stats_infinite() {
   if (alreadyPointsCalculatedInfinite==false){
     if (wonGameInfinite){
       pointsInfinite += ((900-seconds) * (6-currentRowInfinite) * ((streak+1)*0.1 +1)).toInt();
+      if (pointsInfinite>9999999) pointsInfinite = 9999999;
     }
     else {
       pointsInfinite -= 1000;

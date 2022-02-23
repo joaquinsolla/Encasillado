@@ -41,7 +41,6 @@ String infoStatsWotd = "";
 String emojiStatsWotd = "";
 int streak = 0;
 int pointsInfinite = 0;
-int pointsWotd = 0;
 DateTime startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
 DateTime endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
 DateTime startDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");

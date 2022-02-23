@@ -206,7 +206,7 @@ Container game_banner(BuildContext context) {
         Expanded(child: Text("")),
         if (currentPage == 1)
           Container(
-          height: 36.5,
+          height: 38,
           alignment: Alignment.center,
           padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
           decoration: BoxDecoration(
@@ -214,7 +214,7 @@ Container game_banner(BuildContext context) {
             borderRadius: BorderRadius.circular(5),
           ),
           child: Text(
-            " " + pointsInfinite.toString() + " ",
+            " Puntos: " + pointsInfinite.toString() + " ",
             style: TextStyle(
               fontSize: 15,
               color: myBlack,
