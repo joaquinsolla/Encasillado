@@ -82,7 +82,6 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
   );
 }
 
-//TODO: OK
 AnimatedContainer letterCell(String char, String col) {
   //COLOR SELECTION
   Color? cellColor = myWhite;
@@ -110,7 +109,6 @@ AnimatedContainer letterCell(String char, String col) {
   );
 }
 
-//TODO: OK
 Row letterRowInfinite(int _from) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,7 +137,6 @@ Row letterRowWotd(int _from) {
   );
 }
 
-//TODO: OK
 Column cellsFieldInfinite() {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,7 +183,6 @@ Container game_banner(BuildContext context) {
   String gameString = "Palabras infinitas";
   if (currentPage == 0) gameString = "¡La palabra del día!";
   if (currentPage == 1) gameString = "Palabras infinitas";
-  if (currentPage == 2) gameString = "Modo contrarreloj";
 
   return Container(
     height: deviceHeight * 0.078 - 15.0,
@@ -208,6 +204,29 @@ Container game_banner(BuildContext context) {
           ),
         ),
         Expanded(child: Text("")),
+        if (currentPage == 1)
+          Container(
+          height: 36.5,
+          alignment: Alignment.center,
+          padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+          decoration: BoxDecoration(
+            color: keyColor,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Text(
+            " " + pointsInfinite.toString() + " ",
+            style: TextStyle(
+              fontSize: 15,
+              color: myBlack,
+              fontWeight: FontWeight.normal,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 5.0,
+        ),
         if (currentPage == 1)
           Container(
             padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
@@ -234,10 +253,7 @@ Container game_banner(BuildContext context) {
               ],
             ),
           ),
-        SizedBox(
-          width: 5.0,
-        ),
-        current_version_button(context),
+        if (currentPage == 0) current_version_button(context),
       ],
     ),
   );
