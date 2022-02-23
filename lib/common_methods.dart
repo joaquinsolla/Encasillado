@@ -85,7 +85,6 @@ void url_launcher(String url) async {
   }
 }
 
-//TODO: OK
 class start_new_game extends StatelessWidget {
   const start_new_game({Key? key}) : super(key: key);
 
@@ -104,7 +103,6 @@ class start_new_game extends StatelessWidget {
   }
 }
 
-//TODO: OK
 void build_stats_infinite() {
   bool lineUsed = false;
   emojiStatsInfinite = "";
@@ -125,6 +123,16 @@ void build_stats_infinite() {
       }
     }
     if (lineUsed) emojiStatsInfinite += "\n";
+  }
+  int seconds = playSecondsInfinite.inSeconds;
+  if (alreadyPointsCalculatedInfinite==false){
+    if (wonGameInfinite){
+      pointsInfinite += ((900-seconds) * (6-currentRowInfinite) * ((streak+1)*0.1 +1)).toInt();
+    }
+    else {
+      pointsInfinite -= 1000;
+    }
+    alreadyPointsCalculatedInfinite = true;
   }
 }
 
@@ -192,7 +200,6 @@ Future<void> whatsapp_share(String stats, String emojis, String gameDuration) as
   );
 }
 
-//TODO: OK
 String game_duration_to_string_infinite() {
   int hours;
   int minutes;
@@ -225,7 +232,6 @@ String game_duration_to_string_wotd() {
   return (h + ":" + m + ":" + s);
 }
 
-//TODO: OK
 void restart_infinite_game_variables() {
 
   currentCellInfinite = 0;
@@ -243,7 +249,8 @@ void restart_infinite_game_variables() {
   startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
   endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
   playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
-  timePausedInfinite = false;
+  alreadyTimeMeasuredInfinite = false;
+  alreadyPointsCalculatedInfinite = false;
 
   greenKeysInfinite = [];
   yellowKeysInfinite = [];

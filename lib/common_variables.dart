@@ -48,7 +48,8 @@ DateTime startDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");
 DateTime endDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");
 Duration playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
 Duration playSecondsWotd = endDateInfinite.difference(startDateInfinite);
-bool timePausedInfinite = false;
+bool alreadyTimeMeasuredInfinite = false;
+bool alreadyPointsCalculatedInfinite = false;
 
 
 // Content of each cell
