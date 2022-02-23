@@ -16,11 +16,12 @@ void main() {
    * 3 - gameDB * */
   selectedDatabase = databasesList[3];
 
-  startDate = DateTime.now();
-  generate_standard_word();
-  generate_word_of_the_day();
+  startDateInfinite = DateTime.now();
+  generate_infinite_word();
+  generate_wotd();
 
-  //print("WOTD: " + wordOfTheDayString);
+  print("WOTD: " + wotdString);
+  print("INFINITE: " + infiniteString);
 
   runApp(EncasilladoApp());
 }

@@ -8,3 +8,7 @@
 
 -Instagram & Twitter
 -quitar color al deslizar listviews
+
+
+
+TIEMPOS DE ESTADISTICA

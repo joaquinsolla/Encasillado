@@ -9,6 +9,7 @@ import 'common_variables.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
+
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
@@ -81,6 +82,7 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
   );
 }
 
+//TODO: OK
 AnimatedContainer letterCell(String char, String col) {
   //COLOR SELECTION
   Color? cellColor = myWhite;
@@ -108,21 +110,37 @@ AnimatedContainer letterCell(String char, String col) {
   );
 }
 
-Row letterRow(int _from) {
+//TODO: OK
+Row letterRowInfinite(int _from) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      letterCell(inputMatrix[_from], colorsArray[_from]),
-      letterCell(inputMatrix[_from + 1], colorsArray[_from + 1]),
-      letterCell(inputMatrix[_from + 2], colorsArray[_from + 2]),
-      letterCell(inputMatrix[_from + 3], colorsArray[_from + 3]),
-      letterCell(inputMatrix[_from + 4], colorsArray[_from + 4]),
+      letterCell(inputMatrixInfinite[_from], colorsArrayInfinite[_from]),
+      letterCell(inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1]),
+      letterCell(inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2]),
+      letterCell(inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3]),
+      letterCell(inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4]),
     ],
   );
 }
 
-Column cellsField() {
+Row letterRowWotd(int _from) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      letterCell(inputMatrixWotd[_from], colorsArrayWotd[_from]),
+      letterCell(inputMatrixWotd[_from + 1], colorsArrayWotd[_from + 1]),
+      letterCell(inputMatrixWotd[_from + 2], colorsArrayWotd[_from + 2]),
+      letterCell(inputMatrixWotd[_from + 3], colorsArrayWotd[_from + 3]),
+      letterCell(inputMatrixWotd[_from + 4], colorsArrayWotd[_from + 4]),
+    ],
+  );
+}
+
+//TODO: OK
+Column cellsFieldInfinite() {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -130,12 +148,29 @@ Column cellsField() {
         SizedBox(
           height: 10.0,
         ),
-        letterRow(0),
-        letterRow(5),
-        letterRow(10),
-        letterRow(15),
-        letterRow(20),
-        letterRow(25),
+        letterRowInfinite(0),
+        letterRowInfinite(5),
+        letterRowInfinite(10),
+        letterRowInfinite(15),
+        letterRowInfinite(20),
+        letterRowInfinite(25),
+      ]);
+}
+
+Column cellsFieldWotd() {
+  return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 10.0,
+        ),
+        letterRowWotd(0),
+        letterRowWotd(5),
+        letterRowWotd(10),
+        letterRowWotd(15),
+        letterRowWotd(20),
+        letterRowWotd(25),
       ]);
 }
 
@@ -236,6 +271,7 @@ void word_doesnt_exist_snackbar(BuildContext context) {
   ).show(context);
 }
 
+//TODO: REMOVE
 Widget wotd_done_dialog(BuildContext context) {
   return AlertDialog(
     backgroundColor: myWhite,

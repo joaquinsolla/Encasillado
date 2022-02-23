@@ -16,30 +16,40 @@ bool colorBlind = false;
 bool darkMode = false;
 
 // Cell control
-int currentCell = 0;
-int currentRow = 0;
-bool canWrite = true;
-bool finished = false;
-bool wotdDone = false;
+int currentCellInfinite = 0;
+int currentRowInfinite = 0;
+bool canWriteInfinite = true;
+bool finishedInfinite = false;
 
-// Word of the day letter by letter
-List<String> standardWordArray = ["", "", "", "", ""];
-String standardWordString = "";
-List<String> wordOfTheDayArray = ["", "", "", "", ""];
-String wordOfTheDayString = "";
+int currentCellWotd = 0;
+int currentRowWotd = 0;
+bool canWriteWotd = true;
+bool finishedWotd = false;
+
+// Correct words
+List<String> infiniteArray = ["", "", "", "", ""];
+String infiniteString = "";
+List<String> wotdArray = ["", "", "", "", ""];
+String wotdString = "";
 
 // Stats
-bool wonGame = false;
-String infoStats = "";
-String emojiStats = "";
+bool wonGameInfinite = false;
+bool wonGameWotd = false;
+String infoStatsInfinite = "";
+String emojiStatsInfinite = "";
+String infoStatsWotd = "";
+String emojiStatsWotd = "";
 int streak = 0;
-DateTime startDate = DateTime.parse("2000-01-01 00:00:00.000000");
-DateTime endDate = DateTime.parse("2000-01-01 00:00:00.000000");
-Duration playSeconds = endDate.difference(startDate);
+DateTime startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+DateTime endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+DateTime startDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");
+DateTime endDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");
+Duration playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+Duration playSecondsWotd = endDateInfinite.difference(startDateInfinite);
 
 
 // Content of each cell
-List<String> inputMatrix = [
+List<String> inputMatrixInfinite = [
   "",
   "",
   "",
@@ -72,7 +82,73 @@ List<String> inputMatrix = [
   ""
 ];
 
-List<String> colorsArray = [
+List<String> inputMatrixWotd = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+];
+
+List<String> colorsArrayInfinite = [
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B",
+  "B"
+];
+
+List<String> colorsArrayWotd = [
   "B",
   "B",
   "B",

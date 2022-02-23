@@ -1,10 +1,11 @@
+import 'package:Encasillado/wotd_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 
 import 'common_variables.dart';
 import 'common_colors.dart';
-import 'in_game_keyboard.dart';
+import 'infinite_keyboard.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
 
@@ -32,19 +33,11 @@ class MainView extends StatefulWidget {
 class MainViewState extends State<MainView> {
   void top_navbar_tapped(int index) {
     if (currentPage != index) {
-      if (index == 0 && wotdDone)
-        show_wotd_done_dialog(context);
-      else {
-        restart_game_variables();
-        generate_standard_word();
+      setState(() {
+        currentPage = index;
+      });
 
-        setState(() {
-          currentPage = index;
-        });
-
-        startDate = DateTime.now();
-        runApp(EncasilladoApp());
-      }
+      runApp(EncasilladoApp());
     }
   }
 
@@ -125,11 +118,13 @@ class MainViewState extends State<MainView> {
           ),
         ),
         game_banner(context),
-        cellsField(),
+        if (currentPage == 0) cellsFieldWotd(),
+        if (currentPage == 1) cellsFieldInfinite(),
         Expanded(
           child: Text(""),
         ),
-        generate_keyboard(context),
+        if (currentPage == 0) wotd_generate_keyboard(context),
+        if (currentPage == 1) infinite_generate_keyboard(context),
         SizedBox(height: 2.5,),
       ]),
     );

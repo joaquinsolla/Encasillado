@@ -10,12 +10,13 @@ import 'common_urls.dart';
 import 'main_view.dart';
 
 
-class word_of_the_day_finished_page extends StatelessWidget {
-  const word_of_the_day_finished_page({Key? key}) : super(key: key);
+//TODO: OK
+class wotd_finished_page extends StatelessWidget {
+  const wotd_finished_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    build_stats();
+    build_stats_wotd();
 
     String gameImage;
     String gameText;
@@ -25,16 +26,16 @@ class word_of_the_day_finished_page extends StatelessWidget {
         "/" +
         DateTime.now().year.toString().substring(2,4);
 
-    if (wonGame) {
-      infoStats = "Encasillado de " +
+    if (wonGameWotd) {
+      infoStatsWotd = "Encasillado del " +
           today +
           "\nIntentos: " +
-          (currentRow + 1).toString() +
+          (currentRowWotd + 1).toString() +
           "/6";
       gameImage = victory_image;
       gameText = "VICTORIA";
     } else {
-      infoStats = "Palabra del " + today + "\nIntentos: X/6";
+      infoStatsWotd = "Encasillado del " + today + "\nIntentos: X/6";
       gameImage = defeat_image;
       gameText = "DERROTA";
     }
@@ -89,7 +90,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
-                infoStats,
+                infoStatsWotd,
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -103,7 +104,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStats + "\nTiempo: " + game_duration_to_string(),
+                emojiStatsWotd + "\nTiempo: " + game_duration_to_string_wotd(),
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -119,7 +120,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "La palabra oculta de hoy: " + wordOfTheDayString,
+                  "La palabra oculta de hoy: " + wotdString,
                   style: TextStyle(
                     fontSize: 17,
                     color: myBlack,
@@ -135,13 +136,13 @@ class word_of_the_day_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      url_launcher(wordOfTheDayDefinitionURL);
+                      url_launcher(wotdDefinitionURL);
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
                       backgroundColor: appMainColor,
                     ),
-                    child: Text("Definición de " + wordOfTheDayString)),
+                    child: Text("Definición de " + wotdString)),
               ]),
               SizedBox(
                 height: 10,
@@ -210,24 +211,25 @@ class word_of_the_day_finished_page extends StatelessWidget {
   }
 }
 
-class palabras_infinitas_finished_page extends StatelessWidget {
-  const palabras_infinitas_finished_page({Key? key}) : super(key: key);
+//TODO: OK
+class infinite_finished_page extends StatelessWidget {
+  const infinite_finished_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    build_stats();
+    build_stats_infinite();
 
     String gameImage;
     String gameText;
-    if (wonGame) {
-      infoStats = standardWordString +
+    if (wonGameInfinite) {
+      infoStatsInfinite = infiniteString +
           " - Intentos: " +
-          (currentRow + 1).toString() +
+          (currentRowInfinite + 1).toString() +
           "/6";
       gameImage = victory_image;
       gameText = "VICTORIA";
     } else {
-      infoStats = standardWordString + " - Intentos: X/6";
+      infoStatsInfinite = infiniteString + " - Intentos: X/6";
       gameImage = defeat_image;
       gameText = "DERROTA";
     }
@@ -289,7 +291,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                 height: 7.5,
               ),
               Text(
-                infoStats,
+                infoStatsInfinite,
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -303,7 +305,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStats + "\nTiempo: " + game_duration_to_string(),
+                emojiStatsInfinite + "\nTiempo: " + game_duration_to_string_infinite(),
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -335,13 +337,13 @@ class palabras_infinitas_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      url_launcher(standardDefinitionURL);
+                      url_launcher(infiniteDefinitionURL);
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
                       backgroundColor: appMainColor,
                     ),
-                    child: Text("Definición de " + standardWordString)),
+                    child: Text("Definición de " + infiniteString)),
               ]),
               SizedBox(
                 height: 10,
@@ -365,9 +367,9 @@ class palabras_infinitas_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      restart_game_variables();
-                      generate_standard_word();
-                      startDate = DateTime.now();
+                      restart_infinite_game_variables();
+                      generate_infinite_word();
+                      startDateInfinite = DateTime.now();
                       Navigator.pop(context);
                       runApp(EncasilladoApp());
                     },
@@ -455,16 +457,12 @@ class palabras_infinitas_finished_page extends StatelessWidget {
   }
 }
 
+//TODO: OK
 class explanation_page extends StatelessWidget {
   const explanation_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    build_stats();
-    infoStats = standardWordString +
-        " - Intentos: " +
-        (currentRow + 1).toString() +
-        "/6";
 
     String ex_green;
     String ex_yellow;

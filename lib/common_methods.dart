@@ -8,36 +8,36 @@ import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
-import 'in_game_keyboard.dart';
+import 'infinite_keyboard.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
 import 'common_urls.dart';
 
 
-void generate_standard_word (){
+void generate_infinite_word (){
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
-  standardWordString = selectedWord;
+  infiniteString = selectedWord;
 
   for (var i = 0; i < 5; i++) {
-    standardWordArray[i] = selectedWord.substring(i, i+1);
-    standardDefinitionURL += selectedWord.substring(i, i+1);
+    infiniteArray[i] = selectedWord.substring(i, i+1);
+    infiniteDefinitionURL += selectedWord.substring(i, i+1);
   }
 }
 
-void generate_word_of_the_day (){
+void generate_wotd (){
   int dbLength = selectedDatabase.length;
   int todayIndex = ((3.14159265359*DateTime.now().day*DateTime.now().month*DateTime.now().year*1000)%dbLength).round() ;
 
   String selectedWord = selectedDatabase[todayIndex-1];
 
-  wordOfTheDayString = selectedWord;
+  wotdString = selectedWord;
 
   for (var i = 0; i < 5; i++) {
-    wordOfTheDayArray[i] = selectedWord.substring(i, i+1);
-    wordOfTheDayDefinitionURL += selectedWord.substring(i, i+1);
+    wotdArray[i] = selectedWord.substring(i, i+1);
+    wotdDefinitionURL += selectedWord.substring(i, i+1);
   }
 }
 
@@ -83,6 +83,7 @@ void url_launcher(String url) async {
   }
 }
 
+//TODO: OK
 class start_new_game extends StatelessWidget {
   const start_new_game({Key? key}) : super(key: key);
 
@@ -91,36 +92,60 @@ class start_new_game extends StatelessWidget {
     return Scaffold(
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
-        cellsField(),
+        cellsFieldInfinite(),
         Expanded(
           child: Text(""),
         ),
-        generate_keyboard(context),
+        infinite_generate_keyboard(context),
       ]),
     );
   }
 }
 
-void build_stats() {
+//TODO: OK
+void build_stats_infinite() {
   bool lineUsed = false;
-  emojiStats = "";
-  for (var i = 0; i < colorsArray.length; i += 5) {
+  emojiStatsInfinite = "";
+  for (var i = 0; i < colorsArrayInfinite.length; i += 5) {
     lineUsed = false;
     for (var j = i; j < i + 5; j++) {
-      if (colorsArray[j] == "V") {
-        emojiStats += greenEmoji;
+      if (colorsArrayInfinite[j] == "V") {
+        emojiStatsInfinite += greenEmoji;
         lineUsed = true;
       }
-      if (colorsArray[j] == "A") {
-        emojiStats += yellowEmoji;
+      if (colorsArrayInfinite[j] == "A") {
+        emojiStatsInfinite += yellowEmoji;
         lineUsed = true;
       }
-      if (colorsArray[j] == "G") {
-        emojiStats += whiteEmoji;
+      if (colorsArrayInfinite[j] == "G") {
+        emojiStatsInfinite += whiteEmoji;
         lineUsed = true;
       }
     }
-    if (lineUsed) emojiStats += "\n";
+    if (lineUsed) emojiStatsInfinite += "\n";
+  }
+}
+
+void build_stats_wotd() {
+  bool lineUsed = false;
+  emojiStatsWotd = "";
+  for (var i = 0; i < colorsArrayWotd.length; i += 5) {
+    lineUsed = false;
+    for (var j = i; j < i + 5; j++) {
+      if (colorsArrayWotd[j] == "V") {
+        emojiStatsWotd += greenEmoji;
+        lineUsed = true;
+      }
+      if (colorsArrayWotd[j] == "A") {
+        emojiStatsWotd += yellowEmoji;
+        lineUsed = true;
+      }
+      if (colorsArrayWotd[j] == "G") {
+        emojiStatsWotd += whiteEmoji;
+        lineUsed = true;
+      }
+    }
+    if (lineUsed) emojiStatsWotd += "\n";
   }
 }
 
@@ -135,11 +160,11 @@ mail_to(String email) async {
 }
 
 void copy_to_clipboard(BuildContext context) {
-  String text = infoStats +
+  String text = infoStatsInfinite +
       "\n" +
-      emojiStats +
+      emojiStatsInfinite +
       "Tiempo: " +
-      game_duration_to_string() +
+      game_duration_to_string_infinite() +
       "\n\n" + encasilladoPlayStoreURL;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
@@ -152,11 +177,11 @@ void copy_to_clipboard(BuildContext context) {
 }
 
 Future<void> whatsapp_share() async {
-  String text = infoStats +
+  String text = infoStatsInfinite +
       "\n" +
-      emojiStats +
+      emojiStatsInfinite +
       "Tiempo: " +
-      game_duration_to_string() +
+      game_duration_to_string_infinite() +
       "\n\n" + encasilladoPlayStoreURL;
   await WhatsappShare.share(
     text: text,
@@ -165,14 +190,15 @@ Future<void> whatsapp_share() async {
   );
 }
 
-String game_duration_to_string() {
+//TODO: OK
+String game_duration_to_string_infinite() {
   int hours;
   int minutes;
   int seconds;
 
-  hours = playSeconds.inHours;
-  minutes = playSeconds.inMinutes - hours * 60;
-  seconds = playSeconds.inSeconds - hours * 60 * 60 - minutes * 60;
+  hours = playSecondsInfinite.inHours;
+  minutes = playSecondsInfinite.inMinutes - hours * 60;
+  seconds = playSecondsInfinite.inSeconds - hours * 60 * 60 - minutes * 60;
 
   String h = hours.toString().padLeft(2, '0');
   String m = minutes.toString().padLeft(2, '0');
@@ -181,6 +207,23 @@ String game_duration_to_string() {
   return (h + ":" + m + ":" + s);
 }
 
+String game_duration_to_string_wotd() {
+  int hours;
+  int minutes;
+  int seconds;
+
+  hours = playSecondsWotd.inHours;
+  minutes = playSecondsWotd.inMinutes - hours * 60;
+  seconds = playSecondsWotd.inSeconds - hours * 60 * 60 - minutes * 60;
+
+  String h = hours.toString().padLeft(2, '0');
+  String m = minutes.toString().padLeft(2, '0');
+  String s = seconds.toString().padLeft(2, '0');
+
+  return (h + ":" + m + ":" + s);
+}
+
+//TODO: REMOVE
 Future<void> show_wotd_done_dialog(BuildContext context) async {
   return showDialog<void>(
     context: context,
@@ -189,29 +232,30 @@ Future<void> show_wotd_done_dialog(BuildContext context) async {
   );
 }
 
-void restart_game_variables() {
+//TODO: OK
+void restart_infinite_game_variables() {
 
-  currentCell = 0;
-  currentRow = 0;
-  canWrite = true;
-  finished = false;
+  currentCellInfinite = 0;
+  currentRowInfinite = 0;
+  canWriteInfinite = true;
+  finishedInfinite = false;
 
-  standardWordArray = ["", "", "", "", ""];
-  standardWordString = "";
-  standardDefinitionURL = "https://dle.rae.es/";
+  infiniteArray = ["", "", "", "", ""];
+  infiniteString = "";
+  infiniteDefinitionURL = "https://dle.rae.es/";
 
-  wonGame = false;
-  infoStats = "";
-  emojiStats = "";
-  startDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  endDate = DateTime.parse("2000-01-01 00:00:00.000000");
-  playSeconds = endDate.difference(startDate);
+  wonGameInfinite = false;
+  infoStatsInfinite = "";
+  emojiStatsInfinite = "";
+  startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+  endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+  playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
 
-  greenKeys = [];
-  yellowKeys = [];
-  greyKeys = [];
+  greenKeysInfinite = [];
+  yellowKeysInfinite = [];
+  greyKeysInfinite = [];
 
-  inputMatrix = [
+  inputMatrixInfinite = [
     "",
     "",
     "",
@@ -244,7 +288,7 @@ void restart_game_variables() {
     ""
   ];
 
-  colorsArray = [
+  colorsArrayInfinite = [
     "B",
     "B",
     "B",
