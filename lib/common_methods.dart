@@ -8,7 +8,6 @@ import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
-
 import 'in_game_keyboard.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
