@@ -1003,32 +1003,6 @@ class update_version_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "Nuevo modo de juego",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "El nuevo modo 'La palabra del día' retará a los jugadores por ver quién "
-                    "descubre la palabra oculta. La misma palabra para todos.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
                 "Interfaz actualizada",
                 style: TextStyle(
                   fontSize: 16,
