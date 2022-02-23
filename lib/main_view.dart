@@ -30,7 +30,7 @@ class MainView extends StatefulWidget {
 }
 
 class MainViewState extends State<MainView> {
-  void bottom_tapped(int index) {
+  void top_navbar_tapped(int index) {
     if (currentPage != index) {
       if (index == 0 && wotdDone)
         show_wotd_done_dialog(context);
@@ -95,7 +95,7 @@ class MainViewState extends State<MainView> {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      bottom_tapped(0);
+                      top_navbar_tapped(0);
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: wotdButtonColor,
@@ -108,7 +108,7 @@ class MainViewState extends State<MainView> {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      bottom_tapped(1);
+                      top_navbar_tapped(1);
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: infiniteButtonColor,
