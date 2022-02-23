@@ -139,7 +139,7 @@ class word_of_the_day_finished_page extends StatelessWidget {
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: appColor,
+                      backgroundColor: appMainColor,
                     ),
                     child: Text("Definición de " + wordOfTheDayString)),
               ]),
@@ -339,7 +339,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: appColor,
+                      backgroundColor: appMainColor,
                     ),
                     child: Text("Definición de " + standardWordString)),
               ]),
@@ -373,7 +373,7 @@ class palabras_infinitas_finished_page extends StatelessWidget {
                     },
                     style: TextButton.styleFrom(
                       primary: myWhite,
-                      backgroundColor: appColor,
+                      backgroundColor: appMainColor,
                     ),
                     child: Row(
                       children: [
@@ -589,7 +589,7 @@ class explanation_page extends StatelessWidget {
                         },
                         style: TextButton.styleFrom(
                           primary: myWhite,
-                          backgroundColor: appColor,
+                          backgroundColor: appMainColor,
                         ),
                         child: Text("VAMOS ALLÁ")),
                   ],

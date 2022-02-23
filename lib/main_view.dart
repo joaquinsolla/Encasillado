@@ -55,20 +55,20 @@ class MainViewState extends State<MainView> {
       darkMode = brightness == Brightness.dark;
     }
 
-    Color wotdButtonColor = appColor;
-    Color infiniteButtonColor = appDarkestColor;
+    Color wotdButtonColor = appMainColor;
+    Color infiniteButtonColor = appThirdColor;
     TextStyle wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
     TextStyle infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
 
     if (currentPage == 0) {
-      wotdButtonColor = appDarkestColor;
-      infiniteButtonColor = appColor;
+      wotdButtonColor = appThirdColor;
+      infiniteButtonColor = appMainColor;
       wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
       infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
     }
     if (currentPage == 1) {
-      wotdButtonColor = appColor;
-      infiniteButtonColor = appDarkestColor;
+      wotdButtonColor = appMainColor;
+      infiniteButtonColor = appThirdColor;
       wotdStyle = TextStyle(color: Colors.white, fontSize: 12,);
       infiniteStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
     }
@@ -84,7 +84,7 @@ class MainViewState extends State<MainView> {
       body: Column(children: [
         Container(
           height: deviceHeight*0.072,
-          color: appDarkerColor,
+          color: appSecondColor,
           padding: EdgeInsets.all(5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

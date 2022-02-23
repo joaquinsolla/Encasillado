@@ -17,7 +17,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
     imageScale = 8;
 
   return AppBar(
-    backgroundColor: appColor,
+    backgroundColor: appMainColor,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -36,7 +36,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
             },
             elevation: 0,
             child: Image.asset(help_icon),
-            fillColor: appDarkerColor,
+            fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
         ),
@@ -51,7 +51,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
             },
             elevation: 0,
             child: Image.asset(settings_icon),
-            fillColor: appDarkerColor,
+            fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
         ),
@@ -68,7 +68,7 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
     imageScale = 8;
 
   return AppBar(
-    backgroundColor: appColor,
+    backgroundColor: appMainColor,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -255,7 +255,7 @@ Widget wotd_done_dialog(BuildContext context) {
           },
           style: TextButton.styleFrom(
             primary: myWhite,
-            backgroundColor: appColor,
+            backgroundColor: appMainColor,
           ),
           child: Text("VALE")),
     ],
