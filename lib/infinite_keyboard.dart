@@ -122,9 +122,10 @@ SizedBox my_enter_key(BuildContext context) {
               word_doesnt_exist_snackbar(context);
             }
           }
-          if (finishedInfinite) {
+          if (finishedInfinite && timePausedInfinite==false) {
             endDateInfinite = DateTime.now();
             playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+            timePausedInfinite = true;
           }
           runApp(EncasilladoApp());
         },

@@ -243,6 +243,7 @@ void restart_infinite_game_variables() {
   startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
   endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
   playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+  timePausedInfinite = false;
 
   greenKeysInfinite = [];
   yellowKeysInfinite = [];
