@@ -48,6 +48,7 @@ DateTime endDateWotd = DateTime.parse("2000-01-01 00:00:00.000000");
 Duration playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
 Duration playSecondsWotd = endDateInfinite.difference(startDateInfinite);
 bool alreadyTimeMeasuredInfinite = false;
+bool alreadyTimeMeasuredWotd = false;
 bool alreadyPointsCalculatedInfinite = false;
 
 

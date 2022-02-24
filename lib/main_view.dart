@@ -1,11 +1,11 @@
-import 'package:Encasillado/wotd_keyboard.dart';
+import 'package:Encasillado/keyboard_wotd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 
 import 'common_variables.dart';
 import 'common_colors.dart';
-import 'infinite_keyboard.dart';
+import 'keyboard_infinite.dart';
 import 'common_methods.dart';
 import 'common_widgets.dart';
 

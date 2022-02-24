@@ -8,7 +8,7 @@ import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_share/whatsapp_share.dart';
 
-import 'infinite_keyboard.dart';
+import 'keyboard_infinite.dart';
 import 'common_variables.dart';
 import 'common_widgets.dart';
 import 'common_colors.dart';
@@ -129,8 +129,10 @@ void build_stats_infinite() {
   int seconds = playSecondsInfinite.inSeconds;
   if (alreadyPointsCalculatedInfinite==false){
     if (wonGameInfinite){
-      pointsInfinite += ((900-seconds) * (6-currentRowInfinite) * ((streak+1)*0.1 +1)).toInt();
-      if (pointsInfinite>9999999) pointsInfinite = 9999999;
+      if (seconds<900){
+        pointsInfinite += ((900-seconds) * (6-currentRowInfinite) * ((streak+1)*0.1 +1)).toInt();
+        if (pointsInfinite>9999999) pointsInfinite = 9999999;
+      }
     }
     else {
       pointsInfinite -= 1000;
