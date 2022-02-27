@@ -7,7 +7,6 @@ import 'common_widgets.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
-
 List<String> greenKeysInfinite = [];
 List<String> yellowKeysInfinite = [];
 List<String> greyKeysInfinite = [];
@@ -99,8 +98,7 @@ SizedBox my_enter_key(BuildContext context) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            const infinite_finished_page()));
+                        builder: (context) => const infinite_finished_page()));
               } else {
                 if (currentCellInfinite == 30) {
                   if (!finishedInfinite) {
@@ -122,7 +120,7 @@ SizedBox my_enter_key(BuildContext context) {
               word_doesnt_exist_snackbar(context);
             }
           }
-          if (finishedInfinite && alreadyTimeMeasuredInfinite==false) {
+          if (finishedInfinite && alreadyTimeMeasuredInfinite == false) {
             endDateInfinite = DateTime.now();
             playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
             alreadyTimeMeasuredInfinite = true;
@@ -287,9 +285,11 @@ bool infinite_correct_word() {
   } else {
     //GREEN
     for (var i = 0; i < 5; i++) {
-      if (inputMatrixInfinite[currentRowInfinite * 5 + i] == selectedWordArray[i]) {
+      if (inputMatrixInfinite[currentRowInfinite * 5 + i] ==
+          selectedWordArray[i]) {
         colorsArrayInfinite[currentRowInfinite * 5 + i] = "V";
-        greenKeysInfinite.insert(0, inputMatrixInfinite[currentRowInfinite * 5 + i]);
+        greenKeysInfinite.insert(
+            0, inputMatrixInfinite[currentRowInfinite * 5 + i]);
         correctLetterByLetter[i] = "";
         inputLetterByLetter[i] = "-";
       }

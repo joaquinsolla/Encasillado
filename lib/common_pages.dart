@@ -996,7 +996,8 @@ class points_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "Puntuación = (900 - tiempo) x (7 - intentos) x (1 + racha x 0.1)\n",
+                "Puntuación = (900 - tiempo) x (7 - intentos) x (1 + racha x 0.1)\n\n"
+                    "¡Acertar al primer intento te dará 50.000 puntos!\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,

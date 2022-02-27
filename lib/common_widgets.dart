@@ -9,7 +9,6 @@ import 'common_variables.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
-
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)

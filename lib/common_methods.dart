@@ -14,44 +14,50 @@ import 'common_widgets.dart';
 import 'common_colors.dart';
 import 'common_urls.dart';
 
-
-void generate_infinite_word (){
+void generate_infinite_word() {
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
   infiniteString = selectedWord;
 
   for (var i = 0; i < 5; i++) {
-    infiniteArray[i] = selectedWord.substring(i, i+1);
-    infiniteDefinitionURL += selectedWord.substring(i, i+1);
+    infiniteArray[i] = selectedWord.substring(i, i + 1);
+    infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  //print("INFINITE: " + infiniteString);
+  print("INFINITE: " + infiniteString);
 }
 
-void generate_wotd (){
+void generate_wotd() {
   int dbLength = selectedDatabase.length;
-  int todayIndex = ((3.14159265359*DateTime.now().day*DateTime.now().month*DateTime.now().year*1000)%dbLength).round() ;
+  int todayIndex = ((3.14159265359 *
+              DateTime.now().day *
+              DateTime.now().month *
+              DateTime.now().year *
+              1000) %
+          dbLength)
+      .round();
 
-  String selectedWord = selectedDatabase[todayIndex-1];
+  String selectedWord = selectedDatabase[todayIndex - 1];
 
   wotdString = selectedWord;
 
   for (var i = 0; i < 5; i++) {
-    wotdArray[i] = selectedWord.substring(i, i+1);
-    wotdDefinitionURL += selectedWord.substring(i, i+1);
+    wotdArray[i] = selectedWord.substring(i, i + 1);
+    wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
   //print("WOTD: " + wotdString);
 }
 
-void check_device(BuildContext context){
+void check_device(BuildContext context) {
   deviceWidth = MediaQuery.of(context).size.width;
-  deviceHeight = MediaQuery.of(context).size.height - 56; //Do not consider AppBar heigth (56px)
-  keyHeight = (deviceHeight)*0.083;
+  deviceHeight = MediaQuery.of(context).size.height -
+      56; //Do not consider AppBar heigth (56px)
+  keyHeight = (deviceHeight) * 0.083;
 }
 
-void check_settings(){
+void check_settings() {
   if (colorBlind) {
     myGreen = Colors.orange;
     myYellow = Colors.blue;
@@ -127,14 +133,19 @@ void build_stats_infinite() {
     if (lineUsed) emojiStatsInfinite += "\n";
   }
   int seconds = playSecondsInfinite.inSeconds;
-  if (alreadyPointsCalculatedInfinite==false){
-    if (wonGameInfinite){
-      if (seconds<900){
-        pointsInfinite += ((900-seconds) * (6-currentRowInfinite) * ((streak+1)*0.1 +1)).toInt();
-        if (pointsInfinite>9999999) pointsInfinite = 9999999;
+  if (alreadyPointsCalculatedInfinite == false) {
+    if (wonGameInfinite) {
+      if (seconds < 900) {
+        if (currentRowInfinite == 0) pointsInfinite += 50000;
+        else {
+          pointsInfinite += ((900 - seconds) *
+              (6 - currentRowInfinite) *
+              ((streak + 1) * 0.1 + 1))
+              .toInt();
+        }
+        if (pointsInfinite > 9999999) pointsInfinite = 9999999;
       }
-    }
-    else {
+    } else {
       pointsInfinite -= 1000;
     }
     alreadyPointsCalculatedInfinite = true;
@@ -174,13 +185,15 @@ mail_to(String email) async {
   await launch('$mailtoLink');
 }
 
-void copy_to_clipboard(BuildContext context, String stats, String emojis, String gameDuration) {
+void copy_to_clipboard(
+    BuildContext context, String stats, String emojis, String gameDuration) {
   String text = stats +
       "\n" +
       emojis +
       "Tiempo: " +
       gameDuration +
-      "\n\n" + encasilladoPlayStoreURL;
+      "\n\n" +
+      encasilladoPlayStoreURL;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
   Flushbar(
@@ -191,13 +204,15 @@ void copy_to_clipboard(BuildContext context, String stats, String emojis, String
   ).show(context);
 }
 
-Future<void> whatsapp_share(String stats, String emojis, String gameDuration) async {
+Future<void> whatsapp_share(
+    String stats, String emojis, String gameDuration) async {
   String text = stats +
       "\n" +
       emojis +
       "Tiempo: " +
       gameDuration +
-      "\n\n" + encasilladoPlayStoreURL;
+      "\n\n" +
+      encasilladoPlayStoreURL;
   await WhatsappShare.share(
     text: text,
     linkUrl: '',
@@ -238,7 +253,6 @@ String game_duration_to_string_wotd() {
 }
 
 void restart_infinite_game_variables() {
-
   currentCellInfinite = 0;
   currentRowInfinite = 0;
   canWriteInfinite = true;

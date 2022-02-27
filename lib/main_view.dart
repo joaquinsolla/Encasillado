@@ -50,20 +50,44 @@ class MainViewState extends State<MainView> {
 
     Color wotdButtonColor = appMainColor;
     Color infiniteButtonColor = appThirdColor;
-    TextStyle wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
-    TextStyle infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
+    TextStyle wotdStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 12,
+      decoration: TextDecoration.underline,
+      decorationStyle: TextDecorationStyle.wavy,
+    );
+    TextStyle infiniteStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 12,
+    );
 
     if (currentPage == 0) {
       wotdButtonColor = appThirdColor;
       infiniteButtonColor = appMainColor;
-      wotdStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
-      infiniteStyle = TextStyle(color: Colors.white, fontSize: 12,);
+      wotdStyle = TextStyle(
+        color: Colors.white,
+        fontSize: 12,
+        decoration: TextDecoration.underline,
+        decorationStyle: TextDecorationStyle.wavy,
+      );
+      infiniteStyle = TextStyle(
+        color: Colors.white,
+        fontSize: 12,
+      );
     }
     if (currentPage == 1) {
       wotdButtonColor = appMainColor;
       infiniteButtonColor = appThirdColor;
-      wotdStyle = TextStyle(color: Colors.white, fontSize: 12,);
-      infiniteStyle = TextStyle(color: Colors.white, fontSize: 12, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.wavy,);
+      wotdStyle = TextStyle(
+        color: Colors.white,
+        fontSize: 12,
+      );
+      infiniteStyle = TextStyle(
+        color: Colors.white,
+        fontSize: 12,
+        decoration: TextDecoration.underline,
+        decorationStyle: TextDecorationStyle.wavy,
+      );
     }
 
     check_device(context);
@@ -76,7 +100,7 @@ class MainViewState extends State<MainView> {
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
         Container(
-          height: deviceHeight*0.072,
+          height: deviceHeight * 0.072,
           color: appSecondColor,
           padding: EdgeInsets.all(5.0),
           child: Row(
@@ -125,7 +149,9 @@ class MainViewState extends State<MainView> {
         ),
         if (currentPage == 0) wotd_generate_keyboard(context),
         if (currentPage == 1) infinite_generate_keyboard(context),
-        SizedBox(height: 2.5,),
+        SizedBox(
+          height: 2.5,
+        ),
       ]),
     );
   }

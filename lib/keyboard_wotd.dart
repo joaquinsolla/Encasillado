@@ -7,7 +7,6 @@ import 'common_widgets.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
 
-
 List<String> greenKeysWotd = [];
 List<String> yellowKeysWotd = [];
 List<String> greyKeysWotd = [];
@@ -75,7 +74,10 @@ SizedBox my_enter_key(BuildContext context) {
     child: Container(
       margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
       child: TextButton(
-        child: const Text("PROBAR", style: TextStyle(fontSize: 12),),
+        child: const Text(
+          "PROBAR",
+          style: TextStyle(fontSize: 12),
+        ),
         style:
             TextButton.styleFrom(primary: myBlack, backgroundColor: keyColor),
         onPressed: () {
@@ -89,26 +91,25 @@ SizedBox my_enter_key(BuildContext context) {
             if (wotd_word_exists()) {
               if (wotd_correct_word()) {
                 if (!finishedWotd) {
-                    finishedWotd = true;
-                    wonGameWotd = true;
-                    finishedWotd = true;
+                  finishedWotd = true;
+                  wonGameWotd = true;
+                  finishedWotd = true;
                 }
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const wotd_finished_page()));
+              } else {
+                if (currentCellWotd == 30) {
+                  if (!finishedWotd) {
+                    finishedWotd = true;
+                    wonGameWotd = false;
+                    finishedWotd = true;
+                  }
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const wotd_finished_page()));
-
-              } else {
-                if (currentCellWotd == 30) {
-                  if (!finishedWotd) {
-                      finishedWotd = true;
-                      wonGameWotd = false;
-                      finishedWotd = true;
-                  }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const wotd_finished_page()));
                 } else {
                   currentRowWotd++;
                   canWriteWotd = true;
@@ -118,7 +119,7 @@ SizedBox my_enter_key(BuildContext context) {
               word_doesnt_exist_snackbar(context);
             }
           }
-          if (finishedWotd && alreadyTimeMeasuredWotd==false) {
+          if (finishedWotd && alreadyTimeMeasuredWotd == false) {
             endDateWotd = DateTime.now();
             playSecondsWotd = endDateWotd.difference(startDateWotd);
             alreadyTimeMeasuredWotd = true;
@@ -249,9 +250,8 @@ Column wotd_generate_keyboard(BuildContext context) {
 }
 
 bool wotd_correct_word() {
-
   String selectedWordString = wotdString;
-  List <String> selectedWordArray = wotdArray;
+  List<String> selectedWordArray = wotdArray;
   if (currentPage == 0) {
     selectedWordString = wotdString;
     selectedWordArray = wotdArray;
