@@ -5,8 +5,8 @@ import 'package:mailto/mailto.dart';
 import 'dart:math';
 
 import 'package:flushbar/flushbar.dart';
+import 'package:social_share/social_share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsapp_share/whatsapp_share.dart';
 
 import 'keyboard_infinite.dart';
 import 'common_variables.dart';
@@ -25,7 +25,7 @@ void generate_infinite_word() {
     infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  //print("INFINITE: " + infiniteString);
+  print("INFINITE: " + infiniteString);
 }
 
 void generate_wotd() {
@@ -47,7 +47,7 @@ void generate_wotd() {
     wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  //print("WOTD: " + wotdString);
+  print("WOTD: " + wotdString);
 }
 
 void check_device(BuildContext context) {
@@ -185,8 +185,7 @@ mail_to(String email) async {
   await launch('$mailtoLink');
 }
 
-void copy_to_clipboard(
-    BuildContext context, String stats, String emojis, String gameDuration) {
+void copy_to_clipboard(BuildContext context, String stats, String emojis, String gameDuration) {
   String text = stats +
       "\n" +
       emojis +
@@ -204,8 +203,7 @@ void copy_to_clipboard(
   ).show(context);
 }
 
-Future<void> whatsapp_share(
-    String stats, String emojis, String gameDuration) async {
+void whatsapp_share(String stats, String emojis, String gameDuration) {
   String text = stats +
       "\n" +
       emojis +
@@ -213,11 +211,9 @@ Future<void> whatsapp_share(
       gameDuration +
       "\n\n" +
       encasilladoPlayStoreURL;
-  await WhatsappShare.share(
-    text: text,
-    linkUrl: '',
-    phone: '911234567890',
-  );
+
+  //TODO: IMPLEMENT
+  SocialShare.shareWhatsapp(text);
 }
 
 String game_duration_to_string_infinite() {
