@@ -1,3 +1,9 @@
+/**
+ * APP DESIGNED AND CODED BY:
+ * Joaquin Solla Vazquez
+ * App repository: https://github.com/joaquinsolla/Encasillado
+ * */
+
 import 'package:flutter/material.dart';
 
 import 'word_databases.dart';
