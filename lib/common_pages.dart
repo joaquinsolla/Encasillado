@@ -1360,32 +1360,6 @@ class update_version_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "Interfaz actualizada",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Ahora la app se abre en el modo 'La palabra del día' y puedes cambiar entre los modos de juego "
-                    "sin perder tu progreso en ellos.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
                 "Puntuación y rachas",
                 style: TextStyle(
                   fontSize: 16,
@@ -1399,6 +1373,31 @@ class update_version_page extends StatelessWidget {
               Text(
                 "Se ha añadido al modo 'Palabras infinitas' un sistema de puntuación que funciona "
                     "según lo rápido que se acierte la palabra, los intentos y la racha actual.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
+                "Tiempo de partida modificado",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Ahora el tiempo de una partida comienza a contarse cuando se pulsa la primera letra en el teclado.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1501,32 +1500,6 @@ class update_version_page extends StatelessWidget {
               Text(
                 "Se está estudiando la forma de poder compartir el resultado de las"
                     " partidas por otras vías como Instagram Stories o Twitter.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
-                "Conservar la palabra del día al cerrar el juego",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se está trabajando para conservar tu progreso en el modo 'La palabra del día' "
-                    "a pesar de cerrar o reiniciar la app.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
