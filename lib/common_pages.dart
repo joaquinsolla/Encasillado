@@ -803,6 +803,7 @@ class settings_page extends StatelessWidget {
                       height: 5,
                     ),
                     //BUYMEACOFFEE BUTTON
+                    /*
                     TextButton(
                       onPressed: () {
                         url_launcher(buyMeACoffeeURL);
@@ -848,6 +849,7 @@ class settings_page extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
+                    */
                     Divider(
                       color: myGrey,
                     ),
