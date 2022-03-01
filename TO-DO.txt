@@ -1,9 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
--guardar wotd resuelta al cerrar app
+-Instagram & Twitter
 
 -------OTHERS----------
 
--Instagram & Twitter
+-guardar wotd resuelta al cerrar app
 -quitar color al deslizar listviews

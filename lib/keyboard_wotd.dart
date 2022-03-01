@@ -33,7 +33,6 @@ SizedBox my_letter_key(String char) {
       }
     }
   }
-
   return SizedBox(
     height: keyHeight,
     width: (deviceWidth / 10),
@@ -46,6 +45,10 @@ SizedBox my_letter_key(String char) {
           backgroundColor: mycolor,
         ),
         onPressed: () {
+          if(timeStartedWotd == false) {
+            startDateWotd = DateTime.now();
+            timeStartedWotd = true;
+          }
           if (!finishedWotd) {
             if (canWriteWotd) {
               inputMatrixWotd[currentCellWotd] = char;

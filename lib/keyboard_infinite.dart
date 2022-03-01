@@ -46,6 +46,10 @@ SizedBox my_letter_key(String char) {
           backgroundColor: mycolor,
         ),
         onPressed: () {
+          if(timeStartedInfinite == false) {
+            startDateInfinite = DateTime.now();
+            timeStartedInfinite = true;
+          }
           if (!finishedInfinite) {
             if (canWriteInfinite) {
               inputMatrixInfinite[currentCellInfinite] = char;

@@ -270,6 +270,8 @@ void restart_infinite_game_variables() {
   playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
   alreadyTimeMeasuredInfinite = false;
   alreadyPointsCalculatedInfinite = false;
+  timeStartedInfinite = false;
+  timeStartedWotd = false;
 
   greenKeysInfinite = [];
   yellowKeysInfinite = [];

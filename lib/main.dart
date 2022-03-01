@@ -19,8 +19,8 @@ void main() {
   generate_infinite_word();
   generate_wotd();
 
-  startDateWotd = DateTime.now();
-  startDateInfinite = DateTime.now();
+  //startDateWotd = DateTime.now();
+  //startDateInfinite = DateTime.now();
 
   runApp(EncasilladoApp());
 }
