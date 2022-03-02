@@ -212,8 +212,47 @@ void whatsapp_share(String stats, String emojis, String gameDuration) {
       "\n\n" +
       encasilladoPlayStoreURL;
 
-  //TODO: IMPLEMENT
   SocialShare.shareWhatsapp(text);
+}
+
+void twitter_share(String stats, String emojis, String gameDuration) {
+
+  //TODO: REVISAR
+  String text = stats +
+      " \n " +
+      emojis +
+      "Tiempo: " +
+      gameDuration + "\n ";
+
+  SocialShare.shareTwitter(text, hashtags: ["Encasillado"], url:encasilladoPlayStoreURL);
+}
+
+void telegram_share(String stats, String emojis, String gameDuration) {
+
+  String text = stats +
+      "\n" +
+      emojis +
+      "Tiempo: " +
+      gameDuration +
+      "\n\n" +
+      encasilladoPlayStoreURL;
+
+  SocialShare.shareTelegram(text);
+
+}
+
+void others_share(String stats, String emojis, String gameDuration) {
+
+  String text = stats +
+      "\n" +
+      emojis +
+      "Tiempo: " +
+      gameDuration +
+      "\n\n" +
+      encasilladoPlayStoreURL;
+
+  SocialShare.shareOptions(text);
+
 }
 
 String game_duration_to_string_infinite() {

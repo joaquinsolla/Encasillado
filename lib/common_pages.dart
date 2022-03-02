@@ -170,7 +170,7 @@ class wotd_finished_page extends StatelessWidget {
                       copy_to_clipboard(context, infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(clipboard_icon),
+                    child: Image.asset(clipboard_icon, scale: 22.5,),
                     fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
@@ -179,8 +179,43 @@ class wotd_finished_page extends StatelessWidget {
                       whatsapp_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(whatsapp_icon),
+                    child: Image.asset(whatsapp_icon, scale: 60,),
                     fillColor: wppColor,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      twitter_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                    },
+                    elevation: 1,
+                    child: Image.asset(twitter_icon, scale: 47,),
+                    fillColor: twitterColor,
+                    shape: CircleBorder(),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {
+                      telegram_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                    },
+                    elevation: 1,
+                    child: Image.asset(telegram_icon, scale: 50,),
+                    fillColor: telegramColor,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      others_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                    },
+                    elevation: 1,
+                    child: Image.asset(others_icon, scale: 45,),
+                    fillColor: othersColor,
                     shape: CircleBorder(),
                   ),
                 ],
@@ -1360,6 +1395,32 @@ class update_version_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
+                "Más formas de compartir tus partidas",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "Ahora se puede compartir el resultado de las partidas en: "
+                    "Whatsapp, Twitter, Telegram y más.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
                 "Puntuación y rachas",
                 style: TextStyle(
                   fontSize: 16,
@@ -1485,32 +1546,6 @@ class update_version_page extends StatelessWidget {
                   fontFamily: 'RaleWay',
                 ),
                 textAlign: TextAlign.left,
-              ),
-              Text(
-                "Más formas de compartir tus partidas",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se está estudiando la forma de poder compartir el resultado de las"
-                    " partidas por otras vías como Instagram Stories o Twitter.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
               ),
               Text(
                 "Lista de palabras en proceso de mejora",
