@@ -1092,7 +1092,7 @@ class points_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "Si la partida suma menos de 15 minutos, se puntuará. Cada partida comienza con 900 puntos"
+                "Si la partida dura menos de 15 minutos, puntuarás. Cada partida comienza con 900 puntos "
                     "y por cada segundo que pasa se resta 1 punto.\n",
                 style: TextStyle(
                   fontSize: 15,
@@ -1118,9 +1118,9 @@ class points_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "En cada partida se dispone de hasta 6 intentos. Si se acierta a la primera, los puntos "
-                    "obtenidos según el tiempo se multiplicarán por 6. Si se acierta al segundo intento se"
-                    " multiplican por 5, y así hasta llegar al sexto intento en el que se multiplica por 1.\n",
+                "En cada partida se dispone de hasta 6 intentos. Si aciertas a la primera ganarás 50.000 puntos. "
+                    "En el resto de los casos los puntos obtenidos según el tiempo se multiplicarán por 7 menos el número "
+                    "de intentos realizados.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1288,7 +1288,7 @@ class streak_page extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                "Bonificador",
+                "Bonificación",
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
