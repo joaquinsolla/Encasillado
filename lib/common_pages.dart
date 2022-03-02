@@ -51,13 +51,6 @@ class wotd_finished_page extends StatelessWidget {
               SizedBox(
                 height: 15.0,
               ),
-              SizedBox(
-                height: 90,
-                child: Image.asset(gameImage),
-              ),
-              SizedBox(
-                height: 15,
-              ),
               Text(
                 gameText,
                 style: TextStyle(
@@ -70,7 +63,14 @@ class wotd_finished_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 10,
+                height: 15,
+              ),
+              SizedBox(
+                height: 100,
+                child: Image.asset(gameImage),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -284,13 +284,6 @@ class infinite_finished_page extends StatelessWidget {
               SizedBox(
                 height: 15.0,
               ),
-              SizedBox(
-                height: 90,
-                child: Image.asset(gameImage),
-              ),
-              SizedBox(
-                height: 15,
-              ),
               Text(
                 gameText,
                 style: TextStyle(
@@ -303,7 +296,14 @@ class infinite_finished_page extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 10,
+                height: 15,
+              ),
+              SizedBox(
+                height: 100,
+                child: Image.asset(gameImage),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Container(
                 alignment: Alignment.topLeft,
