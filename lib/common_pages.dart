@@ -448,8 +448,7 @@ class infinite_finished_page extends StatelessWidget {
                       copy_to_clipboard(context, infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(clipboard_icon),
-                    //Lienzo: 300px , img: 40px
+                    child: Image.asset(clipboard_icon, scale: 22.5,),
                     fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
@@ -458,9 +457,43 @@ class infinite_finished_page extends StatelessWidget {
                       whatsapp_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(whatsapp_icon),
-                    //Lienzo: 280px , img: 40px
+                    child: Image.asset(whatsapp_icon, scale: 60,),
                     fillColor: wppColor,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      twitter_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                    },
+                    elevation: 1,
+                    child: Image.asset(twitter_icon, scale: 47,),
+                    fillColor: twitterColor,
+                    shape: CircleBorder(),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RawMaterialButton(
+                    onPressed: () {
+                      telegram_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                    },
+                    elevation: 1,
+                    child: Image.asset(telegram_icon, scale: 50,),
+                    fillColor: telegramColor,
+                    shape: CircleBorder(),
+                  ),
+                  RawMaterialButton(
+                    onPressed: () {
+                      others_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                    },
+                    elevation: 1,
+                    child: Image.asset(others_icon, scale: 45,),
+                    fillColor: othersColor,
                     shape: CircleBorder(),
                   ),
                 ],
