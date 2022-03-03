@@ -1,4 +1,4 @@
-const String currentVersion = "1.0.3 Beta";
+const String currentVersion = "1.0.4";
 
 int currentPage = 0;
 bool appStarted = false;
