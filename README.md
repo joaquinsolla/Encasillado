@@ -12,4 +12,4 @@ https://play.google.com/store/apps/details?id=com.joa.encasillado
 
 ## Game's Twitter bot
 
- > https://twitter.com/encasillado_bot
+https://twitter.com/encasillado_bot
