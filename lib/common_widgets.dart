@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:twitter_intent/twitter_intent.dart';
 
 import 'package:flushbar/flushbar.dart';
 
 import 'common_imagepaths.dart';
+import 'common_methods.dart';
 import 'common_pages.dart';
+import 'common_urls.dart';
 import 'common_variables.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
@@ -210,6 +213,10 @@ Container game_banner(BuildContext context) {
             height: 36,
             child: streak_button(context),
           ),
+        if (currentPage == 0) twitter_bot_button(context),
+        SizedBox(
+          width: 5.0,
+        ),
         if (currentPage == 0) current_version_button(context),
       ],
     ),
@@ -231,6 +238,25 @@ TextButton current_version_button(BuildContext context) {
       currentVersion,
       style: TextStyle(color: myBlack),
     ),
+  );
+}
+
+TextButton twitter_bot_button(BuildContext context) {
+  String img;
+  if (darkMode) img = twitter_bot_image_darkmode;
+  else img = twitter_bot_image;
+
+  final botLink = FollowUserIntent(username: 'encasillado_bot');
+
+  return TextButton(
+    onPressed: () {
+      url_launcher('$botLink');
+    },
+    style: TextButton.styleFrom(
+      primary: myBlack,
+      backgroundColor: keyColor,
+    ),
+    child: Image.asset(img, scale: 58,),
   );
 }
 

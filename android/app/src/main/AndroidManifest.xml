@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.my_wordle"> <!-- TO CHANGE-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />

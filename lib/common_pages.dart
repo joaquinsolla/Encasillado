@@ -1428,6 +1428,32 @@ class update_version_page extends StatelessWidget {
                 height: 15,
               ),
               Text(
+                "¡Presentando al Bot de Twitter!",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: myBlack,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                "El juego tiene ahora un bot de Twitter oficial que tuitea cuál ha sido"
+                    " la palabra del día cada noche.\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: myBlack,
+                  fontWeight: FontWeight.normal,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'RaleWay',
+                ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 7.5,
+              ),
+              Text(
                 "Más formas de compartir tus partidas",
                 style: TextStyle(
                   fontSize: 16,
@@ -1441,57 +1467,6 @@ class update_version_page extends StatelessWidget {
               Text(
                 "Ahora se puede compartir el resultado de las partidas en: "
                     "Whatsapp, Twitter, Telegram y más.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
-                "Puntuación y rachas",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Se ha añadido al modo 'Palabras infinitas' un sistema de puntuación que funciona "
-                    "según lo rápido que se acierte la palabra, los intentos y la racha actual.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
-                "Tiempo de partida modificado",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Ahora el tiempo de una partida comienza a contarse cuando se pulsa la primera letra en el teclado.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,

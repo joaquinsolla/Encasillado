@@ -24,5 +24,7 @@ String streak_gif = 'app_files/streak_gif.gif';
 String streak_gif_darkmode = 'app_files/streak_gif_darkmode.gif';
 String telegram_icon = 'app_files/telegram_icon.png';
 String twitter_icon = 'app_files/twitter_icon.png';
+String twitter_bot_image = 'app_files/twitter_bot_image.png';
+String twitter_bot_image_darkmode = 'app_files/twitter_bot_image_darkmode.png';
 String victory_image = 'app_files/victory_image.png';
 String whatsapp_icon = 'app_files/whatsapp_icon.png';
