@@ -38,7 +38,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
                       builder: (context) => const explanation_page()));
             },
             elevation: 0,
-            child: Image.asset(help_icon),
+            child: Image.asset(help_icon, scale: 35,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
@@ -55,7 +55,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
                       builder: (context) => const settings_page()));
             },
             elevation: 0,
-            child: Image.asset(settings_icon),
+            child: Image.asset(settings_icon, scale: 67.5,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
