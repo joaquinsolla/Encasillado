@@ -12,6 +12,9 @@ LISTADO DE VERSIONES:
 
     --RELEASES
     7 (1.0.4)
+    8 (1.0.5)
 
     --BETA-VERSIONS
+    1 (1.0.0) Beta
+    5 (1.0.2) Beta
     6 (1.0.3) Beta
