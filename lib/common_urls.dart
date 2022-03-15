@@ -9,5 +9,6 @@ String privacyPolicyURL = "https://www.privacypolicies.com/live/02b4f35d-f52e-48
 String buyMeACoffeeURL = "https://www.buymeacoffee.com/joadev";
 String myWebsite = "https://joaquinsolla.github.io/";
 String twitterBotURL = "https://twitter.com/encasillado_bot";
+String playStoreDevURL = "https://play.google.com/store/apps/dev?id=6187417697213914225";
 
 String myDevEmail = "joa.sv.dev@gmail.com";

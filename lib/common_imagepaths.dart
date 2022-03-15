@@ -17,6 +17,7 @@ String help_icon = 'app_files/help_icon.png';
 String instagram_image = 'app_files/instagram_image.png';
 String my_website_img = 'app_files/my_website_img.png';
 String others_icon = 'app_files/others_icon.png';
+String play_store_img = 'app_files/play_store_image.png';
 String restart_icon = 'app_files/restart_icon.png';
 String restart_icon_darkmode = 'app_files/restart_icon_darkmode.png';
 String settings_icon = 'app_files/settings_icon.png';

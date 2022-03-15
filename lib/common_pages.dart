@@ -870,54 +870,38 @@ class settings_page extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    //BUYMEACOFFEE BUTTON
-                    /*
+                    //PLAY STORE BUTTON
                     TextButton(
                       onPressed: () {
-                        url_launcher(buyMeACoffeeURL);
+                        url_launcher(playStoreDevURL);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Image.asset(
-                            coffeeImage,
-                            scale: 34,
+                            play_store_img,
+                            scale: 32.5,
                           ),
                           SizedBox(
                             width: 20,
                           ),
-                          Column(children: [
-                            Text(
-                              "¿Te gusta mi app?",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: myGrey,
-                                fontWeight: FontWeight.w600,
-                                decoration: TextDecoration.none,
-                                fontFamily: 'RaleWay',
-                              ),
-                              textAlign: TextAlign.start,
+                          Text(
+                            "Play Store",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: myGrey,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
                             ),
-                            SizedBox(height: 2,),
-                            Text(
-                              "¡Cómprame un café!",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: myGrey,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.none,
-                                fontFamily: 'RaleWay',
-                              ),
-                              textAlign: TextAlign.start,
-                            ),
-                          ],)
+                            textAlign: TextAlign.center,
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
-                    */
                     Divider(
                       color: myGrey,
                     ),
@@ -1441,32 +1425,6 @@ class update_version_page extends StatelessWidget {
               Text(
                 "El juego tiene ahora un bot de Twitter oficial que tuitea cuál ha sido"
                     " la palabra del día cada noche.\n",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: myBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 7.5,
-              ),
-              Text(
-                "Más formas de compartir tus partidas",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: myBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Text(
-                "Ahora se puede compartir el resultado de las partidas en: "
-                    "Whatsapp, Twitter, Telegram y más.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
