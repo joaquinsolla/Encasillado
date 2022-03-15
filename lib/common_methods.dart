@@ -25,7 +25,7 @@ void generate_infinite_word() {
     infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("INFINITE: " + infiniteString);
+  //print("INFINITE: " + infiniteString);
 }
 
 void generate_wotd() {
@@ -47,7 +47,7 @@ void generate_wotd() {
     wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("WOTD: " + wotdString);
+  //print("WOTD: " + wotdString);
 }
 
 void check_device(BuildContext context) {

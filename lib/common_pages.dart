@@ -224,7 +224,7 @@ class wotd_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n",
+                "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -502,7 +502,7 @@ class infinite_finished_page extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                "Gracias por jugar a Encasillado\n",
+                "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -1187,7 +1187,7 @@ class points_page extends StatelessWidget {
                 ),
               ),
               Text(
-                "\nGracias por jugar a Encasillado\n",
+                "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -1361,7 +1361,7 @@ class streak_page extends StatelessWidget {
                 ),
               ),
               Text(
-                "\nGracias por jugar a Encasillado\n",
+                "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,
@@ -1538,7 +1538,7 @@ class update_version_page extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "\nGracias por jugar a Encasillado\n",
+                "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
                   color: myGrey,

@@ -7,7 +7,6 @@ import 'package:flushbar/flushbar.dart';
 import 'common_imagepaths.dart';
 import 'common_methods.dart';
 import 'common_pages.dart';
-import 'common_urls.dart';
 import 'common_variables.dart';
 import 'common_colors.dart';
 import 'main_view.dart';
