@@ -4,12 +4,20 @@
  * App repository: https://github.com/joaquinsolla/Encasillado
  * */
 
+import 'package:Encasillado/pages/help.dart';
+import 'package:Encasillado/pages/infinite_words.dart';
+import 'package:Encasillado/pages/infinite_words_end.dart';
+import 'package:Encasillado/pages/score_explanation.dart';
+import 'package:Encasillado/pages/settings.dart';
+import 'package:Encasillado/pages/streak_explanation.dart';
+import 'package:Encasillado/pages/update_news.dart';
+import 'package:Encasillado/pages/wotd.dart';
+import 'package:Encasillado/pages/wotd_end.dart';
 import 'package:flutter/material.dart';
 
 import 'databases.dart';
 import 'common/miscellaneous.dart';
 import 'common/methods.dart';
-import 'main_view.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -25,5 +33,21 @@ void main() {
   generate_infinite_word();
   generate_wotd();
 
-  runApp(EncasilladoApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: "Encasillado",
+    initialRoute: '/wotd',
+    routes: {
+      '/help': (context) => Help(),
+      '/infinite_words': (context) => InfiniteWords(),
+      '/infinite_words_end': (context) => InfiniteWordsEnd(),
+      '/score_explanation': (context) => ScoreExplanation(),
+      '/settings': (context) => Settings(),
+      '/streak_explanation': (context) => StreakExplanation(),
+      '/update_news': (context) => UpdateNews(),
+      '/wotd': (context) => Wotd(),
+      '/wotd_end': (context) => WotdEnd(),
+    },
+  ));
+
 }
