@@ -6,9 +6,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'word_databases.dart';
-import 'common_variables.dart';
-import 'common_methods.dart';
+import 'databases.dart';
+import 'common/miscellaneous.dart';
+import 'common/methods.dart';
 import 'main_view.dart';
 
 

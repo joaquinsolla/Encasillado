@@ -3,6 +3,3 @@
 -------PRIORITY--------
 
 -------OTHERS----------
-
--guardar wotd resuelta al cerrar app
--quitar color al deslizar listviews

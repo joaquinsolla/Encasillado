@@ -8,11 +8,11 @@ import 'dart:math';
 import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'keyboard_infinite.dart';
-import 'common_variables.dart';
-import 'common_widgets.dart';
-import 'common_colors.dart';
-import 'common_urls.dart';
+import '../keyboard_infinite.dart';
+import 'miscellaneous.dart';
+import 'widgets.dart';
+import 'colors.dart';
+import 'urls.dart';
 
 void generate_infinite_word() {
   var rng = Random();
@@ -192,7 +192,7 @@ void copy_to_clipboard(BuildContext context, String stats, String emojis, String
       "Tiempo: " +
       gameDuration +
       "\n\n" +
-      encasilladoPlayStoreURL;
+      encasilladoPlayStoreUrl;
   Clipboard.setData(ClipboardData(text: text));
   //may cause problems with null sound safety
   Flushbar(
@@ -210,7 +210,7 @@ void whatsapp_share(String stats, String emojis, String gameDuration) {
       "Tiempo: " +
       gameDuration +
       "\n\n" +
-      encasilladoPlayStoreURL;
+      encasilladoPlayStoreUrl;
 
   SocialShare.shareWhatsapp(text);
 }
@@ -224,7 +224,7 @@ void twitter_share(String stats, String emojis, String gameDuration) {
       "Tiempo: " +
       gameDuration + "\n ";
 
-  SocialShare.shareTwitter(text, hashtags: ["Encasillado"], url:encasilladoPlayStoreURL);
+  SocialShare.shareTwitter(text, hashtags: ["Encasillado"], url:encasilladoPlayStoreUrl);
 }
 
 void telegram_share(String stats, String emojis, String gameDuration) {
@@ -235,7 +235,7 @@ void telegram_share(String stats, String emojis, String gameDuration) {
       "Tiempo: " +
       gameDuration +
       "\n\n" +
-      encasilladoPlayStoreURL;
+      encasilladoPlayStoreUrl;
 
   SocialShare.shareTelegram(text);
 
@@ -249,7 +249,7 @@ void others_share(String stats, String emojis, String gameDuration) {
       "Tiempo: " +
       gameDuration +
       "\n\n" +
-      encasilladoPlayStoreURL;
+      encasilladoPlayStoreUrl;
 
   SocialShare.shareOptions(text);
 

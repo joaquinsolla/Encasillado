@@ -1,7 +1,7 @@
-//Database selection
+// List of word-lists
 List <List <String>> databasesList = [testDB0,testDB1,testDB2,gameDB];
 
-//Test lists
+// Test lists
 const List <String> testDB0 = ["AAAAA"];
 const List <String> testDB1 = ["CIELO","ARBOL","MIEDO","COCHE","TARTA","CIELO","MIEDO","LUCAS","TOKIO"];
 const List <String> testDB2 = [];

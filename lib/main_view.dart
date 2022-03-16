@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 
-import 'common_variables.dart';
-import 'common_colors.dart';
+import 'common/miscellaneous.dart';
+import 'common/colors.dart';
 import 'keyboard_infinite.dart';
-import 'common_methods.dart';
-import 'common_widgets.dart';
+import 'common/methods.dart';
+import 'common/widgets.dart';
 
 class EncasilladoApp extends StatelessWidget {
   const EncasilladoApp({Key? key}) : super(key: key);

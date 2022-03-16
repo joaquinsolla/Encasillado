@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'common_imagepaths.dart';
-import 'common_variables.dart';
-import 'common_widgets.dart';
-import 'common_methods.dart';
-import 'common_colors.dart';
-import 'common_urls.dart';
+import 'common/imagepaths.dart';
+import 'common/miscellaneous.dart';
+import 'common/widgets.dart';
+import 'common/methods.dart';
+import 'common/colors.dart';
+import 'common/urls.dart';
 import 'main_view.dart';
-
 
 class wotd_finished_page extends StatelessWidget {
   const wotd_finished_page({Key? key}) : super(key: key);
@@ -23,7 +22,7 @@ class wotd_finished_page extends StatelessWidget {
         "/" +
         DateTime.now().month.toString() +
         "/" +
-        DateTime.now().year.toString().substring(2,4);
+        DateTime.now().year.toString().substring(2, 4);
 
     if (wonGameWotd) {
       infoStatsWotd = "Encasillado del " +
@@ -31,11 +30,11 @@ class wotd_finished_page extends StatelessWidget {
           "\nIntentos: " +
           (currentRowWotd + 1).toString() +
           "/6";
-      gameImage = victory_image;
+      gameImage = victoryImg;
       gameText = "VICTORIA";
     } else {
       infoStatsWotd = "Encasillado del " + today + "\nIntentos: X/6";
-      gameImage = defeat_image;
+      gameImage = defeatImg;
       gameText = "DERROTA";
     }
 
@@ -167,28 +166,40 @@ class wotd_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      copy_to_clipboard(context, infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                      copy_to_clipboard(context, infoStatsWotd, emojiStatsWotd,
+                          game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(clipboard_icon, scale: 22.5,),
+                    child: Image.asset(
+                      clipboardImg,
+                      scale: 22.5,
+                    ),
                     fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      whatsapp_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                      whatsapp_share(infoStatsWotd, emojiStatsWotd,
+                          game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(whatsapp_icon, scale: 60,),
+                    child: Image.asset(
+                      whatsappImg,
+                      scale: 60,
+                    ),
                     fillColor: wppColor,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      twitter_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                      twitter_share(infoStatsWotd, emojiStatsWotd,
+                          game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(twitter_icon, scale: 47,),
+                    child: Image.asset(
+                      twitterImg,
+                      scale: 47,
+                    ),
                     fillColor: twitterColor,
                     shape: CircleBorder(),
                   ),
@@ -202,19 +213,27 @@ class wotd_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      telegram_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                      telegram_share(infoStatsWotd, emojiStatsWotd,
+                          game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(telegram_icon, scale: 50,),
+                    child: Image.asset(
+                      telegramImg,
+                      scale: 50,
+                    ),
                     fillColor: telegramColor,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      others_share(infoStatsWotd, emojiStatsWotd, game_duration_to_string_wotd());
+                      others_share(infoStatsWotd, emojiStatsWotd,
+                          game_duration_to_string_wotd());
                     },
                     elevation: 1,
-                    child: Image.asset(others_icon, scale: 45,),
+                    child: Image.asset(
+                      otherShareImg,
+                      scale: 45,
+                    ),
                     fillColor: othersColor,
                     shape: CircleBorder(),
                   ),
@@ -257,19 +276,19 @@ class infinite_finished_page extends StatelessWidget {
           " - Intentos: " +
           (currentRowInfinite + 1).toString() +
           "/6";
-      gameImage = victory_image;
+      gameImage = victoryImg;
       gameText = "VICTORIA";
     } else {
       infoStatsInfinite = infiniteString + " - Intentos: X/6";
-      gameImage = defeat_image;
+      gameImage = defeatImg;
       gameText = "DERROTA";
     }
 
     String restartImage;
     if (darkMode) {
-      restartImage = restart_icon_darkmode;
+      restartImage = restartImgDarkmode;
     } else {
-      restartImage = restart_icon;
+      restartImage = restartImgLightmode;
     }
 
     return Scaffold(
@@ -336,7 +355,9 @@ class infinite_finished_page extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                emojiStatsInfinite + "\nTiempo: " + game_duration_to_string_infinite(),
+                emojiStatsInfinite +
+                    "\nTiempo: " +
+                    game_duration_to_string_infinite(),
                 style: TextStyle(
                   fontSize: 16,
                   color: myBlack,
@@ -445,28 +466,43 @@ class infinite_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      copy_to_clipboard(context, infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                      copy_to_clipboard(
+                          context,
+                          infoStatsInfinite,
+                          emojiStatsInfinite,
+                          game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(clipboard_icon, scale: 22.5,),
+                    child: Image.asset(
+                      clipboardImg,
+                      scale: 22.5,
+                    ),
                     fillColor: myGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      whatsapp_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                      whatsapp_share(infoStatsInfinite, emojiStatsInfinite,
+                          game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(whatsapp_icon, scale: 60,),
+                    child: Image.asset(
+                      whatsappImg,
+                      scale: 60,
+                    ),
                     fillColor: wppColor,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      twitter_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                      twitter_share(infoStatsInfinite, emojiStatsInfinite,
+                          game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(twitter_icon, scale: 47,),
+                    child: Image.asset(
+                      twitterImg,
+                      scale: 47,
+                    ),
                     fillColor: twitterColor,
                     shape: CircleBorder(),
                   ),
@@ -480,19 +516,27 @@ class infinite_finished_page extends StatelessWidget {
                 children: [
                   RawMaterialButton(
                     onPressed: () {
-                      telegram_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                      telegram_share(infoStatsInfinite, emojiStatsInfinite,
+                          game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(telegram_icon, scale: 50,),
+                    child: Image.asset(
+                      telegramImg,
+                      scale: 50,
+                    ),
                     fillColor: telegramColor,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      others_share(infoStatsInfinite, emojiStatsInfinite, game_duration_to_string_infinite());
+                      others_share(infoStatsInfinite, emojiStatsInfinite,
+                          game_duration_to_string_infinite());
                     },
                     elevation: 1,
-                    child: Image.asset(others_icon, scale: 45,),
+                    child: Image.asset(
+                      otherShareImg,
+                      scale: 45,
+                    ),
                     fillColor: othersColor,
                     shape: CircleBorder(),
                   ),
@@ -526,18 +570,17 @@ class explanation_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String ex_green;
     String ex_yellow;
     String ex_grey;
     if (colorBlind) {
-      ex_green = example_green_colorblind;
-      ex_yellow = example_yellow_colorblind;
-      ex_grey = example_grey_colorblind;
+      ex_green = exampleGreenColorblindImg;
+      ex_yellow = exampleYellowColorblindImg;
+      ex_grey = exampleGreyColorblindImg;
     } else {
-      ex_green = example_green;
-      ex_yellow = example_yellow;
-      ex_grey = example_grey;
+      ex_green = exampleGreenImg;
+      ex_yellow = exampleYellowImg;
+      ex_grey = exampleGreyImg;
     }
 
     return Scaffold(
@@ -667,14 +710,12 @@ class settings_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String githubImage;
-    String coffeeImage;
-    if (darkMode){
-      githubImage = github_image_darkmode;
-      coffeeImage = coffee_image_darkmode;}
-    else{
-      githubImage = github_image;
-      coffeeImage = coffee_image;}
+    late String myGithubImage;
+    if (darkMode) {
+      myGithubImage = githubImgDarkmode;
+    } else {
+      myGithubImage = githubImgLightmode;
+    }
 
     return Scaffold(
         backgroundColor: myWhite,
@@ -685,71 +726,30 @@ class settings_page extends StatelessWidget {
             child: ListView(
               addAutomaticKeepAlives: true,
               children: [
-                Text(
-                  "Ajustes",
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: myBlack,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.none,
-                    fontFamily: 'RaleWay',
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                headerText('Ajustes'),
                 SizedBox(
                   height: 15,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    //DALTONISMO
-                    Text(
-                      "Filtro para daltonismo:",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: myBlack,
-                        fontWeight: FontWeight.w700,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                    Expanded(child: Text("")),
-                    Switch(
-                      value: colorBlind,
-                      onChanged: (value) {
-                        colorBlind = (!colorBlind);
-                        runApp(EncasilladoApp());
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
-                ),
-
-                //MODO OSCURO
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    //DALTONISMO
-                    Text(
-                      "Modo oscuro:",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: myBlack,
-                        fontWeight: FontWeight.w700,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                    Expanded(child: Text("")),
-                    Switch(
-                      value: darkMode,
-                      onChanged: (value) {
-                        darkMode = (!darkMode);
-                        runApp(EncasilladoApp());
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
+                settingsRow(
+                  'Filtro para daltonismo:',
+                  Switch(
+                  value: colorBlind,
+                  onChanged: (value) {
+                    colorBlind = (!colorBlind);
+                    runApp(EncasilladoApp());
+                    Navigator.pop(context);
+                  },
+                ),),
+                settingsRow(
+                  'Modo oscuro:',
+                  Switch(
+                    value: darkMode,
+                    onChanged: (value) {
+                      darkMode = (!darkMode);
+                      runApp(EncasilladoApp());
+                      Navigator.pop(context);
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: 15,
@@ -760,162 +760,33 @@ class settings_page extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      "\nSoy Joaquín, estudiante de ingeniería informática. "
-                      "Espero que disfrutes mi app tanto como yo he disfrutado hacerla."
-                      "\n\nPuedes encontrarme en:\n",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: myGrey,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    //INSTAGRAM BUTTON
-                    TextButton(
-                      onPressed: () {
-                        url_launcher(myInstagramURL);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            instagram_image,
-                            scale: 19.5,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            "Instagram",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: myGrey,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-
+                    smallText(
+                        '\nSoy Joaquín, estudiante de ingeniería informática. '
+                        'Espero que disfrutes mi app tanto como yo he disfrutado hacerla.'
+                        '\n\nPuedes encontrarme en:\n'),
+                    socialsButton(
+                        myInstagramUrl, instagramImg, 19.5, 'Instagram'),
                     SizedBox(
                       height: 5,
                     ),
-                    //GITHUB BUTTON
-                    TextButton(
-                      onPressed: () {
-                        url_launcher(myGitHubURL);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            githubImage,
-                            scale: 13.5,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            "GitHub",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: myGrey,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
+                    socialsButton(myGitHubUrl, myGithubImage, 13.5, 'GitHub'),
                     SizedBox(
                       height: 5,
                     ),
-                    //MY WEBSITE BUTTON
-                    TextButton(
-                      onPressed: () {
-                        url_launcher(myWebsite);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            my_website_img,
-                            scale: 13.5,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            "Mi página web",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: myGrey,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
+                    socialsButton(
+                        myWebsiteUrl, myWebsiteImg, 13.5, 'Mi página web'),
                     SizedBox(
                       height: 5,
                     ),
-                    //PLAY STORE BUTTON
-                    TextButton(
-                      onPressed: () {
-                        url_launcher(playStoreDevURL);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            play_store_img,
-                            scale: 32.5,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            "Play Store",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: myGrey,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
+                    socialsButton(
+                        myPlayStoreDevUrl, playStoreImg, 32.5, 'Play Store'),
                     SizedBox(
                       height: 5,
                     ),
                     Divider(
                       color: myGrey,
                     ),
-                    Text(
-                      "\nApp basada en el juego original ",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: myGrey,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    smallText('\nApp basada en el juego original '),
                     Container(
                       height: 40,
                       child: Row(
@@ -925,7 +796,7 @@ class settings_page extends StatelessWidget {
                             width: 60,
                             child: TextButton(
                               onPressed: () {
-                                url_launcher(officialWordleURL);
+                                url_launcher(wordleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: myGrey,
@@ -933,22 +804,12 @@ class settings_page extends StatelessWidget {
                               child: Text("Wordle"),
                             ),
                           ),
-                          Text(
-                            "de",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: myGrey,
-                              fontWeight: FontWeight.normal,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
+                          smallText("de"),
                           SizedBox(
                             width: 100,
                             child: TextButton(
                               onPressed: () {
-                                url_launcher(joshWardleURL);
+                                url_launcher(joshWardleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: myGrey,
@@ -962,17 +823,8 @@ class settings_page extends StatelessWidget {
                     Divider(
                       color: myGrey,
                     ),
-                    Text(
-                      "\nPuedes contactarme para reportar errores o comunicar sugerencias:",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: myGrey,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    smallText(
+                        '\nPuedes contactarme para reportar errores o comunicar sugerencias:'),
                     Container(
                       height: 40,
                       child: Row(
@@ -995,7 +847,7 @@ class settings_page extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                url_launcher(privacyPolicyURL);
+                                url_launcher(privacyPolicyUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: myGrey,
@@ -1009,7 +861,6 @@ class settings_page extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 SizedBox(
                   height: 20,
                 ),
@@ -1051,7 +902,7 @@ class points_page extends StatelessWidget {
               ),
               Text(
                 "Puntuación = (900 - tiempo) x (7 - intentos) x (1 + racha x 0.1)\n\n"
-                    "¡Acertar al primer intento te dará 50.000 puntos!\n",
+                "¡Acertar al primer intento te dará 50.000 puntos!\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1077,7 +928,7 @@ class points_page extends StatelessWidget {
               ),
               Text(
                 "Si la partida dura menos de 15 minutos, puntuarás. Cada partida comienza con 900 puntos "
-                    "y por cada segundo que pasa se resta 1 punto.\n",
+                "y por cada segundo que pasa se resta 1 punto.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1103,8 +954,8 @@ class points_page extends StatelessWidget {
               ),
               Text(
                 "En cada partida se dispone de hasta 6 intentos. Si aciertas a la primera ganarás 50.000 puntos. "
-                    "En el resto de los casos los puntos obtenidos según el tiempo se multiplicarán por 7 menos el número "
-                    "de intentos realizados.\n",
+                "En el resto de los casos los puntos obtenidos según el tiempo se multiplicarán por 7 menos el número "
+                "de intentos realizados.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1130,7 +981,7 @@ class points_page extends StatelessWidget {
               ),
               Text(
                 "Si tienes una racha de partidas ganadas, tu puntuación por partida"
-                    " será multiplicada por una pequeña bonificación.\n",
+                " será multiplicada por una pequeña bonificación.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1156,7 +1007,7 @@ class points_page extends StatelessWidget {
               ),
               Text(
                 "Acertar una palabra en más de 15 minutos no suma ni resta puntos.\n"
-                    "No acertar una palabra resta 1000 puntos.\n",
+                "No acertar una palabra resta 1000 puntos.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1211,12 +1062,11 @@ class streak_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    String streakGif;
+    String myStreakGif;
     if (darkMode) {
-      streakGif = streak_gif_darkmode;
+      myStreakGif = streakGifDarkmode;
     } else {
-      streakGif = streak_gif;
+      myStreakGif = streakGifLightmode;
     }
 
     return Scaffold(
@@ -1258,7 +1108,7 @@ class streak_page extends StatelessWidget {
               ),
               Text(
                 "El juego comienza con racha de 0 aciertos. Cada vez que aciertes una palabra tu racha aumentará "
-                    "en 1, pero si no aciertas, volverá a 0.\n",
+                "en 1, pero si no aciertas, volverá a 0.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1284,9 +1134,9 @@ class streak_page extends StatelessWidget {
               ),
               Text(
                 "Las rachas actúan de bonificación para obtener más puntos de cada acierto.\n"
-                    "La puntuación extra por racha se calcula de la forma:\n\n"
-                    "Extra = Puntuación x (racha x 0.1)\n\n"
-                    "¿Hasta cuánto podrás llegar?\n",
+                "La puntuación extra por racha se calcula de la forma:\n\n"
+                "Extra = Puntuación x (racha x 0.1)\n\n"
+                "¿Hasta cuánto podrás llegar?\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1332,7 +1182,7 @@ class streak_page extends StatelessWidget {
                           ),
                         ),
                         Image.asset(
-                          streakGif,
+                          myStreakGif,
                           scale: 15,
                         ),
                       ],
@@ -1424,7 +1274,7 @@ class update_version_page extends StatelessWidget {
               ),
               Text(
                 "El juego tiene ahora un bot de Twitter oficial que tuitea cuál ha sido"
-                    " la palabra del día cada noche.\n",
+                " la palabra del día cada noche.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1475,7 +1325,7 @@ class update_version_page extends StatelessWidget {
               ),
               Text(
                 "Corregidos varios errores tanto en la interfaz como en "
-                    "el funcionamiento del juego.\n",
+                "el funcionamiento del juego.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,
@@ -1526,8 +1376,8 @@ class update_version_page extends StatelessWidget {
               ),
               Text(
                 "Continuamente se está aumentando la lista de palabras del juego."
-                    " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
-                    " vía email en el apartado de ajustes.\n",
+                " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
+                " vía email en el apartado de ajustes.\n",
                 style: TextStyle(
                   fontSize: 15,
                   color: myBlack,

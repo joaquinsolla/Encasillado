@@ -4,12 +4,12 @@ import 'package:twitter_intent/twitter_intent.dart';
 
 import 'package:flushbar/flushbar.dart';
 
-import 'common_imagepaths.dart';
-import 'common_methods.dart';
-import 'common_pages.dart';
-import 'common_variables.dart';
-import 'common_colors.dart';
-import 'main_view.dart';
+import 'imagepaths.dart';
+import 'methods.dart';
+import '../common_pages.dart';
+import 'miscellaneous.dart';
+import 'colors.dart';
+import '../main_view.dart';
 
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
@@ -24,7 +24,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.asset(
-          banner_logo,
+          bannerImg,
           scale: imageScale,
         ),
         Expanded(child: Text("")),
@@ -37,7 +37,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
                       builder: (context) => const explanation_page()));
             },
             elevation: 0,
-            child: Image.asset(help_icon, scale: 35,),
+            child: Image.asset(helpImg, scale: 35,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
@@ -54,7 +54,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
                       builder: (context) => const settings_page()));
             },
             elevation: 0,
-            child: Image.asset(settings_icon, scale: 67.5,),
+            child: Image.asset(settingsImg, scale: 67.5,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
@@ -77,11 +77,123 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.asset(
-          banner_logo,
+          bannerImg,
           scale: imageScale,
         ),
       ],
     ),
+  );
+}
+
+Row settingsRow(String text, Widget widget) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Text(
+        text,
+        style: TextStyle(
+          fontSize: 16,
+          color: myBlack,
+          fontWeight: FontWeight.w700,
+          decoration: TextDecoration.none,
+          fontFamily: 'RaleWay',
+        ),
+      ),
+      const Expanded(child: Text("")),
+      widget,
+    ],
+  );
+}
+
+Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            mainText,
+            style: TextStyle(
+              fontSize: 16,
+              color: myBlack,
+              fontWeight: FontWeight.w700,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+          ),
+          Text(
+            secondText,
+            style: TextStyle(
+              fontSize: 12,
+              color: myGrey,
+              fontWeight: FontWeight.normal,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+          ),
+        ],),
+      const Expanded(child: Text("")),
+      widget,
+    ],
+  );
+}
+
+TextButton socialsButton(String url, String image, double scale, String text) {
+  return TextButton(
+    onPressed: () {
+      url_launcher(url);
+    },
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          image,
+          scale: scale,
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 14,
+            color: myGrey,
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.none,
+            fontFamily: 'RaleWay',
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
+  );
+}
+
+Text smallText(String content){
+  return Text(content,
+    style: TextStyle(
+      fontSize: 12,
+      color: myGrey,
+      fontWeight: FontWeight.normal,
+      decoration: TextDecoration.none,
+      fontFamily: 'RaleWay',
+    ),
+    textAlign: TextAlign.center,
+  );
+}
+
+Text headerText(String content){
+  return Text(
+    content,
+    style: TextStyle(
+      fontSize: 30,
+      color: myBlack,
+      fontWeight: FontWeight.bold,
+      decoration: TextDecoration.none,
+      fontFamily: 'RaleWay',
+    ),
+    textAlign: TextAlign.center,
   );
 }
 
@@ -242,8 +354,8 @@ TextButton current_version_button(BuildContext context) {
 
 TextButton twitter_bot_button(BuildContext context) {
   String img;
-  if (darkMode) img = twitter_bot_image_darkmode;
-  else img = twitter_bot_image;
+  if (darkMode) img = twitterBotImgDarkmode;
+  else img = twitterBotImgLightmode;
 
   final botLink = FollowUserIntent(username: 'encasillado_bot');
 
@@ -284,14 +396,15 @@ TextButton points_button(BuildContext context) {
 }
 
 TextButton streak_button(BuildContext context) {
-  String streakGif;
+  String myStreakGif;
   if (darkMode) {
-    streakGif = streak_gif_darkmode;
+    myStreakGif = streakGifDarkmode;
   } else {
-    streakGif = streak_gif;
+    myStreakGif = streakGifLightmode;
   }
 
   String streakCount = " x" + streak.toString();
+
 
   return TextButton(
     onPressed: () {
@@ -306,7 +419,7 @@ TextButton streak_button(BuildContext context) {
     child: Row(
       children: [
         Image.asset(
-          streakGif,
+          myStreakGif,
         ),
         Text(
           streakCount,

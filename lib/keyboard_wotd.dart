@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'common_imagepaths.dart';
+import 'common/imagepaths.dart';
 import 'common_pages.dart';
-import 'common_variables.dart';
-import 'common_widgets.dart';
-import 'common_colors.dart';
+import 'common/miscellaneous.dart';
+import 'common/widgets.dart';
+import 'common/colors.dart';
 import 'main_view.dart';
 
 List<String> greenKeysWotd = [];
@@ -146,7 +146,7 @@ SizedBox my_backspace_icon() {
           style: TextButton.styleFrom(
             backgroundColor: mycolor,
           ),
-          child: Image.asset(backspace_icon_darkmode),
+          child: Image.asset(backspaceImgDarkmode),
           onPressed: () {
             if (!finishedWotd) {
               if (currentCellWotd == 0 ||
@@ -176,7 +176,7 @@ SizedBox my_backspace_icon() {
           style: TextButton.styleFrom(
             backgroundColor: mycolor,
           ),
-          child: Image.asset(backspace_icon),
+          child: Image.asset(backspaceImgLightmode),
           onPressed: () {
             if (!finishedWotd) {
               if (currentCellWotd == 0 ||
