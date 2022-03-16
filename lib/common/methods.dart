@@ -59,27 +59,27 @@ void check_device(BuildContext context) {
 
 void check_settings() {
   if (colorBlind) {
-    myGreen = Colors.orange;
-    myYellow = Colors.blue;
+    appGreen = Colors.orange;
+    appYellow = Colors.blue;
     greenEmoji = "🟧";
     yellowEmoji = "🟦";
   } else {
-    myGreen = Colors.green;
-    myYellow = Color(0xfff3d500);
+    appGreen = Colors.green;
+    appYellow = Color(0xfff3d500);
     greenEmoji = "🟩";
     yellowEmoji = "🟨";
   }
 
   if (darkMode) {
-    myBlack = Colors.white;
-    myWhite = Color(0xff2d2d2d);
-    mySemiBlack = Colors.white;
+    appBlack = Colors.white;
+    appWhite = Color(0xff2d2d2d);
+    appSemiBlack = Colors.white;
     whiteEmoji = "⬛";
     keyColor = Color(0xff131313);
   } else {
-    myBlack = Colors.black;
-    myWhite = Colors.white;
-    mySemiBlack = Colors.black54;
+    appBlack = Colors.black;
+    appWhite = Colors.white;
+    appSemiBlack = Colors.black54;
     whiteEmoji = "⬜";
     keyColor = Color(0xffefefef);
   }
@@ -198,7 +198,7 @@ void copy_to_clipboard(BuildContext context, String stats, String emojis, String
   Flushbar(
     message: "Copiado al portapapeles",
     duration: Duration(milliseconds: 2500),
-    backgroundColor: myGrey,
+    backgroundColor: appGrey,
     flushbarPosition: FlushbarPosition.BOTTOM,
   ).show(context);
 }

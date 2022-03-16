@@ -39,7 +39,7 @@ class wotd_finished_page extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -54,7 +54,7 @@ class wotd_finished_page extends StatelessWidget {
                 gameText,
                 style: TextStyle(
                   fontSize: 30,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -77,7 +77,7 @@ class wotd_finished_page extends StatelessWidget {
                   "Estadísticas:",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -91,7 +91,7 @@ class wotd_finished_page extends StatelessWidget {
                 infoStatsWotd,
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -105,7 +105,7 @@ class wotd_finished_page extends StatelessWidget {
                 emojiStatsWotd + "\nTiempo: " + game_duration_to_string_wotd(),
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -121,7 +121,7 @@ class wotd_finished_page extends StatelessWidget {
                   "La palabra oculta de hoy: " + wotdString,
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -137,7 +137,7 @@ class wotd_finished_page extends StatelessWidget {
                       url_launcher(wotdDefinitionURL);
                     },
                     style: TextButton.styleFrom(
-                      primary: myWhite,
+                      primary: appWhite,
                       backgroundColor: appMainColor,
                     ),
                     child: Text("Definición de " + wotdString)),
@@ -151,7 +151,7 @@ class wotd_finished_page extends StatelessWidget {
                   "¡Compártelo con tus amigos!",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -174,7 +174,7 @@ class wotd_finished_page extends StatelessWidget {
                       clipboardImg,
                       scale: 22.5,
                     ),
-                    fillColor: myGrey,
+                    fillColor: appGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
@@ -246,7 +246,7 @@ class wotd_finished_page extends StatelessWidget {
                 "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
-                  color: myGrey,
+                  color: appGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -292,7 +292,7 @@ class infinite_finished_page extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -307,7 +307,7 @@ class infinite_finished_page extends StatelessWidget {
                 gameText,
                 style: TextStyle(
                   fontSize: 30,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -330,7 +330,7 @@ class infinite_finished_page extends StatelessWidget {
                   "Estadísticas:",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -344,7 +344,7 @@ class infinite_finished_page extends StatelessWidget {
                 infoStatsInfinite,
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -360,7 +360,7 @@ class infinite_finished_page extends StatelessWidget {
                     game_duration_to_string_infinite(),
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -376,7 +376,7 @@ class infinite_finished_page extends StatelessWidget {
                   "¿No sabes el significado de la palabra?",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -392,7 +392,7 @@ class infinite_finished_page extends StatelessWidget {
                       url_launcher(infiniteDefinitionURL);
                     },
                     style: TextButton.styleFrom(
-                      primary: myWhite,
+                      primary: appWhite,
                       backgroundColor: appMainColor,
                     ),
                     child: Text("Definición de " + infiniteString)),
@@ -406,7 +406,7 @@ class infinite_finished_page extends StatelessWidget {
                   "Empieza una partida nueva:",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -426,7 +426,7 @@ class infinite_finished_page extends StatelessWidget {
                       runApp(EncasilladoApp());
                     },
                     style: TextButton.styleFrom(
-                      primary: myWhite,
+                      primary: appWhite,
                       backgroundColor: appMainColor,
                     ),
                     child: Row(
@@ -451,7 +451,7 @@ class infinite_finished_page extends StatelessWidget {
                   "¡Compártelo con tus amigos!",
                   style: TextStyle(
                     fontSize: 17,
-                    color: myBlack,
+                    color: appBlack,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                     fontFamily: 'RaleWay',
@@ -477,7 +477,7 @@ class infinite_finished_page extends StatelessWidget {
                       clipboardImg,
                       scale: 22.5,
                     ),
-                    fillColor: myGrey,
+                    fillColor: appGrey,
                     shape: CircleBorder(),
                   ),
                   RawMaterialButton(
@@ -549,7 +549,7 @@ class infinite_finished_page extends StatelessWidget {
                 "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
-                  color: myGrey,
+                  color: appGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -584,7 +584,7 @@ class explanation_page extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -599,7 +599,7 @@ class explanation_page extends StatelessWidget {
                 "¿Cómo jugar?",
                 style: TextStyle(
                   fontSize: 25,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -615,7 +615,7 @@ class explanation_page extends StatelessWidget {
                 "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -633,7 +633,7 @@ class explanation_page extends StatelessWidget {
                 "La letra A está en la palabra oculta y va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -654,7 +654,7 @@ class explanation_page extends StatelessWidget {
                 "La letra E está en la palabra oculta pero no va en esa posición\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -675,7 +675,7 @@ class explanation_page extends StatelessWidget {
                 "La letra T no está en la palabra oculta\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -692,7 +692,7 @@ class explanation_page extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: TextButton.styleFrom(
-                          primary: myWhite,
+                          primary: appWhite,
                           backgroundColor: appMainColor,
                         ),
                         child: Text("VAMOS ALLÁ")),
@@ -718,7 +718,7 @@ class settings_page extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
             margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -755,7 +755,7 @@ class settings_page extends StatelessWidget {
                   height: 15,
                 ),
                 Divider(
-                  color: myGrey,
+                  color: appGrey,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -784,7 +784,7 @@ class settings_page extends StatelessWidget {
                       height: 5,
                     ),
                     Divider(
-                      color: myGrey,
+                      color: appGrey,
                     ),
                     smallText('\nApp basada en el juego original '),
                     Container(
@@ -799,7 +799,7 @@ class settings_page extends StatelessWidget {
                                 url_launcher(wordleUrl);
                               },
                               style: TextButton.styleFrom(
-                                primary: myGrey,
+                                primary: appGrey,
                               ),
                               child: Text("Wordle"),
                             ),
@@ -812,7 +812,7 @@ class settings_page extends StatelessWidget {
                                 url_launcher(joshWardleUrl);
                               },
                               style: TextButton.styleFrom(
-                                primary: myGrey,
+                                primary: appGrey,
                               ),
                               child: Text("Josh Wardle"),
                             ),
@@ -821,7 +821,7 @@ class settings_page extends StatelessWidget {
                       ),
                     ),
                     Divider(
-                      color: myGrey,
+                      color: appGrey,
                     ),
                     smallText(
                         '\nPuedes contactarme para reportar errores o comunicar sugerencias:'),
@@ -835,7 +835,7 @@ class settings_page extends StatelessWidget {
                                 mail_to(myDevEmail);
                               },
                               style: TextButton.styleFrom(
-                                primary: myGrey,
+                                primary: appGrey,
                               ),
                               child: Text(
                                 "Contacto",
@@ -850,7 +850,7 @@ class settings_page extends StatelessWidget {
                                 url_launcher(privacyPolicyUrl);
                               },
                               style: TextButton.styleFrom(
-                                primary: myGrey,
+                                primary: appGrey,
                               ),
                               child: Text(
                                 "Política de privacidad",
@@ -875,7 +875,7 @@ class points_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -890,7 +890,7 @@ class points_page extends StatelessWidget {
                 "Tu puntuación actual: " + pointsInfinite.toString(),
                 style: TextStyle(
                   fontSize: 25,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -905,7 +905,7 @@ class points_page extends StatelessWidget {
                 "¡Acertar al primer intento te dará 50.000 puntos!\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -919,7 +919,7 @@ class points_page extends StatelessWidget {
                 "Tiempo de partida",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -931,7 +931,7 @@ class points_page extends StatelessWidget {
                 "y por cada segundo que pasa se resta 1 punto.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -945,7 +945,7 @@ class points_page extends StatelessWidget {
                 "Intentos",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -958,7 +958,7 @@ class points_page extends StatelessWidget {
                 "de intentos realizados.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -972,7 +972,7 @@ class points_page extends StatelessWidget {
                 "Racha",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -984,7 +984,7 @@ class points_page extends StatelessWidget {
                 " será multiplicada por una pequeña bonificación.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -998,7 +998,7 @@ class points_page extends StatelessWidget {
                 "Penalizaciones",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1010,7 +1010,7 @@ class points_page extends StatelessWidget {
                 "No acertar una palabra resta 1000 puntos.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1030,7 +1030,7 @@ class points_page extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: TextButton.styleFrom(
-                          primary: myWhite,
+                          primary: appWhite,
                           backgroundColor: appMainColor,
                         ),
                         child: Text("VALE")),
@@ -1041,7 +1041,7 @@ class points_page extends StatelessWidget {
                 "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
-                  color: myGrey,
+                  color: appGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1070,7 +1070,7 @@ class streak_page extends StatelessWidget {
     }
 
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -1085,7 +1085,7 @@ class streak_page extends StatelessWidget {
                 "Rachas",
                 style: TextStyle(
                   fontSize: 25,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1099,7 +1099,7 @@ class streak_page extends StatelessWidget {
                 "¿Cómo funciona?",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1111,7 +1111,7 @@ class streak_page extends StatelessWidget {
                 "en 1, pero si no aciertas, volverá a 0.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1125,7 +1125,7 @@ class streak_page extends StatelessWidget {
                 "Bonificación",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1139,7 +1139,7 @@ class streak_page extends StatelessWidget {
                 "¿Hasta cuánto podrás llegar?\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1156,7 +1156,7 @@ class streak_page extends StatelessWidget {
                     "Tu racha actual:  ",
                     style: TextStyle(
                       fontSize: 20,
-                      color: myBlack,
+                      color: appBlack,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.none,
                       fontFamily: 'RaleWay',
@@ -1175,7 +1175,7 @@ class streak_page extends StatelessWidget {
                           " x" + streak.toString(),
                           style: TextStyle(
                             fontSize: 18,
-                            color: myBlack,
+                            color: appBlack,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.none,
                             fontFamily: 'RaleWay',
@@ -1203,7 +1203,7 @@ class streak_page extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         style: TextButton.styleFrom(
-                          primary: myWhite,
+                          primary: appWhite,
                           backgroundColor: appMainColor,
                         ),
                         child: Text("VALE")),
@@ -1214,7 +1214,7 @@ class streak_page extends StatelessWidget {
                 "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
-                  color: myGrey,
+                  color: appGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1236,7 +1236,7 @@ class update_version_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: myWhite,
+        backgroundColor: appWhite,
         appBar: myAppBarWithoutButtons(context),
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -1251,7 +1251,7 @@ class update_version_page extends StatelessWidget {
                 "Versión " + currentVersion + ":",
                 style: TextStyle(
                   fontSize: 25,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1265,7 +1265,7 @@ class update_version_page extends StatelessWidget {
                 "¡Presentando al Bot de Twitter!",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1277,7 +1277,7 @@ class update_version_page extends StatelessWidget {
                 " la palabra del día cada noche.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1291,7 +1291,7 @@ class update_version_page extends StatelessWidget {
                 "Lista de palabras actualizada",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1302,7 +1302,7 @@ class update_version_page extends StatelessWidget {
                 "Se han añadido nuevas palabras al juego.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1316,7 +1316,7 @@ class update_version_page extends StatelessWidget {
                 "Corrección de errores",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1328,7 +1328,7 @@ class update_version_page extends StatelessWidget {
                 "el funcionamiento del juego.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1342,7 +1342,7 @@ class update_version_page extends StatelessWidget {
                 "En desarrollo:",
                 style: TextStyle(
                   fontSize: 25,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1356,7 +1356,7 @@ class update_version_page extends StatelessWidget {
                 "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1367,7 +1367,7 @@ class update_version_page extends StatelessWidget {
                 "Lista de palabras en proceso de mejora",
                 style: TextStyle(
                   fontSize: 16,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1380,7 +1380,7 @@ class update_version_page extends StatelessWidget {
                 " vía email en el apartado de ajustes.\n",
                 style: TextStyle(
                   fontSize: 15,
-                  color: myBlack,
+                  color: appBlack,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',
@@ -1391,7 +1391,7 @@ class update_version_page extends StatelessWidget {
                 "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
                 style: TextStyle(
                   fontSize: 12,
-                  color: myGrey,
+                  color: appGrey,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
                   fontFamily: 'RaleWay',

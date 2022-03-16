@@ -96,7 +96,7 @@ class MainViewState extends State<MainView> {
     appStarted = true;
 
     return Scaffold(
-      backgroundColor: myWhite,
+      backgroundColor: appWhite,
       appBar: myAppBarWithButtons(context),
       body: Column(children: [
         Container(

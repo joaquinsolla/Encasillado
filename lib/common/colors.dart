@@ -10,12 +10,12 @@ Color twitterColor = Color(0xff1d9bf0);
 Color telegramColor = Color(0xff29a1d4);
 Color othersColor = Colors.lightGreen;
 
-Color myGreen = Colors.green;
-Color myYellow = Color(0xfff3d500);
-Color myGrey = Colors.grey;
-Color myWhite = Colors.white;
-Color myBlack = Colors.black;
-Color mySemiBlack = Colors.black54;
+Color appGreen = Colors.green;
+Color appYellow = Color(0xfff3d500);
+Color appGrey = Colors.grey;
+Color appWhite = Colors.white;
+Color appBlack = Colors.black;
+Color appSemiBlack = Colors.black54;
 
 String greenEmoji = "🟩";
 String yellowEmoji = "🟨";

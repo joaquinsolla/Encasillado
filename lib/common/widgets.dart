@@ -93,7 +93,7 @@ Row settingsRow(String text, Widget widget) {
         text,
         style: TextStyle(
           fontSize: 16,
-          color: myBlack,
+          color: appBlack,
           fontWeight: FontWeight.w700,
           decoration: TextDecoration.none,
           fontFamily: 'RaleWay',
@@ -116,7 +116,7 @@ Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
             mainText,
             style: TextStyle(
               fontSize: 16,
-              color: myBlack,
+              color: appBlack,
               fontWeight: FontWeight.w700,
               decoration: TextDecoration.none,
               fontFamily: 'RaleWay',
@@ -126,7 +126,7 @@ Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
             secondText,
             style: TextStyle(
               fontSize: 12,
-              color: myGrey,
+              color: appGrey,
               fontWeight: FontWeight.normal,
               decoration: TextDecoration.none,
               fontFamily: 'RaleWay',
@@ -158,7 +158,7 @@ TextButton socialsButton(String url, String image, double scale, String text) {
           text,
           style: TextStyle(
             fontSize: 14,
-            color: myGrey,
+            color: appGrey,
             fontWeight: FontWeight.w600,
             decoration: TextDecoration.none,
             fontFamily: 'RaleWay',
@@ -174,7 +174,7 @@ Text smallText(String content){
   return Text(content,
     style: TextStyle(
       fontSize: 12,
-      color: myGrey,
+      color: appGrey,
       fontWeight: FontWeight.normal,
       decoration: TextDecoration.none,
       fontFamily: 'RaleWay',
@@ -188,7 +188,7 @@ Text headerText(String content){
     content,
     style: TextStyle(
       fontSize: 30,
-      color: myBlack,
+      color: appBlack,
       fontWeight: FontWeight.bold,
       decoration: TextDecoration.none,
       fontFamily: 'RaleWay',
@@ -199,10 +199,10 @@ Text headerText(String content){
 
 AnimatedContainer letterCell(String char, String col) {
   //COLOR SELECTION
-  Color? cellColor = myWhite;
-  if (col == "V") cellColor = myGreen;
-  if (col == "A") cellColor = myYellow;
-  if (col == "G") cellColor = myGrey;
+  Color? cellColor = appWhite;
+  if (col == "V") cellColor = appGreen;
+  if (col == "A") cellColor = appYellow;
+  if (col == "G") cellColor = appGrey;
 
   return AnimatedContainer(
     duration: Duration(milliseconds: 750),
@@ -214,12 +214,12 @@ AnimatedContainer letterCell(String char, String col) {
     alignment: Alignment.center,
     decoration: BoxDecoration(
       color: cellColor,
-      border: Border.all(color: mySemiBlack, width: 0.0),
+      border: Border.all(color: appSemiBlack, width: 0.0),
     ),
     child: Text(
       char,
       style:
-          TextStyle(fontSize: ((deviceHeight * 0.5) / 6 - 25), color: myBlack),
+          TextStyle(fontSize: ((deviceHeight * 0.5) / 6 - 25), color: appBlack),
     ),
   );
 }
@@ -308,7 +308,7 @@ Container game_banner(BuildContext context) {
           gameString,
           style: TextStyle(
             fontSize: 17,
-            color: myBlack,
+            color: appBlack,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.none,
             fontFamily: 'RaleWay',
@@ -342,12 +342,12 @@ TextButton current_version_button(BuildContext context) {
           MaterialPageRoute(builder: (context) => const update_version_page()));
     },
     style: TextButton.styleFrom(
-      primary: myBlack,
+      primary: appBlack,
       backgroundColor: keyColor,
     ),
     child: Text(
       currentVersion,
-      style: TextStyle(color: myBlack),
+      style: TextStyle(color: appBlack),
     ),
   );
 }
@@ -364,7 +364,7 @@ TextButton twitter_bot_button(BuildContext context) {
       url_launcher('$botLink');
     },
     style: TextButton.styleFrom(
-      primary: myBlack,
+      primary: appBlack,
       backgroundColor: keyColor,
     ),
     child: Image.asset(img, scale: 58,),
@@ -379,14 +379,14 @@ TextButton points_button(BuildContext context) {
           MaterialPageRoute(builder: (context) => const points_page()));
     },
     style: TextButton.styleFrom(
-      primary: myBlack,
+      primary: appBlack,
       backgroundColor: keyColor,
     ),
     child: Text(
       " Puntos: " + pointsInfinite.toString() + " ",
       style: TextStyle(
         fontSize: 15,
-        color: myBlack,
+        color: appBlack,
         fontWeight: FontWeight.normal,
         decoration: TextDecoration.none,
         fontFamily: 'RaleWay',
@@ -413,7 +413,7 @@ TextButton streak_button(BuildContext context) {
           MaterialPageRoute(builder: (context) => const streak_page()));
     },
     style: TextButton.styleFrom(
-      primary: myBlack,
+      primary: appBlack,
       backgroundColor: keyColor,
     ),
     child: Row(
@@ -425,7 +425,7 @@ TextButton streak_button(BuildContext context) {
           streakCount,
           style: TextStyle(
             fontSize: 15,
-            color: myBlack,
+            color: appBlack,
             fontWeight: FontWeight.normal,
             decoration: TextDecoration.none,
             fontFamily: 'RaleWay',

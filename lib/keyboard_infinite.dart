@@ -16,20 +16,20 @@ SizedBox my_letter_key(String char) {
 
   for (var i = 0; i < greenKeysInfinite.length; i++) {
     if (char == greenKeysInfinite[i]) {
-      mycolor = myGreen;
+      mycolor = appGreen;
     }
   }
   if (mycolor == keyColor) {
     for (var i = 0; i < yellowKeysInfinite.length; i++) {
       if (char == yellowKeysInfinite[i]) {
-        mycolor = myYellow;
+        mycolor = appYellow;
       }
     }
   }
   if (mycolor == keyColor) {
     for (var i = 0; i < greyKeysInfinite.length; i++) {
       if (char == greyKeysInfinite[i]) {
-        mycolor = myGrey;
+        mycolor = appGrey;
       }
     }
   }
@@ -42,7 +42,7 @@ SizedBox my_letter_key(String char) {
       child: TextButton(
         child: Text(char),
         style: TextButton.styleFrom(
-          primary: myBlack,
+          primary: appBlack,
           backgroundColor: mycolor,
         ),
         onPressed: () {
@@ -83,7 +83,7 @@ SizedBox my_enter_key(BuildContext context) {
           style: TextStyle(fontSize: 12),
         ),
         style:
-            TextButton.styleFrom(primary: myBlack, backgroundColor: keyColor),
+            TextButton.styleFrom(primary: appBlack, backgroundColor: keyColor),
         onPressed: () {
           if ((currentCellInfinite == 5 ||
                   currentCellInfinite == 10 ||
