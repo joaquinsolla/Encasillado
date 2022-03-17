@@ -245,7 +245,7 @@ class _WotdEndState extends State<WotdEnd> {
               height: 30,
             ),
             Text(
-              "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
+              "\nGracias por jugar a Encasillado\n\nEncasillado versión $appVersion",
               style: TextStyle(
                 fontSize: 12,
                 color: appGrey,

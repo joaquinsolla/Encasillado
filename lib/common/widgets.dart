@@ -394,7 +394,7 @@ TextButton currentVersionButton(BuildContext context) {
       backgroundColor: keyColor,
     ),
     child: Text(
-      currentVersion,
+      appVersion,
       style: TextStyle(color: appBlack),
     ),
   );

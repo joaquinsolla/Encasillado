@@ -24,7 +24,7 @@ class _UpdateNewsState extends State<UpdateNews> {
               height: 5,
             ),
             Text(
-              "Versión " + currentVersion + ":",
+              "Versión " + appVersion + ":",
               style: TextStyle(
                 fontSize: 25,
                 color: appBlack,
@@ -164,7 +164,7 @@ class _UpdateNewsState extends State<UpdateNews> {
               textAlign: TextAlign.left,
             ),
             Text(
-              "\nGracias por jugar a Encasillado\n\nEncasillado versión $currentVersion",
+              "\nGracias por jugar a Encasillado\n\nEncasillado versión $appVersion",
               style: TextStyle(
                 fontSize: 12,
                 color: appGrey,
