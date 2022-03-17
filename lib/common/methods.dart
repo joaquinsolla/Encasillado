@@ -8,9 +8,7 @@ import 'dart:math';
 import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../keyboard_infinite.dart';
 import 'miscellaneous.dart';
-import 'widgets.dart';
 import 'colors.dart';
 import 'urls.dart';
 
@@ -55,24 +53,6 @@ void urlLauncher(String url) async {
     await launch(url);
   } else {
     throw 'Could not launch $url';
-  }
-}
-
-class start_new_game extends StatelessWidget {
-  const start_new_game({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBarWithButtons(context),
-      body: Column(children: [
-        cellsFieldInfinite(),
-        Expanded(
-          child: Text(""),
-        ),
-        infinite_generate_keyboard(context),
-      ]),
-    );
   }
 }
 
@@ -272,10 +252,6 @@ void restart_infinite_game_variables() {
   alreadyPointsCalculatedInfinite = false;
   timeStartedInfinite = false;
   timeStartedWotd = false;
-
-  greenKeysInfinite = [];
-  yellowKeysInfinite = [];
-  greyKeysInfinite = [];
 
   inputMatrixInfinite = [
     "",
