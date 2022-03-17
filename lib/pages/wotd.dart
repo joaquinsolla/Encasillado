@@ -1,5 +1,4 @@
 import 'package:Encasillado/common/imagepaths.dart';
-import 'package:Encasillado/common/methods.dart';
 import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -11,64 +10,71 @@ class Wotd extends StatefulWidget {
 }
 
 class _WotdState extends State<Wotd> {
+
+  void check_device() {
+    setState(() {
+      deviceWidth = MediaQuery.of(context).size.width;
+      deviceHeight = MediaQuery.of(context).size.height -
+          56; //Do not consider AppBar heigth (56px)
+      keyHeight = (deviceHeight) * 0.083;
+    });
+  }
+
+  void check_settings() {
+    if (colorBlind) {
+      setState(() {
+        appGreen = Colors.orange;
+        appYellow = Colors.blue;
+        greenEmoji = "🟧";
+        yellowEmoji = "🟦";
+      });
+    } else {
+      setState(() {
+        appGreen = Colors.green;
+        appYellow = Color(0xfff3d500);
+        greenEmoji = "🟩";
+        yellowEmoji = "🟨";
+      });
+    }
+
+    if (darkMode) {
+      setState(() {
+        appBlack = Colors.white;
+        appWhite = Color(0xff2d2d2d);
+        appSemiBlack = Colors.white;
+        whiteEmoji = "⬛";
+        keyColor = Color(0xff131313);
+      });
+    } else {
+      setState(() {
+        appBlack = Colors.black;
+        appWhite = Colors.white;
+        appSemiBlack = Colors.black54;
+        whiteEmoji = "⬜";
+        keyColor = Color(0xffefefef);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (appStarted == false) {
       var brightness = MediaQuery.of(context).platformBrightness;
-      darkMode = brightness == Brightness.dark;
+      setState(() {
+        darkMode = brightness == Brightness.dark;
+      });
     }
 
-    Color wotdButtonColor = appMainColor;
-    Color infiniteButtonColor = appThirdColor;
-    TextStyle wotdStyle = TextStyle(
-      color: Colors.white,
-      fontSize: 12,
-      decoration: TextDecoration.underline,
-      decorationStyle: TextDecorationStyle.wavy,
-    );
-    TextStyle infiniteStyle = TextStyle(
-      color: Colors.white,
-      fontSize: 12,
-    );
-
-    if (currentPage == 0) {
-      wotdButtonColor = appThirdColor;
-      infiniteButtonColor = appMainColor;
-      wotdStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.wavy,
-      );
-      infiniteStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-      );
-    }
-    if (currentPage == 1) {
-      wotdButtonColor = appMainColor;
-      infiniteButtonColor = appThirdColor;
-      wotdStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-      );
-      infiniteStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.wavy,
-      );
-    }
-
-    check_device(context);
+    check_device();
     check_settings();
 
     setState(() {
+      currentPage = 0;
       appStarted = true;
     });
 
     return Scaffold(
-      appBar: myAppBarWithoutButtons(context),
+      appBar: myAppBarWithButtonsAndWithoutBackArrow(context),
       backgroundColor: appWhite,
       body: Column(children: [
         Container(
@@ -85,11 +91,16 @@ class _WotdState extends State<Wotd> {
                 child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor: wotdButtonColor,
+                      backgroundColor: appThirdColor,
                     ),
                     child: Text(
                       "¡La palabra del día!",
-                      style: wotdStyle,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        decoration: TextDecoration.underline,
+                        decorationStyle: TextDecorationStyle.wavy,
+                      ),
                     )),
               ),
               Expanded(
@@ -98,11 +109,14 @@ class _WotdState extends State<Wotd> {
                       Navigator.popAndPushNamed(context, '/infinite_words');
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: infiniteButtonColor,
+                      backgroundColor: appMainColor,
                     ),
                     child: Text(
                       "Palabras infinitas",
-                      style: infiniteStyle,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     )),
               ),
               SizedBox(

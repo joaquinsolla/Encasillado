@@ -134,7 +134,7 @@ class wotd_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      url_launcher(wotdDefinitionURL);
+                      urlLauncher(wotdDefinitionURL);
                     },
                     style: TextButton.styleFrom(
                       primary: appWhite,
@@ -389,7 +389,7 @@ class infinite_finished_page extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 TextButton(
                     onPressed: () {
-                      url_launcher(infiniteDefinitionURL);
+                      urlLauncher(infiniteDefinitionURL);
                     },
                     style: TextButton.styleFrom(
                       primary: appWhite,
@@ -796,7 +796,7 @@ class settings_page extends StatelessWidget {
                             width: 60,
                             child: TextButton(
                               onPressed: () {
-                                url_launcher(wordleUrl);
+                                urlLauncher(wordleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,
@@ -809,7 +809,7 @@ class settings_page extends StatelessWidget {
                             width: 100,
                             child: TextButton(
                               onPressed: () {
-                                url_launcher(joshWardleUrl);
+                                urlLauncher(joshWardleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,
@@ -847,7 +847,7 @@ class settings_page extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                url_launcher(privacyPolicyUrl);
+                                urlLauncher(privacyPolicyUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,

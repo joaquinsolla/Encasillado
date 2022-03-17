@@ -90,9 +90,6 @@ class MainViewState extends State<MainView> {
       );
     }
 
-    check_device(context);
-    check_settings();
-
     appStarted = true;
 
     return Scaffold(

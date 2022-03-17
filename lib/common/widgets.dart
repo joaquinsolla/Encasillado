@@ -6,10 +6,8 @@ import 'package:flushbar/flushbar.dart';
 
 import 'imagepaths.dart';
 import 'methods.dart';
-import '../common_pages.dart';
 import 'miscellaneous.dart';
 import 'colors.dart';
-import '../main_view.dart';
 
 AppBar myAppBarWithButtons(BuildContext context) {
   double imageScale;
@@ -31,10 +29,7 @@ AppBar myAppBarWithButtons(BuildContext context) {
         Expanded(
           child: RawMaterialButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const explanation_page()));
+              Navigator.pushNamed(context, '/help');
             },
             elevation: 0,
             child: Image.asset(helpImg, scale: 35,),
@@ -48,10 +43,55 @@ AppBar myAppBarWithButtons(BuildContext context) {
         Expanded(
           child: RawMaterialButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const settings_page()));
+              Navigator.pushNamed(context, '/settings');
+            },
+            elevation: 0,
+            child: Image.asset(settingsImg, scale: 67.5,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+AppBar myAppBarWithButtonsAndWithoutBackArrow(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 340)
+    imageScale = 11;
+  else
+    imageScale = 8;
+
+  return AppBar(
+    automaticallyImplyLeading: false,
+    backgroundColor: appMainColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          bannerImg,
+          scale: imageScale,
+        ),
+        Expanded(child: Text("")),
+        Expanded(
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/help');
+            },
+            elevation: 0,
+            child: Image.asset(helpImg, scale: 35,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+        SizedBox(
+          width: 5,
+        ),
+        Expanded(
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
             },
             elevation: 0,
             child: Image.asset(settingsImg, scale: 67.5,),
@@ -72,6 +112,28 @@ AppBar myAppBarWithoutButtons(BuildContext context) {
     imageScale = 8;
 
   return AppBar(
+    backgroundColor: appMainColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          bannerImg,
+          scale: imageScale,
+        ),
+      ],
+    ),
+  );
+}
+
+AppBar myAppBarWithoutButtonsAndBackArrow(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 340)
+    imageScale = 11;
+  else
+    imageScale = 8;
+
+  return AppBar(
+    automaticallyImplyLeading: false,
     backgroundColor: appMainColor,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -142,7 +204,7 @@ Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
 TextButton socialsButton(String url, String image, double scale, String text) {
   return TextButton(
     onPressed: () {
-      url_launcher(url);
+      urlLauncher(url);
     },
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -347,7 +409,7 @@ TextButton twitterBotButton(BuildContext context) {
 
   return TextButton(
     onPressed: () {
-      url_launcher('$botLink');
+      urlLauncher('$botLink');
     },
     style: TextButton.styleFrom(
       primary: appBlack,

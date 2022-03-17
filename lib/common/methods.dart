@@ -50,42 +50,7 @@ void generate_wotd() {
   print("WOTD: " + wotdString);
 }
 
-void check_device(BuildContext context) {
-  deviceWidth = MediaQuery.of(context).size.width;
-  deviceHeight = MediaQuery.of(context).size.height -
-      56; //Do not consider AppBar heigth (56px)
-  keyHeight = (deviceHeight) * 0.083;
-}
-
-void check_settings() {
-  if (colorBlind) {
-    appGreen = Colors.orange;
-    appYellow = Colors.blue;
-    greenEmoji = "🟧";
-    yellowEmoji = "🟦";
-  } else {
-    appGreen = Colors.green;
-    appYellow = Color(0xfff3d500);
-    greenEmoji = "🟩";
-    yellowEmoji = "🟨";
-  }
-
-  if (darkMode) {
-    appBlack = Colors.white;
-    appWhite = Color(0xff2d2d2d);
-    appSemiBlack = Colors.white;
-    whiteEmoji = "⬛";
-    keyColor = Color(0xff131313);
-  } else {
-    appBlack = Colors.black;
-    appWhite = Colors.white;
-    appSemiBlack = Colors.black54;
-    whiteEmoji = "⬜";
-    keyColor = Color(0xffefefef);
-  }
-}
-
-void url_launcher(String url) async {
+void urlLauncher(String url) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {

@@ -1,5 +1,4 @@
 import 'package:Encasillado/common/imagepaths.dart';
-import 'package:Encasillado/common/methods.dart';
 import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -14,62 +13,12 @@ class _InfiniteWordsState extends State<InfiniteWords> {
   @override
   Widget build(BuildContext context) {
 
-    if (appStarted == false) {
-      var brightness = MediaQuery.of(context).platformBrightness;
-      darkMode = brightness == Brightness.dark;
-    }
-
-    Color wotdButtonColor = appMainColor;
-    Color infiniteButtonColor = appThirdColor;
-    TextStyle wotdStyle = TextStyle(
-      color: Colors.white,
-      fontSize: 12,
-      decoration: TextDecoration.underline,
-      decorationStyle: TextDecorationStyle.wavy,
-    );
-    TextStyle infiniteStyle = TextStyle(
-      color: Colors.white,
-      fontSize: 12,
-    );
-
-    if (currentPage == 0) {
-      wotdButtonColor = appThirdColor;
-      infiniteButtonColor = appMainColor;
-      wotdStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.wavy,
-      );
-      infiniteStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-      );
-    }
-    if (currentPage == 1) {
-      wotdButtonColor = appMainColor;
-      infiniteButtonColor = appThirdColor;
-      wotdStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-      );
-      infiniteStyle = TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-        decoration: TextDecoration.underline,
-        decorationStyle: TextDecorationStyle.wavy,
-      );
-    }
-
-    check_device(context);
-    check_settings();
-
     setState(() {
-      appStarted = true;
+      currentPage = 1;
     });
 
     return Scaffold(
-      appBar: myAppBarWithoutButtons(context),
+      appBar: myAppBarWithButtonsAndWithoutBackArrow(context),
       backgroundColor: appWhite,
       body: Column(children: [
         Container(
@@ -88,22 +37,30 @@ class _InfiniteWordsState extends State<InfiniteWords> {
                       Navigator.popAndPushNamed(context, '/wotd');
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: wotdButtonColor,
+                      backgroundColor: appMainColor,
                     ),
                     child: Text(
                       "¡La palabra del día!",
-                      style: wotdStyle,
+                      style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
                     )),
               ),
               Expanded(
                 child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor: infiniteButtonColor,
+                      backgroundColor: appThirdColor,
                     ),
                     child: Text(
                       "Palabras infinitas",
-                      style: infiniteStyle,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        decoration: TextDecoration.underline,
+                        decorationStyle: TextDecorationStyle.wavy,
+                      ),
                     )),
               ),
               SizedBox(
