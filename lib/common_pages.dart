@@ -565,6 +565,7 @@ class infinite_finished_page extends StatelessWidget {
   }
 }
 
+//DONE
 class explanation_page extends StatelessWidget {
   const explanation_page({Key? key}) : super(key: key);
 
@@ -705,6 +706,7 @@ class explanation_page extends StatelessWidget {
   }
 }
 
+//DONE
 class settings_page extends StatelessWidget {
   const settings_page({Key? key}) : super(key: key);
 
@@ -869,6 +871,7 @@ class settings_page extends StatelessWidget {
   }
 }
 
+//DONE
 class points_page extends StatelessWidget {
   const points_page({Key? key}) : super(key: key);
 
@@ -1057,6 +1060,7 @@ class points_page extends StatelessWidget {
   }
 }
 
+//DONE
 class streak_page extends StatelessWidget {
   const streak_page({Key? key}) : super(key: key);
 
@@ -1230,6 +1234,7 @@ class streak_page extends StatelessWidget {
   }
 }
 
+//DONE
 class update_version_page extends StatelessWidget {
   const update_version_page({Key? key}) : super(key: key);
 
