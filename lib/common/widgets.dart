@@ -290,10 +290,7 @@ Column cellsFieldWotd() {
       ]);
 }
 
-Container game_banner(BuildContext context) {
-  String gameString = "Palabras infinitas";
-  if (currentPage == 0) gameString = "¡La palabra del día!";
-  if (currentPage == 1) gameString = "Palabras infinitas";
+Container gameBanner(BuildContext context, String content, Widget button1, Widget button2) {
 
   return Container(
     height: deviceHeight * 0.078 - 15.0,
@@ -305,7 +302,7 @@ Container game_banner(BuildContext context) {
           width: 15,
         ),
         Text(
-          gameString,
+          content,
           style: TextStyle(
             fontSize: 17,
             color: appBlack,
@@ -315,31 +312,20 @@ Container game_banner(BuildContext context) {
           ),
         ),
         Expanded(child: Text("")),
-        if (currentPage == 1) points_button(context),
+        button1,
         SizedBox(
           width: 5.0,
         ),
-        if (currentPage == 1)
-          SizedBox(
-            height: 36,
-            child: streak_button(context),
-          ),
-        if (currentPage == 0) twitter_bot_button(context),
-        SizedBox(
-          width: 5.0,
-        ),
-        if (currentPage == 0) current_version_button(context),
+        button2,
       ],
     ),
   );
 }
 
-TextButton current_version_button(BuildContext context) {
+TextButton currentVersionButton(BuildContext context) {
   return TextButton(
     onPressed: () {
-      runApp(EncasilladoApp());
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const update_version_page()));
+      Navigator.pushNamed(context, '/update_news');
     },
     style: TextButton.styleFrom(
       primary: appBlack,
@@ -352,7 +338,7 @@ TextButton current_version_button(BuildContext context) {
   );
 }
 
-TextButton twitter_bot_button(BuildContext context) {
+TextButton twitterBotButton(BuildContext context) {
   String img;
   if (darkMode) img = twitterBotImgDarkmode;
   else img = twitterBotImgLightmode;
@@ -371,12 +357,10 @@ TextButton twitter_bot_button(BuildContext context) {
   );
 }
 
-TextButton points_button(BuildContext context) {
+TextButton scoreButton(BuildContext context) {
   return TextButton(
     onPressed: () {
-      runApp(EncasilladoApp());
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const points_page()));
+      Navigator.pushNamed(context, '/score_explanation');
     },
     style: TextButton.styleFrom(
       primary: appBlack,
@@ -395,7 +379,7 @@ TextButton points_button(BuildContext context) {
   );
 }
 
-TextButton streak_button(BuildContext context) {
+TextButton streakButton(BuildContext context) {
   String myStreakGif;
   if (darkMode) {
     myStreakGif = streakGifDarkmode;
@@ -408,9 +392,7 @@ TextButton streak_button(BuildContext context) {
 
   return TextButton(
     onPressed: () {
-      runApp(EncasilladoApp());
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const streak_page()));
+      Navigator.pushNamed(context, '/streak_explanation');
     },
     style: TextButton.styleFrom(
       primary: appBlack,

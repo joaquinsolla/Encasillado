@@ -141,7 +141,7 @@ class MainViewState extends State<MainView> {
             ],
           ),
         ),
-        game_banner(context),
+        //gameBanner(context),
         if (currentPage == 0) cellsFieldWotd(),
         if (currentPage == 1) cellsFieldInfinite(),
         Expanded(
