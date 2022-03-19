@@ -172,9 +172,8 @@ class _SettingsState extends State<Settings> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            width: 60,
-                            child: TextButton(
+                          Expanded(child: Text("")),
+                          TextButton(
                               onPressed: () {
                                 urlLauncher(wordleUrl);
                               },
@@ -183,11 +182,8 @@ class _SettingsState extends State<Settings> {
                               ),
                               child: Text("Wordle"),
                             ),
-                          ),
                           smallText("de"),
-                          SizedBox(
-                            width: 100,
-                            child: TextButton(
+                          TextButton(
                               onPressed: () {
                                 urlLauncher(joshWardleUrl);
                               },
@@ -196,7 +192,7 @@ class _SettingsState extends State<Settings> {
                               ),
                               child: Text("Josh Wardle"),
                             ),
-                          ),
+                          Expanded(child: Text("")),
                         ],
                       ),
                     ),
