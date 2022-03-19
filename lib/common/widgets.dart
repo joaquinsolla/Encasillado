@@ -263,8 +263,8 @@ Text headerText(String content){
 Container gameBanner(BuildContext context, String content, Widget button1, Widget button2) {
 
   return Container(
-    height: deviceHeight * 0.078 - 15.0,
-    margin: EdgeInsets.fromLTRB(7.5, 5.0, 7.5, 0.0),
+    height: 35,
+    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 0.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -357,7 +357,7 @@ TextButton streakButton(BuildContext context) {
     myStreakGif = streakGifLightmode;
   }
 
-  String streakCount = " x" + streak.toString();
+  String streakCount = " ×" + streak.toString();
 
 
   return TextButton(

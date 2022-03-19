@@ -122,8 +122,12 @@ class _StreakExplanationState extends State<StreakExplanation> {
                   ),
                   child: Row(
                     children: [
+                      Image.asset(
+                        myStreakGif,
+                        scale: 15,
+                      ),
                       Text(
-                        " x" + streak.toString(),
+                        " ×" + streak.toString(),
                         style: TextStyle(
                           fontSize: 18,
                           color: appBlack,
@@ -131,10 +135,6 @@ class _StreakExplanationState extends State<StreakExplanation> {
                           decoration: TextDecoration.none,
                           fontFamily: 'RaleWay',
                         ),
-                      ),
-                      Image.asset(
-                        myStreakGif,
-                        scale: 15,
                       ),
                     ],
                   ),
