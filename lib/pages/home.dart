@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
-// TODO: Import ad_helper.dart
 import 'package:Encasillado/ad_helper.dart';
-
-// TODO: Import google_mobile_ads.dart
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Home extends StatefulWidget {
@@ -18,17 +15,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  // TODO: Add _bannerAd
+  // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
-
-  // TODO: Add _isBannerAdReady
   bool _isBannerAdReady = false;
 
   @override
   void initState() {
 
     if (showAds) {
-      // TODO: Initialize _bannerAd
       _bannerAd = BannerAd(
         adUnitId: AdHelper.bannerAdUnitId,
         request: AdRequest(),

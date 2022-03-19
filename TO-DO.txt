@@ -4,5 +4,6 @@
 
 -------OTHERS----------
 puntos permanentes
-admob
+revisar nombres en codigo
+ordenar imports y metodos
 revisar palabras

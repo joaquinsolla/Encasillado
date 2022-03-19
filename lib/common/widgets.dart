@@ -263,7 +263,6 @@ Text headerText(String content){
   );
 }
 
-
 Container gameBanner(BuildContext context, String content, Widget button1, Widget button2) {
 
   return Container(
