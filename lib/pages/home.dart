@@ -1,4 +1,6 @@
 import 'package:Encasillado/common/imagepaths.dart';
+import 'package:Encasillado/common/methods.dart';
+import 'package:Encasillado/common/urls.dart';
 import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -74,13 +76,17 @@ class _HomeState extends State<Home> {
 
     Color wotdButtonColor = appThirdColor;
     Color infiniteButtonColor = appMainColor;
-
     if (currentPage == 0){
       wotdButtonColor = appThirdColor;
       infiniteButtonColor = appMainColor;
     } else {
       wotdButtonColor = appMainColor;
       infiniteButtonColor = appThirdColor;
+    }
+
+    if (newInfiniteGame) {
+      infiniteRestartVariables();
+      infiniteGenerateWord();
     }
 
     return Scaffold(
@@ -943,6 +949,100 @@ class _HomeState extends State<Home> {
           infiniteLetterRow(20),
           infiniteLetterRow(25),
         ]);
+  }
+
+  // OTHERS
+
+  void infiniteRestartVariables() {
+    setState(() {
+    newInfiniteGame = false;
+
+    currentCellInfinite = 0;
+    currentRowInfinite = 0;
+    canWriteInfinite = true;
+    finishedInfinite = false;
+
+    infiniteArray = ["", "", "", "", ""];
+    infiniteString = "";
+    infiniteDefinitionURL = "https://dle.rae.es/";
+
+    wonGameInfinite = false;
+    infoStatsInfinite = "";
+    emojiStatsInfinite = "";
+    startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+    endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+    playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+    alreadyTimeMeasuredInfinite = false;
+    alreadyPointsCalculatedInfinite = false;
+    timeStartedInfinite = false;
+    timeStartedWotd = false;
+
+    inputMatrixInfinite = [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+
+    colorsArrayInfinite = [
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B"
+    ];
+    });
   }
 
 }

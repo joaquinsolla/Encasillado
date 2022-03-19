@@ -29,8 +29,8 @@ void main() {
    * 3 - gameDB * */
   selectedDatabase = databasesList[3];
 
-  generate_infinite_word();
-  generate_wotd();
+  infiniteGenerateWord();
+  wotdGenerateWord();
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,

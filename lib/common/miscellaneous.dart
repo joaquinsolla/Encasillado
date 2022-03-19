@@ -17,6 +17,7 @@ bool alreadyTimeMeasuredWotd = false;
 bool alreadyPointsCalculatedInfinite = false;
 bool timeStartedInfinite = false;
 bool timeStartedWotd = false;
+bool newInfiniteGame = false;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;

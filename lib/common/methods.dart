@@ -12,7 +12,7 @@ import 'miscellaneous.dart';
 import 'colors.dart';
 import 'urls.dart';
 
-void generate_infinite_word() {
+void infiniteGenerateWord() {
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
@@ -26,7 +26,7 @@ void generate_infinite_word() {
   print("INFINITE: " + infiniteString);
 }
 
-void generate_wotd() {
+void wotdGenerateWord() {
   int dbLength = selectedDatabase.length;
   int todayIndex = ((3.14159265359 *
               DateTime.now().day *
@@ -230,92 +230,4 @@ String game_duration_to_string_wotd() {
   String s = seconds.toString().padLeft(2, '0');
 
   return (h + ":" + m + ":" + s);
-}
-
-void restart_infinite_game_variables() {
-  currentCellInfinite = 0;
-  currentRowInfinite = 0;
-  canWriteInfinite = true;
-  finishedInfinite = false;
-
-  infiniteArray = ["", "", "", "", ""];
-  infiniteString = "";
-  infiniteDefinitionURL = "https://dle.rae.es/";
-
-  wonGameInfinite = false;
-  infoStatsInfinite = "";
-  emojiStatsInfinite = "";
-  startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
-  endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
-  playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
-  alreadyTimeMeasuredInfinite = false;
-  alreadyPointsCalculatedInfinite = false;
-  timeStartedInfinite = false;
-  timeStartedWotd = false;
-
-  inputMatrixInfinite = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ];
-
-  colorsArrayInfinite = [
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B",
-    "B"
-  ];
 }
