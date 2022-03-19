@@ -5,13 +5,12 @@
  * */
 
 import 'package:Encasillado/pages/help.dart';
-import 'package:Encasillado/pages/infinite_words.dart';
 import 'package:Encasillado/pages/infinite_words_end.dart';
 import 'package:Encasillado/pages/score_explanation.dart';
 import 'package:Encasillado/pages/settings.dart';
 import 'package:Encasillado/pages/streak_explanation.dart';
 import 'package:Encasillado/pages/update_news.dart';
-import 'package:Encasillado/pages/wotd.dart';
+import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
 import 'package:flutter/material.dart';
 
@@ -36,16 +35,15 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Encasillado",
-    initialRoute: '/wotd',
+    initialRoute: '/home',
     routes: {
+      '/home': (context) => Home(),
       '/help': (context) => Help(),
-      '/infinite_words': (context) => InfiniteWords(),
       '/infinite_words_end': (context) => InfiniteWordsEnd(),
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/streak_explanation': (context) => StreakExplanation(),
       '/update_news': (context) => UpdateNews(),
-      '/wotd': (context) => Wotd(),
       '/wotd_end': (context) => WotdEnd(),
     },
   ));

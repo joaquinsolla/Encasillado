@@ -167,12 +167,12 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               TextButton(
                   onPressed: () {
+                    Navigator.pushNamed(context, '/home');
                     restart_infinite_game_variables();
-                    generate_infinite_word();
                     setState(() {
                       startDateInfinite = DateTime.now();
                     });
-                    Navigator.popAndPushNamed(context, '/infinite_words');
+                    generate_infinite_word();
                   },
                   style: TextButton.styleFrom(
                     primary: appWhite,

@@ -99,8 +99,7 @@ class _SettingsState extends State<Settings> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            if (currentPage == 0) Navigator.popAndPushNamed(context, '/wotd');
-                            else Navigator.popAndPushNamed(context, '/infinite_words');
+                            Navigator.pushNamed(context, '/home');
                           },
                           style: TextButton.styleFrom(
                             primary: appWhite,
