@@ -341,7 +341,7 @@ TextButton scoreButton(BuildContext context) {
       backgroundColor: keyColor,
     ),
     child: Text(
-      " Puntos: " + pointsInfinite.toString() + " ",
+      " Puntos: " + infiniteScore.toString() + " ",
       style: TextStyle(
         fontSize: 15,
         color: appBlack,

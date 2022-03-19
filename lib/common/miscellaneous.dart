@@ -18,6 +18,7 @@ bool alreadyPointsCalculatedInfinite = false;
 bool timeStartedInfinite = false;
 bool timeStartedWotd = false;
 bool newInfiniteGame = false;
+bool showAds = true;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;
@@ -26,7 +27,7 @@ double keyHeight = 0;
 
 /** GAME-STATS VARIABLES */
 int streak = 0;
-int pointsInfinite = 0;
+int infiniteScore = 0;
 String infoStatsInfinite = "";
 String emojiStatsInfinite = "";
 String infoStatsWotd = "";

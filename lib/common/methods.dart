@@ -81,17 +81,17 @@ void build_stats_infinite() {
   if (alreadyPointsCalculatedInfinite == false) {
     if (wonGameInfinite) {
       if (seconds < 900) {
-        if (currentRowInfinite == 0) pointsInfinite += 50000;
+        if (currentRowInfinite == 0) infiniteScore += 50000;
         else {
-          pointsInfinite += ((900 - seconds) *
+          infiniteScore += ((900 - seconds) *
               (6 - currentRowInfinite) *
               ((streak + 1) * 0.1 + 1))
               .toInt();
         }
-        if (pointsInfinite > 9999999) pointsInfinite = 9999999;
+        if (infiniteScore > 9999999) infiniteScore = 9999999;
       }
     } else {
-      pointsInfinite -= 1000;
+      infiniteScore -= 1000;
     }
     alreadyPointsCalculatedInfinite = true;
   }

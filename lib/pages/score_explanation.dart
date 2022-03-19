@@ -24,7 +24,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
               height: 5,
             ),
             Text(
-              "Tu puntuación actual: " + pointsInfinite.toString(),
+              "Tu puntuación actual: " + infiniteScore.toString(),
               style: TextStyle(
                 fontSize: 25,
                 color: appBlack,

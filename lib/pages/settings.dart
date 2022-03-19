@@ -89,6 +89,28 @@ class _SettingsState extends State<Settings> {
                     },
                   ),
                 ),
+                if (deviceWidth < 340) settingsRow(
+                  'Anuncios:',
+                  Switch(
+                    value: showAds,
+                    onChanged: (value) {
+                      setState(() {
+                        showAds = (!showAds);
+                      });
+                    },
+                  ),
+                ),
+                if (deviceWidth >= 340) settingsRowAdvanced(
+                  'Anuncios:', 'Apóyame como desarrollador independiente.',
+                  Switch(
+                    value: showAds,
+                    onChanged: (value) {
+                      setState(() {
+                        showAds = (!showAds);
+                      });
+                    },
+                  ),
+                ),
                 SizedBox(
                   height: 15,
                 ),

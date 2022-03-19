@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
+// TODO: Import ad_helper.dart
+import 'package:Encasillado/ad_helper.dart';
+
+// TODO: Import google_mobile_ads.dart
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,47 +18,36 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  void check_device() {
-    setState(() {
-      deviceWidth = MediaQuery.of(context).size.width;
-      deviceHeight = MediaQuery.of(context).size.height - 168.5; // 161.5 static px
-      keyHeight = (deviceHeight) * 0.09;
-    });
-  }
+  // TODO: Add _bannerAd
+  late BannerAd _bannerAd;
 
-  void check_settings() {
-    if (colorBlind) {
-      setState(() {
-        appGreen = Colors.orange;
-        appYellow = Colors.blue;
-        greenEmoji = "🟧";
-        yellowEmoji = "🟦";
-      });
-    } else {
-      setState(() {
-        appGreen = Colors.green;
-        appYellow = Color(0xfff3d500);
-        greenEmoji = "🟩";
-        yellowEmoji = "🟨";
-      });
-    }
+  // TODO: Add _isBannerAdReady
+  bool _isBannerAdReady = false;
 
-    if (darkMode) {
-      setState(() {
-        appBlack = Colors.white;
-        appWhite = Color(0xff2d2d2d);
-        appSemiBlack = Colors.white;
-        whiteEmoji = "⬛";
-        keyColor = Color(0xff131313);
-      });
-    } else {
-      setState(() {
-        appBlack = Colors.black;
-        appWhite = Colors.white;
-        appSemiBlack = Colors.black54;
-        whiteEmoji = "⬜";
-        keyColor = Color(0xffefefef);
-      });
+  @override
+  void initState() {
+
+    if (showAds) {
+      // TODO: Initialize _bannerAd
+      _bannerAd = BannerAd(
+        adUnitId: AdHelper.bannerAdUnitId,
+        request: AdRequest(),
+        size: AdSize.banner,
+        listener: BannerAdListener(
+          onAdLoaded: (_) {
+            setState(() {
+              _isBannerAdReady = true;
+            });
+          },
+          onAdFailedToLoad: (ad, err) {
+            print('Failed to load a banner ad: ${err.message}');
+            _isBannerAdReady = false;
+            ad.dispose();
+          },
+        ),
+      );
+
+      _bannerAd.load();
     }
   }
 
@@ -157,6 +151,16 @@ class _HomeState extends State<Home> {
         Expanded(
           child: Text(""),
         ),
+        if (_isBannerAdReady) smallText('ADVERTISING'),
+        if (_isBannerAdReady) Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            width: _bannerAd.size.width.toDouble(),
+            height: _bannerAd.size.height.toDouble(),
+            child: AdWidget(ad: _bannerAd),
+          ),
+        ),
+        SizedBox(height: 15,),
         if (currentPage == 0) wotdKeyboard(context),
         if (currentPage == 1) infiniteKeyboard(context),
         SizedBox(
@@ -867,8 +871,8 @@ class _HomeState extends State<Home> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOutCirc,
-      width: ((deviceHeight * 0.52) / 6 - 8.0),
-      height: ((deviceHeight * 0.52) / 6 - 8.0),
+      width: ((deviceHeight * 0.535) / 6 - 8.0),
+      height: ((deviceHeight * 0.535) / 6 - 8.0),
       margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
       padding: const EdgeInsets.all(0.0),
       alignment: Alignment.center,
@@ -951,6 +955,50 @@ class _HomeState extends State<Home> {
   }
 
   // OTHERS
+
+  void check_device() {
+    setState(() {
+      deviceWidth = MediaQuery.of(context).size.width;
+      deviceHeight = MediaQuery.of(context).size.height - 168.5 - 60 - 10; // 161.5 static px + 60 Ad + 10 Ad Margin
+      keyHeight = (deviceHeight) * 0.1;
+    });
+  }
+
+  void check_settings() {
+    if (colorBlind) {
+      setState(() {
+        appGreen = Colors.orange;
+        appYellow = Colors.blue;
+        greenEmoji = "🟧";
+        yellowEmoji = "🟦";
+      });
+    } else {
+      setState(() {
+        appGreen = Colors.green;
+        appYellow = Color(0xfff3d500);
+        greenEmoji = "🟩";
+        yellowEmoji = "🟨";
+      });
+    }
+
+    if (darkMode) {
+      setState(() {
+        appBlack = Colors.white;
+        appWhite = Color(0xff2d2d2d);
+        appSemiBlack = Colors.white;
+        whiteEmoji = "⬛";
+        keyColor = Color(0xff131313);
+      });
+    } else {
+      setState(() {
+        appBlack = Colors.black;
+        appWhite = Colors.white;
+        appSemiBlack = Colors.black54;
+        whiteEmoji = "⬜";
+        keyColor = Color(0xffefefef);
+      });
+    }
+  }
 
   void infiniteRestartVariables() {
     setState(() {
