@@ -879,7 +879,7 @@ class _HomeState extends State<Home> {
       child: Text(
         char,
         style:
-        TextStyle(fontSize: ((deviceHeight * 0.5) / 6 - 25), color: appBlack),
+        TextStyle(fontSize: ((deviceHeight * 0.52) / 6 - 28), color: appBlack),
       ),
     );
   }
