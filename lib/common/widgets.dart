@@ -26,7 +26,8 @@ AppBar myAppBarWithButtons(BuildContext context) {
           scale: imageScale,
         ),
         Expanded(child: Text("")),
-        Expanded(
+        Container(
+          width: 40,
           child: RawMaterialButton(
             onPressed: () {
               Navigator.pushNamed(context, '/help');
@@ -40,7 +41,8 @@ AppBar myAppBarWithButtons(BuildContext context) {
         SizedBox(
           width: 5,
         ),
-        Expanded(
+        Container(
+          width: 40,
           child: RawMaterialButton(
             onPressed: () {
               Navigator.pushNamed(context, '/settings');
@@ -74,7 +76,8 @@ AppBar myAppBarWithButtonsAndWithoutBackArrow(BuildContext context) {
           scale: imageScale,
         ),
         Expanded(child: Text("")),
-        Expanded(
+        Container(
+          width: 40,
           child: RawMaterialButton(
             onPressed: () {
               Navigator.pushNamed(context, '/help');
@@ -88,7 +91,8 @@ AppBar myAppBarWithButtonsAndWithoutBackArrow(BuildContext context) {
         SizedBox(
           width: 5,
         ),
-        Expanded(
+        Container(
+          width: 40,
           child: RawMaterialButton(
             onPressed: () {
               Navigator.pushNamed(context, '/settings');

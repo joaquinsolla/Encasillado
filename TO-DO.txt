@@ -1,9 +1,6 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
--ADAPTATIVE DESIGN
--ADAPTATIVE TEXT
 
 -------OTHERS----------
-botones appbar
 ajustes permanentes
