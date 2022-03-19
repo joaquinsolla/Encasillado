@@ -19,10 +19,15 @@ class _WotdEndState extends State<WotdEnd> {
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
 
+  Future<InitializationStatus> _initGoogleMobileAds() {
+    return MobileAds.instance.initialize();
+  }
+
   @override
   void initState() {
 
     if (showAds) {
+      _initGoogleMobileAds();
       _bannerAd = BannerAd(
         adUnitId: AdHelper.bannerAdUnitId,
         request: AdRequest(),
