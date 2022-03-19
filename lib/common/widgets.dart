@@ -264,7 +264,7 @@ Container gameBanner(BuildContext context, String content, Widget button1, Widge
 
   return Container(
     height: 35,
-    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 0.0),
+    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 3.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [

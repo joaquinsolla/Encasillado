@@ -16,9 +16,8 @@ class _HomeState extends State<Home> {
   void check_device() {
     setState(() {
       deviceWidth = MediaQuery.of(context).size.width;
-      deviceHeight = MediaQuery.of(context).size.height -
-          56; //Do not consider AppBar heigth (56px)
-      keyHeight = (deviceHeight) * 0.083;
+      deviceHeight = MediaQuery.of(context).size.height - 168.5; // 161.5 static px
+      keyHeight = (deviceHeight) * 0.09;
     });
   }
 
@@ -94,7 +93,7 @@ class _HomeState extends State<Home> {
       backgroundColor: appWhite,
       body: Column(children: [
         Container(
-          height: deviceHeight * 0.072,
+          height: 54,
           color: appSecondColor,
           padding: EdgeInsets.all(5.0),
           child: Row(
@@ -868,8 +867,8 @@ class _HomeState extends State<Home> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOutCirc,
-      width: ((deviceHeight * 0.5) / 6 - 13.0),
-      height: ((deviceHeight * 0.5) / 6 - 13.0),
+      width: ((deviceHeight * 0.52) / 6 - 8.0),
+      height: ((deviceHeight * 0.52) / 6 - 8.0),
       margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
       padding: const EdgeInsets.all(0.0),
       alignment: Alignment.center,

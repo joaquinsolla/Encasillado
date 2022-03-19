@@ -13,7 +13,6 @@ import 'package:Encasillado/pages/update_news.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
 import 'package:flutter/material.dart';
-
 import 'databases.dart';
 import 'common/miscellaneous.dart';
 import 'common/methods.dart';
