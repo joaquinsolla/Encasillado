@@ -52,13 +52,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
+    check_device();
+
     if (appStarted == false) {
       var brightness = MediaQuery.of(context).platformBrightness;
       setState(() {
         darkMode = brightness == Brightness.dark;
       });
 
-      check_device();
       check_settings();
 
       setState(() {
@@ -147,9 +149,7 @@ class _HomeState extends State<Home> {
         if (currentPage == 1) gameBanner(context, 'Palabras infinitas', scoreButton(context), streakButton(context)),
         if (currentPage == 0) wotdLettersField(),
         if (currentPage == 1) infiniteLettersField(),
-        Expanded(
-          child: Text(""),
-        ),
+        Expanded(child: Text(""),),
         if (_isBannerAdReady) smallText('ADVERTISING'),
         if (_isBannerAdReady) Align(
           alignment: Alignment.topCenter,
@@ -870,8 +870,8 @@ class _HomeState extends State<Home> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOutCirc,
-      width: ((deviceHeight * 0.535) / 6 - 8.0),
-      height: ((deviceHeight * 0.535) / 6 - 8.0),
+      width: ((deviceHeight * 0.53) / 6) -8,
+      height: ((deviceHeight * 0.53) / 6) -8,
       margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
       padding: const EdgeInsets.all(0.0),
       alignment: Alignment.center,
