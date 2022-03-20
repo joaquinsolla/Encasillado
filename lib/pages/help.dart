@@ -70,118 +70,123 @@ class _HelpState extends State<Help> {
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
           alignment: Alignment.topCenter,
-          child: ListView(
-            addAutomaticKeepAlives: true,
+          child: Column(
             children: [
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                "¿Cómo jugar?",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: appBlack,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
-                    "Las palabras que pruebes deben estar en el diccionario.\n\n"
-                    "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: appBlack,
-                  fontWeight: FontWeight.normal,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Container(
-                height: 40,
-                child: Image.asset(ex_green),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                "La letra A está en la palabra oculta y va en esa posición\n",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: appBlack,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Container(
-                height: 40,
-                child: Image.asset(ex_yellow),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                "La letra E está en la palabra oculta pero no va en esa posición\n",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: appBlack,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Container(
-                height: 40,
-                child: Image.asset(ex_grey),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                "La letra T no está en la palabra oculta\n",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: appBlack,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'RaleWay',
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Container(
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        style: TextButton.styleFrom(
-                          primary: appWhite,
-                          backgroundColor: appMainColor,
-                        ),
-                        child: Text("VAMOS ALLÁ")),
-                  ],
-                ),
-              ),
-              if (_isBannerAdReady) SizedBox(height: 25,),
-              if (_isBannerAdReady) smallText('ADVERTISING'),
+              Expanded(child: ListView(
+                addAutomaticKeepAlives: true,
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "¿Cómo jugar?",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
+                        "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                        "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Container(
+                    height: 40,
+                    child: Image.asset(ex_green),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "La letra A está en la palabra oculta y va en esa posición\n",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 40,
+                    child: Image.asset(ex_yellow),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "La letra E está en la palabra oculta pero no va en esa posición\n",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 40,
+                    child: Image.asset(ex_grey),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "La letra T no está en la palabra oculta\n",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Container(
+                    height: 50,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            style: TextButton.styleFrom(
+                              primary: appWhite,
+                              backgroundColor: appMainColor,
+                            ),
+                            child: Text("VAMOS ALLÁ")),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),),
+              //if (_isBannerAdReady) SizedBox(height: 5,),
+              //if (_isBannerAdReady) smallText('ADVERTISING'),
               if (_isBannerAdReady) Align(
                 alignment: Alignment.topCenter,
                 child: Container(
@@ -192,6 +197,9 @@ class _HelpState extends State<Help> {
               ),
             ],
           ),
+
+
+
         )
     );
   }
