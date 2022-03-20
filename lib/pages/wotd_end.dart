@@ -50,7 +50,7 @@ class _WotdEndState extends State<WotdEnd> {
 
   @override
   Widget build(BuildContext context) {
-    build_stats_wotd();
+    wotd_stats_builder();
 
     String gameImage;
     String gameText;
@@ -75,7 +75,7 @@ class _WotdEndState extends State<WotdEnd> {
     }
 
     return Scaffold(
-        appBar: myAppBarWithoutButtons(context),
+        appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -142,7 +142,7 @@ class _WotdEndState extends State<WotdEnd> {
                   Text(
                     emojiStatsWotd +
                         "\nTiempo: " +
-                        game_duration_to_string_wotd(),
+                        wotd_game_duration_string(),
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -174,7 +174,7 @@ class _WotdEndState extends State<WotdEnd> {
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     TextButton(
                         onPressed: () {
-                          urlLauncher(wotdDefinitionURL);
+                          url_launcher(wotdDefinitionURL);
                         },
                         style: TextButton.styleFrom(
                           primary: appWhite,
@@ -207,7 +207,7 @@ class _WotdEndState extends State<WotdEnd> {
                       RawMaterialButton(
                         onPressed: () {
                           copy_to_clipboard(context, infoStatsWotd,
-                              emojiStatsWotd, game_duration_to_string_wotd());
+                              emojiStatsWotd, wotd_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -219,8 +219,8 @@ class _WotdEndState extends State<WotdEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          whatsapp_share(infoStatsWotd, emojiStatsWotd,
-                              game_duration_to_string_wotd());
+                          share_whatsapp(infoStatsWotd, emojiStatsWotd,
+                              wotd_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -232,8 +232,8 @@ class _WotdEndState extends State<WotdEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          twitter_share(infoStatsWotd, emojiStatsWotd,
-                              game_duration_to_string_wotd());
+                          share_twitter(infoStatsWotd, emojiStatsWotd,
+                              wotd_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -253,8 +253,8 @@ class _WotdEndState extends State<WotdEnd> {
                     children: [
                       RawMaterialButton(
                         onPressed: () {
-                          telegram_share(infoStatsWotd, emojiStatsWotd,
-                              game_duration_to_string_wotd());
+                          share_telegram(infoStatsWotd, emojiStatsWotd,
+                              wotd_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -266,8 +266,8 @@ class _WotdEndState extends State<WotdEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          others_share(infoStatsWotd, emojiStatsWotd,
-                              game_duration_to_string_wotd());
+                          share_others(infoStatsWotd, emojiStatsWotd,
+                              wotd_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -309,4 +309,46 @@ class _WotdEndState extends State<WotdEnd> {
           ]),
         ));
   }
+
+  // STATS MANAGEMENT
+
+  void wotd_stats_builder() {
+    bool lineUsed = false;
+    emojiStatsWotd = "";
+    for (var i = 0; i < colorsArrayWotd.length; i += 5) {
+      lineUsed = false;
+      for (var j = i; j < i + 5; j++) {
+        if (colorsArrayWotd[j] == "V") {
+          emojiStatsWotd += greenEmoji;
+          lineUsed = true;
+        }
+        if (colorsArrayWotd[j] == "A") {
+          emojiStatsWotd += yellowEmoji;
+          lineUsed = true;
+        }
+        if (colorsArrayWotd[j] == "G") {
+          emojiStatsWotd += whiteEmoji;
+          lineUsed = true;
+        }
+      }
+      if (lineUsed) emojiStatsWotd += "\n";
+    }
+  }
+
+  String wotd_game_duration_string() {
+    int hours;
+    int minutes;
+    int seconds;
+
+    hours = playSecondsWotd.inHours;
+    minutes = playSecondsWotd.inMinutes - hours * 60;
+    seconds = playSecondsWotd.inSeconds - hours * 60 * 60 - minutes * 60;
+
+    String h = hours.toString().padLeft(2, '0');
+    String m = minutes.toString().padLeft(2, '0');
+    String s = seconds.toString().padLeft(2, '0');
+
+    return (h + ":" + m + ":" + s);
+  }
+
 }

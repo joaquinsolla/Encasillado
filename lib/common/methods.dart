@@ -12,7 +12,7 @@ import 'miscellaneous.dart';
 import 'colors.dart';
 import 'urls.dart';
 
-void infiniteGenerateWord() {
+void infinite_generate_word() {
   var rng = Random();
   String selectedWord = selectedDatabase[rng.nextInt(selectedDatabase.length)];
 
@@ -23,10 +23,10 @@ void infiniteGenerateWord() {
     infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("INFINITE: " + infiniteString);
+  //print("INFINITE: " + infiniteString);
 }
 
-void wotdGenerateWord() {
+void wotd_generate_word() {
   int dbLength = selectedDatabase.length;
   int todayIndex = ((3.14159265359 *
               DateTime.now().day *
@@ -45,78 +45,14 @@ void wotdGenerateWord() {
     wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("WOTD: " + wotdString);
+  //print("WOTD: " + wotdString);
 }
 
-void urlLauncher(String url) async {
+void url_launcher(String url) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
     throw 'Could not launch $url';
-  }
-}
-
-void build_stats_infinite() {
-  bool lineUsed = false;
-  emojiStatsInfinite = "";
-  for (var i = 0; i < colorsArrayInfinite.length; i += 5) {
-    lineUsed = false;
-    for (var j = i; j < i + 5; j++) {
-      if (colorsArrayInfinite[j] == "V") {
-        emojiStatsInfinite += greenEmoji;
-        lineUsed = true;
-      }
-      if (colorsArrayInfinite[j] == "A") {
-        emojiStatsInfinite += yellowEmoji;
-        lineUsed = true;
-      }
-      if (colorsArrayInfinite[j] == "G") {
-        emojiStatsInfinite += whiteEmoji;
-        lineUsed = true;
-      }
-    }
-    if (lineUsed) emojiStatsInfinite += "\n";
-  }
-  int seconds = playSecondsInfinite.inSeconds;
-  if (alreadyPointsCalculatedInfinite == false) {
-    if (wonGameInfinite) {
-      if (seconds < 900) {
-        if (currentRowInfinite == 0) infiniteScore += 50000;
-        else {
-          infiniteScore += ((900 - seconds) *
-              (6 - currentRowInfinite) *
-              ((streak + 1) * 0.1 + 1))
-              .toInt();
-        }
-        if (infiniteScore > 9999999) infiniteScore = 9999999;
-      }
-    } else {
-      infiniteScore -= 1000;
-    }
-    alreadyPointsCalculatedInfinite = true;
-  }
-}
-
-void build_stats_wotd() {
-  bool lineUsed = false;
-  emojiStatsWotd = "";
-  for (var i = 0; i < colorsArrayWotd.length; i += 5) {
-    lineUsed = false;
-    for (var j = i; j < i + 5; j++) {
-      if (colorsArrayWotd[j] == "V") {
-        emojiStatsWotd += greenEmoji;
-        lineUsed = true;
-      }
-      if (colorsArrayWotd[j] == "A") {
-        emojiStatsWotd += yellowEmoji;
-        lineUsed = true;
-      }
-      if (colorsArrayWotd[j] == "G") {
-        emojiStatsWotd += whiteEmoji;
-        lineUsed = true;
-      }
-    }
-    if (lineUsed) emojiStatsWotd += "\n";
   }
 }
 
@@ -148,7 +84,7 @@ void copy_to_clipboard(BuildContext context, String stats, String emojis, String
   ).show(context);
 }
 
-void whatsapp_share(String stats, String emojis, String gameDuration) {
+void share_whatsapp(String stats, String emojis, String gameDuration) {
   String text = stats +
       "\n" +
       emojis +
@@ -160,9 +96,8 @@ void whatsapp_share(String stats, String emojis, String gameDuration) {
   SocialShare.shareWhatsapp(text);
 }
 
-void twitter_share(String stats, String emojis, String gameDuration) {
+void share_twitter(String stats, String emojis, String gameDuration) {
 
-  //TODO: REVISAR
   String text = stats +
       " \n " +
       emojis +
@@ -172,7 +107,7 @@ void twitter_share(String stats, String emojis, String gameDuration) {
   SocialShare.shareTwitter(text, hashtags: ["Encasillado"], url:encasilladoPlayStoreUrl);
 }
 
-void telegram_share(String stats, String emojis, String gameDuration) {
+void share_telegram(String stats, String emojis, String gameDuration) {
 
   String text = stats +
       "\n" +
@@ -186,7 +121,7 @@ void telegram_share(String stats, String emojis, String gameDuration) {
 
 }
 
-void others_share(String stats, String emojis, String gameDuration) {
+void share_others(String stats, String emojis, String gameDuration) {
 
   String text = stats +
       "\n" +
@@ -198,36 +133,4 @@ void others_share(String stats, String emojis, String gameDuration) {
 
   SocialShare.shareOptions(text);
 
-}
-
-String game_duration_to_string_infinite() {
-  int hours;
-  int minutes;
-  int seconds;
-
-  hours = playSecondsInfinite.inHours;
-  minutes = playSecondsInfinite.inMinutes - hours * 60;
-  seconds = playSecondsInfinite.inSeconds - hours * 60 * 60 - minutes * 60;
-
-  String h = hours.toString().padLeft(2, '0');
-  String m = minutes.toString().padLeft(2, '0');
-  String s = seconds.toString().padLeft(2, '0');
-
-  return (h + ":" + m + ":" + s);
-}
-
-String game_duration_to_string_wotd() {
-  int hours;
-  int minutes;
-  int seconds;
-
-  hours = playSecondsWotd.inHours;
-  minutes = playSecondsWotd.inMinutes - hours * 60;
-  seconds = playSecondsWotd.inSeconds - hours * 60 * 60 - minutes * 60;
-
-  String h = hours.toString().padLeft(2, '0');
-  String m = minutes.toString().padLeft(2, '0');
-  String s = seconds.toString().padLeft(2, '0');
-
-  return (h + ":" + m + ":" + s);
 }

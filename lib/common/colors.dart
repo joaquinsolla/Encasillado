@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-Color appMainColor = Color(0xff009688);
-Color appSecondColor = Color(0xff007066);
-Color appThirdColor = Color(0xff005e56);
+const Color appMainColor = Color(0xff009688);
+const Color appSecondColor = Color(0xff007066);
+const Color appThirdColor = Color(0xff005e56);
+
 Color keyColor = Color(0xffefefef);
 
-Color wppColor = Colors.green;
-Color twitterColor = Color(0xff1d9bf0);
-Color telegramColor = Color(0xff29a1d4);
-Color othersColor = Colors.lightGreen;
+const Color wppColor = Colors.green;
+const Color twitterColor = Color(0xff1d9bf0);
+const Color telegramColor = Color(0xff29a1d4);
+const Color othersColor = Colors.lightGreen;
 
 Color appGreen = Colors.green;
 Color appYellow = Color(0xfff3d500);

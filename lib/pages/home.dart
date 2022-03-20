@@ -79,12 +79,12 @@ class _HomeState extends State<Home> {
     }
 
     if (newInfiniteGame) {
-      infiniteRestartVariables();
-      infiniteGenerateWord();
+      infinite_reset_variables();
+      infinite_generate_word();
     }
 
     return Scaffold(
-      appBar: myAppBarWithButtonsAndWithoutBackArrow(context),
+      appBar: myAppBarWithButtonsWithoutBackArrow(context),
       backgroundColor: appWhite,
       body: Column(children: [
         Container(
@@ -169,7 +169,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  // KEYBOARD MANAGEMENT
+  // KEYBOARD GENERATION
 
   List<String> greenKeysWotd = [];
   List<String> yellowKeysWotd = [];
@@ -329,8 +329,8 @@ class _HomeState extends State<Home> {
                 currentCellWotd == 25 ||
                 currentCellWotd == 30) &&
                 canWriteWotd == false) {
-              if (wotdWordExists()) {
-                if (wotdCheckWord()) {
+              if (wotd_word_exists()) {
+                if (wotd_check_word()) {
                   if (!finishedWotd) {
                     setState(() {
                       finishedWotd = true;
@@ -357,7 +357,7 @@ class _HomeState extends State<Home> {
                   }
                 }
               } else {
-                word_doesnt_exist_snackbar(context);
+                wordDoesNotExistFlushbar(context);
               }
             }
             if (finishedWotd && alreadyTimeMeasuredWotd == false) {
@@ -394,8 +394,8 @@ class _HomeState extends State<Home> {
                 currentCellInfinite == 25 ||
                 currentCellInfinite == 30) &&
                 canWriteInfinite == false) {
-              if (infiniteWordExists()) {
-                if (infiniteCheckWord()) {
+              if (infinite_word_exists()) {
+                if (infinite_check_word()) {
                   if (!finishedInfinite) {
                     setState(() {
                       streak++;
@@ -422,7 +422,7 @@ class _HomeState extends State<Home> {
                   }
                 }
               } else {
-                word_doesnt_exist_snackbar(context);
+                wordDoesNotExistFlushbar(context);
               }
             }
             if (finishedInfinite && alreadyTimeMeasuredInfinite == false) {
@@ -678,7 +678,9 @@ class _HomeState extends State<Home> {
     );
   }
 
-  bool wotdCheckWord() {
+  // WORD CONTROL
+
+  bool wotd_check_word() {
     String selectedWordString = wotdString;
     List<String> selectedWordArray = wotdArray;
 
@@ -754,7 +756,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-  bool infiniteCheckWord() {
+  bool infinite_check_word() {
     String selectedWordString = infiniteString;
     List<String> selectedWordArray = infiniteArray;
 
@@ -832,7 +834,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-  bool wotdWordExists() {
+  bool wotd_word_exists() {
     String inputWord = inputMatrixWotd[currentRowWotd * 5] +
         inputMatrixWotd[currentRowWotd * 5 + 1] +
         inputMatrixWotd[currentRowWotd * 5 + 2] +
@@ -845,7 +847,7 @@ class _HomeState extends State<Home> {
     return false;
   }
 
-  bool infiniteWordExists() {
+  bool infinite_word_exists() {
     String inputWord = inputMatrixInfinite[currentRowInfinite * 5] +
         inputMatrixInfinite[currentRowInfinite * 5 + 1] +
         inputMatrixInfinite[currentRowInfinite * 5 + 2] +
@@ -999,7 +1001,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void infiniteRestartVariables() {
+  void infinite_reset_variables() {
     setState(() {
     newInfiniteGame = false;
 

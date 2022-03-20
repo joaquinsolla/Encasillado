@@ -65,7 +65,7 @@ class _HelpState extends State<Help> {
     }
 
     return Scaffold(
-      appBar: myAppBarWithoutButtons(context),
+      appBar: myAppBarWithoutButtonsWithBackArrow(context),
       backgroundColor: appWhite,
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
@@ -94,7 +94,8 @@ class _HelpState extends State<Help> {
                   ),
                   Text(
                     "Tienes 6 intentos para adivinar la palabra oculta, que está compuesta por 5 letras.\n\n"
-                        "Las palabras que pruebes deben estar en el diccionario.\n\n"
+                        "Las palabras que pruebes deben estar en el diccionario. No se aceptan plurales ni verbos conjugados."
+                        "Las palabras con tilde se escriben sin ella.\n\n"
                         "Cada vez que pruebes una palabra las casillas cambiarán de color para indicar tu progreso:\n",
                     style: TextStyle(
                       fontSize: 16,

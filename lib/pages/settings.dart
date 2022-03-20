@@ -175,7 +175,7 @@ class _SettingsState extends State<Settings> {
                           Expanded(child: Text("")),
                           TextButton(
                               onPressed: () {
-                                urlLauncher(wordleUrl);
+                                url_launcher(wordleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,
@@ -185,7 +185,7 @@ class _SettingsState extends State<Settings> {
                           smallText("de"),
                           TextButton(
                               onPressed: () {
-                                urlLauncher(joshWardleUrl);
+                                url_launcher(joshWardleUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,
@@ -223,7 +223,7 @@ class _SettingsState extends State<Settings> {
                             ),
                             TextButton(
                               onPressed: () {
-                                urlLauncher(privacyPolicyUrl);
+                                url_launcher(privacyPolicyUrl);
                               },
                               style: TextButton.styleFrom(
                                 primary: appGrey,

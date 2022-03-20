@@ -22,14 +22,15 @@ import 'common/methods.dart';
 void main() {
 
   /** DATABASE SELECTOR
-   * 0 - testDB0
-   * 1 - testDB1
-   * 2 - testDB2
-   * 3 - gameDB * */
-  selectedDatabase = databasesList[3];
+   * 0 - gameDB
+   * 1 - testDB0
+   * 2 - testDB1
+   * 3 - testDB2 * */
+  selectedDatabase = databasesList[0];
 
-  infiniteGenerateWord();
-  wotdGenerateWord();
+  // WORD GENERATION
+  infinite_generate_word();
+  wotd_generate_word();
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,

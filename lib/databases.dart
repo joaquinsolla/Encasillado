@@ -1,5 +1,5 @@
 // List of word-lists
-List <List <String>> databasesList = [testDB0,testDB1,testDB2,gameDB];
+List <List <String>> databasesList = [gameDB,testDB0,testDB1,testDB2];
 
 // Test lists
 const List <String> testDB0 = ["AAAAA"];

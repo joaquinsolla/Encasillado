@@ -48,7 +48,7 @@ class _UpdateNewsState extends State<UpdateNews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: myAppBarWithoutButtons(context),
+        appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),

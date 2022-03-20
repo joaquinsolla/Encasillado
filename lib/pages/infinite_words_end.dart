@@ -50,7 +50,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
 
   @override
   Widget build(BuildContext context) {
-    build_stats_infinite();
+    infinite_stats_builder();
 
     String gameImage;
     String gameText;
@@ -75,7 +75,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
     }
 
     return Scaffold(
-        appBar: myAppBarWithoutButtons(context),
+        appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
         body: Container(
           margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
@@ -142,7 +142,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                   Text(
                     emojiStatsInfinite +
                         "\nTiempo: " +
-                        game_duration_to_string_infinite(),
+                        infinite_game_duration_string(),
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -174,7 +174,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     TextButton(
                         onPressed: () {
-                          urlLauncher(infiniteDefinitionURL);
+                          url_launcher(infiniteDefinitionURL);
                         },
                         style: TextButton.styleFrom(
                           primary: appWhite,
@@ -252,7 +252,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                               context,
                               infoStatsInfinite,
                               emojiStatsInfinite,
-                              game_duration_to_string_infinite());
+                              infinite_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -264,8 +264,8 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          whatsapp_share(infoStatsInfinite, emojiStatsInfinite,
-                              game_duration_to_string_infinite());
+                          share_whatsapp(infoStatsInfinite, emojiStatsInfinite,
+                              infinite_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -277,8 +277,8 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          twitter_share(infoStatsInfinite, emojiStatsInfinite,
-                              game_duration_to_string_infinite());
+                          share_twitter(infoStatsInfinite, emojiStatsInfinite,
+                              infinite_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -298,8 +298,8 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                     children: [
                       RawMaterialButton(
                         onPressed: () {
-                          telegram_share(infoStatsInfinite, emojiStatsInfinite,
-                              game_duration_to_string_infinite());
+                          share_telegram(infoStatsInfinite, emojiStatsInfinite,
+                              infinite_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -311,8 +311,8 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                       ),
                       RawMaterialButton(
                         onPressed: () {
-                          others_share(infoStatsInfinite, emojiStatsInfinite,
-                              game_duration_to_string_infinite());
+                          share_others(infoStatsInfinite, emojiStatsInfinite,
+                              infinite_game_duration_string());
                         },
                         elevation: 1,
                         child: Image.asset(
@@ -354,4 +354,64 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
           ]),
         ));
   }
+
+  // STATS MANAGEMENT
+
+  void infinite_stats_builder() {
+    bool lineUsed = false;
+    emojiStatsInfinite = "";
+    for (var i = 0; i < colorsArrayInfinite.length; i += 5) {
+      lineUsed = false;
+      for (var j = i; j < i + 5; j++) {
+        if (colorsArrayInfinite[j] == "V") {
+          emojiStatsInfinite += greenEmoji;
+          lineUsed = true;
+        }
+        if (colorsArrayInfinite[j] == "A") {
+          emojiStatsInfinite += yellowEmoji;
+          lineUsed = true;
+        }
+        if (colorsArrayInfinite[j] == "G") {
+          emojiStatsInfinite += whiteEmoji;
+          lineUsed = true;
+        }
+      }
+      if (lineUsed) emojiStatsInfinite += "\n";
+    }
+    int seconds = playSecondsInfinite.inSeconds;
+    if (alreadyPointsCalculatedInfinite == false) {
+      if (wonGameInfinite) {
+        if (seconds < 900) {
+          if (currentRowInfinite == 0) infiniteScore += 50000;
+          else {
+            infiniteScore += ((900 - seconds) *
+                (6 - currentRowInfinite) *
+                ((streak + 1) * 0.1 + 1))
+                .toInt();
+          }
+          if (infiniteScore > 9999999) infiniteScore = 9999999;
+        }
+      } else {
+        infiniteScore -= 1000;
+      }
+      alreadyPointsCalculatedInfinite = true;
+    }
+  }
+
+  String infinite_game_duration_string() {
+    int hours;
+    int minutes;
+    int seconds;
+
+    hours = playSecondsInfinite.inHours;
+    minutes = playSecondsInfinite.inMinutes - hours * 60;
+    seconds = playSecondsInfinite.inSeconds - hours * 60 * 60 - minutes * 60;
+
+    String h = hours.toString().padLeft(2, '0');
+    String m = minutes.toString().padLeft(2, '0');
+    String s = seconds.toString().padLeft(2, '0');
+
+    return (h + ":" + m + ":" + s);
+  }
+
 }

@@ -9,7 +9,7 @@ import 'methods.dart';
 import 'miscellaneous.dart';
 import 'colors.dart';
 
-AppBar myAppBarWithButtons(BuildContext context) {
+AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
     imageScale = 11;
@@ -58,7 +58,28 @@ AppBar myAppBarWithButtons(BuildContext context) {
   );
 }
 
-AppBar myAppBarWithButtonsAndWithoutBackArrow(BuildContext context) {
+AppBar myAppBarWithoutButtonsWithBackArrow(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 340)
+    imageScale = 11;
+  else
+    imageScale = 8;
+
+  return AppBar(
+    backgroundColor: appMainColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          bannerImg,
+          scale: imageScale,
+        ),
+      ],
+    ),
+  );
+}
+
+AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
     imageScale = 11;
@@ -102,27 +123,6 @@ AppBar myAppBarWithButtonsAndWithoutBackArrow(BuildContext context) {
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
-        ),
-      ],
-    ),
-  );
-}
-
-AppBar myAppBarWithoutButtons(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
-
-  return AppBar(
-    backgroundColor: appMainColor,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
         ),
       ],
     ),
@@ -208,7 +208,7 @@ Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
 TextButton socialsButton(String url, String image, double scale, String text) {
   return TextButton(
     onPressed: () {
-      urlLauncher(url);
+      url_launcher(url);
     },
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -320,7 +320,7 @@ TextButton twitterBotButton(BuildContext context) {
 
   return TextButton(
     onPressed: () {
-      urlLauncher('$botLink');
+      url_launcher('$botLink');
     },
     style: TextButton.styleFrom(
       primary: appBlack,
@@ -391,7 +391,7 @@ TextButton streakButton(BuildContext context) {
   );
 }
 
-void word_doesnt_exist_snackbar(BuildContext context) {
+void wordDoesNotExistFlushbar(BuildContext context) {
   //may cause problems with null sound safety
   Flushbar(
     message: "La palabra no existe",
