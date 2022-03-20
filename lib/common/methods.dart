@@ -3,14 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mailto/mailto.dart';
 import 'package:social_share/social_share.dart';
-import 'dart:math';
-
 import 'package:flushbar/flushbar.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:math';
 
-import 'miscellaneous.dart';
-import 'colors.dart';
-import 'urls.dart';
+import 'package:Encasillado/common/miscellaneous.dart';
+import 'package:Encasillado/common/colors.dart';
+import 'package:Encasillado/common/urls.dart';
 
 void infinite_generate_word() {
   var rng = Random();

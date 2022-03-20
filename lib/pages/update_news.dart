@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class UpdateNews extends StatefulWidget {
   @override

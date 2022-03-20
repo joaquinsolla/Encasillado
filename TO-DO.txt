@@ -4,7 +4,6 @@
 
 -------OTHERS----------
 puntos permanentes
-revisar nombres en codigo
 ordenar imports y metodos
 nuevo icono?
 revisar librerias a comprimir antes de release

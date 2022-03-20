@@ -1,12 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/urls.dart';
-import 'package:flutter/material.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class InfiniteWordsEnd extends StatefulWidget {
   @override

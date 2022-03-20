@@ -4,6 +4,11 @@
  * App repository: https://github.com/joaquinsolla/Encasillado
  * */
 
+import 'package:flutter/material.dart';
+
+import 'package:Encasillado/databases.dart';
+import 'package:Encasillado/common/miscellaneous.dart';
+import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/pages/help.dart';
 import 'package:Encasillado/pages/infinite_words_end.dart';
 import 'package:Encasillado/pages/score_explanation.dart';
@@ -12,10 +17,6 @@ import 'package:Encasillado/pages/streak_explanation.dart';
 import 'package:Encasillado/pages/update_news.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
-import 'package:flutter/material.dart';
-import 'databases.dart';
-import 'common/miscellaneous.dart';
-import 'common/methods.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
