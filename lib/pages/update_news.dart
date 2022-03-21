@@ -213,6 +213,7 @@ class _UpdateNewsState extends State<UpdateNews> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),

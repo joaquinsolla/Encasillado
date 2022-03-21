@@ -22,7 +22,7 @@ void infinite_generate_word() {
     infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  //print("INFINITE: " + infiniteString);
+  print("INFINITE: " + infiniteString);
 }
 
 void wotd_generate_word() {

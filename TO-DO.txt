@@ -1,10 +1,14 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+bug keyboard
 
 -------OTHERS----------
 puntos permanentes
-ordenar imports y metodos
+actualizar notas de version
 nuevo icono?
 revisar librerias a comprimir antes de release
 REVISAR COMENTARIOS
+
+-------REVIEW----------
+bug puntuacion?

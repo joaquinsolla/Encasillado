@@ -210,6 +210,7 @@ class _StreakExplanationState extends State<StreakExplanation> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),

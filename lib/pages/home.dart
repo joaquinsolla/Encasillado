@@ -397,22 +397,28 @@ class _HomeState extends State<Home> {
                 canWriteInfinite == false) {
               if (infinite_word_exists()) {
                 if (infinite_check_word()) {
-                  if (!finishedInfinite) {
+                  if (finishedInfinite == false) {
                     setState(() {
-                      streak++;
                       finishedInfinite = true;
                       wonGameInfinite = true;
+                      streak++;
+                      endDateInfinite = DateTime.now();
+                      playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
                     });
+                    infinite_calculate_score();
                   }
                   Navigator.pushNamed(context, '/infinite_words_end');
                 } else {
                   if (currentCellInfinite == 30) {
-                    if (!finishedInfinite) {
+                    if (finishedInfinite == false) {
                       setState(() {
                         streak = 0;
                         finishedInfinite = true;
                         wonGameInfinite = false;
+                        endDateInfinite = DateTime.now();
+                        playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
                       });
+                      infinite_calculate_score();
                     }
                     Navigator.pushNamed(context, '/infinite_words_end');
                   } else {
@@ -425,13 +431,6 @@ class _HomeState extends State<Home> {
               } else {
                 wordDoesNotExistFlushbar(context);
               }
-            }
-            if (finishedInfinite && alreadyTimeMeasuredInfinite == false) {
-              setState(() {
-                endDateInfinite = DateTime.now();
-                playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
-                alreadyTimeMeasuredInfinite = true;
-              });
             }
           },
         ),
@@ -1002,6 +1001,31 @@ class _HomeState extends State<Home> {
     }
   }
 
+  void infinite_calculate_score(){
+
+      int seconds = playSecondsInfinite.inSeconds;
+
+      setState(() {
+        if (wonGameInfinite) {
+          if (seconds < 900) {
+            if (currentRowInfinite == 0)
+              infiniteScore += 50000;
+            else {
+              infiniteScore += ((900 - seconds) *
+                  (6 - currentRowInfinite) *
+                  ((streak + 1) * 0.1 + 1))
+                  .toInt();
+            }
+            if (infiniteScore > 9999999) infiniteScore = 9999999;
+          } // ELSE SCORE KEEPS ITS VALUE
+
+        } else {
+          infiniteScore -= 1000;
+        }
+      });
+
+  }
+
   void infinite_reset_variables() {
     setState(() {
     newInfiniteGame = false;
@@ -1021,8 +1045,6 @@ class _HomeState extends State<Home> {
     startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
     endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
     playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
-    alreadyTimeMeasuredInfinite = false;
-    alreadyPointsCalculatedInfinite = false;
     timeStartedInfinite = false;
     timeStartedWotd = false;
 

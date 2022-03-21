@@ -224,6 +224,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),

@@ -294,6 +294,7 @@ class _WotdEndState extends State<WotdEnd> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),

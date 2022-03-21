@@ -51,7 +51,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
 
   @override
   Widget build(BuildContext context) {
-    infinite_stats_builder();
+    infinite_emoji_stats_builder();
 
     String gameImage;
     String gameText;
@@ -339,6 +339,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),
@@ -358,7 +359,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
 
   // STATS MANAGEMENT
 
-  void infinite_stats_builder() {
+  void infinite_emoji_stats_builder() {
     bool lineUsed = false;
     emojiStatsInfinite = "";
     for (var i = 0; i < colorsArrayInfinite.length; i += 5) {
@@ -378,24 +379,6 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
         }
       }
       if (lineUsed) emojiStatsInfinite += "\n";
-    }
-    int seconds = playSecondsInfinite.inSeconds;
-    if (alreadyPointsCalculatedInfinite == false) {
-      if (wonGameInfinite) {
-        if (seconds < 900) {
-          if (currentRowInfinite == 0) infiniteScore += 50000;
-          else {
-            infiniteScore += ((900 - seconds) *
-                (6 - currentRowInfinite) *
-                ((streak + 1) * 0.1 + 1))
-                .toInt();
-          }
-          if (infiniteScore > 9999999) infiniteScore = 9999999;
-        }
-      } else {
-        infiniteScore -= 1000;
-      }
-      alreadyPointsCalculatedInfinite = true;
     }
   }
 
