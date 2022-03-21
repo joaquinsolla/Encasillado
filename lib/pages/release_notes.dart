@@ -6,12 +6,12 @@ import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
 
-class UpdateNews extends StatefulWidget {
+class ReleaseNotes extends StatefulWidget {
   @override
-  _UpdateNewsState createState() => _UpdateNewsState();
+  _ReleaseNotesState createState() => _ReleaseNotesState();
 }
 
-class _UpdateNewsState extends State<UpdateNews> {
+class _ReleaseNotesState extends State<ReleaseNotes> {
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
@@ -77,6 +77,59 @@ class _UpdateNewsState extends State<UpdateNews> {
                     height: 15,
                   ),
                   Text(
+                    "Interfaz mejorada",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Se ha optimizado el funcionamiento interno de la app. "
+                        "Ahora todo funciona de forma más rápida y fluida. "
+                        "También se ha mejorado el diseño adaptativo, para que "
+                        "la interfaz se adapte a todos los tamaños de pantalla.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
+                    "Lista de palabras actualizada",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Se han añadido nuevas palabras al repertorio del juego.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
                     "¡Presentando al Bot de Twitter!",
                     style: TextStyle(
                       fontSize: 16,
@@ -103,32 +156,7 @@ class _UpdateNewsState extends State<UpdateNews> {
                     height: 7.5,
                   ),
                   Text(
-                    "Lista de palabras actualizada",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se han añadido nuevas palabras al juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Corrección de errores",
+                    "Corrección de bugs",
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -193,6 +221,30 @@ class _UpdateNewsState extends State<UpdateNews> {
                     "Continuamente se está aumentando la lista de palabras del juego."
                     " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
                     " vía email en el apartado de ajustes.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: 7.5,),
+                  Text(
+                    "Puntos permanentes",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Se está estudiando la posibilidad de mantener los puntos obtenidos en el "
+                        "modo 'Palabras Infinitas'.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

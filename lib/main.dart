@@ -14,7 +14,7 @@ import 'package:Encasillado/pages/infinite_words_end.dart';
 import 'package:Encasillado/pages/score_explanation.dart';
 import 'package:Encasillado/pages/settings.dart';
 import 'package:Encasillado/pages/streak_explanation.dart';
-import 'package:Encasillado/pages/update_news.dart';
+import 'package:Encasillado/pages/release_notes.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
 
@@ -44,7 +44,7 @@ void main() {
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/streak_explanation': (context) => StreakExplanation(),
-      '/update_news': (context) => UpdateNews(),
+      '/release_notes': (context) => ReleaseNotes(),
       '/wotd_end': (context) => WotdEnd(),
     },
   ));

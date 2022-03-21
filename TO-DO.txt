@@ -1,7 +1,6 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-bug keyboard
 
 -------OTHERS----------
 puntos permanentes

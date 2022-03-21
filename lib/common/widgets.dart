@@ -294,10 +294,10 @@ Container gameBanner(BuildContext context, String content, Widget button1, Widge
   );
 }
 
-TextButton currentVersionButton(BuildContext context) {
+TextButton releaseNotesButton(BuildContext context) {
   return TextButton(
     onPressed: () {
-      Navigator.pushNamed(context, '/update_news');
+      Navigator.pushNamed(context, '/release_notes');
     },
     style: TextButton.styleFrom(
       primary: appBlack,
