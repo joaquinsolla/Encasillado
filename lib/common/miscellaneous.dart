@@ -1,5 +1,5 @@
 /** APP VERSION*/
-const String appVersion = "1.1.0 Beta";
+const String appVersion = "1.1.1";
 
 /** CONTROLLERS */
 int currentPage = 0;

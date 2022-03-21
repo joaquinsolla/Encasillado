@@ -20,4 +20,4 @@ LISTADO DE VERSIONES:
     1 (1.0.0) Beta
     5 (1.0.2) Beta
     6 (1.0.3) Beta
-    10 (1.1.0) Beta *
+    10 (1.1.0) Beta
