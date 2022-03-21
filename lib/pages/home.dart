@@ -1040,6 +1040,10 @@ class _HomeState extends State<Home> {
     timeStartedInfinite = false;
     timeStartedWotd = false;
 
+    greenKeysInfinite = [];
+    yellowKeysInfinite = [];
+    greyKeysInfinite = [];
+
     inputMatrixInfinite = [
       "",
       "",
