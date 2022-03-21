@@ -74,7 +74,7 @@ void copy_to_clipboard(BuildContext context, String stats, String emojis, String
       "\n\n" +
       encasilladoPlayStoreUrl;
   Clipboard.setData(ClipboardData(text: text));
-  //may cause problems with null sound safety
+
   Flushbar(
     message: "Copiado al portapapeles",
     duration: Duration(milliseconds: 2500),

@@ -855,7 +855,7 @@ class _HomeState extends State<Home> {
   // LETTERS FIELD MANAGEMENT
 
   AnimatedContainer letterCell(String char, String col) {
-    //COLOR SELECTION
+
     Color? cellColor = appWhite;
     if (col == "V") cellColor = appGreen;
     if (col == "A") cellColor = appYellow;
@@ -952,7 +952,7 @@ class _HomeState extends State<Home> {
   void check_device() {
     setState(() {
       deviceWidth = MediaQuery.of(context).size.width;
-      deviceHeight = MediaQuery.of(context).size.height - 168.5 - 60 - 10; // 161.5 static px + 60 Ad + 10 Ad Margin
+      deviceHeight = MediaQuery.of(context).size.height - 168.5 - 60 - 15; // 161.5 static px + 60 Ad + 15 Ad Margin
       keyHeight = (deviceHeight) * 0.1;
     });
   }

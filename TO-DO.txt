@@ -4,9 +4,5 @@
 
 -------OTHERS----------
 puntos permanentes
-actualizar notas de version
-nuevo icono?
-revisar librerias a comprimir antes de release
-REVISAR COMENTARIOS
 
 -------REVIEW----------

@@ -391,7 +391,6 @@ TextButton streakButton(BuildContext context) {
 }
 
 void wordDoesNotExistFlushbar(BuildContext context) {
-  //may cause problems with null sound safety
   Flushbar(
     message: "La palabra no existe",
     duration: Duration(seconds: 3),
