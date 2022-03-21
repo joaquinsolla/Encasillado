@@ -51,6 +51,14 @@ String wotdString = "";
 List<String> infiniteArray = ["", "", "", "", ""];
 String infiniteString = "";
 
+List<String> greenKeysWotd = [];
+List<String> yellowKeysWotd = [];
+List<String> greyKeysWotd = [];
+
+List<String> greenKeysInfinite = [];
+List<String> yellowKeysInfinite = [];
+List<String> greyKeysInfinite = [];
+
 List<String> inputMatrixInfinite = [
   "",
   "",

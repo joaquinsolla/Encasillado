@@ -172,14 +172,6 @@ class _HomeState extends State<Home> {
 
   // KEYBOARD GENERATION
 
-  List<String> greenKeysWotd = [];
-  List<String> yellowKeysWotd = [];
-  List<String> greyKeysWotd = [];
-
-  List<String> greenKeysInfinite = [];
-  List<String> yellowKeysInfinite = [];
-  List<String> greyKeysInfinite = [];
-
   SizedBox wotdLetterKey(String char) {
     Color? mycolor = keyColor;
 
