@@ -51,7 +51,7 @@ class _WotdEndState extends State<WotdEnd> {
 
   @override
   Widget build(BuildContext context) {
-    wotd_stats_builder();
+    wotd_emoji_stats_builder();
 
     String gameImage;
     String gameText;
@@ -314,7 +314,7 @@ class _WotdEndState extends State<WotdEnd> {
 
   // STATS MANAGEMENT
 
-  void wotd_stats_builder() {
+  void wotd_emoji_stats_builder() {
     bool lineUsed = false;
     emojiStatsWotd = "";
     for (var i = 0; i < colorsArrayWotd.length; i += 5) {

@@ -11,4 +11,3 @@ revisar librerias a comprimir antes de release
 REVISAR COMENTARIOS
 
 -------REVIEW----------
-bug puntuacion?

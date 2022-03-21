@@ -44,7 +44,7 @@ void wotd_generate_word() {
     wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  //print("WOTD: " + wotdString);
+  print("WOTD: " + wotdString);
 }
 
 void url_launcher(String url) async {

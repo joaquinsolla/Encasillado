@@ -220,7 +220,7 @@ class _HomeState extends State<Home> {
                 timeStartedWotd = true;
               });
             }
-            if (!finishedWotd) {
+            if (finishedWotd == false) {
               if (canWriteWotd) {
                 setState(() {
                   inputMatrixWotd[currentCellWotd] = char;
@@ -285,7 +285,7 @@ class _HomeState extends State<Home> {
                 timeStartedInfinite = true;
               });
             }
-            if (!finishedInfinite) {
+            if (finishedInfinite == false) {
               if (canWriteInfinite) {
                 setState(() {
                   inputMatrixInfinite[currentCellInfinite] = char;
@@ -332,7 +332,7 @@ class _HomeState extends State<Home> {
                 canWriteWotd == false) {
               if (wotd_word_exists()) {
                 if (wotd_check_word()) {
-                  if (!finishedWotd) {
+                  if (finishedWotd == false) {
                     setState(() {
                       finishedWotd = true;
                       wonGameWotd = true;
@@ -342,7 +342,7 @@ class _HomeState extends State<Home> {
                   Navigator.pushNamed(context, '/wotd_end');
                 } else {
                   if (currentCellWotd == 30) {
-                    if (!finishedWotd) {
+                    if (finishedWotd == false) {
                       setState(() {
                         finishedWotd = true;
                         wonGameWotd = false;
@@ -452,7 +452,7 @@ class _HomeState extends State<Home> {
             ),
             child: Image.asset(backspaceImgDarkmode),
             onPressed: () {
-              if (!finishedWotd) {
+              if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
                     (currentCellWotd == 5 && canWriteWotd == true) ||
                     (currentCellWotd == 10 && canWriteWotd == true) ||
@@ -483,7 +483,7 @@ class _HomeState extends State<Home> {
             ),
             child: Image.asset(backspaceImgLightmode),
             onPressed: () {
-              if (!finishedWotd) {
+              if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
                     (currentCellWotd == 5 && canWriteWotd == true) ||
                     (currentCellWotd == 10 && canWriteWotd == true) ||
@@ -519,7 +519,7 @@ class _HomeState extends State<Home> {
             ),
             child: Image.asset(backspaceImgDarkmode),
             onPressed: () {
-              if (!finishedInfinite) {
+              if (finishedInfinite == false) {
                 if (currentCellInfinite == 0 ||
                     (currentCellInfinite == 5 && canWriteInfinite == true) ||
                     (currentCellInfinite == 10 && canWriteInfinite == true) ||
@@ -550,7 +550,7 @@ class _HomeState extends State<Home> {
             ),
             child: Image.asset(backspaceImgLightmode),
             onPressed: () {
-              if (!finishedInfinite) {
+              if (finishedInfinite == false) {
                 if (currentCellInfinite == 0 ||
                     (currentCellInfinite == 5 && canWriteInfinite == true) ||
                     (currentCellInfinite == 10 && canWriteInfinite == true) ||
