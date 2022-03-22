@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:Encasillado/common/imagepaths.dart';
@@ -51,6 +52,10 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     infinite_emoji_stats_builder();
 
     String gameImage;

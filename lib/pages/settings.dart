@@ -6,6 +6,7 @@ import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/urls.dart';
+import 'package:flutter/services.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -15,6 +16,9 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
 
     late String myGithubImage;
     if (darkMode) {

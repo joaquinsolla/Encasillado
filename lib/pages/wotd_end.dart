@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -51,6 +52,10 @@ class _WotdEndState extends State<WotdEnd> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     wotd_emoji_stats_builder();
 
     String gameImage;

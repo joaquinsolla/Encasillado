@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -48,6 +49,10 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
