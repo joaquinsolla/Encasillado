@@ -35,6 +35,7 @@ dependencies:
   social_share: ^2.2.1
   twitter_intent: ^1.0.0
   google_mobile_ads: ^0.13.0
+  path_provider: ^2.0.9
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
