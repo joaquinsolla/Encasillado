@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  /** PERSISTENT DATA MANAGEMENT */
   _read_colorblind() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
@@ -68,6 +69,40 @@ class _HomeState extends State<Home> {
     }
   }
 
+  _read_infinite_score() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'infinitescore';
+    final value = prefs.getInt(key) ?? 0;
+    print('read: $value for infinitescore');
+      setState(() {
+        infiniteScore = value;
+      });
+  }
+
+  _save_infinite_score(int value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'infinitescore';
+    prefs.setInt(key, value);
+    print('saved $value on infinitescore');
+  }
+
+  _read_streak() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'streak';
+    final value = prefs.getInt(key) ?? 0;
+    print('read: $value for streak');
+    setState(() {
+      streak = value;
+    });
+  }
+
+  _save_streak(int value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'streak';
+    prefs.setInt(key, value);
+    print('saved $value on streak');
+  }
+
 
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
@@ -115,6 +150,8 @@ class _HomeState extends State<Home> {
     if (appStarted == false) {
       _read_colorblind();
       _read_darkmode();
+      _read_infinite_score();
+      _read_streak();
 
       check_settings();
 
@@ -1077,6 +1114,8 @@ class _HomeState extends State<Home> {
         }
       });
 
+      _save_infinite_score(infiniteScore);
+      _save_streak(streak);
   }
 
   void infinite_reset_variables() {

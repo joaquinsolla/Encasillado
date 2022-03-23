@@ -3,11 +3,14 @@ const String appVersion = "1.1.2";
 
 /** PERSISTENT DATA*/
 bool colorBlind = false;
+bool darkMode = false;
+//
+int streak = 0;
+int infiniteScore = 0;
 
 /** CONTROLLERS */
 int currentPage = 0;
 bool appStarted = false;
-bool darkMode = false;
 bool canWriteWotd = true;
 bool finishedWotd = false;
 bool wonGameWotd = false;
@@ -26,8 +29,6 @@ double deviceWidth = 0;
 double keyHeight = 0;
 
 /** GAME-STATS VARIABLES */
-int streak = 0;
-int infiniteScore = 0;
 String infoStatsInfinite = "";
 String emojiStatsInfinite = "";
 String infoStatsWotd = "";
