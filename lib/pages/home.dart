@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -16,6 +17,57 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  _read_colorblind() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'colorblind';
+    final value = prefs.getBool(key) ?? false;
+    print('read: $value for colorblind');
+    if (value == true){
+      setState(() {
+        colorBlind = value;
+        appGreen = Colors.orange;
+        appYellow = Colors.blue;
+        greenEmoji = "🟧";
+        yellowEmoji = "🟦";
+      });
+    } else {
+      setState(() {
+        colorBlind = value;
+        appGreen = Colors.green;
+        appYellow = Color(0xfff3d500);
+        greenEmoji = "🟩";
+        yellowEmoji = "🟨";
+      });
+    }
+  }
+
+  _read_darkmode() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'darkmode';
+    final value = prefs.getBool(key) ?? false;
+    print('read: $value for darkmode');
+    if (value == true){
+      setState(() {
+        darkMode = true;
+        appBlack = Colors.white;
+        appWhite = Color(0xff2d2d2d);
+        appSemiBlack = Colors.white;
+        whiteEmoji = "⬛";
+        keyColor = Color(0xff131313);
+      });
+    } else {
+      setState(() {
+        darkMode = false;
+        appBlack = Colors.black;
+        appWhite = Colors.white;
+        appSemiBlack = Colors.black54;
+        whiteEmoji = "⬜";
+        keyColor = Color(0xffefefef);
+      });
+    }
+  }
+
 
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
@@ -61,12 +113,17 @@ class _HomeState extends State<Home> {
     check_device();
 
     if (appStarted == false) {
+      _read_colorblind();
+      _read_darkmode();
+
+      check_settings();
+
+      /*
       var brightness = MediaQuery.of(context).platformBrightness;
       setState(() {
         darkMode = brightness == Brightness.dark;
       });
-
-      check_settings();
+      */
 
       setState(() {
         appStarted = true;

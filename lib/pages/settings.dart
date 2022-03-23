@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -14,6 +15,74 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+
+  _read_colorblind() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'colorblind';
+    final value = prefs.getBool(key) ?? false;
+    print('read: $value for colorblind');
+    if (value == true){
+      setState(() {
+        colorBlind = value;
+        appGreen = Colors.orange;
+        appYellow = Colors.blue;
+        greenEmoji = "🟧";
+        yellowEmoji = "🟦";
+      });
+    } else {
+      setState(() {
+        colorBlind = value;
+        appGreen = Colors.green;
+        appYellow = Color(0xfff3d500);
+        greenEmoji = "🟩";
+        yellowEmoji = "🟨";
+      });
+    }
+  }
+
+  _save_colorblind(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'colorblind';
+    prefs.setBool(key, value);
+    print('saved $value');
+  }
+
+  _read_darkmode() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'darkmode';
+    final value = prefs.getBool(key) ?? false;
+    print('read: $value for darkmode');
+    if (value == true){
+      setState(() {
+        darkMode = true;
+        appBlack = Colors.white;
+        appWhite = Color(0xff2d2d2d);
+        appSemiBlack = Colors.white;
+        whiteEmoji = "⬛";
+        keyColor = Color(0xff131313);
+      });
+    } else {
+      setState(() {
+        darkMode = false;
+        appBlack = Colors.black;
+        appWhite = Colors.white;
+        appSemiBlack = Colors.black54;
+        whiteEmoji = "⬜";
+        keyColor = Color(0xffefefef);
+      });
+    }
+  }
+
+  _save_darkmode(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'darkmode';
+    prefs.setBool(key, value);
+    print('saved $value');
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -45,24 +114,8 @@ class _SettingsState extends State<Settings> {
                   Switch(
                     value: colorBlind,
                     onChanged: (value) {
-                      setState(() {
-                        colorBlind = (!colorBlind);
-                      });
-                      if (colorBlind) {
-                        setState(() {
-                          appGreen = Colors.orange;
-                          appYellow = Colors.blue;
-                          greenEmoji = "🟧";
-                          yellowEmoji = "🟦";
-                        });
-                      } else {
-                        setState(() {
-                          appGreen = Colors.green;
-                          appYellow = Color(0xfff3d500);
-                          greenEmoji = "🟩";
-                          yellowEmoji = "🟨";
-                        });
-                      }
+                      _save_colorblind(value);
+                      _read_colorblind();
                     },
                   ),),
                 settingsRow(
@@ -70,27 +123,8 @@ class _SettingsState extends State<Settings> {
                   Switch(
                     value: darkMode,
                     onChanged: (value) {
-                      setState(() {
-                        darkMode = (!darkMode);
-                      });
-
-                      if (darkMode) {
-                        setState(() {
-                          appBlack = Colors.white;
-                          appWhite = Color(0xff2d2d2d);
-                          appSemiBlack = Colors.white;
-                          whiteEmoji = "⬛";
-                          keyColor = Color(0xff131313);
-                        });
-                      } else {
-                        setState(() {
-                          appBlack = Colors.black;
-                          appWhite = Colors.white;
-                          appSemiBlack = Colors.black54;
-                          whiteEmoji = "⬜";
-                          keyColor = Color(0xffefefef);
-                        });
-                      }
+                      _save_darkmode(value);
+                      _read_darkmode();
                     },
                   ),
                 ),
