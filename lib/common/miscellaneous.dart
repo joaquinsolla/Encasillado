@@ -1,10 +1,12 @@
 /** APP VERSION*/
-const String appVersion = "1.1.1";
+const String appVersion = "1.1.2";
+
+/** PERSISTENT DATA*/
+bool colorBlind = false;
 
 /** CONTROLLERS */
 int currentPage = 0;
 bool appStarted = false;
-bool colorBlind = false;
 bool darkMode = false;
 bool canWriteWotd = true;
 bool finishedWotd = false;
