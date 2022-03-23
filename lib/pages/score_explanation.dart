@@ -82,8 +82,8 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     height: 15,
                   ),
                   Text(
-                    "Puntuación = (900 - tiempo) x (7 - intentos) x (1 + racha x 0.1)\n\n"
-                    "¡Acertar al primer intento te dará 50.000 puntos!\n",
+                    "Puntuación = (300 - tiempo) x (7 - intentos) x (1 + racha x 0.1) + 100\n\n"
+                    "¡Acertar al primer intento te dará 10.000 puntos!\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -108,8 +108,9 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Si la partida dura menos de 15 minutos, puntuarás. Cada partida comienza con 900 puntos "
-                    "y por cada segundo que pasa se resta 1 punto.\n",
+                    "Si resuelves la palabra en menos de 5 minutos, puntuarás según el cálculo expuesto arriba. "
+                        "Cada partida comienza con 300 puntos y por cada segundo que pasa se resta 1 punto. "
+                        "Si resuelves la palabra en más de 5 minutos, obtendrás 100 puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -134,7 +135,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "En cada partida se dispone de hasta 6 intentos. Si aciertas a la primera ganarás 50.000 puntos. "
+                    "En cada partida se dispone de hasta 6 intentos. Si aciertas a la primera ganarás 10.000 puntos. "
                     "En el resto de los casos los puntos obtenidos según el tiempo se multiplicarán por 7 menos el número "
                     "de intentos realizados.\n",
                     style: TextStyle(
@@ -187,8 +188,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Acertar una palabra en más de 15 minutos no suma ni resta puntos.\n"
-                    "No acertar una palabra resta 1000 puntos.\n",
+                    "No acertar una palabra resta 300 puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

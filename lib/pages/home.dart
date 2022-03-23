@@ -169,12 +169,18 @@ class _HomeState extends State<Home> {
 
     Color wotdButtonColor = appThirdColor;
     Color infiniteButtonColor = appMainColor;
+    TextDecoration wotdDecoration = TextDecoration.underline;
+    TextDecoration infiniteDecoration = TextDecoration.none;
     if (currentPage == 0){
       wotdButtonColor = appThirdColor;
       infiniteButtonColor = appMainColor;
+      wotdDecoration = TextDecoration.underline;
+      infiniteDecoration = TextDecoration.none;
     } else {
       wotdButtonColor = appMainColor;
       infiniteButtonColor = appThirdColor;
+      wotdDecoration = TextDecoration.none;
+      infiniteDecoration = TextDecoration.underline;
     }
 
     if (newInfiniteGame) {
@@ -213,8 +219,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,
-                        decoration: TextDecoration.underline,
-                        decorationStyle: TextDecorationStyle.wavy,
+                        decoration: wotdDecoration,
                       ),
                     )),
               ),
@@ -235,6 +240,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,
+                        decoration: infiniteDecoration,
                       ),
                     )),
               ),
@@ -491,24 +497,22 @@ class _HomeState extends State<Home> {
                     setState(() {
                       finishedInfinite = true;
                       wonGameInfinite = true;
-                      streak++;
                       endDateInfinite = DateTime.now();
                       playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
                     });
-                    infinite_calculate_score();
+                    infinite_update_score();
                   }
                   Navigator.pushNamed(context, '/infinite_words_end');
                 } else {
                   if (currentCellInfinite == 30) {
                     if (finishedInfinite == false) {
                       setState(() {
-                        streak = 0;
                         finishedInfinite = true;
                         wonGameInfinite = false;
                         endDateInfinite = DateTime.now();
                         playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
                       });
-                      infinite_calculate_score();
+                      infinite_update_score();
                     }
                     Navigator.pushNamed(context, '/infinite_words_end');
                   } else {
@@ -1091,26 +1095,28 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void infinite_calculate_score(){
+  void infinite_update_score(){
 
       int seconds = playSecondsInfinite.inSeconds;
 
       setState(() {
         if (wonGameInfinite) {
-          if (seconds < 900) {
-            if (currentRowInfinite == 0)
-              infiniteScore += 50000;
-            else {
-              infiniteScore += ((900 - seconds) *
+          if (seconds < 300) {
+            if (currentRowInfinite == 0){
+              infiniteScore += 10000;
+            } else {
+              infiniteScore += ((300 - seconds) *
                   (6 - currentRowInfinite) *
                   ((streak + 1) * 0.1 + 1))
-                  .toInt();
+                  .toInt() + 100;
             }
             if (infiniteScore > 9999999) infiniteScore = 9999999;
-          } // ELSE SCORE KEEPS ITS VALUE
+          } else infiniteScore += 100;
 
+          streak++;
         } else {
-          infiniteScore -= 1000;
+          infiniteScore -= 300;
+          streak=0;
         }
       });
 
