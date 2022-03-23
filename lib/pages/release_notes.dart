@@ -82,7 +82,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
-                    "Interfaz mejorada",
+                    "Ajustes y puntos persistentes",
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -93,10 +93,34 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Se ha optimizado el funcionamiento interno de la app. "
-                        "Ahora todo funciona de forma más rápida y fluida. "
-                        "También se ha mejorado el diseño adaptativo, para que "
-                        "la interfaz se adapte a todos los tamaños de pantalla.\n",
+                    "Ahora los ajustes, puntos y rachas se conservan tras cerrar"
+                        " la aplicación.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
+                    "Nuevo sistema de puntuación",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Actualizado el sistema de puntuación con nuevas reglas, "
+                        "puedes consultarlas en el apartado de puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -122,32 +146,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   ),
                   Text(
                     "Se han añadido nuevas palabras al repertorio del juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "¡Presentando al Bot de Twitter!",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "El juego tiene ahora un bot de Twitter oficial que tuitea cuál ha sido"
-                    " la palabra del día cada noche.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -237,7 +235,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   ),
                   SizedBox(height: 7.5,),
                   Text(
-                    "Puntos permanentes",
+                    "Conservar el progreso de la palabra del día",
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -248,8 +246,9 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Se está estudiando la posibilidad de mantener los puntos obtenidos en el "
-                        "modo 'Palabras Infinitas'.\n",
+                    "Se está estudiando la posibilidad de mantener el progreso "
+                        "de la palabra del día así como incorporar la limitación"
+                        " de poder resolverla solo una vez al día.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
