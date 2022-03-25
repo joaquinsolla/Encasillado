@@ -61,21 +61,21 @@ class _UserStatsState extends State<UserStats> {
 
     int wotdHits = totalWotdGames-defeatsAtWotd;
     String wotdPercentage = '0';
-    String wotdProm = '-';
+    //String wotdProm = '-';
     if (wotdHits > 0) {
       wotdPercentage = ((wotdHits/totalWotdGames)*100).toStringAsFixed(1);
-      wotdProm = [winsAtFirstWotd,winsAtSecondWotd,winsAtThirdWotd,winsAtFourthWotd,winsAtFifthWotd,winsAtSixthWotd].reduce(max).toString();
+      //wotdProm = [winsAtFirstWotd,winsAtSecondWotd,winsAtThirdWotd,winsAtFourthWotd,winsAtFifthWotd,winsAtSixthWotd].reduce(max).toString();
     }
 
     int infiniteHits = totalInfiniteGames-defeatsAtInfinite;
     String infinitePercentage = '0';
-    String infiniteProm = '-';
+    // String infiniteProm = '-';
     String infiniteScoreRate = '-';
     if (infiniteHits > 0) {
       infinitePercentage = ((infiniteHits/totalInfiniteGames)*100).toStringAsFixed(1);
-      infiniteProm = [winsAtFirstInfinite,winsAtSecondInfinite,winsAtThirdInfinite,winsAtFourthInfinite,winsAtFifthInfinite,winsAtSixthInfinite].reduce(max).toString();
+      //infiniteProm = [winsAtFirstInfinite,winsAtSecondInfinite,winsAtThirdInfinite,winsAtFourthInfinite,winsAtFifthInfinite,winsAtSixthInfinite].reduce(max).toString();
     }
-    if(totalInfiniteGames > 0) infiniteScoreRate = (infiniteScore/totalInfiniteGames).toStringAsFixed(0);
+    if(totalInfiniteGames > 0) infiniteScoreRate = (infiniteScore/totalInfiniteGames).toStringAsFixed(0) + " pts/partida";
 
     // GENERATE CHART DATA
     final List<WotdSeries> wotdData = [
@@ -194,8 +194,8 @@ class _UserStatsState extends State<UserStats> {
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 2.5,),
-                  Text("Partidas totales: $totalWotdGames           Prct. victoria: $wotdPercentage%\n"
-                            "Victorias: $wotdHits                        Intento promedio: $wotdProm\n"
+                  Text("Partidas totales: $totalWotdGames ($wotdPercentage%)\n"
+                            "Victorias: $wotdHits\n"
                             "Derrotas: $defeatsAtWotd",
                         style: TextStyle(
                           fontSize: 15,
@@ -225,9 +225,10 @@ class _UserStatsState extends State<UserStats> {
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 2.5,),
-                  Text("Partidas totales: $totalInfiniteGames           Prct. victoria: $infinitePercentage%\n"
-                        "Victorias: $infiniteHits                        Intento promedio: $infiniteProm\n"
-                        "Derrotas: $defeatsAtInfinite                        Tasa puntos: $infiniteScoreRate pts/p",
+                  Text("Partidas totales: $totalInfiniteGames ($infinitePercentage%)\n"
+                        "Victorias: $infiniteHits\n"
+                        "Derrotas: $defeatsAtInfinite\n"
+                      "Tasa de puntos: $infiniteScoreRate",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -242,7 +243,7 @@ class _UserStatsState extends State<UserStats> {
                         infiniteData: infiniteData,
                       )),
                   Text(
-                    "*Prct.: Porcentaje\n* pts/p: Puntos por partida",
+                    "* pts/partida: Puntos por partida",
                     style: TextStyle(
                       fontSize: 12,
                       color: appGrey,

@@ -3,6 +3,7 @@
 -------PRIORITY--------
 
 -------OTHERS----------
+logros
 mantener wotd
 
 -------REVIEW----------
