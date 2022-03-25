@@ -194,8 +194,7 @@ class _UserStatsState extends State<UserStats> {
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 2.5,),
-                  Text(
-                        "Partidas totales: $totalWotdGames           Prct. victoria: $wotdPercentage%\n"
+                  Text("Partidas totales: $totalWotdGames           Prct. victoria: $wotdPercentage%\n"
                             "Victorias: $wotdHits                        Intento promedio: $wotdProm\n"
                             "Derrotas: $defeatsAtWotd",
                         style: TextStyle(
@@ -207,14 +206,12 @@ class _UserStatsState extends State<UserStats> {
                         ),
                         textAlign: TextAlign.left,
                       ),
-
                   Center(
                       child: WotdChart(
                         wotdData: wotdData,
                       )),
-
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Text(
                     "Palabras infinitas",
@@ -228,8 +225,7 @@ class _UserStatsState extends State<UserStats> {
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 2.5,),
-                  Text(
-                    "Partidas totales: $totalInfiniteGames           Prct. victoria: $infinitePercentage%\n"
+                  Text("Partidas totales: $totalInfiniteGames           Prct. victoria: $infinitePercentage%\n"
                         "Victorias: $infiniteHits                        Intento promedio: $infiniteProm\n"
                         "Derrotas: $defeatsAtInfinite                        Tasa puntos: $infiniteScoreRate pts/p",
                     style: TextStyle(
@@ -241,14 +237,12 @@ class _UserStatsState extends State<UserStats> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-
                   Center(
                       child: InfiniteChart(
                         infiniteData: infiniteData,
                       )),
-
                   Text(
-                    "\n*Prct.: Porcentaje\n* pts/p: Puntos por partida",
+                    "*Prct.: Porcentaje\n* pts/p: Puntos por partida",
                     style: TextStyle(
                       fontSize: 12,
                       color: appGrey,
