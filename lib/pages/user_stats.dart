@@ -252,7 +252,7 @@ class _UserStatsState extends State<UserStats> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(height: 7.5,),
                   Text(
                     "\nGracias por jugar a Encasillado v$appVersion",
                     style: TextStyle(
