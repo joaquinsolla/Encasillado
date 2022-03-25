@@ -103,6 +103,147 @@ class _HomeState extends State<Home> {
     print('saved $value on streak');
   }
 
+  _read_stats() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final totalWotdGamesKey = 'totalwotdgames';
+    final totalWotdGamesValue = prefs.getInt(totalWotdGamesKey) ?? 0;
+
+    final winsAtFirstWotdKey = 'winsatfirstwotd';
+    final winsAtFirstWotdValue = prefs.getInt(winsAtFirstWotdKey) ?? 0;
+
+    final winsAtSecondWotdKey = 'winsatsecondwotd';
+    final winsAtSecondWotdValue = prefs.getInt(winsAtSecondWotdKey) ?? 0;
+
+    final winsAtThirdWotdKey = 'winsatthirdwotd';
+    final winsAtThirdWotdValue = prefs.getInt(winsAtThirdWotdKey) ?? 0;
+
+    final winsAtFourthWotdKey = 'winsatfourthwotd';
+    final winsAtFourthWotdValue = prefs.getInt(winsAtFourthWotdKey) ?? 0;
+
+    final winsAtFifthWotdKey = 'winsatfifthwotd';
+    final winsAtFifthWotdValue = prefs.getInt(winsAtFifthWotdKey) ?? 0;
+
+    final winsAtSixthWotdKey = 'winsatsixthwotd';
+    final winsAtSixthWotdValue = prefs.getInt(winsAtSixthWotdKey) ?? 0;
+
+    final defeatsAtWotdKey = 'defeatsatwotd';
+    final defeatsAtWotdValue = prefs.getInt(defeatsAtWotdKey) ?? 0;
+    //
+    final totalInfiniteGamesKey = 'totalinfinitegames';
+    final totalInfiniteGamesValue = prefs.getInt(totalInfiniteGamesKey) ?? 0;
+
+    final winsAtFirstInfiniteKey = 'winsatfirstinfinite';
+    final winsAtFirstInfiniteValue = prefs.getInt(winsAtFirstInfiniteKey) ?? 0;
+
+    final winsAtSecondInfiniteKey = 'winsatsecondinfinite';
+    final winsAtSecondInfiniteValue = prefs.getInt(winsAtSecondInfiniteKey) ?? 0;
+
+    final winsAtThirdInfiniteKey = 'winsatthirdinfinite';
+    final winsAtThirdInfiniteValue = prefs.getInt(winsAtThirdInfiniteKey) ?? 0;
+
+    final winsAtFourthInfiniteKey = 'winsatfourthinfinite';
+    final winsAtFourthInfiniteValue = prefs.getInt(winsAtFourthInfiniteKey) ?? 0;
+
+    final winsAtFifthInfiniteKey = 'winsatfifthinfinite';
+    final winsAtFifthInfiniteValue = prefs.getInt(winsAtFifthInfiniteKey) ?? 0;
+
+    final winsAtSixthInfiniteKey = 'winsatsixthinfinite';
+    final winsAtSixthInfiniteValue = prefs.getInt(winsAtSixthInfiniteKey) ?? 0;
+
+    final defeatsAtInfiniteKey = 'defeatsatinfinite';
+    final defeatsAtInfiniteValue = prefs.getInt(defeatsAtInfiniteKey) ?? 0;
+
+    setState(() {
+      totalWotdGames = totalWotdGamesValue;
+      winsAtFirstWotd = winsAtFirstWotdValue;
+      winsAtSecondWotd = winsAtSecondWotdValue;
+      winsAtThirdWotd = winsAtThirdWotdValue;
+      winsAtFourthWotd = winsAtFourthWotdValue;
+      winsAtFifthWotd = winsAtFifthWotdValue;
+      winsAtSixthWotd = winsAtSixthWotdValue;
+      defeatsAtWotd = defeatsAtWotdValue;
+      //
+      totalInfiniteGames = totalInfiniteGamesValue;
+      winsAtFirstInfinite = winsAtFirstInfiniteValue;
+      winsAtSecondInfinite = winsAtSecondInfiniteValue;
+      winsAtThirdInfinite = winsAtThirdInfiniteValue;
+      winsAtFourthInfinite = winsAtFourthInfiniteValue;
+      winsAtFifthInfinite = winsAtFifthInfiniteValue;
+      winsAtSixthInfinite = winsAtSixthInfiniteValue;
+      defeatsAtInfinite = defeatsAtInfiniteValue;
+    });
+
+    print('read: stats');
+  }
+
+  _save_wotd_stats(int variableSelector, int variableValue, int totalValue) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key1;
+    final key2 = 'totalwotdgames';
+    if (variableSelector == 1){
+      key1 = 'winsatfirstwotd';
+    } else {
+      if (variableSelector == 2){
+        key1 = 'winsatsecondwotd';
+      } else {
+        if (variableSelector == 3){
+          key1 = 'winsatthirdwotd';
+        } else {
+          if (variableSelector == 4){
+            key1 = 'winsatfourthwotd';
+          } else {
+            if (variableSelector == 5){
+              key1 = 'winsatfifthwotd';
+            } else {
+              if (variableSelector == 6){
+                key1 = 'winsatsixthwotd';
+              } else {
+                key1 = 'defeatsatwotd';
+              }
+            }
+          }
+        }
+      }
+    }
+
+    prefs.setInt(key1, variableValue);
+    prefs.setInt(key2, totalValue);
+  }
+
+  _save_infinite_stats(int variableSelector, int variableValue, int totalValue) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key1;
+    final key2 = 'totalinfinitegames';
+    if (variableSelector == 1){
+      key1 = 'winsatfirstinfinite';
+    } else {
+      if (variableSelector == 2){
+        key1 = 'winsatsecondinfinite';
+      } else {
+        if (variableSelector == 3){
+          key1 = 'winsatthirdinfinite';
+        } else {
+          if (variableSelector == 4){
+            key1 = 'winsatfourthinfinite';
+          } else {
+            if (variableSelector == 5){
+              key1 = 'winsatfifthinfinite';
+            } else {
+              if (variableSelector == 6){
+                key1 = 'winsatsixthinfinite';
+              } else {
+                key1 = 'defeatsatinfinite';
+              }
+            }
+          }
+        }
+      }
+    }
+
+    prefs.setInt(key1, variableValue);
+    prefs.setInt(key2, totalValue);
+  }
 
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
@@ -152,6 +293,7 @@ class _HomeState extends State<Home> {
       _read_darkmode();
       _read_infinite_score();
       _read_streak();
+      _read_stats();
 
       check_settings();
 
@@ -429,21 +571,66 @@ class _HomeState extends State<Home> {
               if (wotd_word_exists()) {
                 if (wotd_check_word()) {
                   if (finishedWotd == false) {
+
                     setState(() {
                       finishedWotd = true;
                       wonGameWotd = true;
-                      finishedWotd = true;
+                      totalWotdGames++;
                     });
+
+                    if ((currentRowWotd+1) == 1) {
+                      setState(() {
+                        winsAtFirstWotd++;
+                      });
+                      _save_wotd_stats(1, winsAtFirstWotd, totalWotdGames);
+                    }
+                    if ((currentRowWotd+1) == 2) {
+                      setState(() {
+                        winsAtSecondWotd++;
+                      });
+                      _save_wotd_stats(2, winsAtSecondWotd, totalWotdGames);
+                    }
+                    if ((currentRowWotd+1) == 3) {
+                      setState(() {
+                        winsAtThirdWotd++;
+                      });
+                      _save_wotd_stats(3, winsAtThirdWotd, totalWotdGames);
+                    }
+                    if ((currentRowWotd+1) == 4) {
+                      setState(() {
+                        winsAtFourthWotd++;
+                      });
+                      _save_wotd_stats(4, winsAtFourthWotd, totalWotdGames);
+                    }
+                    if ((currentRowWotd+1) == 5) {
+                      setState(() {
+                        winsAtFifthWotd++;
+                      });
+                      _save_wotd_stats(5, winsAtFifthWotd, totalWotdGames);
+                    }
+                    if ((currentRowWotd+1) == 6) {
+                      setState(() {
+                        winsAtSixthWotd++;
+                      });
+                      _save_wotd_stats(6, winsAtSixthWotd, totalWotdGames);
+                    }
+
                   }
                   Navigator.pushNamed(context, '/wotd_end');
                 } else {
                   if (currentCellWotd == 30) {
                     if (finishedWotd == false) {
+
                       setState(() {
                         finishedWotd = true;
                         wonGameWotd = false;
                         finishedWotd = true;
+                        totalWotdGames++;
+                        defeatsAtWotd++;
                       });
+
+                      _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
+
                     }
                     Navigator.pushNamed(context, '/wotd_end');
                   } else {
@@ -494,24 +681,69 @@ class _HomeState extends State<Home> {
               if (infinite_word_exists()) {
                 if (infinite_check_word()) {
                   if (finishedInfinite == false) {
+
                     setState(() {
                       finishedInfinite = true;
                       wonGameInfinite = true;
                       endDateInfinite = DateTime.now();
                       playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+                      totalInfiniteGames++;
                     });
+
+                    if ((currentRowInfinite+1) == 1) {
+                      setState(() {
+                        winsAtFirstInfinite++;
+                      });
+                      _save_infinite_stats(1, winsAtFirstInfinite, totalInfiniteGames);
+                    }
+                    if ((currentRowInfinite+1) == 2) {
+                      setState(() {
+                        winsAtSecondInfinite++;
+                      });
+                      _save_infinite_stats(2, winsAtSecondInfinite, totalInfiniteGames);
+                    }
+                    if ((currentRowInfinite+1) == 3) {
+                      setState(() {
+                        winsAtThirdInfinite++;
+                      });
+                      _save_infinite_stats(3, winsAtThirdInfinite, totalInfiniteGames);
+                    }
+                    if ((currentRowInfinite+1) == 4) {
+                      setState(() {
+                        winsAtFourthInfinite++;
+                      });
+                      _save_infinite_stats(4, winsAtFourthInfinite, totalInfiniteGames);
+                    }
+                    if ((currentRowInfinite+1) == 5) {
+                      setState(() {
+                        winsAtFifthInfinite++;
+                      });
+                      _save_infinite_stats(5, winsAtFifthInfinite, totalInfiniteGames);
+                    }
+                    if ((currentRowInfinite+1) == 6) {
+                      setState(() {
+                        winsAtSixthInfinite++;
+                      });
+                      _save_infinite_stats(6, winsAtSixthInfinite, totalInfiniteGames);
+                    }
+
                     infinite_update_score();
                   }
                   Navigator.pushNamed(context, '/infinite_words_end');
                 } else {
                   if (currentCellInfinite == 30) {
                     if (finishedInfinite == false) {
+
                       setState(() {
                         finishedInfinite = true;
                         wonGameInfinite = false;
                         endDateInfinite = DateTime.now();
                         playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+                        totalInfiniteGames++;
+                        defeatsAtInfinite++;
                       });
+
+                      _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
                       infinite_update_score();
                     }
                     Navigator.pushNamed(context, '/infinite_words_end');

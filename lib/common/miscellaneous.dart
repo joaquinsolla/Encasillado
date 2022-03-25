@@ -4,9 +4,24 @@ const String appVersion = "1.1.2 Beta";
 /** PERSISTENT DATA*/
 bool colorBlind = false;
 bool darkMode = false;
-//
 int streak = 0;
 int infiniteScore = 0;
+int totalInfiniteGames = 0;
+int winsAtFirstInfinite = 0;
+int winsAtSecondInfinite = 0;
+int winsAtThirdInfinite = 0;
+int winsAtFourthInfinite = 0;
+int winsAtFifthInfinite = 0;
+int winsAtSixthInfinite = 0;
+int defeatsAtInfinite = 0;
+int totalWotdGames = 0;
+int winsAtFirstWotd = 0;
+int winsAtSecondWotd = 0;
+int winsAtThirdWotd = 0;
+int winsAtFourthWotd = 0;
+int winsAtFifthWotd = 0;
+int winsAtSixthWotd = 0;
+int defeatsAtWotd = 0;
 
 /** CONTROLLERS */
 int currentPage = 0;
