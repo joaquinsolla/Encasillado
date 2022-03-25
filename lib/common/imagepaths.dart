@@ -25,5 +25,6 @@ const String telegramImg = 'app_files/telegram_icon.png';
 const String twitterImg = 'app_files/twitter_icon.png';
 const String twitterBotImgLightmode = 'app_files/twitter_bot_image.png';
 const String twitterBotImgDarkmode = 'app_files/twitter_bot_image_darkmode.png';
+const String userStatsImg = 'app_files/user_stats_icon.png';
 const String victoryImg = 'app_files/victory_image.png';
 const String whatsappImg = 'app_files/whatsapp_icon.png';

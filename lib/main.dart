@@ -17,6 +17,7 @@ import 'package:Encasillado/pages/streak_explanation.dart';
 import 'package:Encasillado/pages/release_notes.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
+import 'package:Encasillado/pages/user_stats.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -45,6 +46,7 @@ void main() {
       '/settings': (context) => Settings(),
       '/streak_explanation': (context) => StreakExplanation(),
       '/release_notes': (context) => ReleaseNotes(),
+      '/user_stats': (context) => UserStats(),
       '/wotd_end': (context) => WotdEnd(),
     },
   ));

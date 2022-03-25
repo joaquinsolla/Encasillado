@@ -8,6 +8,7 @@ import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/colors.dart';
 
+//TODO:ver espacios
 AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
@@ -29,6 +30,21 @@ AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
           width: 40,
           child: RawMaterialButton(
             onPressed: () {
+              Navigator.pushNamed(context, '/user_stats');
+            },
+            elevation: 0,
+            child: Image.asset(userStatsImg, scale: 35,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+        SizedBox(
+          width: 2.5,
+        ),
+        Container(
+          width: 40,
+          child: RawMaterialButton(
+            onPressed: () {
               Navigator.pushNamed(context, '/help');
             },
             elevation: 0,
@@ -38,7 +54,72 @@ AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
           ),
         ),
         SizedBox(
-          width: 5,
+          width: 2.5,
+        ),
+        Container(
+          width: 40,
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
+            elevation: 0,
+            child: Image.asset(settingsImg, scale: 67.5,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
+  double imageScale;
+  if (deviceWidth < 340)
+    imageScale = 11;
+  else
+    imageScale = 8;
+
+  return AppBar(
+    automaticallyImplyLeading: false,
+    backgroundColor: appMainColor,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          bannerImg,
+          scale: imageScale,
+        ),
+        Expanded(child: Text("")),
+        Container(
+          width: 40,
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/user_stats');
+            },
+            elevation: 0,
+            child: Image.asset(userStatsImg, scale: 35,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+        SizedBox(
+          width: 2.5,
+        ),
+        Container(
+          width: 40,
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/help');
+            },
+            elevation: 0,
+            child: Image.asset(helpImg, scale: 35,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+        SizedBox(
+          width: 2.5,
         ),
         Container(
           width: 40,
@@ -72,56 +153,6 @@ AppBar myAppBarWithoutButtonsWithBackArrow(BuildContext context) {
         Image.asset(
           bannerImg,
           scale: imageScale,
-        ),
-      ],
-    ),
-  );
-}
-
-AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
-
-  return AppBar(
-    automaticallyImplyLeading: false,
-    backgroundColor: appMainColor,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
-        ),
-        Expanded(child: Text("")),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/help');
-            },
-            elevation: 0,
-            child: Image.asset(helpImg, scale: 35,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
-        ),
-        SizedBox(
-          width: 5,
-        ),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            elevation: 0,
-            child: Image.asset(settingsImg, scale: 67.5,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
         ),
       ],
     ),
