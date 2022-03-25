@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:math';
+import 'package:charts_flutter/flutter.dart' as charts;
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
+import 'package:Encasillado/charts/infinite_chart.dart';
+import 'package:Encasillado/charts/infinite_series.dart';
+import 'package:Encasillado/charts/wotd_chart.dart';
+import 'package:Encasillado/charts/wotd_series.dart';
 
 class UserStats extends StatefulWidget {
   @override
@@ -72,6 +77,83 @@ class _UserStatsState extends State<UserStats> {
     }
     if(totalInfiniteGames > 0) infiniteScoreRate = (infiniteScore/totalInfiniteGames).toStringAsFixed(0);
 
+    // GENERATE CHART DATA
+    final List<WotdSeries> wotdData = [
+      WotdSeries(
+        attempt: "1",
+        times: winsAtFirstWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.green),
+      ),
+      WotdSeries(
+        attempt: "2",
+        times: winsAtSecondWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightGreenAccent),
+      ),
+      WotdSeries(
+        attempt: "3",
+        times: winsAtThirdWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.yellowAccent),
+      ),
+      WotdSeries(
+        attempt: "4",
+        times: winsAtFourthWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.orangeAccent),
+      ),
+      WotdSeries(
+        attempt: "5",
+        times: winsAtFifthWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.orange),
+      ),
+      WotdSeries(
+        attempt: "6",
+        times: winsAtSixthWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.deepOrange),
+      ),
+      WotdSeries(
+        attempt: "X",
+        times: defeatsAtWotd,
+        barColor: charts.ColorUtil.fromDartColor(Colors.red),
+      ),
+    ];
+
+    final List<InfiniteSeries> infiniteData = [
+      InfiniteSeries(
+        attempt: "1",
+        times: winsAtFirstInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.green),
+      ),
+      InfiniteSeries(
+        attempt: "2",
+        times: winsAtSecondInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightGreenAccent),
+      ),
+      InfiniteSeries(
+        attempt: "3",
+        times: winsAtThirdInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.yellowAccent),
+      ),
+      InfiniteSeries(
+        attempt: "4",
+        times: winsAtFourthInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.orangeAccent),
+      ),
+      InfiniteSeries(
+        attempt: "5",
+        times: winsAtFifthInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.orange),
+      ),
+      InfiniteSeries(
+        attempt: "6",
+        times: winsAtSixthInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.deepOrange),
+      ),
+      InfiniteSeries(
+        attempt: "X",
+        times: defeatsAtInfinite,
+        barColor: charts.ColorUtil.fromDartColor(Colors.red),
+      ),
+    ];
+
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -126,7 +208,10 @@ class _UserStatsState extends State<UserStats> {
                         textAlign: TextAlign.left,
                       ),
 
-                  //TODO: Insert wotd diagram
+                  Center(
+                      child: WotdChart(
+                        wotdData: wotdData,
+                      )),
 
                   SizedBox(
                     height: 15,
@@ -157,7 +242,10 @@ class _UserStatsState extends State<UserStats> {
                     textAlign: TextAlign.left,
                   ),
 
-                  //TODO: Insert infinite diagram
+                  Center(
+                      child: InfiniteChart(
+                        infiniteData: infiniteData,
+                      )),
 
                   Text(
                     "\n*Prct.: Porcentaje\n* pts/p: Puntos por partida",
