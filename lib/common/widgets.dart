@@ -8,7 +8,6 @@ import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/colors.dart';
 
-//TODO:ver espacios
 AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
