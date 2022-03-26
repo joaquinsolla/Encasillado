@@ -13,7 +13,6 @@ import 'package:Encasillado/pages/help.dart';
 import 'package:Encasillado/pages/infinite_words_end.dart';
 import 'package:Encasillado/pages/score_explanation.dart';
 import 'package:Encasillado/pages/settings.dart';
-import 'package:Encasillado/pages/streak_explanation.dart';
 import 'package:Encasillado/pages/release_notes.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
@@ -25,12 +24,9 @@ void main() {
 
   /** DATABASE SELECTOR
    * 0 - gameDB
-   * 1 - testDB0
-   * 2 - testDB1
-   * 3 - testDB2 * */
+   * 1 - testDB * */
   selectedDatabase = databasesList[0];
 
-  // WORD GENERATION
   infinite_generate_word();
   wotd_generate_word();
 
@@ -44,7 +40,6 @@ void main() {
       '/infinite_words_end': (context) => InfiniteWordsEnd(),
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
-      '/streak_explanation': (context) => StreakExplanation(),
       '/release_notes': (context) => ReleaseNotes(),
       '/user_stats': (context) => UserStats(),
       '/wotd_end': (context) => WotdEnd(),

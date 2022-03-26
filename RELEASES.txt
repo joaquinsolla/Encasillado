@@ -9,6 +9,8 @@ flutter build appbundle --no-sound-null-safety
 
 
 LISTADO DE VERSIONES:
+* En revisión
+** En desarrollo
 
     --RELEASES
     7 (1.0.4)
@@ -23,3 +25,4 @@ LISTADO DE VERSIONES:
     6 (1.0.3) Beta
     10 (1.1.0) Beta
     13 (1.1.2) Beta
+    15 (1.1.4) Beta**

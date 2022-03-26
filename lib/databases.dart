@@ -1,10 +1,8 @@
 // List of word-lists
-List <List <String>> databasesList = [gameDB,testDB0,testDB1,testDB2];
+List <List <String>> databasesList = [gameDB,testDB];
 
-// Test lists
-const List <String> testDB0 = ["AAAAA"];
-const List <String> testDB1 = ["CIELO","ARBOL","MIEDO","COCHE","TARTA","CIELO","MIEDO","LUCAS","TOKIO"];
-const List <String> testDB2 = [];
+// TEST LIST
+const List <String> testDB = [];
 
 // IN-GAME LIST
 const List <String> gameDB = ["AARON",

@@ -292,7 +292,7 @@ Text headerText(String content){
   );
 }
 
-Container gameBanner(BuildContext context, String content, Widget button1, Widget button2) {
+Container gameBannerTwoButtons(BuildContext context, String content, Widget button1, Widget button2) {
 
   return Container(
     height: 35,
@@ -319,6 +319,37 @@ Container gameBanner(BuildContext context, String content, Widget button1, Widge
           width: 5.0,
         ),
         button2,
+      ],
+    ),
+  );
+}
+
+Container gameBannerOneButton(BuildContext context, String content, Widget button1) {
+
+  return Container(
+    height: 35,
+    margin: EdgeInsets.fromLTRB(7.5, 7.5, 7.5, 3.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        SizedBox(
+          width: 15,
+        ),
+        Text(
+          content,
+          style: TextStyle(
+            fontSize: 17,
+            color: appBlack,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.none,
+            fontFamily: 'RaleWay',
+          ),
+        ),
+        Expanded(child: Text("")),
+        button1,
+        SizedBox(
+          width: 5.0,
+        ),
       ],
     ),
   );
@@ -360,6 +391,16 @@ TextButton twitterBotButton(BuildContext context) {
 }
 
 TextButton scoreButton(BuildContext context) {
+
+  String myStreakGif;
+  if (darkMode) {
+    myStreakGif = streakGifDarkmode;
+  } else {
+    myStreakGif = streakGifLightmode;
+  }
+
+  String streakCount = "×" + streak.toString();
+
   return TextButton(
     onPressed: () {
       Navigator.pushNamed(context, '/score_explanation');
@@ -368,40 +409,18 @@ TextButton scoreButton(BuildContext context) {
       primary: appBlack,
       backgroundColor: keyColor,
     ),
-    child: Text(
-      " Puntos: " + infiniteScore.toString() + " ",
-      style: TextStyle(
-        fontSize: 15,
-        color: appBlack,
-        fontWeight: FontWeight.normal,
-        decoration: TextDecoration.none,
-        fontFamily: 'RaleWay',
-      ),
-    ),
-  );
-}
-
-TextButton streakButton(BuildContext context) {
-  String myStreakGif;
-  if (darkMode) {
-    myStreakGif = streakGifDarkmode;
-  } else {
-    myStreakGif = streakGifLightmode;
-  }
-
-  String streakCount = " ×" + streak.toString();
-
-
-  return TextButton(
-    onPressed: () {
-      Navigator.pushNamed(context, '/streak_explanation');
-    },
-    style: TextButton.styleFrom(
-      primary: appBlack,
-      backgroundColor: keyColor,
-    ),
     child: Row(
       children: [
+        Text(
+          " Puntos: " + infiniteScore.toString() + "  ",
+          style: TextStyle(
+            fontSize: 15,
+            color: appBlack,
+            fontWeight: FontWeight.normal,
+            decoration: TextDecoration.none,
+            fontFamily: 'RaleWay',
+          ),
+        ),
         Image.asset(
           myStreakGif,
         ),
@@ -417,6 +436,9 @@ TextButton streakButton(BuildContext context) {
         ),
       ],
     ),
+
+
+
   );
 }
 

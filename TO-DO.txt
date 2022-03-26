@@ -1,9 +1,13 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+OPTIMIZAR CÓDIGO
+REPASAR PROGUARD
 
 -------OTHERS----------
+record puntuación y racha
 logros
+niveles de dificultad
 mantener wotd
 
 -------REVIEW----------
