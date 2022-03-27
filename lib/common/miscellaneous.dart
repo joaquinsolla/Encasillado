@@ -23,6 +23,23 @@ int winsAtFifthWotd = 0;
 int winsAtSixthWotd = 0;
 int defeatsAtWotd = 0;
 
+/** PERSISTENT TROPHIES */
+int diamondTrophies = 0;
+int goldTrophies = 0;
+int silverTrophies = 0;
+int bronzeTrophies = 0;
+bool allTrophiesTr = false;
+bool streak25Tr = false;
+bool streak10Tr = false;
+bool streak5Tr = false;
+bool atFirstTr = false;
+bool atSecondTr = false;
+bool points5kTr = false;
+bool points10kTr = false;
+bool points15kTr = false;
+bool firstPlayTr = false;
+
+
 /** CONTROLLERS */
 int currentPage = 0;
 bool appStarted = false;

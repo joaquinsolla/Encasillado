@@ -56,6 +56,21 @@ class _TrophiesState extends State<Trophies> {
       DeviceOrientation.portraitUp,
     ]);
 
+    /** TROPHIES PROGRESS */
+    String allTrophiesProg = '0';
+    String atFirstProg = '0';
+    String atSecondProg = '0';
+    String streak25Prog = '0';
+    String streak10Prog = '0';
+    String streak5Prog = '0';
+    String points15kProg = '0';
+    String points10kProg = '0';
+    String points5kProg = '0';
+    String firstPlayProg = '0';
+
+    /** CALCULATE TROPHIES PROGRESS */
+
+
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -82,7 +97,7 @@ class _TrophiesState extends State<Trophies> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +105,7 @@ class _TrophiesState extends State<Trophies> {
                       Row(
                         children: [
                           Text(
-                            "0×",
+                            "$diamondTrophies×",
                             style: TextStyle(
                               fontSize: 20,
                               color: appBlack,
@@ -114,7 +129,7 @@ class _TrophiesState extends State<Trophies> {
                       Row(
                         children: [
                           Text(
-                            "0×",
+                            "$goldTrophies×",
                             style: TextStyle(
                               fontSize: 20,
                               color: appBlack,
@@ -138,7 +153,7 @@ class _TrophiesState extends State<Trophies> {
                       Row(
                         children: [
                           Text(
-                            "0×",
+                            "$silverTrophies×",
                             style: TextStyle(
                               fontSize: 20,
                               color: appBlack,
@@ -162,7 +177,7 @@ class _TrophiesState extends State<Trophies> {
                       Row(
                         children: [
                           Text(
-                            "0×",
+                            "$bronzeTrophies×",
                             style: TextStyle(
                               fontSize: 20,
                               color: appBlack,
@@ -184,7 +199,71 @@ class _TrophiesState extends State<Trophies> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 15,),
+                  // DIAMOND
+                  Text(
+                    "Diamante",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  trophiesRow('Todos los trofeos', 'Progreso: $allTrophiesProg%', diamondTrophy, allTrophiesTr),
 
+                  SizedBox(height: 15,),
+                  // GOLD
+                  Text(
+                    "Oro",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  trophiesRow('Acierta a la primera', 'Progreso: $atFirstProg%', goldTrophy, atFirstTr),
+                  trophiesRow('15.000 puntos', 'Mejor: $points15kProg', goldTrophy, points15kTr),
+                  trophiesRow('Racha de 25', 'Mejor: $streak25Prog', goldTrophy, streak25Tr),
+
+                  SizedBox(height: 15,),
+                  // SILVER
+                  Text(
+                    "Plata",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  trophiesRow('Acierta en 2 intentos', 'Progreso: $atSecondProg%', silverTrophy, atSecondTr),
+                  trophiesRow('10.000 puntos', 'Mejor: $points10kProg', silverTrophy, points10kTr),
+                  trophiesRow('Racha de 10', 'Mejor: $streak10Prog', silverTrophy, streak10Tr),
+
+                  SizedBox(height: 15,),
+                  // BRONZE
+                  Text(
+                    "Bronce",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  trophiesRow('Tu primera partida', 'Progreso: $firstPlayProg%', bronzeTrophy, firstPlayTr),
+                  trophiesRow('5.000 puntos', 'Mejor: $points5kProg', bronzeTrophy, points5kTr),
+                  trophiesRow('Racha de 5', 'Mejor: $streak5Prog', bronzeTrophy, streak5Tr),
 
                   SizedBox(
                     height: 30,

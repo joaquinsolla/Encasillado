@@ -168,6 +168,100 @@ Row settingsRowAdvanced(String mainText, String secondText,Widget widget) {
   );
 }
 
+Column trophiesRow(String mainText, String secondText, String trophy, bool variable) {
+  if (variable == true) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(height: 7.5,),
+        Container(
+          padding: const EdgeInsets.all(7.5),
+          decoration: BoxDecoration(
+            color: keyColor,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    mainText,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                  ),
+                  Text(
+                    '¡Conseguido!',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: appGrey,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                  ),
+                ],),
+              const Expanded(child: Text("")),
+              Image.asset(trophy, scale: 15),
+            ],
+          ),
+        )
+      ],
+    );
+  } else {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(height: 7.5,),
+        Container(
+          padding: const EdgeInsets.all(7.5),
+          decoration: BoxDecoration(
+            color: keyColor,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    mainText,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                  ),
+                  Text(
+                    secondText,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: appGrey,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                  ),
+                ],),
+              const Expanded(child: Text("")),
+              Image.asset(noTrophy, scale: 15),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
 TextButton socialsButton(String url, String image, double scale, String text) {
   return TextButton(
     onPressed: () {

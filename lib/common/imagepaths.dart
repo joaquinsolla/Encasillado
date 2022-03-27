@@ -15,6 +15,7 @@ const String goldTrophy = 'app_files/gold_trophy.png';
 const String silverTrophy = 'app_files/silver_trophy.png';
 const String bronzeTrophy = 'app_files/bronze_trophy.png';
 const String diamondTrophy = 'app_files/diamond_trophy.png';
+const String noTrophy = 'app_files/no_trophy.png';
 const String instagramImg = 'app_files/instagram_image.png';
 const String myWebsiteImg = 'app_files/my_website_img.png';
 const String otherShareImg = 'app_files/others_icon.png';
