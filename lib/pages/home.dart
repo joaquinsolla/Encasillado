@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:new_version/new_version.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -253,8 +254,21 @@ class _HomeState extends State<Home> {
     return MobileAds.instance.initialize();
   }
 
+  // VERSION MANAGEMENT
+  statusCheck(NewVersion newVersion) async {
+    newVersion.showAlertIfNecessary(context: context);
+  }
+
   @override
   void initState() {
+
+    // VERSION MANAGEMENT
+    final newVersion = NewVersion(
+      iOSId: '',
+      androidId: 'com.joa.encasillado',
+    );
+
+    if (appStarted ==  false) statusCheck(newVersion);
 
     if (showAds) {
       _initGoogleMobileAds();

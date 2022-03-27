@@ -79,10 +79,7 @@ class _SettingsState extends State<Settings> {
     prefs.setBool(key, value);
     print('saved $value');
   }
-
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([

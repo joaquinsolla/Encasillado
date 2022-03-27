@@ -1,7 +1,7 @@
-/** APP VERSION*/
+/** APP VERSION */
 const String appVersion = "1.1.4 Beta";
 
-/** PERSISTENT DATA*/
+/** PERSISTENT DATA */
 bool colorBlind = false;
 bool darkMode = false;
 int streak = 0;
