@@ -1,6 +1,10 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+persistencia trofeos
+calculo/obtencion trofeos
+flushbar trofeos
+
 REPASAR PROGUARD
 
 -------OTHERS----------

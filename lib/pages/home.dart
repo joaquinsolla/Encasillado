@@ -246,6 +246,73 @@ class _HomeState extends State<Home> {
     prefs.setInt(key2, totalValue);
   }
 
+  _read_trophies() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // INT
+    final diamondTrophiesKey = 'diamondtrophies';
+    final diamondTrophiesValue = prefs.getInt(diamondTrophiesKey) ?? 0;
+
+    final goldTrophiesKey = 'goldtrophies';
+    final goldTrophiesValue = prefs.getInt(goldTrophiesKey) ?? 0;
+
+    final silverTrophiesKey = 'silverTrophies';
+    final silverTrophiesValue = prefs.getInt(silverTrophiesKey) ?? 0;
+
+    final bronzeTrophiesKey = 'bronzeTrophies';
+    final bronzeTrophiesValue = prefs.getInt(bronzeTrophiesKey) ?? 0;
+
+    // BOOL
+    final allTrophiesTrKey = 'alltrophiestr';
+    final allTrophiesTrValue = prefs.getBool(allTrophiesTrKey) ?? false;
+
+    final streak25TrKey = 'streak25tr';
+    final streak25TrValue = prefs.getBool(streak25TrKey) ?? false;
+
+    final streak10TrKey = 'streak10tr';
+    final streak10TrValue = prefs.getBool(streak10TrKey) ?? false;
+
+    final streak5TrKey = 'streak5tr';
+    final streak5TrValue = prefs.getBool(streak5TrKey) ?? false;
+
+    final atFirstTrKey = 'atfirsttr';
+    final atFirstTrValue = prefs.getBool(atFirstTrKey) ?? false;
+
+    final atSecondTrKey = 'atsecondtr';
+    final atSecondTrValue = prefs.getBool(atSecondTrKey) ?? false;
+
+    final points5kTrKey = 'points5ktr';
+    final points5kTrValue = prefs.getBool(points5kTrKey) ?? false;
+
+    final points10kTrKey = 'points10ktr';
+    final points10kTrValue = prefs.getBool(points10kTrKey) ?? false;
+
+    final points15kTrKey = 'points15ktr';
+    final points15kTrValue = prefs.getBool(points15kTrKey) ?? false;
+
+    final firstPlayTrKey = 'firstplaytr';
+    final firstPlayTrValue = prefs.getBool(firstPlayTrKey) ?? false;
+
+    setState(() {
+      diamondTrophies = diamondTrophiesValue;
+      goldTrophies = goldTrophiesValue;
+      silverTrophies = silverTrophiesValue;
+      bronzeTrophies = bronzeTrophiesValue;
+      allTrophiesTr = allTrophiesTrValue;
+      streak25Tr = streak25TrValue;
+      streak10Tr = streak10TrValue;
+      streak5Tr = streak5TrValue;
+      atFirstTr = atFirstTrValue;
+      atSecondTr = atSecondTrValue;
+      points5kTr = points5kTrValue;
+      points10kTr = points10kTrValue;
+      points15kTr = points15kTrValue;
+      firstPlayTr = firstPlayTrValue;
+    });
+
+    print('read: trophies');
+  }
+
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
@@ -308,6 +375,7 @@ class _HomeState extends State<Home> {
       _read_infinite_score();
       _read_streak();
       _read_stats();
+      _read_trophies();
 
       check_settings();
 

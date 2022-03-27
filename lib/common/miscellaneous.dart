@@ -24,6 +24,7 @@ int winsAtSixthWotd = 0;
 int defeatsAtWotd = 0;
 
 /** PERSISTENT TROPHIES */
+int totalTrophies = 10; // also diamond - NOT PERSISTENT
 int diamondTrophies = 0;
 int goldTrophies = 0;
 int silverTrophies = 0;
