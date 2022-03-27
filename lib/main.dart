@@ -4,6 +4,7 @@
  * App repository: https://github.com/joaquinsolla/Encasillado
  * */
 
+import 'package:Encasillado/pages/trophies.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Encasillado/databases.dart';
@@ -41,6 +42,7 @@ void main() {
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/release_notes': (context) => ReleaseNotes(),
+      '/trophies': (context) => Trophies(),
       '/user_stats': (context) => UserStats(),
       '/wotd_end': (context) => WotdEnd(),
     },

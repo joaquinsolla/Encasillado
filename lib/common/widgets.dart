@@ -30,6 +30,19 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
           width: 40,
           child: RawMaterialButton(
             onPressed: () {
+              Navigator.pushNamed(context, '/trophies');
+            },
+            elevation: 0,
+            child: Image.asset(trophiesImg, scale: 35,),
+            fillColor: appSecondColor,
+            shape: CircleBorder(),
+          ),
+        ),
+        SizedBox(width: 2.5,),
+        Container(
+          width: 40,
+          child: RawMaterialButton(
+            onPressed: () {
               Navigator.pushNamed(context, '/user_stats');
             },
             elevation: 0,
