@@ -171,23 +171,6 @@ class _HelpState extends State<Help> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  Container(
-                    height: 50,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            style: TextButton.styleFrom(
-                              primary: appWhite,
-                              backgroundColor: appMainColor,
-                            ),
-                            child: Text("VAMOS ALLÁ")),
-                      ],
-                    ),
-                  ),
                   SizedBox(height: 20,),
                 ],
               ),),

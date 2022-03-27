@@ -82,32 +82,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
-                    "Ajustes y puntos persistentes",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Ahora los ajustes, puntos y rachas se conservan tras cerrar"
-                        " la aplicación.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
                     "Apartado de estadísticas",
                     style: TextStyle(
                       fontSize: 16,
@@ -121,32 +95,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   Text(
                     "Se ha incorporado al juego un nuevo apartado en el que "
                         "podrás consultar tus estadísticas de juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Nuevo sistema de puntuación",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Actualizado el sistema de puntuación con nuevas reglas, "
-                        "puedes consultarlas en el apartado de puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

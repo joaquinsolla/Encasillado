@@ -8,70 +8,6 @@ import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/colors.dart';
 
-AppBar myAppBarWithButtonsAndBackArrow(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
-
-  return AppBar(
-    backgroundColor: appMainColor,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
-        ),
-        Expanded(child: Text("")),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/user_stats');
-            },
-            elevation: 0,
-            child: Image.asset(userStatsImg, scale: 35,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
-        ),
-        SizedBox(
-          width: 2.5,
-        ),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/help');
-            },
-            elevation: 0,
-            child: Image.asset(helpImg, scale: 35,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
-        ),
-        SizedBox(
-          width: 2.5,
-        ),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-            elevation: 0,
-            child: Image.asset(settingsImg, scale: 67.5,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
 AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)
@@ -98,21 +34,6 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
             },
             elevation: 0,
             child: Image.asset(userStatsImg, scale: 35,),
-            fillColor: appSecondColor,
-            shape: CircleBorder(),
-          ),
-        ),
-        SizedBox(
-          width: 2.5,
-        ),
-        Container(
-          width: 40,
-          child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/help');
-            },
-            elevation: 0,
-            child: Image.asset(helpImg, scale: 35,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),

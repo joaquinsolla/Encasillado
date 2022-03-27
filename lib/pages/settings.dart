@@ -173,6 +173,27 @@ class _SettingsState extends State<Settings> {
                 Divider(
                   color: appGrey,
                 ),
+                SizedBox(
+                  height: 5,
+                ),
+                settingsRowAdvanced(
+                  '¿Cómo jugar?', '¿Necesitas ayuda para jugar?',
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/help');
+                      },
+                      style: TextButton.styleFrom(
+                        primary: appWhite,
+                        backgroundColor: appMainColor,
+                      ),
+                      child: Text("AYUDA")),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Divider(
+                  color: appGrey,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
