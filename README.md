@@ -10,7 +10,7 @@ https://play.google.com/store/apps/details?id=com.joa.encasillado
  
  > Latest Beta version: 14 (1.1.4)**
 
- > [app_versions.txt](app_versions.txt) 
+[app_versions.txt](app_versions.txt) 
 
 ## Game's Twitter bot
 
