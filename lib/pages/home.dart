@@ -250,6 +250,9 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
 
     // INT
+    final totalTrophiesKey = 'totaltrophies';
+    final totalTrophiesValue = prefs.getInt(totalTrophiesKey) ?? 0;
+
     final diamondTrophiesKey = 'diamondtrophies';
     final diamondTrophiesValue = prefs.getInt(diamondTrophiesKey) ?? 0;
 
@@ -311,6 +314,41 @@ class _HomeState extends State<Home> {
     });
 
     print('read: trophies');
+  }
+
+  _save_trophy(String trophyKey, String trophyType) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final key1 = trophyKey; // trophy
+    final key2; // trophy type
+    final key3 = 'totaltrophies'; // total trophies
+
+    if (trophyType == 'diamond'){
+      key2 = 'diamondtrophies';
+      prefs.setInt(key2, diamondTrophies);
+
+    } else {
+      if (trophyType == 'gold'){
+        key2 = 'goldtrophies';
+        prefs.setInt(key2, goldTrophies);
+
+      } else {
+        if (trophyType == 'silver'){
+          key2 = 'silvertrophies';
+          prefs.setInt(key2, silverTrophies);
+
+        } else {
+          if (trophyType == 'bronze'){
+            key2 = 'bronzetrophies';
+            prefs.setInt(key2, bronzeTrophies);
+
+          }
+        }
+      }
+    }
+
+    prefs.setBool(key1, true);
+    prefs.setInt(key3, totalTrophies);
   }
 
   // ADMOB MANAGEMENT
