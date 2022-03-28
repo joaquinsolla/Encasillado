@@ -328,6 +328,7 @@ class _HomeState extends State<Home> {
     final firstPlayTrValue = prefs.getBool(firstPlayTrKey) ?? false;
 
     setState(() {
+      totalTrophies = totalTrophiesValue;
       diamondTrophies = diamondTrophiesValue;
       goldTrophies = goldTrophiesValue;
       silverTrophies = silverTrophiesValue;
@@ -771,6 +772,17 @@ class _HomeState extends State<Home> {
                     }
 
                   }
+                  /** TROPHY FIRST PLAY */
+                  if (firstPlayTr == false){
+                    setState(() {
+                      totalTrophies++;
+                      bronzeTrophies++;
+                      firstPlayTr = true;
+                    });
+                    _save_trophy('firstplaytr', 'silver');
+                    //TODO: FLUSHBAR
+                  }
+
                   Navigator.pushNamed(context, '/wotd_end');
                 } else {
                   if (currentCellWotd == 30) {
@@ -787,6 +799,17 @@ class _HomeState extends State<Home> {
                       _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
 
                     }
+                    /** TROPHY FIRST PLAY */
+                    if (firstPlayTr == false){
+                      setState(() {
+                        totalTrophies++;
+                        bronzeTrophies++;
+                        firstPlayTr = true;
+                      });
+                      _save_trophy('firstplaytr', 'silver');
+                      //TODO: FLUSHBAR
+                    }
+
                     Navigator.pushNamed(context, '/wotd_end');
                   } else {
                     setState(() {
@@ -853,6 +876,7 @@ class _HomeState extends State<Home> {
                       /** TROPHY: A LA PRIMERA */
                       if (atFirstTr == false){
                         setState(() {
+                          totalTrophies++;
                           goldTrophies++;
                           atFirstTr = true;
                         });
@@ -868,6 +892,7 @@ class _HomeState extends State<Home> {
                       /** TROPHY: A LA SEGUNDA */
                       if (atSecondTr == false){
                         setState(() {
+                          totalTrophies++;
                           silverTrophies++;
                           atSecondTr = true;
                         });
@@ -902,6 +927,17 @@ class _HomeState extends State<Home> {
 
                     infinite_update_score();
                   }
+                  /** TROPHY FIRST PLAY */
+                  if (firstPlayTr == false){
+                    setState(() {
+                      totalTrophies++;
+                      bronzeTrophies++;
+                      firstPlayTr = true;
+                    });
+                    _save_trophy('firstplaytr', 'silver');
+                    //TODO: FLUSHBAR
+                  }
+
                   Navigator.pushNamed(context, '/infinite_words_end');
                 } else {
                   if (currentCellInfinite == 30) {
@@ -919,6 +955,17 @@ class _HomeState extends State<Home> {
                       _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
                       infinite_update_score();
                     }
+                    /** TROPHY FIRST PLAY */
+                    if (firstPlayTr == false){
+                      setState(() {
+                        totalTrophies++;
+                        bronzeTrophies++;
+                        firstPlayTr = true;
+                      });
+                      _save_trophy('firstplaytr', 'silver');
+                      //TODO: FLUSHBAR
+                    }
+
                     Navigator.pushNamed(context, '/infinite_words_end');
                   } else {
                     setState(() {
@@ -1538,6 +1585,7 @@ class _HomeState extends State<Home> {
       /** SCORE RECORDS */
       if (points5kTr == false && infiniteScore >= 5000){
         setState(() {
+          totalTrophies++;
           bronzeTrophies++;
           points5kTr = true;
         });
@@ -1546,6 +1594,7 @@ class _HomeState extends State<Home> {
       }
       if (points10kTr == false && infiniteScore >= 10000){
         setState(() {
+          totalTrophies++;
           silverTrophies++;
           points10kTr = true;
         });
@@ -1554,6 +1603,7 @@ class _HomeState extends State<Home> {
       }
       if (points25kTr == false && infiniteScore >= 25000){
         setState(() {
+          totalTrophies++;
           goldTrophies++;
           points25kTr = true;
         });
@@ -1564,6 +1614,7 @@ class _HomeState extends State<Home> {
       /** STREAK RECORDS */
       if (streak5Tr == false && streak >= 5){
         setState(() {
+          totalTrophies++;
           bronzeTrophies++;
           streak5Tr = true;
         });
@@ -1572,6 +1623,7 @@ class _HomeState extends State<Home> {
       }
       if (streak10Tr == false && streak >= 10){
         setState(() {
+          totalTrophies++;
           silverTrophies++;
           streak10Tr = true;
         });
@@ -1580,6 +1632,7 @@ class _HomeState extends State<Home> {
       }
       if (streak25Tr == false && streak >= 25){
         setState(() {
+          totalTrophies++;
           goldTrophies++;
           streak25Tr = true;
         });
