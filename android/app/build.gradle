@@ -13,14 +13,14 @@ if (flutterRoot == null) {
 
 /** AUMENTAR CON CADA UPDATE */
 //def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-def flutterVersionCode = 15
+def flutterVersionCode = 16
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
 
 /** CAMBIAR CON CADA UPDATE */
 //def flutterVersionName = localProperties.getProperty('flutter.versionName')
-def flutterVersionName = '1.1.4'
+def flutterVersionName = '1.1.5'
 if (flutterVersionName == null) {
     flutterVersionName = '1.0.0'
 }
