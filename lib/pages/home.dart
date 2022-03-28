@@ -290,10 +290,10 @@ class _HomeState extends State<Home> {
     final goldTrophiesKey = 'goldtrophies';
     final goldTrophiesValue = prefs.getInt(goldTrophiesKey) ?? 0;
 
-    final silverTrophiesKey = 'silverTrophies';
+    final silverTrophiesKey = 'silvertrophies';
     final silverTrophiesValue = prefs.getInt(silverTrophiesKey) ?? 0;
 
-    final bronzeTrophiesKey = 'bronzeTrophies';
+    final bronzeTrophiesKey = 'bronzetrophies';
     final bronzeTrophiesValue = prefs.getInt(bronzeTrophiesKey) ?? 0;
 
     // BOOL
@@ -321,8 +321,8 @@ class _HomeState extends State<Home> {
     final points10kTrKey = 'points10ktr';
     final points10kTrValue = prefs.getBool(points10kTrKey) ?? false;
 
-    final points15kTrKey = 'points15ktr';
-    final points15kTrValue = prefs.getBool(points15kTrKey) ?? false;
+    final points25kTrKey = 'points25ktr';
+    final points25kTrValue = prefs.getBool(points25kTrKey) ?? false;
 
     final firstPlayTrKey = 'firstplaytr';
     final firstPlayTrValue = prefs.getBool(firstPlayTrKey) ?? false;
@@ -340,7 +340,7 @@ class _HomeState extends State<Home> {
       atSecondTr = atSecondTrValue;
       points5kTr = points5kTrValue;
       points10kTr = points10kTrValue;
-      points15kTr = points15kTrValue;
+      points25kTr = points25kTrValue;
       firstPlayTr = firstPlayTrValue;
     });
 
@@ -354,32 +354,40 @@ class _HomeState extends State<Home> {
     final key2; // trophy type
     final key3 = 'totaltrophies'; // total trophies
 
-    if (trophyType == 'diamond'){
-      key2 = 'diamondtrophies';
-      prefs.setInt(key2, diamondTrophies);
+    if (trophyType == 'gold'){
+      key2 = 'goldtrophies';
+      prefs.setInt(key2, goldTrophies);
 
     } else {
-      if (trophyType == 'gold'){
-        key2 = 'goldtrophies';
-        prefs.setInt(key2, goldTrophies);
+      if (trophyType == 'silver'){
+        key2 = 'silvertrophies';
+        prefs.setInt(key2, silverTrophies);
 
       } else {
-        if (trophyType == 'silver'){
-          key2 = 'silvertrophies';
-          prefs.setInt(key2, silverTrophies);
+        if (trophyType == 'bronze'){
+          key2 = 'bronzetrophies';
+          prefs.setInt(key2, bronzeTrophies);
 
-        } else {
-          if (trophyType == 'bronze'){
-            key2 = 'bronzetrophies';
-            prefs.setInt(key2, bronzeTrophies);
-
-          }
         }
       }
     }
 
     prefs.setBool(key1, true);
     prefs.setInt(key3, totalTrophies);
+
+    if (totalTrophies >= 9){
+      setState(() {
+        allTrophiesTr = true;
+        diamondTrophies = 1;
+      });
+      final key4 = 'alltrophiestr'; // trophy
+      final key5 = 'diamondtrophies'; // trophy type
+
+      prefs.setBool(key4, true);
+      prefs.setInt(key5, 1);
+
+      //TODO: FLUSHBAR
+    }
   }
 
   // ADMOB MANAGEMENT
@@ -728,12 +736,14 @@ class _HomeState extends State<Home> {
                         winsAtFirstWotd++;
                       });
                       _save_wotd_stats(1, winsAtFirstWotd, totalWotdGames);
+                      // trophy
                     }
                     if ((currentRowWotd+1) == 2) {
                       setState(() {
                         winsAtSecondWotd++;
                       });
                       _save_wotd_stats(2, winsAtSecondWotd, totalWotdGames);
+                      // trophy
                     }
                     if ((currentRowWotd+1) == 3) {
                       setState(() {
@@ -840,12 +850,30 @@ class _HomeState extends State<Home> {
                         winsAtFirstInfinite++;
                       });
                       _save_infinite_stats(1, winsAtFirstInfinite, totalInfiniteGames);
+                      /** TROPHY: A LA PRIMERA */
+                      if (atFirstTr == false){
+                        setState(() {
+                          goldTrophies++;
+                          atFirstTr = true;
+                        });
+                        _save_trophy('atfirsttr', 'gold');
+                        //TODO: FLUSHBAR
+                      }
                     }
                     if ((currentRowInfinite+1) == 2) {
                       setState(() {
                         winsAtSecondInfinite++;
                       });
                       _save_infinite_stats(2, winsAtSecondInfinite, totalInfiniteGames);
+                      /** TROPHY: A LA SEGUNDA */
+                      if (atSecondTr == false){
+                        setState(() {
+                          silverTrophies++;
+                          atSecondTr = true;
+                        });
+                        _save_trophy('atsecondtr', 'silver');
+                        //TODO: FLUSHBAR
+                      }
                     }
                     if ((currentRowInfinite+1) == 3) {
                       setState(() {
@@ -1506,6 +1534,59 @@ class _HomeState extends State<Home> {
         streakRecord = streak;
         _save_streak_record();
       }
+
+      /** SCORE RECORDS */
+      if (points5kTr == false && infiniteScore >= 5000){
+        setState(() {
+          bronzeTrophies++;
+          points5kTr = true;
+        });
+        _save_trophy('points5ktr', 'bronze');
+        //TODO: FLUSHBAR
+      }
+      if (points10kTr == false && infiniteScore >= 10000){
+        setState(() {
+          silverTrophies++;
+          points10kTr = true;
+        });
+        _save_trophy('points10ktr', 'silver');
+        //TODO: FLUSHBAR
+      }
+      if (points25kTr == false && infiniteScore >= 25000){
+        setState(() {
+          goldTrophies++;
+          points25kTr = true;
+        });
+        _save_trophy('points25ktr', 'gold');
+        //TODO: FLUSHBAR
+      }
+
+      /** STREAK RECORDS */
+      if (streak5Tr == false && streak >= 5){
+        setState(() {
+          bronzeTrophies++;
+          streak5Tr = true;
+        });
+        _save_trophy('streak5tr', 'bronze');
+        //TODO: FLUSHBAR
+      }
+      if (streak10Tr == false && streak >= 10){
+        setState(() {
+          silverTrophies++;
+          streak10Tr = true;
+        });
+        _save_trophy('streak10tr', 'silver');
+        //TODO: FLUSHBAR
+      }
+      if (streak25Tr == false && streak >= 25){
+        setState(() {
+          goldTrophies++;
+          streak25Tr = true;
+        });
+        _save_trophy('streak25tr', 'gold');
+        //TODO: FLUSHBAR
+      }
+
   }
 
   void infinite_reset_variables() {

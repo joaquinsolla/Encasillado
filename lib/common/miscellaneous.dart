@@ -26,7 +26,7 @@ int streakRecord = 0;
 int scoreRecord = 0;
 
 /** PERSISTENT TROPHIES */
-int totalTrophies = 10; // also diamond
+int totalTrophies = 0; // 9 - not diamond
 int diamondTrophies = 0;
 int goldTrophies = 0;
 int silverTrophies = 0;
@@ -39,7 +39,7 @@ bool atFirstTr = false;
 bool atSecondTr = false;
 bool points5kTr = false;
 bool points10kTr = false;
-bool points15kTr = false;
+bool points25kTr = false;
 bool firstPlayTr = false;
 
 

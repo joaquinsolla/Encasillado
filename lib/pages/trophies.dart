@@ -63,7 +63,7 @@ class _TrophiesState extends State<Trophies> {
     String streak25Prog = '0';
     String streak10Prog = '0';
     String streak5Prog = '0';
-    String points15kProg = '0';
+    String points25kProg = '0';
     String points10kProg = '0';
     String points5kProg = '0';
     String firstPlayProg = '0';
@@ -228,7 +228,7 @@ class _TrophiesState extends State<Trophies> {
                     textAlign: TextAlign.left,
                   ),
                   trophiesRow('Acierta a la primera', 'Progreso: $atFirstProg%', goldTrophy, atFirstTr),
-                  trophiesRow('15.000 puntos', 'Mejor: $points15kProg', goldTrophy, points15kTr),
+                  trophiesRow('25.000 puntos', 'Mejor: $points25kProg', goldTrophy, points25kTr),
                   trophiesRow('Racha de 25', 'Mejor: $streak25Prog', goldTrophy, streak25Tr),
 
                   SizedBox(height: 15,),
