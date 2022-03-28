@@ -478,3 +478,21 @@ void wordDoesNotExistFlushbar(BuildContext context) {
     flushbarPosition: FlushbarPosition.TOP,
   ).show(context);
 }
+
+void trophyFlushbar(BuildContext context, String content) {
+  Flushbar(
+    message: content,
+    duration: Duration(seconds: 5),
+    backgroundColor: Colors.green,
+    flushbarPosition: FlushbarPosition.TOP,
+  ).show(context);
+}
+
+void diamondTrophyFlushbar(BuildContext context) {
+  Flushbar(
+    message: "¡Trofeo de diamante conseguido!",
+    duration: Duration(seconds: 5),
+    backgroundColor: Colors.purple,
+    flushbarPosition: FlushbarPosition.TOP,
+  ).show(context);
+}
