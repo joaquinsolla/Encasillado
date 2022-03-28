@@ -15,4 +15,6 @@
 -keep class flushbar.**  { *; }
 -keep class url_launcher.**  { *; }
 -keep class twitter_intent.**  { *; }
+-keep class shared_preferences.** { *; }
+-keep class new_version.** { *; }
 

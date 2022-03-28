@@ -1,13 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-REPASAR PROGUARD
+nuevas palabras
 
 -------OTHERS----------
-letra cell
-record puntuación y racha
-logros
-niveles de dificultad
 mantener wotd
 
 -------REVIEW----------

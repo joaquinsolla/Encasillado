@@ -82,6 +82,32 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
+                    "¡Presentando a los trofeos!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Ahora el juego cuenta con un apartado de trofeos en el que "
+                        "se te presentarán retos y desafíos. ¡A por todos ellos!\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
                     "Apartado de estadísticas",
                     style: TextStyle(
                       fontSize: 16,
@@ -198,6 +224,29 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     "Continuamente se está aumentando la lista de palabras del juego."
                     " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
                     " vía email en el apartado de ajustes.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: 7.5,),
+                  Text(
+                    "Nuevos trofeos",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Pronto se añadirán nuevos trofeos y desafíos al juego.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
