@@ -1,10 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-calculo/obtencion trofeos
-flushbar trofeos
 indicativo modo juego trofeos
 REPASAR PROGUARD
+como jugar sin ¿?
 
 -------OTHERS----------
 letra cell
