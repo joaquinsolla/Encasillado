@@ -104,6 +104,37 @@ class _HomeState extends State<Home> {
     print('saved $value on streak');
   }
 
+  _read_records() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final scoreRecordKey = 'scorerecord';
+    final scoreRecordValue = prefs.getInt(scoreRecordKey) ?? 0;
+
+    final streakRecordKey = 'streakrecord';
+    final streakRecordValue = prefs.getInt(streakRecordKey) ?? 0;
+
+    setState(() {
+      scoreRecord = scoreRecordValue;
+      streakRecord = streakRecordValue;
+    });
+
+    print('read: records');
+  }
+
+  _save_streak_record() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'streakrecord';
+    prefs.setInt(key, streakRecord);
+    print('saved $streakRecord on streakrecord');
+  }
+
+  _save_score_record() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'scorerecord';
+    prefs.setInt(key, scoreRecord);
+    print('saved $scoreRecord on scorerecord');
+  }
+
   _read_stats() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -412,17 +443,11 @@ class _HomeState extends State<Home> {
       _read_darkmode();
       _read_infinite_score();
       _read_streak();
+      _read_records();
       _read_stats();
       _read_trophies();
 
       check_settings();
-
-      /*
-      var brightness = MediaQuery.of(context).platformBrightness;
-      setState(() {
-        darkMode = brightness == Brightness.dark;
-      });
-      */
 
       setState(() {
         appStarted = true;
@@ -1471,9 +1496,16 @@ class _HomeState extends State<Home> {
           streak=0;
         }
       });
-
       _save_infinite_score(infiniteScore);
       _save_streak(streak);
+      if (infiniteScore > scoreRecord) {
+        scoreRecord = infiniteScore;
+        _save_score_record();
+      }
+      if (streak > streakRecord){
+        streakRecord = streak;
+        _save_streak_record();
+      }
   }
 
   void infinite_reset_variables() {

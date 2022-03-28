@@ -228,6 +228,8 @@ class _UserStatsState extends State<UserStats> {
                   Text("Partidas totales: $totalInfiniteGames ($infinitePercentage%)\n"
                         "Victorias: $infiniteHits\n"
                         "Derrotas: $defeatsAtInfinite\n"
+                      "Récord de puntuación: $scoreRecord\n"
+                      "Récord de racha: $streakRecord\n"
                       "Tasa de puntos: $infiniteScoreRate",
                     style: TextStyle(
                       fontSize: 15,

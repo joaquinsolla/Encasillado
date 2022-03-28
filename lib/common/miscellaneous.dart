@@ -22,6 +22,8 @@ int winsAtFourthWotd = 0;
 int winsAtFifthWotd = 0;
 int winsAtSixthWotd = 0;
 int defeatsAtWotd = 0;
+int streakRecord = 0;
+int scoreRecord = 0;
 
 /** PERSISTENT TROPHIES */
 int totalTrophies = 10; // also diamond

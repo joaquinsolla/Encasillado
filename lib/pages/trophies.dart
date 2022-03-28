@@ -102,100 +102,100 @@ class _TrophiesState extends State<Trophies> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            "$diamondTrophies×",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        decoration: BoxDecoration(
+                          color: keyColor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "$diamondTrophies×",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Image.asset(diamondTrophy, scale: 17.5,),
-                          ),
-                        ],
+                            Image.asset(diamondTrophy, scale: 17.5,),
+                          ],
+                        ),
                       ),
-                      SizedBox(width: 7.5,),
-                      Row(
-                        children: [
-                          Text(
-                            "$goldTrophies×",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
+                      SizedBox(width: 8,),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        decoration: BoxDecoration(
+                          color: keyColor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "$goldTrophies×",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Image.asset(goldTrophy, scale: 17.5,),
-                          ),
-                        ],
+                            Image.asset(goldTrophy, scale: 17.5,),
+                          ],
+                        ),
                       ),
-                      SizedBox(width: 7.5,),
-                      Row(
-                        children: [
-                          Text(
-                            "$silverTrophies×",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
+                      SizedBox(width: 8,),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        decoration: BoxDecoration(
+                          color: keyColor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "$silverTrophies×",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Image.asset(silverTrophy, scale: 17.5,),
-                          ),
-                        ],
+                            Image.asset(silverTrophy, scale: 17.5,),
+                          ],
+                        ),
                       ),
-                      SizedBox(width: 7.5,),
-                      Row(
-                        children: [
-                          Text(
-                            "$bronzeTrophies×",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
+                      SizedBox(width: 8,),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        decoration: BoxDecoration(
+                          color: keyColor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "$bronzeTrophies×",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Image.asset(bronzeTrophy, scale: 17.5,),
-                          ),
-                        ],
+                            Image.asset(bronzeTrophy, scale: 17.5,),
+                          ],
+                        ),
                       ),
                     ],
                   ),

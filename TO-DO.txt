@@ -8,6 +8,7 @@ flushbar trofeos
 REPASAR PROGUARD
 
 -------OTHERS----------
+letra cell
 record puntuación y racha
 logros
 niveles de dificultad
