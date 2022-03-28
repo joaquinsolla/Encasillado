@@ -56,6 +56,21 @@ class _TrophiesState extends State<Trophies> {
       DeviceOrientation.portraitUp,
     ]);
 
+    String allTag = allTagImgLightmode;
+    String infiniteTag = infiniteTagImgLightmode;
+    String wotdTag = wotdTagImgLightmode;
+
+    if (darkMode){
+      allTag = allTagImgDarkmode;
+      infiniteTag = infiniteTagImgDarkmode;
+      wotdTag = wotdTagImgDarkmode;
+    } else {
+      allTag = allTagImgLightmode;
+      infiniteTag = infiniteTagImgLightmode;
+      wotdTag = wotdTagImgLightmode;
+    }
+
+
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -212,9 +227,9 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Acierta a la primera', 'Progreso: 0%', goldTrophy, atFirstTr),
-                  trophiesRow('25.000 puntos', 'Mejor: $scoreRecord', goldTrophy, points25kTr),
-                  trophiesRow('Racha de 25', 'Mejor: $streakRecord', goldTrophy, streak25Tr),
+                  trophiesRowAdvanced(infiniteTag, 'Acierta a la primera', 'Progreso: 0%', goldTrophy, atFirstTr),
+                  trophiesRowAdvanced(infiniteTag, '25.000 puntos', 'Mejor: $scoreRecord', goldTrophy, points25kTr),
+                  trophiesRowAdvanced(infiniteTag, 'Racha de 25', 'Mejor: $streakRecord', goldTrophy, streak25Tr),
 
                   SizedBox(height: 15,),
                   // SILVER
@@ -229,9 +244,9 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Acierta en 2 intentos', 'Progreso: 0%', silverTrophy, atSecondTr),
-                  trophiesRow('10.000 puntos', 'Mejor: $scoreRecord', silverTrophy, points10kTr),
-                  trophiesRow('Racha de 10', 'Mejor: $streakRecord', silverTrophy, streak10Tr),
+                  trophiesRowAdvanced(infiniteTag, 'Acierta en 2 intentos', 'Progreso: 0%', silverTrophy, atSecondTr),
+                  trophiesRowAdvanced(infiniteTag, '10.000 puntos', 'Mejor: $scoreRecord', silverTrophy, points10kTr),
+                  trophiesRowAdvanced(infiniteTag, 'Racha de 10', 'Mejor: $streakRecord', silverTrophy, streak10Tr),
 
                   SizedBox(height: 15,),
                   // BRONZE
@@ -246,9 +261,26 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Tu primera partida', 'Progreso: 0%', bronzeTrophy, firstPlayTr),
-                  trophiesRow('5.000 puntos', 'Mejor: $scoreRecord', bronzeTrophy, points5kTr),
-                  trophiesRow('Racha de 5', 'Mejor: $streakRecord', bronzeTrophy, streak5Tr),
+                  trophiesRowAdvanced(allTag, 'Tu primera partida', 'Progreso: 0%', bronzeTrophy, firstPlayTr),
+                  trophiesRowAdvanced(infiniteTag, '5.000 puntos', 'Mejor: $scoreRecord', bronzeTrophy, points5kTr),
+                  trophiesRowAdvanced(infiniteTag, 'Racha de 5', 'Mejor: $streakRecord', bronzeTrophy, streak5Tr),
+
+                  SizedBox(height: 15,),
+                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(allTagImgGrey, scale: 15),
+                    smallText(' Todos los modos de juego.'),
+                  ],),
+                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(infiniteTagImgGrey, scale: 15),
+                      smallText(' Solo en Palabras Infinitas.'),
+                    ],),
+                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(wotdTagImgGrey, scale: 15),
+                      smallText(' Solo en La Palabra del Día.'),
+                    ],),
 
                   SizedBox(
                     height: 30,

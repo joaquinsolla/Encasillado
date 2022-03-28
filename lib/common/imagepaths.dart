@@ -39,3 +39,6 @@ const String infiniteTagImgLightmode = 'app_files/infinite_tag.png';
 const String infiniteTagImgDarkmode = 'app_files/infinite_tag_darkmode.png';
 const String wotdTagImgLightmode = 'app_files/wotd_tag.png';
 const String wotdTagImgDarkmode = 'app_files/wotd_tag_darkmode.png';
+const String allTagImgGrey = 'app_files/all_tag_grey.png';
+const String infiniteTagImgGrey = 'app_files/infinite_tag_grey.png';
+const String wotdTagImgGrey = 'app_files/wotd_tag_grey.png';
