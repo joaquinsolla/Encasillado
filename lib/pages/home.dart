@@ -779,7 +779,7 @@ class _HomeState extends State<Home> {
                       bronzeTrophies++;
                       firstPlayTr = true;
                     });
-                    _save_trophy('firstplaytr', 'silver');
+                    _save_trophy('firstplaytr', 'bronze');
                     //TODO: FLUSHBAR
                   }
 
@@ -806,7 +806,7 @@ class _HomeState extends State<Home> {
                         bronzeTrophies++;
                         firstPlayTr = true;
                       });
-                      _save_trophy('firstplaytr', 'silver');
+                      _save_trophy('firstplaytr', 'bronze');
                       //TODO: FLUSHBAR
                     }
 
@@ -934,7 +934,7 @@ class _HomeState extends State<Home> {
                       bronzeTrophies++;
                       firstPlayTr = true;
                     });
-                    _save_trophy('firstplaytr', 'silver');
+                    _save_trophy('firstplaytr', 'bronze');
                     //TODO: FLUSHBAR
                   }
 
@@ -962,7 +962,7 @@ class _HomeState extends State<Home> {
                         bronzeTrophies++;
                         firstPlayTr = true;
                       });
-                      _save_trophy('firstplaytr', 'silver');
+                      _save_trophy('firstplaytr', 'bronze');
                       //TODO: FLUSHBAR
                     }
 

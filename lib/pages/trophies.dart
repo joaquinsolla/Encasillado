@@ -56,21 +56,6 @@ class _TrophiesState extends State<Trophies> {
       DeviceOrientation.portraitUp,
     ]);
 
-    /** TROPHIES PROGRESS */
-    String allTrophiesProg = '0';
-    String atFirstProg = '0';
-    String atSecondProg = '0';
-    String streak25Prog = '0';
-    String streak10Prog = '0';
-    String streak5Prog = '0';
-    String points25kProg = '0';
-    String points10kProg = '0';
-    String points5kProg = '0';
-    String firstPlayProg = '0';
-
-    /** CALCULATE TROPHIES PROGRESS */
-
-
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -212,7 +197,7 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Todos los trofeos', 'Progreso: $allTrophiesProg%', diamondTrophy, allTrophiesTr),
+                  trophiesRow('Todos los trofeos', 'Progreso: $totalTrophies de 9', diamondTrophy, allTrophiesTr),
 
                   SizedBox(height: 15,),
                   // GOLD
@@ -227,9 +212,9 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Acierta a la primera', 'Progreso: $atFirstProg%', goldTrophy, atFirstTr),
-                  trophiesRow('25.000 puntos', 'Mejor: $points25kProg', goldTrophy, points25kTr),
-                  trophiesRow('Racha de 25', 'Mejor: $streak25Prog', goldTrophy, streak25Tr),
+                  trophiesRow('Acierta a la primera', 'Progreso: 0%', goldTrophy, atFirstTr),
+                  trophiesRow('25.000 puntos', 'Mejor: $scoreRecord', goldTrophy, points25kTr),
+                  trophiesRow('Racha de 25', 'Mejor: $streakRecord', goldTrophy, streak25Tr),
 
                   SizedBox(height: 15,),
                   // SILVER
@@ -244,9 +229,9 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Acierta en 2 intentos', 'Progreso: $atSecondProg%', silverTrophy, atSecondTr),
-                  trophiesRow('10.000 puntos', 'Mejor: $points10kProg', silverTrophy, points10kTr),
-                  trophiesRow('Racha de 10', 'Mejor: $streak10Prog', silverTrophy, streak10Tr),
+                  trophiesRow('Acierta en 2 intentos', 'Progreso: 0%', silverTrophy, atSecondTr),
+                  trophiesRow('10.000 puntos', 'Mejor: $scoreRecord', silverTrophy, points10kTr),
+                  trophiesRow('Racha de 10', 'Mejor: $streakRecord', silverTrophy, streak10Tr),
 
                   SizedBox(height: 15,),
                   // BRONZE
@@ -261,9 +246,9 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Tu primera partida', 'Progreso: $firstPlayProg%', bronzeTrophy, firstPlayTr),
-                  trophiesRow('5.000 puntos', 'Mejor: $points5kProg', bronzeTrophy, points5kTr),
-                  trophiesRow('Racha de 5', 'Mejor: $streak5Prog', bronzeTrophy, streak5Tr),
+                  trophiesRow('Tu primera partida', 'Progreso: 0%', bronzeTrophy, firstPlayTr),
+                  trophiesRow('5.000 puntos', 'Mejor: $scoreRecord', bronzeTrophy, points5kTr),
+                  trophiesRow('Racha de 5', 'Mejor: $streakRecord', bronzeTrophy, streak5Tr),
 
                   SizedBox(
                     height: 30,
