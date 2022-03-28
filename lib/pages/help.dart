@@ -84,7 +84,7 @@ class _HelpState extends State<Help> {
                     height: 5,
                   ),
                   Text(
-                    "¿Cómo jugar?",
+                    "Cómo jugar",
                     style: TextStyle(
                       fontSize: 25,
                       color: appBlack,

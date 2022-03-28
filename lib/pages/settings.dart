@@ -177,7 +177,7 @@ class _SettingsState extends State<Settings> {
                   height: 5,
                 ),
                 settingsRowAdvanced(
-                  '¿Cómo jugar?', '¿Necesitas ayuda para jugar?',
+                  'Cómo jugar', '¿Necesitas ayuda para jugar?',
                   TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/help');
