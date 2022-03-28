@@ -1,3 +1,4 @@
+import 'package:Encasillado/common/methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -103,7 +104,7 @@ class _TrophiesState extends State<Trophies> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        padding: const EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 3.0),
                         decoration: BoxDecoration(
                           color: keyColor,
                           borderRadius: BorderRadius.circular(5),
@@ -111,7 +112,7 @@ class _TrophiesState extends State<Trophies> {
                         child: Row(
                           children: [
                             Text(
-                              "$diamondTrophies×",
+                              "$diamondTrophies  ",
                               style: TextStyle(
                                 fontSize: 20,
                                 color: appBlack,
@@ -127,7 +128,7 @@ class _TrophiesState extends State<Trophies> {
                       ),
                       SizedBox(width: 8,),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        padding: const EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 3.0),
                         decoration: BoxDecoration(
                           color: keyColor,
                           borderRadius: BorderRadius.circular(5),
@@ -135,7 +136,7 @@ class _TrophiesState extends State<Trophies> {
                         child: Row(
                           children: [
                             Text(
-                              "$goldTrophies×",
+                              "$goldTrophies  ",
                               style: TextStyle(
                                 fontSize: 20,
                                 color: appBlack,
@@ -151,7 +152,7 @@ class _TrophiesState extends State<Trophies> {
                       ),
                       SizedBox(width: 8,),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        padding: const EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 3.0),
                         decoration: BoxDecoration(
                           color: keyColor,
                           borderRadius: BorderRadius.circular(5),
@@ -159,7 +160,7 @@ class _TrophiesState extends State<Trophies> {
                         child: Row(
                           children: [
                             Text(
-                              "$silverTrophies×",
+                              "$silverTrophies  ",
                               style: TextStyle(
                                 fontSize: 20,
                                 color: appBlack,
@@ -175,7 +176,7 @@ class _TrophiesState extends State<Trophies> {
                       ),
                       SizedBox(width: 8,),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
+                        padding: const EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 3.0),
                         decoration: BoxDecoration(
                           color: keyColor,
                           borderRadius: BorderRadius.circular(5),
@@ -183,7 +184,7 @@ class _TrophiesState extends State<Trophies> {
                         child: Row(
                           children: [
                             Text(
-                              "$bronzeTrophies×",
+                              "$bronzeTrophies  ",
                               style: TextStyle(
                                 fontSize: 20,
                                 color: appBlack,
