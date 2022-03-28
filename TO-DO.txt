@@ -1,7 +1,6 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-nuevas palabras
 
 -------OTHERS----------
 mantener wotd

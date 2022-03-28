@@ -101,10 +101,10 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Acertar palabras te sumará puntos. Cuanto más rápido seas y "
-                        "menos intentos necesites, más puntos obtendrás. Acertar "
-                        "al primer intento otorga 10.000 puntos. No acertar en los "
-                        "6 intentos resta 300 puntos.\n",
+                    "Acertar palabras te sumará puntos.\n"
+                        "Cuanto más rápido seas y menos intentos necesites, más puntos obtendrás.\n"
+                        "Acertar al primer intento otorga 10.000 puntos.\n"
+                        "No acertar en los 6 intentos resta 300 puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -168,8 +168,8 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Las rachas actúan de pequeños multiplicadores para la puntuación. "
-                        "Obtendrás una racha acertando palabras consecutivamente. "
+                    "Las rachas actúan de pequeños multiplicadores para la puntuación.\n"
+                        "Obtendrás una racha acertando palabras consecutivamente.\n"
                         "Perder una partida supone regresar a una racha de 0.\n",
                     style: TextStyle(
                       fontSize: 15,
