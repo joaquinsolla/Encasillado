@@ -284,9 +284,6 @@ class _HomeState extends State<Home> {
     final totalTrophiesKey = 'totaltrophies';
     final totalTrophiesValue = prefs.getInt(totalTrophiesKey) ?? 0;
 
-    final diamondTrophiesKey = 'diamondtrophies';
-    final diamondTrophiesValue = prefs.getInt(diamondTrophiesKey) ?? 0;
-
     final goldTrophiesKey = 'goldtrophies';
     final goldTrophiesValue = prefs.getInt(goldTrophiesKey) ?? 0;
 
@@ -329,7 +326,6 @@ class _HomeState extends State<Home> {
 
     setState(() {
       totalTrophies = totalTrophiesValue;
-      diamondTrophies = diamondTrophiesValue;
       goldTrophies = goldTrophiesValue;
       silverTrophies = silverTrophiesValue;
       bronzeTrophies = bronzeTrophiesValue;
@@ -383,11 +379,6 @@ class _HomeState extends State<Home> {
         allTrophiesTr = true;
         diamondTrophies = 1;
       });
-      final key4 = 'alltrophiestr'; // trophy
-      final key5 = 'diamondtrophies'; // trophy type
-
-      prefs.setBool(key4, true);
-      prefs.setInt(key5, 1);
 
       diamondTrophyFlushbar(context);
 

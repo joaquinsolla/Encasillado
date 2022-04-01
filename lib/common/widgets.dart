@@ -30,6 +30,7 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
           width: 40,
           child: RawMaterialButton(
             onPressed: () {
+              check_diamond_trophy();
               Navigator.pushNamed(context, '/trophies');
             },
             elevation: 0,

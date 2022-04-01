@@ -57,6 +57,8 @@ bool timeStartedInfinite = false;
 bool timeStartedWotd = false;
 bool newInfiniteGame = false;
 bool showAds = true;
+bool extraTryWotd = false;
+bool extraTryInfinite = false;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;

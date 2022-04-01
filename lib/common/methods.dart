@@ -47,6 +47,16 @@ void wotd_generate_word() {
   print("WOTD: " + wotdString);
 }
 
+void check_diamond_trophy(){
+  if (totalTrophies == 9) {
+    diamondTrophies = 1;
+    allTrophiesTr = true;
+  } else {
+    diamondTrophies = 0;
+    allTrophiesTr = false;
+  }
+}
+
 void url_launcher(String url) async {
   if (await canLaunch(url)) {
     await launch(url);
