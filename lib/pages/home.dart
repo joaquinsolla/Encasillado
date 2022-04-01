@@ -1415,8 +1415,8 @@ class _HomeState extends State<Home> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOutCirc,
-      width: ((deviceHeight * 0.53) / 6) -8,
-      height: ((deviceHeight * 0.53) / 6) -8,
+      width: ((deviceHeight * 0.46) / 6),
+      height: ((deviceHeight * 0.46) / 6),
       margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
       padding: const EdgeInsets.all(0.0),
       alignment: Alignment.center,
@@ -1427,7 +1427,7 @@ class _HomeState extends State<Home> {
       child: Text(
         char,
         style:
-        TextStyle(fontSize: ((deviceHeight * 0.52) / 6 - 21), color: appBlack),
+        TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
       ),
     );
   }
