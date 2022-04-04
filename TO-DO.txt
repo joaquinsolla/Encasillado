@@ -1,8 +1,8 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+wotdWrite false
 7a oportunidad
-trofeos partidas seguidas (7,15,30)
 
 -------OTHERS----------
 mantener wotd

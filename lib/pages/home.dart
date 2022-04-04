@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_version/new_version.dart';
 import 'package:intl/intl.dart';
+import 'package:slide_countdown_clock/slide_countdown_clock.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -653,9 +656,10 @@ class _HomeState extends State<Home> {
         ),
         if (currentPage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), releaseNotesButton(context)),
         if (currentPage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
-        if (currentPage == 0) wotdLettersField(),
+        if (currentPage == 0 && 1==2) wotdLettersField(),
         if (currentPage == 1) infiniteLettersField(),
-        Expanded(child: Text(""),),
+        if (true) wotdDoneWaiting(),
+        if (1==2) Expanded(child: Text(""),),
         if (_isBannerAdReady) smallText('ADVERTISING'),
         if (_isBannerAdReady) Align(
           alignment: Alignment.topCenter,
@@ -1538,6 +1542,28 @@ class _HomeState extends State<Home> {
     );
   }
 
+  AnimatedContainer doneLetterCell(String char) {
+
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 750),
+      curve: Curves.easeInOutCirc,
+      width: ((deviceHeight * 0.46) / 6),
+      height: ((deviceHeight * 0.46) / 6),
+      margin: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 6.0),
+      padding: const EdgeInsets.all(0.0),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: appGreen,
+        border: Border.all(color: appSemiBlack, width: 0.0),
+      ),
+      child: Text(
+        char,
+        style:
+        TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
+      ),
+    );
+  }
+
   Row wotdLetterRow(int _from) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -1605,6 +1631,78 @@ class _HomeState extends State<Home> {
   }
 
   // OTHERS
+
+  Expanded wotdDoneWaiting(){
+
+    final tomorrowDate = DateTime.now().add(new Duration(days: 1));
+    final tomorrowDay = tomorrowDate.day.toString().padLeft(2, '0');;
+    final tomorrowMonth = tomorrowDate.month.toString().padLeft(2, '0');;
+    final tomorrowYear = tomorrowDate.year;
+    final tomorrow = DateTime.parse("$tomorrowYear-$tomorrowMonth-$tomorrowDay 00:00:00.000000");
+
+    final differenceSeconds = tomorrow.difference(DateTime.now()).inSeconds;
+
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Ya has resuelto la palabra de hoy:',
+            style: TextStyle(
+              fontSize: 19,
+              color: appBlack,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+          ),
+          SizedBox(height: 15,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              doneLetterCell(wotdArray[0]),
+              doneLetterCell(wotdArray[1]),
+              doneLetterCell(wotdArray[2]),
+              doneLetterCell(wotdArray[3]),
+              doneLetterCell(wotdArray[4]),
+            ],
+          ),
+          SizedBox(height: 15,),
+          Text(
+            'Una palabra nueva en:',
+            style: TextStyle(
+              fontSize: 19,
+              color: appBlack,
+              fontWeight: FontWeight.normal,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+          ),
+          SizedBox(height: 5,),
+          SlideCountdownClock(
+            duration: Duration(seconds: differenceSeconds),
+            slideDirection: SlideDirection.Up,
+            separator: ":",
+            textStyle: TextStyle(
+              fontSize: 19,
+              color: appBlack,
+              fontWeight: FontWeight.w500,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),
+            shouldShowDays: false,
+            onDone: () {
+              wotd_generate_word();
+              //TODO: ACTUALIZAR CONTROLLERS
+              Navigator.pushNamed(context, '/home');
+            },
+          ),
+        ],
+      ),
+    );
+  }
 
   void check_device() {
     setState(() {
