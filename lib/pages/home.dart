@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_version/new_version.dart';
+import 'package:intl/intl.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -19,7 +20,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  /** PERSISTENT DATA MANAGEMENT */
+  /** PERSISTENT DATA MANAGEMENT & TROPHIES*/
   _read_colorblind() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
@@ -324,6 +325,15 @@ class _HomeState extends State<Home> {
     final firstPlayTrKey = 'firstplaytr';
     final firstPlayTrValue = prefs.getBool(firstPlayTrKey) ?? false;
 
+    final days7wotdTrKey = 'days7wotdtr';
+    final days7wotdTrValue = prefs.getBool(days7wotdTrKey) ?? false;
+
+    final days15wotdTrKey = 'days15wotdtr';
+    final days15wotdTrValue = prefs.getBool(days15wotdTrKey) ?? false;
+
+    final days30wotdTrKey = 'days30wotdtr';
+    final days30wotdTrValue = prefs.getBool(days30wotdTrKey) ?? false;
+
     setState(() {
       totalTrophies = totalTrophiesValue;
       goldTrophies = goldTrophiesValue;
@@ -339,6 +349,9 @@ class _HomeState extends State<Home> {
       points10kTr = points10kTrValue;
       points25kTr = points25kTrValue;
       firstPlayTr = firstPlayTrValue;
+      days7wotdTr = days7wotdTrValue;
+      days15wotdTr = days15wotdTrValue;
+      days30wotdTr = days30wotdTrValue;
     });
 
     print('read: trophies');
@@ -374,7 +387,7 @@ class _HomeState extends State<Home> {
     prefs.setBool(key1, true);
     prefs.setInt(key3, totalTrophies);
 
-    if (totalTrophies >= 9){
+    if (totalTrophies >= 12){
       setState(() {
         allTrophiesTr = true;
         diamondTrophies = 1;
@@ -383,6 +396,102 @@ class _HomeState extends State<Home> {
       diamondTrophyFlushbar(context);
 
     } else trophyFlushbar(context, msg);
+  }
+
+  _read_last_day_wotd() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'lastdaywotd';
+    final value = prefs.getString(key) ?? '2000-01-01';
+    print('read: $value for lastdaywotd');
+    setState(() {
+      lastDayWotd = value;
+    });
+  }
+
+  _save_last_day_wotd(String value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'lastdaywotd';
+    prefs.setString(key, value);
+    print('saved $value on lastdaywotd');
+  }
+
+  _read_consecutive_days_wotd() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'consecutivedayswotd';
+    final value = prefs.getInt(key) ?? 0;
+    print('read: $value for consecutivedayswotd');
+    setState(() {
+      consecutiveDaysWotd = value;
+    });
+  }
+
+  _save_consecutive_days_wotd(int value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'consecutivedayswotd';
+    prefs.setInt(key, value);
+    print('saved $value on consecutivedayswotd');
+  }
+
+  void check_wotd_days() {
+
+    final format = DateFormat('yyyy-MM-dd');
+    final now = format.format(DateTime.now());
+
+    DateTime today = DateTime.parse(now);
+    DateTime lastDay = DateTime.parse(lastDayWotd);
+
+    var yesterday = new DateTime(today.year, today.month, today.day - 1);
+
+    if(yesterday.compareTo(lastDay) == 0){
+      print('- Last wotd game was yesterday: OK');
+      setState(() {
+        consecutiveDaysWotd++;
+      });
+
+    } else {
+      print("- Last wotd game wasn't yesterday");
+      if(today.compareTo(lastDay) == 0){}
+      else {
+        setState(() {
+          consecutiveDaysWotd=1;
+        });
+      }
+
+    }
+
+    setState(() {
+      lastDayWotd = DateFormat('yyyy-MM-dd').format(today);
+    });
+
+    _save_last_day_wotd(lastDayWotd);
+    _save_consecutive_days_wotd(consecutiveDaysWotd);
+
+    /** CHECK TROPHIES */
+    if (days7wotdTr == false && consecutiveDaysWotd == 7) {
+      setState(() {
+        days7wotdTr = true;
+        bronzeTrophies++;
+        totalTrophies++;
+        _save_trophy('days7wotdtr', 'bronze');
+      });
+    }
+    if (days15wotdTr == false && consecutiveDaysWotd == 15) {
+      setState(() {
+        days15wotdTr = true;
+        silverTrophies++;
+        totalTrophies++;
+        _save_trophy('days15wotdtr', 'silver');
+      });
+    }
+    if (days30wotdTr == false && consecutiveDaysWotd == 30) {
+      setState(() {
+        days30wotdTr = true;
+        goldTrophies++;
+        totalTrophies++;
+        _save_trophy('days30wotdtr', 'gold');
+      });
+    }
+
   }
 
   // ADMOB MANAGEMENT
@@ -449,6 +558,8 @@ class _HomeState extends State<Home> {
       _read_records();
       _read_stats();
       _read_trophies();
+      _read_last_day_wotd();
+      _read_consecutive_days_wotd();
 
       check_settings();
 
@@ -765,6 +876,8 @@ class _HomeState extends State<Home> {
                       _save_wotd_stats(6, winsAtSixthWotd, totalWotdGames);
                     }
 
+                    check_wotd_days();
+
                   }
                   /** TROPHY FIRST PLAY */
                   if (firstPlayTr == false){
@@ -790,6 +903,8 @@ class _HomeState extends State<Home> {
                       });
 
                       _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
+
+                      check_wotd_days();
 
                     }
                     /** TROPHY FIRST PLAY */

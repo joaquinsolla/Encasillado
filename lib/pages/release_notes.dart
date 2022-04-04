@@ -82,7 +82,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
-                    "¡Presentando a los trofeos!",
+                    "Nuevos trofeos",
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -93,34 +93,8 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Ahora el juego cuenta con un apartado de trofeos en el que "
-                        "se te presentarán retos y desafíos. ¡A por todos ellos!\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Apartado de estadísticas",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se ha incorporado al juego un nuevo apartado en el que "
-                        "podrás consultar tus estadísticas de juego.\n",
+                    "Ya están disponibles nuevos trofeos para el modo 'La Palabra "
+                        "del Día'. ¿Podrás conseguirlos todos?\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -146,32 +120,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   ),
                   Text(
                     "Se han añadido nuevas palabras al repertorio del juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Corrección de bugs",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Corregidos varios errores tanto en la interfaz como en "
-                    "el funcionamiento del juego.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

@@ -1,4 +1,3 @@
-import 'package:Encasillado/common/methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -231,6 +230,7 @@ class _TrophiesState extends State<Trophies> {
                   trophiesRowAdvanced(infiniteTag, 'Acierta a la primera', 'Progreso: 0%', goldTrophy, atFirstTr),
                   trophiesRowAdvanced(infiniteTag, '25.000 puntos', 'Mejor: $scoreRecord', goldTrophy, points25kTr),
                   trophiesRowAdvanced(infiniteTag, 'Racha de 25', 'Mejor: $streakRecord', goldTrophy, streak25Tr),
+                  trophiesRowAdvanced(wotdTag, 'Juega 30 días seguidos', 'Actual: $consecutiveDaysWotd', goldTrophy, days30wotdTr),
 
                   SizedBox(height: 15,),
                   // SILVER
@@ -248,6 +248,7 @@ class _TrophiesState extends State<Trophies> {
                   trophiesRowAdvanced(infiniteTag, 'Acierta en 2 intentos', 'Progreso: 0%', silverTrophy, atSecondTr),
                   trophiesRowAdvanced(infiniteTag, '10.000 puntos', 'Mejor: $scoreRecord', silverTrophy, points10kTr),
                   trophiesRowAdvanced(infiniteTag, 'Racha de 10', 'Mejor: $streakRecord', silverTrophy, streak10Tr),
+                  trophiesRowAdvanced(wotdTag, 'Juega 15 días seguidos', 'Actual: $consecutiveDaysWotd', silverTrophy, days15wotdTr),
 
                   SizedBox(height: 15,),
                   // BRONZE
@@ -265,6 +266,7 @@ class _TrophiesState extends State<Trophies> {
                   trophiesRowAdvanced(allTag, 'Tu primera partida', 'Progreso: 0%', bronzeTrophy, firstPlayTr),
                   trophiesRowAdvanced(infiniteTag, '5.000 puntos', 'Mejor: $scoreRecord', bronzeTrophy, points5kTr),
                   trophiesRowAdvanced(infiniteTag, 'Racha de 5', 'Mejor: $streakRecord', bronzeTrophy, streak5Tr),
+                  trophiesRowAdvanced(wotdTag, 'Juega 7 días seguidos', 'Actual: $consecutiveDaysWotd', bronzeTrophy, days7wotdTr),
 
                   SizedBox(height: 15,),
                   Row(mainAxisAlignment: MainAxisAlignment.start,

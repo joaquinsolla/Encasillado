@@ -3,7 +3,6 @@
 -------PRIORITY--------
 7a oportunidad
 trofeos partidas seguidas (7,15,30)
-comprobar diamante
 
 -------OTHERS----------
 mantener wotd

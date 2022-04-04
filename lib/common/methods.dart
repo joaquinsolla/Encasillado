@@ -48,7 +48,7 @@ void wotd_generate_word() {
 }
 
 void check_diamond_trophy(){
-  if (totalTrophies == 9) {
+  if (totalTrophies == 12) {
     diamondTrophies = 1;
     allTrophiesTr = true;
   } else {

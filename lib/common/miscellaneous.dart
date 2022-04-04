@@ -24,6 +24,8 @@ int winsAtSixthWotd = 0;
 int defeatsAtWotd = 0;
 int streakRecord = 0;
 int scoreRecord = 0;
+String lastDayWotd = '2000-01-01';
+int consecutiveDaysWotd = 0;
 
 /** PERSISTENT TROPHIES */
 int totalTrophies = 0; // 9 - not diamond
@@ -41,6 +43,9 @@ bool points5kTr = false;
 bool points10kTr = false;
 bool points25kTr = false;
 bool firstPlayTr = false;
+bool days7wotdTr = false;
+bool days15wotdTr = false;
+bool days30wotdTr = false;
 
 
 /** CONTROLLERS */
