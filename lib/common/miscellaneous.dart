@@ -26,6 +26,7 @@ int streakRecord = 0;
 int scoreRecord = 0;
 String lastDayWotd = '2000-01-01';
 int consecutiveDaysWotd = 0;
+bool wotdDone = false;
 
 /** PERSISTENT TROPHIES */
 int totalTrophies = 0; // 9 - not diamond

@@ -1,10 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-wotdWrite false
+actualizar tags trofeos + añadir revision
 7a oportunidad
 
 -------OTHERS----------
-mantener wotd
 
 -------REVIEW----------

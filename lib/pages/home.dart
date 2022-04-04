@@ -409,6 +409,8 @@ class _HomeState extends State<Home> {
     setState(() {
       lastDayWotd = value;
     });
+
+    check_wotd_done();
   }
 
   _save_last_day_wotd(String value) async {
@@ -492,6 +494,31 @@ class _HomeState extends State<Home> {
         goldTrophies++;
         totalTrophies++;
         _save_trophy('days30wotdtr', 'gold');
+      });
+    }
+
+  }
+
+  void check_wotd_done() {
+
+    final format = DateFormat('yyyy-MM-dd');
+    final now = format.format(DateTime.now());
+
+    DateTime today = DateTime.parse(now);
+    DateTime lastDay = DateTime.parse(lastDayWotd);
+
+    print(today);
+    print(lastDay);
+
+    if(today.compareTo(lastDay) == 0){
+      setState(() {
+        canWriteWotd = false;
+        wotdDone = true;
+      });
+    } else {
+      setState(() {
+        canWriteWotd = true;
+        wotdDone = false;
       });
     }
 
@@ -656,10 +683,11 @@ class _HomeState extends State<Home> {
         ),
         if (currentPage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), releaseNotesButton(context)),
         if (currentPage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
-        if (currentPage == 0 && 1==2) wotdLettersField(),
+        if (currentPage == 0 && wotdDone == false) wotdLettersField(),
         if (currentPage == 1) infiniteLettersField(),
-        if (true) wotdDoneWaiting(),
-        if (1==2) Expanded(child: Text(""),),
+        if (currentPage == 0 && wotdDone == true) wotdDoneWaiting(),
+        if (currentPage == 0 && wotdDone == false) Expanded(child: Text(""),),
+        if (currentPage == 1) Expanded(child: Text(""),),
         if (_isBannerAdReady) smallText('ADVERTISING'),
         if (_isBannerAdReady) Align(
           alignment: Alignment.topCenter,
@@ -1694,8 +1722,12 @@ class _HomeState extends State<Home> {
             ),
             shouldShowDays: false,
             onDone: () {
+              setState(() {
+                appStarted = false;
+                canWriteWotd = true;
+                wotdDone = false;
+              });
               wotd_generate_word();
-              //TODO: ACTUALIZAR CONTROLLERS
               Navigator.pushNamed(context, '/home');
             },
           ),
