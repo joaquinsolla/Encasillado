@@ -82,6 +82,33 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
+                    "Modo 'La Palabra del Día' mejorado",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Ahora no podrás repetir la palabra una vez la hayas resuelto, "
+                        "tendrás que esperar al día siguiente para poder jugar la "
+                        "próxima, de esta forma se evitan trampas.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
                     "Nuevos trofeos",
                     style: TextStyle(
                       fontSize: 16,
@@ -94,7 +121,8 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   ),
                   Text(
                     "Ya están disponibles nuevos trofeos para el modo 'La Palabra "
-                        "del Día'. ¿Podrás conseguirlos todos?\n",
+                        "del Día'. También se han actualizado algunos trofeos que "
+                        "ya estaban en el juego. ¿Podrás conseguirlos todos?\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
@@ -194,32 +222,8 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Pronto se añadirán nuevos trofeos y desafíos al juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(height: 7.5,),
-                  Text(
-                    "Conservar el progreso de la palabra del día",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se está estudiando la posibilidad de mantener el progreso "
-                        "de la palabra del día así como incorporar la limitación"
-                        " de poder resolverla solo una vez al día.\n",
+                    "Se están preparando nuevos trofeos para añadir más retos al "
+                        "juego.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

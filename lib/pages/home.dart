@@ -874,14 +874,30 @@ class _HomeState extends State<Home> {
                         winsAtFirstWotd++;
                       });
                       _save_wotd_stats(1, winsAtFirstWotd, totalWotdGames);
-                      // trophy
+                      /** TROPHY: A LA PRIMERA */
+                      if (atFirstTr == false){
+                        setState(() {
+                          totalTrophies++;
+                          goldTrophies++;
+                          atFirstTr = true;
+                        });
+                        _save_trophy('atfirsttr', 'gold');
+                      }
                     }
                     if ((currentRowWotd+1) == 2) {
                       setState(() {
                         winsAtSecondWotd++;
                       });
                       _save_wotd_stats(2, winsAtSecondWotd, totalWotdGames);
-                      // trophy
+                      /** TROPHY: A LA SEGUNDA */
+                      if (atSecondTr == false){
+                        setState(() {
+                          totalTrophies++;
+                          silverTrophies++;
+                          atSecondTr = true;
+                        });
+                        _save_trophy('atsecondtr', 'silver');
+                      }
                     }
                     if ((currentRowWotd+1) == 3) {
                       setState(() {
