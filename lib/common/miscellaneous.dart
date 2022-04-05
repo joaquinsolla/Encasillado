@@ -1,5 +1,5 @@
 /** APP VERSION */
-const String appVersion = "1.2.0 Beta";
+const String appVersion = "1.2.1";
 
 /** PERSISTENT DATA */
 bool colorBlind = false;

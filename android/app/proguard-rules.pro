@@ -9,6 +9,7 @@
 -keep class io.flutter.material.**  { *; }
 -keep class io.flutter.services.**  { *; }
 -keep class io.flutter.widgets.**  { *; }
+-keep class intl.** { *; }
 -keep class google_mobile_ads.**  { *; }
 -keep class mailto.**  { *; }
 -keep class social_share.**  { *; }
@@ -17,4 +18,4 @@
 -keep class twitter_intent.**  { *; }
 -keep class shared_preferences.** { *; }
 -keep class new_version.** { *; }
-
+-keep class slide_countdown_clock.** { *; }
