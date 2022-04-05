@@ -1690,7 +1690,7 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Ya has resuelto la palabra de hoy:',
+            'Ya has jugado la palabra de hoy:',
             style: TextStyle(
               fontSize: 19,
               color: appBlack,
