@@ -1821,10 +1821,10 @@ class _HomeState extends State<Home> {
                           ),
                           onPressed: () {
                             if (_isRewardedAdReady) {
+                              Navigator.pop(context);
                               _rewardedAd.show(onUserEarnedReward: (
                                   RewardedAd ad,
                                   RewardItem reward) {
-                                Navigator.pop(context);
 
                                 // Retrocedemos las variables 1 intento
                                 setState(() {
@@ -1856,7 +1856,7 @@ class _HomeState extends State<Home> {
                                 });
                               });
                             }
-                            _loadRewardedAd(); // Cargamos el siguiente anuncio por si sale del acutal
+                            else internetConnectionFlushbar(context);
                           },
                           child: Text('VALE'),
                         ),),
@@ -1915,9 +1915,9 @@ class _HomeState extends State<Home> {
                         ),
                         onPressed: () {
                           if (_isRewardedAdReady) {
+                            Navigator.pop(context);
                             _rewardedAd.show(onUserEarnedReward: (RewardedAd ad,
                                 RewardItem reward) {
-                              Navigator.pop(context);
 
                               // Retrocedemos las variables 1 intento
                               setState(() {
@@ -1951,7 +1951,7 @@ class _HomeState extends State<Home> {
                               });
                             });
                           }
-                          _loadRewardedAd(); // Cargamos el siguiente anuncio por si sale del acutal
+                          else internetConnectionFlushbar(context);
                         },
                         child: Text('VALE'),
                       ),),),
