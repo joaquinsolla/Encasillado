@@ -13,7 +13,7 @@
 -keep class google_mobile_ads.**  { *; }
 -keep class mailto.**  { *; }
 -keep class social_share.**  { *; }
--keep class flushbar.**  { *; }
+-keep class another_flushbar.**  { *; }
 -keep class url_launcher.**  { *; }
 -keep class twitter_intent.**  { *; }
 -keep class shared_preferences.** { *; }

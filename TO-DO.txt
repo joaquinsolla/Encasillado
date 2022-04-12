@@ -1,9 +1,9 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-mejorar dialogo rewarded ad
-revisar quitado proguard
+
 
 -------OTHERS----------
+local notifications
 
 -------REVIEW----------
