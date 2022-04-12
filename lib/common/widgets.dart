@@ -583,21 +583,13 @@ void wordDoesNotExistFlushbar(BuildContext context) {
 }
 
 void internetConnectionFlushbar(BuildContext context) {
-  if (darkMode){
     Flushbar(
-      message: "Revisa tu conexión a internet y vuelve a intentarlo",
+      message: "Revisa tu conexión a Internet y vuelve a intentarlo",
       duration: Duration(seconds: 3),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.red,
       flushbarPosition: FlushbarPosition.TOP,
     ).show(context);
-  } else {
-    Flushbar(
-      message: "Revisa tu conexión a internet y vuelve a intentarlo",
-      duration: Duration(seconds: 3),
-      backgroundColor: Colors.grey,
-      flushbarPosition: FlushbarPosition.TOP,
-    ).show(context);
-  }
+
 }
 
 void trophyFlushbar(BuildContext context, String content) {
