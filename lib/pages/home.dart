@@ -524,7 +524,40 @@ class _HomeState extends State<Home> {
 
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
+  late RewardedAd _rewardedAd;
   bool _isBannerAdReady = false;
+  bool _isRewardedAdReady = false;
+
+  void _loadRewardedAd() {
+    RewardedAd.load(
+      adUnitId: AdHelper.rewardedAdUnitId,
+      request: AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (ad) {
+          this._rewardedAd = ad;
+
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              setState(() {
+                _isRewardedAdReady = false;
+              });
+              _loadRewardedAd();
+            },
+          );
+
+          setState(() {
+            _isRewardedAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load a rewarded ad: ${err.message}');
+          setState(() {
+            _isRewardedAdReady = false;
+          });
+        },
+      ),
+    );
+  }
 
   Future<InitializationStatus> _initGoogleMobileAds() {
     return MobileAds.instance.initialize();
@@ -536,6 +569,12 @@ class _HomeState extends State<Home> {
   }
 
   @override
+  void dispose() {
+    _rewardedAd.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
 
     // VERSION MANAGEMENT
@@ -543,7 +582,6 @@ class _HomeState extends State<Home> {
       iOSId: '',
       androidId: 'com.joa.encasillado',
     );
-
     if (appStarted ==  false) statusCheck(newVersion);
 
     if (showAds) {
@@ -568,6 +606,8 @@ class _HomeState extends State<Home> {
 
       _bannerAd.load();
     }
+
+    _loadRewardedAd();
   }
 
   @override
@@ -850,23 +890,19 @@ class _HomeState extends State<Home> {
           style:
           TextButton.styleFrom(primary: appBlack, backgroundColor: keyColor),
           onPressed: () {
-            if ((currentCellWotd == 5 ||
-                currentCellWotd == 10 ||
-                currentCellWotd == 15 ||
-                currentCellWotd == 20 ||
-                currentCellWotd == 25 ||
-                currentCellWotd == 30) &&
-                canWriteWotd == false) {
+            // Si está al final de alguna fila
+            if ((currentCellWotd == 5 || currentCellWotd == 10 || currentCellWotd == 15 || currentCellWotd == 20 || currentCellWotd == 25 || currentCellWotd == 30) && canWriteWotd == false) {
+              // Si la palabra existe
               if (wotd_word_exists()) {
+                // Si acierta la palabra
                 if (wotd_check_word()) {
+                  // Si no se marcó como acabado el juego
                   if (finishedWotd == false) {
-
                     setState(() {
                       finishedWotd = true;
                       wonGameWotd = true;
                       totalWotdGames++;
                     });
-
                     if ((currentRowWotd+1) == 1) {
                       setState(() {
                         winsAtFirstWotd++;
@@ -923,7 +959,6 @@ class _HomeState extends State<Home> {
                     }
 
                     check_wotd_days();
-
                   }
                   /** TROPHY FIRST PLAY */
                   if (firstPlayTr == false){
@@ -936,45 +971,81 @@ class _HomeState extends State<Home> {
                   }
 
                   Navigator.pushNamed(context, '/wotd_end');
-                } else {
+                }
+
+                // Si no acierta la palabra
+                else {
+                  // Si estaba en el último intento
                   if (currentCellWotd == 30) {
-                    if (finishedWotd == false) {
+                    // Si no se ha presentado la 7a oportunidad
+                    if (extraTryWotd == false) {
+                      /** TROPHY FIRST PLAY */
+                      if (firstPlayTr == false) {
+                        setState(() {
+                          totalTrophies++;
+                          bronzeTrophies++;
+                          firstPlayTr = true;
+                        });
+                        _save_trophy('firstplaytr', 'bronze');
+                      }
 
                       setState(() {
+                        extraTryWotd = true;
                         finishedWotd = true;
                         wonGameWotd = false;
-                        finishedWotd = true;
                         totalWotdGames++;
                         defeatsAtWotd++;
                       });
 
                       _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
-
                       check_wotd_days();
 
-                    }
-                    /** TROPHY FIRST PLAY */
-                    if (firstPlayTr == false){
-                      setState(() {
-                        totalTrophies++;
-                        bronzeTrophies++;
-                        firstPlayTr = true;
-                      });
-                      _save_trophy('firstplaytr', 'bronze');
+                      _showExtraTryDialogWotd();
                     }
 
-                    Navigator.pushNamed(context, '/wotd_end');
-                  } else {
+                    // Si ya se ha presentado la 7a oportunidad
+                    else {
+                      // Si no se ha marcado como finalizado el juego
+                      if (finishedWotd == false){
+                        /** TROPHY FIRST PLAY */
+                        if (firstPlayTr == false) {
+                          setState(() {
+                            totalTrophies++;
+                            bronzeTrophies++;
+                            firstPlayTr = true;
+                          });
+                          _save_trophy('firstplaytr', 'bronze');
+                        }
+
+                        setState(() {
+                          finishedWotd = true;
+                          wonGameWotd = false;
+                          totalWotdGames++;
+                          defeatsAtWotd++;
+                        });
+
+                        _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
+                        check_wotd_days();
+                      }
+                      Navigator.pushNamed(context, '/wotd_end');
+                    }
+                  }
+
+                  // Si no estaba en el último intento todavía
+                  else {
                     setState(() {
                       currentRowWotd++;
                       canWriteWotd = true;
                     });
                   }
                 }
-              } else {
-                wordDoesNotExistFlushbar(context);
               }
+
+              // Si la palabra no existe
+              else wordDoesNotExistFlushbar(context);
             }
+
+            // Si ha acabado y aún no se ha medido el tiempo
             if (finishedWotd && alreadyTimeMeasuredWotd == false) {
               setState(() {
                 endDateWotd = DateTime.now();
@@ -1002,13 +1073,7 @@ class _HomeState extends State<Home> {
           style:
           TextButton.styleFrom(primary: appBlack, backgroundColor: keyColor),
           onPressed: () {
-            if ((currentCellInfinite == 5 ||
-                currentCellInfinite == 10 ||
-                currentCellInfinite == 15 ||
-                currentCellInfinite == 20 ||
-                currentCellInfinite == 25 ||
-                currentCellInfinite == 30) &&
-                canWriteInfinite == false) {
+            if ((currentCellInfinite == 5 || currentCellInfinite == 10 || currentCellInfinite == 15 || currentCellInfinite == 20 || currentCellInfinite == 25 || currentCellInfinite == 30) && canWriteInfinite == false) {
               if (infinite_word_exists()) {
                 if (infinite_check_word()) {
                   if (finishedInfinite == false) {
@@ -1091,46 +1156,206 @@ class _HomeState extends State<Home> {
                   Navigator.pushNamed(context, '/infinite_words_end');
                 } else {
                   if (currentCellInfinite == 30) {
-                    if (finishedInfinite == false) {
+                    if (extraTryInfinite == false) {
+                      /** TROPHY FIRST PLAY */
+                      if (firstPlayTr == false) {
+                        setState(() {
+                          totalTrophies++;
+                          bronzeTrophies++;
+                          firstPlayTr = true;
+                        });
+                        _save_trophy('firstplaytr', 'bronze');
+                      }
 
                       setState(() {
+                        extraTryInfinite = true;
                         finishedInfinite = true;
                         wonGameInfinite = false;
                         endDateInfinite = DateTime.now();
                         playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
                         totalInfiniteGames++;
                         defeatsAtInfinite++;
+                        oldScore = infiniteScore;
+                        oldStreak = streak;
                       });
 
                       _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
                       infinite_update_score();
-                    }
-                    /** TROPHY FIRST PLAY */
-                    if (firstPlayTr == false){
-                      setState(() {
-                        totalTrophies++;
-                        bronzeTrophies++;
-                        firstPlayTr = true;
-                      });
-                      _save_trophy('firstplaytr', 'bronze');
+
+                      _showExtraTryDialogInfinite();
                     }
 
-                    Navigator.pushNamed(context, '/infinite_words_end');
-                  } else {
+                    else {
+                      if (finishedInfinite == false) {
+                        /** TROPHY FIRST PLAY */
+                        if (firstPlayTr == false) {
+                          setState(() {
+                            totalTrophies++;
+                            bronzeTrophies++;
+                            firstPlayTr = true;
+                          });
+                          _save_trophy('firstplaytr', 'bronze');
+                        }
+
+                        setState(() {
+                          finishedInfinite = true;
+                          wonGameInfinite = false;
+                          endDateInfinite = DateTime.now();
+                          playSecondsInfinite = endDateInfinite.difference(
+                              startDateInfinite);
+                          totalInfiniteGames++;
+                          defeatsAtInfinite++;
+                        });
+
+                        _save_infinite_stats(
+                            0, defeatsAtInfinite, totalInfiniteGames);
+                        infinite_update_score();
+                      }
+                      Navigator.pushNamed(context, '/infinite_words_end');
+                    }
+                  }
+
+                  else {
                     setState(() {
                       currentRowInfinite++;
                       canWriteInfinite = true;
                     });
                   }
                 }
-              } else {
-                wordDoesNotExistFlushbar(context);
               }
+              else wordDoesNotExistFlushbar(context);
             }
+
           },
         ),
       ),
     );
+  }
+
+  void _showExtraTryDialogWotd() {
+    if (_isRewardedAdReady == false) _loadRewardedAd();
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Intento extra'),
+            content: Text('Puedes obtener un séptimo intento para resolver la '
+                'palabra viendo un anuncio.'),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/wotd_end');
+                  },
+                  child: Text('NO')),
+              TextButton(
+                onPressed: () {
+                  if (_isRewardedAdReady){
+                    _rewardedAd.show(onUserEarnedReward: (RewardedAd ad, RewardItem reward) {
+                      Navigator.pop(context);
+
+                      // Retrocedemos las variables 1 intento
+                      setState(() {
+                        finishedWotd = false;
+                        wonGameWotd = false;
+                        totalWotdGames--;
+                        defeatsAtWotd--;
+                      });
+                      _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
+
+                      // Damos la recompensa
+                      setState(() {
+                        currentCellWotd = 25;
+
+                        inputMatrixWotd[25] = "";
+                        inputMatrixWotd[26] = "";
+                        inputMatrixWotd[27] = "";
+                        inputMatrixWotd[28] = "";
+                        inputMatrixWotd[29] = "";
+
+                        colorsArrayWotd[25] = "B";
+                        colorsArrayWotd[26] = "B";
+                        colorsArrayWotd[27] = "B";
+                        colorsArrayWotd[28] = "B";
+                        colorsArrayWotd[29] = "B";
+
+                        canWriteWotd = true;
+                      });
+
+                    });
+                  }
+                  _loadRewardedAd();  // Cargamos el siguiente anuncio por si sale del acutal
+                },
+                child: Text('VALE'),
+              )
+            ],
+          );
+        });
+  }
+
+  void _showExtraTryDialogInfinite() {
+    if (_isRewardedAdReady == false) _loadRewardedAd();
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Intento extra'),
+            content: Text('Puedes obtener un séptimo intento para resolver la '
+                'palabra viendo un anuncio.'),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/infinite_words_end');
+                  },
+                  child: Text('NO')),
+              TextButton(
+                onPressed: () {
+                  if (_isRewardedAdReady){
+                    _rewardedAd.show(onUserEarnedReward: (RewardedAd ad, RewardItem reward) {
+                      Navigator.pop(context);
+
+                      // Retrocedemos las variables 1 intento
+                      setState(() {
+                        finishedInfinite = false;
+                        wonGameInfinite = false;
+                        totalInfiniteGames--;
+                        defeatsAtInfinite--;
+                        infiniteScore = oldScore;
+                        streak = oldStreak;
+                      });
+                      _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
+
+                      // Damos la recompensa
+                      setState(() {
+                        currentCellInfinite = 25;
+
+                        inputMatrixInfinite[25] = "";
+                        inputMatrixInfinite[26] = "";
+                        inputMatrixInfinite[27] = "";
+                        inputMatrixInfinite[28] = "";
+                        inputMatrixInfinite[29] = "";
+
+                        colorsArrayInfinite[25] = "B";
+                        colorsArrayInfinite[26] = "B";
+                        colorsArrayInfinite[27] = "B";
+                        colorsArrayInfinite[28] = "B";
+                        colorsArrayInfinite[29] = "B";
+
+                        canWriteInfinite = true;
+                      });
+
+                    });
+                  }
+                  _loadRewardedAd();  // Cargamos el siguiente anuncio por si sale del acutal
+                },
+                child: Text('VALE'),
+              )
+            ],
+          );
+        });
   }
 
   SizedBox wotdBackspaceKey() {
@@ -1886,6 +2111,8 @@ class _HomeState extends State<Home> {
   void infinite_reset_variables() {
     setState(() {
     newInfiniteGame = false;
+
+    extraTryInfinite = false;
 
     currentCellInfinite = 0;
     currentRowInfinite = 0;

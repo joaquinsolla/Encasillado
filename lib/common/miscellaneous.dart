@@ -1,5 +1,5 @@
 /** APP VERSION */
-const String appVersion = "1.2.1";
+const String appVersion = "1.2.2 Beta";
 
 /** PERSISTENT DATA */
 bool colorBlind = false;
@@ -104,6 +104,9 @@ List<String> greyKeysWotd = [];
 List<String> greenKeysInfinite = [];
 List<String> yellowKeysInfinite = [];
 List<String> greyKeysInfinite = [];
+
+int oldScore = 0;
+int oldStreak = 0;
 
 List<String> inputMatrixInfinite = [
   "",

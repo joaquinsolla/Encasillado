@@ -2,7 +2,7 @@
 List <List <String>> databasesList = [gameDB,testDB];
 
 // TEST LIST
-const List <String> testDB = [];
+const List <String> testDB = ["AAAAA", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB", "BBBBB"];
 
 // IN-GAME LIST
 const List <String> gameDB = ["AARON",
