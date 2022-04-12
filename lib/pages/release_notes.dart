@@ -82,6 +82,58 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 15,
                   ),
                   Text(
+                    "Intento extra",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Se ha añadido la opción de un séptimo intento para resolver "
+                        "las palabras a cambio de ver un anuncio.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
+                    "Optimización y rendimiento",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Se ha optimizado y mejorado el código de la aplicación para "
+                        "un funcionamiento más rápido y ligero.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
                     "Modo 'La Palabra del Día' mejorado",
                     style: TextStyle(
                       fontSize: 16,
@@ -96,33 +148,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     "Ahora no podrás repetir la palabra una vez la hayas resuelto, "
                         "tendrás que esperar al día siguiente para poder jugar la "
                         "próxima, de esta forma se evitan trampas.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Nuevos trofeos",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Ya están disponibles nuevos trofeos para el modo 'La Palabra "
-                        "del Día'. También se han actualizado algunos trofeos que "
-                        "ya estaban en el juego. ¿Podrás conseguirlos todos?\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
