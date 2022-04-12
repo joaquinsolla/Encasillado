@@ -1,3 +1,4 @@
+const String adImg = 'app_files/ad_icon.png';
 const String backspaceImgLightmode = 'app_files/backspace_icon.png';
 const String backspaceImgDarkmode = 'app_files/backspace_icon_darkmode.png';
 const String bannerImg = 'app_files/banner_logo.png';

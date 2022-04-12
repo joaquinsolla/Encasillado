@@ -1232,132 +1232,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _showExtraTryDialogWotd() {
-    if (_isRewardedAdReady == false) _loadRewardedAd();
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Intento extra'),
-            content: Text('Puedes obtener un séptimo intento para resolver la '
-                'palabra viendo un anuncio.'),
-            actions: <Widget>[
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, '/wotd_end');
-                  },
-                  child: Text('NO')),
-              TextButton(
-                onPressed: () {
-                  if (_isRewardedAdReady){
-                    _rewardedAd.show(onUserEarnedReward: (RewardedAd ad, RewardItem reward) {
-                      Navigator.pop(context);
-
-                      // Retrocedemos las variables 1 intento
-                      setState(() {
-                        finishedWotd = false;
-                        wonGameWotd = false;
-                        totalWotdGames--;
-                        defeatsAtWotd--;
-                      });
-                      _save_wotd_stats(0, defeatsAtWotd, totalWotdGames);
-
-                      // Damos la recompensa
-                      setState(() {
-                        currentCellWotd = 25;
-
-                        inputMatrixWotd[25] = "";
-                        inputMatrixWotd[26] = "";
-                        inputMatrixWotd[27] = "";
-                        inputMatrixWotd[28] = "";
-                        inputMatrixWotd[29] = "";
-
-                        colorsArrayWotd[25] = "B";
-                        colorsArrayWotd[26] = "B";
-                        colorsArrayWotd[27] = "B";
-                        colorsArrayWotd[28] = "B";
-                        colorsArrayWotd[29] = "B";
-
-                        canWriteWotd = true;
-                      });
-
-                    });
-                  }
-                  _loadRewardedAd();  // Cargamos el siguiente anuncio por si sale del acutal
-                },
-                child: Text('VALE'),
-              )
-            ],
-          );
-        });
-  }
-
-  void _showExtraTryDialogInfinite() {
-    if (_isRewardedAdReady == false) _loadRewardedAd();
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Intento extra'),
-            content: Text('Puedes obtener un séptimo intento para resolver la '
-                'palabra viendo un anuncio.'),
-            actions: <Widget>[
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, '/infinite_words_end');
-                  },
-                  child: Text('NO')),
-              TextButton(
-                onPressed: () {
-                  if (_isRewardedAdReady){
-                    _rewardedAd.show(onUserEarnedReward: (RewardedAd ad, RewardItem reward) {
-                      Navigator.pop(context);
-
-                      // Retrocedemos las variables 1 intento
-                      setState(() {
-                        finishedInfinite = false;
-                        wonGameInfinite = false;
-                        totalInfiniteGames--;
-                        defeatsAtInfinite--;
-                        infiniteScore = oldScore;
-                        streak = oldStreak;
-                      });
-                      _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
-
-                      // Damos la recompensa
-                      setState(() {
-                        currentCellInfinite = 25;
-
-                        inputMatrixInfinite[25] = "";
-                        inputMatrixInfinite[26] = "";
-                        inputMatrixInfinite[27] = "";
-                        inputMatrixInfinite[28] = "";
-                        inputMatrixInfinite[29] = "";
-
-                        colorsArrayInfinite[25] = "B";
-                        colorsArrayInfinite[26] = "B";
-                        colorsArrayInfinite[27] = "B";
-                        colorsArrayInfinite[28] = "B";
-                        colorsArrayInfinite[29] = "B";
-
-                        canWriteInfinite = true;
-                      });
-
-                    });
-                  }
-                  _loadRewardedAd();  // Cargamos el siguiente anuncio por si sale del acutal
-                },
-                child: Text('VALE'),
-              )
-            ],
-          );
-        });
-  }
-
   SizedBox wotdBackspaceKey() {
     Color? mycolor = keyColor;
     if (darkMode) {
@@ -1898,6 +1772,195 @@ class _HomeState extends State<Home> {
   }
 
   // OTHERS
+
+  void _showExtraTryDialogWotd() {
+    if (_isRewardedAdReady == false) _loadRewardedAd();
+    showDialog(
+
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(adImg, scale: 18,),
+                SizedBox(width: 5,),
+                Text('Intento extra'),
+              ],
+            ),
+            content: Text('Tienes la posibilidad de un último intento para '
+                'resolver la palabra si ves un anuncio:'),
+            actions: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(height: 40,
+                          child: TextButton(
+                              style: TextButton.styleFrom(
+                                primary: Colors.white,
+                                backgroundColor: Colors.grey,
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Navigator.pushNamed(context, '/wotd_end');
+                              },
+                              child: Text('NO')),),
+                    ),
+                    SizedBox(width: 5,),
+                    Expanded(
+                      child: Container(height: 40,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: appMainColor,
+                          ),
+                          onPressed: () {
+                            if (_isRewardedAdReady) {
+                              _rewardedAd.show(onUserEarnedReward: (
+                                  RewardedAd ad,
+                                  RewardItem reward) {
+                                Navigator.pop(context);
+
+                                // Retrocedemos las variables 1 intento
+                                setState(() {
+                                  finishedWotd = false;
+                                  wonGameWotd = false;
+                                  totalWotdGames--;
+                                  defeatsAtWotd--;
+                                });
+                                _save_wotd_stats(
+                                    0, defeatsAtWotd, totalWotdGames);
+
+                                // Damos la recompensa
+                                setState(() {
+                                  currentCellWotd = 25;
+
+                                  inputMatrixWotd[25] = "";
+                                  inputMatrixWotd[26] = "";
+                                  inputMatrixWotd[27] = "";
+                                  inputMatrixWotd[28] = "";
+                                  inputMatrixWotd[29] = "";
+
+                                  colorsArrayWotd[25] = "B";
+                                  colorsArrayWotd[26] = "B";
+                                  colorsArrayWotd[27] = "B";
+                                  colorsArrayWotd[28] = "B";
+                                  colorsArrayWotd[29] = "B";
+
+                                  canWriteWotd = true;
+                                });
+                              });
+                            }
+                            _loadRewardedAd(); // Cargamos el siguiente anuncio por si sale del acutal
+                          },
+                          child: Text('VALE'),
+                        ),),
+                    ),
+                  ]
+              ),
+            ],
+          );
+        });
+  }
+
+  void _showExtraTryDialogInfinite() {
+    if (_isRewardedAdReady == false) _loadRewardedAd();
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(adImg, scale: 18,),
+                SizedBox(width: 5,),
+                Text('Intento extra'),
+              ],
+            ),
+            content: Text('Tienes la posibilidad de un último intento para '
+                'resolver la palabra si ves un anuncio:'),
+            actions: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(height: 40,
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.grey,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.pushNamed(
+                                  context, '/infinite_words_end');
+                            },
+                            child: Text('NO')),),
+                    ),
+                    SizedBox(width: 5,),
+                    Expanded(child: Container(height: 40,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: appMainColor,
+                        ),
+                        onPressed: () {
+                          if (_isRewardedAdReady) {
+                            _rewardedAd.show(onUserEarnedReward: (RewardedAd ad,
+                                RewardItem reward) {
+                              Navigator.pop(context);
+
+                              // Retrocedemos las variables 1 intento
+                              setState(() {
+                                finishedInfinite = false;
+                                wonGameInfinite = false;
+                                totalInfiniteGames--;
+                                defeatsAtInfinite--;
+                                infiniteScore = oldScore;
+                                streak = oldStreak;
+                              });
+                              _save_infinite_stats(
+                                  0, defeatsAtInfinite, totalInfiniteGames);
+
+                              // Damos la recompensa
+                              setState(() {
+                                currentCellInfinite = 25;
+
+                                inputMatrixInfinite[25] = "";
+                                inputMatrixInfinite[26] = "";
+                                inputMatrixInfinite[27] = "";
+                                inputMatrixInfinite[28] = "";
+                                inputMatrixInfinite[29] = "";
+
+                                colorsArrayInfinite[25] = "B";
+                                colorsArrayInfinite[26] = "B";
+                                colorsArrayInfinite[27] = "B";
+                                colorsArrayInfinite[28] = "B";
+                                colorsArrayInfinite[29] = "B";
+
+                                canWriteInfinite = true;
+                              });
+                            });
+                          }
+                          _loadRewardedAd(); // Cargamos el siguiente anuncio por si sale del acutal
+                        },
+                        child: Text('VALE'),
+                      ),),),
+                  ]
+              ),
+            ],
+          );
+        });
+  }
 
   Expanded wotdDoneWaiting(){
 
