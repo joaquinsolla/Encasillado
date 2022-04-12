@@ -2,6 +2,7 @@
 
 -------PRIORITY--------
 mejorar dialogo rewarded ad
+revisar quitado proguard
 
 -------OTHERS----------
 

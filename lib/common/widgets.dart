@@ -1,7 +1,7 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:twitter_intent/twitter_intent.dart';
-import 'package:flushbar/flushbar.dart';
 
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
