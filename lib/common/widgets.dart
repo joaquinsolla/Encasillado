@@ -582,14 +582,13 @@ void wordDoesNotExistFlushbar(BuildContext context) {
   ).show(context);
 }
 
-void internetConnectionFlushbar(BuildContext context) {
+void loadingAdFlushbar(BuildContext context) {
     Flushbar(
-      message: "Revisa tu conexión a Internet y vuelve a intentarlo",
+      message: "Cargando anuncio. Inténtalo de nuevo",
       duration: Duration(seconds: 3),
       backgroundColor: Colors.red,
       flushbarPosition: FlushbarPosition.TOP,
     ).show(context);
-
 }
 
 void trophyFlushbar(BuildContext context, String content) {

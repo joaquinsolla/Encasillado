@@ -1821,7 +1821,6 @@ class _HomeState extends State<Home> {
                           ),
                           onPressed: () {
                             if (_isRewardedAdReady) {
-                              Navigator.pop(context);
                               _rewardedAd.show(onUserEarnedReward: (
                                   RewardedAd ad,
                                   RewardItem reward) {
@@ -1854,9 +1853,13 @@ class _HomeState extends State<Home> {
 
                                   canWriteWotd = true;
                                 });
+                                Navigator.pop(context);
                               });
                             }
-                            else internetConnectionFlushbar(context);
+                            else {
+                              _loadRewardedAd();
+                              loadingAdFlushbar(context);
+                            }
                           },
                           child: Text('VALE'),
                         ),),
@@ -1915,7 +1918,6 @@ class _HomeState extends State<Home> {
                         ),
                         onPressed: () {
                           if (_isRewardedAdReady) {
-                            Navigator.pop(context);
                             _rewardedAd.show(onUserEarnedReward: (RewardedAd ad,
                                 RewardItem reward) {
 
@@ -1949,9 +1951,13 @@ class _HomeState extends State<Home> {
 
                                 canWriteInfinite = true;
                               });
+                              Navigator.pop(context);
                             });
                           }
-                          else internetConnectionFlushbar(context);
+                          else {
+                            _loadRewardedAd();
+                            loadingAdFlushbar(context);
+                          }
                         },
                         child: Text('VALE'),
                       ),),),
