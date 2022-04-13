@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'dart:math';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -42,7 +41,8 @@ class _UserStatsState extends State<UserStats> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'user_stats.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

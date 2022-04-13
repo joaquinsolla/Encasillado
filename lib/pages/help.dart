@@ -39,7 +39,7 @@ class _HelpState extends State<Help> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on 'help.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

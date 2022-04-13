@@ -39,7 +39,8 @@ class _TrophiesState extends State<Trophies> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'trophies.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

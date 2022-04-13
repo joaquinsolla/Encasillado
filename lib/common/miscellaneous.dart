@@ -48,7 +48,6 @@ bool days7wotdTr = false;
 bool days15wotdTr = false;
 bool days30wotdTr = false;
 
-
 /** CONTROLLERS */
 int currentPage = 0;
 bool appStarted = false;
@@ -65,6 +64,7 @@ bool newInfiniteGame = false;
 bool showAds = true;
 bool extraTryWotd = false;
 bool extraTryInfinite = false;
+bool terminalPrinting = false;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;

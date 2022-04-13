@@ -28,6 +28,9 @@ void main() {
    * 1 - testDB * */
   selectedDatabase = databasesList[0];
 
+  /** TERMINAL DEBUGGING */
+  terminalPrinting = false;
+
   infinite_generate_word();
   wotd_generate_word();
 

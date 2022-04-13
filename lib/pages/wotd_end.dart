@@ -39,7 +39,8 @@ class _WotdEndState extends State<WotdEnd> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'wotd_end.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

@@ -7,7 +7,7 @@ class AdHelper {
     if (Platform.isAndroid) {
       return 'ca-app-pub-5255247368026863/4954248516';
     } else {
-      throw new UnsupportedError('Unsupported platform');
+      throw new UnsupportedError("[ERR] On 'ad_helper.dart': Unsupported platform");
     }
   }
 
@@ -15,7 +15,7 @@ class AdHelper {
     if (Platform.isAndroid) {
       return "ca-app-pub-5255247368026863/8126845376";
     } else {
-      throw new UnsupportedError("Unsupported platform");
+      throw new UnsupportedError("[ERR] On 'ad_helper.dart': Unsupported platform");
     }
   }
 

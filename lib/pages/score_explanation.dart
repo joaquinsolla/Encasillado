@@ -37,7 +37,8 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'score_explanation.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

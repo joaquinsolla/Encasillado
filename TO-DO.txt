@@ -1,11 +1,8 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-limpiar estadisticas
-
 
 -------OTHERS----------
-reformat all terminal outputs
 local notifications
 
 -------REVIEW----------

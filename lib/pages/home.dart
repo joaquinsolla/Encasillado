@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     final value = prefs.getBool(key) ?? false;
-    print('read: $value for colorblind');
+    if(terminalPrinting) print('[SYS] Read: $value for colorblind');
     if (value == true){
       setState(() {
         colorBlind = value;
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     final value = prefs.getBool(key) ?? false;
-    print('read: $value for darkmode');
+    if(terminalPrinting) print('[SYS] Read: $value for darkmode');
     if (value == true){
       setState(() {
         darkMode = true;
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'infinitescore';
     final value = prefs.getInt(key) ?? 0;
-    print('read: $value for infinitescore');
+    if(terminalPrinting) print('[SYS] Read: $value for infinitescore');
       setState(() {
         infiniteScore = value;
       });
@@ -86,14 +86,14 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'infinitescore';
     prefs.setInt(key, value);
-    print('saved $value on infinitescore');
+    if(terminalPrinting) print('[SYS] Saved $value on infinitescore');
   }
 
   _read_streak() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streak';
     final value = prefs.getInt(key) ?? 0;
-    print('read: $value for streak');
+    if(terminalPrinting) print('[SYS] Read: $value for streak');
     setState(() {
       streak = value;
     });
@@ -103,7 +103,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streak';
     prefs.setInt(key, value);
-    print('saved $value on streak');
+    if(terminalPrinting) print('[SYS] Saved $value on streak');
   }
 
   _read_records() async {
@@ -120,21 +120,21 @@ class _HomeState extends State<Home> {
       streakRecord = streakRecordValue;
     });
 
-    print('read: records');
+    if(terminalPrinting) print('[SYS] Read: records');
   }
 
   _save_streak_record() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streakrecord';
     prefs.setInt(key, streakRecord);
-    print('saved $streakRecord on streakrecord');
+    if(terminalPrinting) print('[SYS] Saved $streakRecord on streakrecord');
   }
 
   _save_score_record() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'scorerecord';
     prefs.setInt(key, scoreRecord);
-    print('saved $scoreRecord on scorerecord');
+    if(terminalPrinting) print('[SYS] Saved $scoreRecord on scorerecord');
   }
 
   _read_stats() async {
@@ -208,7 +208,7 @@ class _HomeState extends State<Home> {
       defeatsAtInfinite = defeatsAtInfiniteValue;
     });
 
-    print('read: stats');
+    if(terminalPrinting) print('[SYS] Read: stats');
   }
 
   _save_wotd_stats(int variableSelector, int variableValue, int totalValue) async {
@@ -243,6 +243,7 @@ class _HomeState extends State<Home> {
 
     prefs.setInt(key1, variableValue);
     prefs.setInt(key2, totalValue);
+    if(terminalPrinting) print('[SYS] Saved wotd_stats');
   }
 
   _save_infinite_stats(int variableSelector, int variableValue, int totalValue) async {
@@ -277,6 +278,8 @@ class _HomeState extends State<Home> {
 
     prefs.setInt(key1, variableValue);
     prefs.setInt(key2, totalValue);
+
+    if(terminalPrinting) print('[SYS] Saved: infinite_stats');
   }
 
   _read_trophies() async {
@@ -355,7 +358,7 @@ class _HomeState extends State<Home> {
       days30wotdTr = days30wotdTrValue;
     });
 
-    print('read: trophies');
+    if(terminalPrinting) print('[SYS] Read: trophies');
   }
 
   _save_trophy(String trophyKey, String trophyType) async {
@@ -397,13 +400,15 @@ class _HomeState extends State<Home> {
       diamondTrophyFlushbar(context);
 
     } else trophyFlushbar(context, msg);
+
+    if(terminalPrinting) print('[SYS] Saved: trophy');
   }
 
   _read_last_day_wotd() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'lastdaywotd';
     final value = prefs.getString(key) ?? '2000-01-01';
-    print('read: $value for lastdaywotd');
+    if(terminalPrinting) print('[SYS] Read: $value for lastdaywotd');
     setState(() {
       lastDayWotd = value;
     });
@@ -415,14 +420,14 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'lastdaywotd';
     prefs.setString(key, value);
-    print('saved $value on lastdaywotd');
+    if(terminalPrinting) print('[SYS] Saved $value on lastdaywotd');
   }
 
   _read_consecutive_days_wotd() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'consecutivedayswotd';
     final value = prefs.getInt(key) ?? 0;
-    print('read: $value for consecutivedayswotd');
+    if(terminalPrinting) print('[SYS] Read: $value for consecutivedayswotd');
     setState(() {
       consecutiveDaysWotd = value;
     });
@@ -432,7 +437,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'consecutivedayswotd';
     prefs.setInt(key, value);
-    print('saved $value on consecutivedayswotd');
+    if(terminalPrinting) print('[SYS] Saved $value on consecutivedayswotd');
   }
 
   void check_wotd_days() {
@@ -446,13 +451,13 @@ class _HomeState extends State<Home> {
     var yesterday = new DateTime(today.year, today.month, today.day - 1);
 
     if(yesterday.compareTo(lastDay) == 0){
-      print('- Last wotd game was yesterday: OK');
+      if(terminalPrinting) print('[SYS] Last wotd game was yesterday');
       setState(() {
         consecutiveDaysWotd++;
       });
 
     } else {
-      print("- Last wotd game wasn't yesterday");
+      if(terminalPrinting) print("[SYS] Last wotd game wasn't yesterday");
       if(today.compareTo(lastDay) == 0){}
       else {
         setState(() {
@@ -505,15 +510,14 @@ class _HomeState extends State<Home> {
     DateTime today = DateTime.parse(now);
     DateTime lastDay = DateTime.parse(lastDayWotd);
 
-    print(today);
-    print(lastDay);
-
     if(today.compareTo(lastDay) == 0){
+      if(terminalPrinting) print('[SYS] Wotd done ($today = $lastDay)');
       setState(() {
         canWriteWotd = false;
         wotdDone = true;
       });
     } else {
+      if(terminalPrinting) print('[SYS] Wotd not done (LastDay: $lastDay != Today: $today)');
       setState(() {
         canWriteWotd = true;
         wotdDone = false;
@@ -550,7 +554,7 @@ class _HomeState extends State<Home> {
           });
         },
         onAdFailedToLoad: (err) {
-          print('Failed to load a rewarded ad: ${err.message}');
+          if(terminalPrinting) print("[ERR] Failed to load a rewarded ad on 'home.dart': ${err.message}");
           setState(() {
             _isRewardedAdReady = false;
           });
@@ -597,7 +601,7 @@ class _HomeState extends State<Home> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on 'home.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },
@@ -606,7 +610,6 @@ class _HomeState extends State<Home> {
 
       _bannerAd.load();
     }
-
     _loadRewardedAd();
   }
 
@@ -2271,6 +2274,7 @@ class _HomeState extends State<Home> {
       "B"
     ];
     });
+    if(terminalPrinting) print("[SYS] Infinite variables reset");
   }
 
 }

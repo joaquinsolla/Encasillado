@@ -20,7 +20,7 @@ class _SettingsState extends State<Settings> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     final value = prefs.getBool(key) ?? false;
-    print('read: $value for colorblind');
+    if(terminalPrinting) print('[SYS] Read: $value for colorblind');
     if (value == true){
       setState(() {
         colorBlind = value;
@@ -44,14 +44,14 @@ class _SettingsState extends State<Settings> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     prefs.setBool(key, value);
-    print('saved $value');
+    if(terminalPrinting) print('[SYS] Saved $value for colorblind');
   }
 
   _read_darkmode() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     final value = prefs.getBool(key) ?? false;
-    print('read: $value for darkmode');
+    if(terminalPrinting) print('[SYS] Read: $value for darkmode');
     if (value == true){
       setState(() {
         darkMode = true;
@@ -77,7 +77,7 @@ class _SettingsState extends State<Settings> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     prefs.setBool(key, value);
-    print('saved $value');
+    if(terminalPrinting) print('[SYS] Saved $value for darkmode');
   }
   
   @override

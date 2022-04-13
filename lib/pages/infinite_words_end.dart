@@ -39,7 +39,8 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'infinite_words_end.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

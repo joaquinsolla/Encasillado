@@ -36,7 +36,8 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            print('Failed to load a banner ad: ${err.message}');
+            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
+                "'release_notes.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },

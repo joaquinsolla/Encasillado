@@ -22,7 +22,7 @@ void infinite_generate_word() {
     infiniteDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("INFINITE: " + infiniteString);
+  if(terminalPrinting) print("[SYS] Infinite: " + infiniteString);
 }
 
 void wotd_generate_word() {
@@ -44,7 +44,7 @@ void wotd_generate_word() {
     wotdDefinitionURL += selectedWord.substring(i, i + 1);
   }
 
-  print("WOTD: " + wotdString);
+  if(terminalPrinting) print("[SYS] Wotd: " + wotdString);
 }
 
 void check_diamond_trophy(){
@@ -61,7 +61,7 @@ void url_launcher(String url) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
-    throw 'Could not launch $url';
+    throw "[ERR] Method 'url_launcher' could not launch $url";
   }
 }
 
@@ -127,7 +127,6 @@ void share_telegram(String stats, String emojis, String gameDuration) {
       encasilladoPlayStoreUrl;
 
   SocialShare.shareTelegram(text);
-
 }
 
 void share_others(String stats, String emojis, String gameDuration) {
@@ -141,5 +140,4 @@ void share_others(String stats, String emojis, String gameDuration) {
       encasilladoPlayStoreUrl;
 
   SocialShare.shareOptions(text);
-
 }
