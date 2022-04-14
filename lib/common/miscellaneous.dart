@@ -29,7 +29,7 @@ int consecutiveDaysWotd = 0;
 bool wotdDone = false;
 
 /** PERSISTENT TROPHIES */
-int totalTrophies = 0; // 9 - not diamond
+int totalTrophies = 0; // 13 - not diamond
 int diamondTrophies = 0;
 int goldTrophies = 0;
 int silverTrophies = 0;
@@ -47,6 +47,7 @@ bool firstPlayTr = false;
 bool days7wotdTr = false;
 bool days15wotdTr = false;
 bool days30wotdTr = false;
+bool secretWordTr = false;
 
 /** CONTROLLERS */
 int currentPage = 0;

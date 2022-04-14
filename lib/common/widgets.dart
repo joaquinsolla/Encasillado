@@ -295,8 +295,19 @@ Column trophiesRowAdvanced(String tag,String mainText, String secondText, String
                       ),
                     ),
                   ],),
-                  Text(
+
+                  if (mainText!='Introduce la palabra secreta')Text(
                     '¡Conseguido!',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: appGrey,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                  ),
+                  if (mainText=='Introduce la palabra secreta')Text(
+                    'FELIZ',
                     style: TextStyle(
                       fontSize: 12,
                       color: appGrey,

@@ -109,7 +109,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 7.5,
                   ),
                   Text(
-                    "Optimización y rendimiento",
+                    "Mejoras de rendimiento",
                     style: TextStyle(
                       fontSize: 16,
                       color: appBlack,
@@ -122,6 +122,32 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   Text(
                     "Se ha optimizado y mejorado el código de la aplicación para "
                         "un funcionamiento más rápido y ligero.\n",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 7.5,
+                  ),
+                  Text(
+                    "Nuevos trofeos",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    "Añadidos nuevos trofeos al juego. En actualizaiones futuras se "
+                        "añadirán más todavía para hacer el juego más desafiante.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

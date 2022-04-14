@@ -338,6 +338,9 @@ class _HomeState extends State<Home> {
     final days30wotdTrKey = 'days30wotdtr';
     final days30wotdTrValue = prefs.getBool(days30wotdTrKey) ?? false;
 
+    final secretWordTrKey = 'secretwordtr';
+    final secretWordTrValue = prefs.getBool(secretWordTrKey) ?? false;
+
     setState(() {
       totalTrophies = totalTrophiesValue;
       goldTrophies = goldTrophiesValue;
@@ -356,6 +359,7 @@ class _HomeState extends State<Home> {
       days7wotdTr = days7wotdTrValue;
       days15wotdTr = days15wotdTrValue;
       days30wotdTr = days30wotdTrValue;
+      secretWordTr = secretWordTrValue;
     });
 
     if(terminalPrinting) print('[SYS] Read: trophies');
@@ -1487,6 +1491,16 @@ class _HomeState extends State<Home> {
         inputMatrixWotd[currentRowWotd * 5 + 3] +
         inputMatrixWotd[currentRowWotd * 5 + 4];
 
+    /** TROPHY: SECRET WORD */
+    if (secretWordTr == false && inputWord == 'FELIZ'){
+      setState(() {
+        totalTrophies++;
+        goldTrophies++;
+        secretWordTr = true;
+      });
+      _save_trophy('secretwordtr', 'gold');
+    }
+
     List<String> correctLetterByLetter = ["", "", "", "", ""];
     for (var i = 0; i < 5; i++) {
       correctLetterByLetter[i] = selectedWordArray[i];
@@ -1562,6 +1576,16 @@ class _HomeState extends State<Home> {
         inputMatrixInfinite[currentRowInfinite * 5 + 2] +
         inputMatrixInfinite[currentRowInfinite * 5 + 3] +
         inputMatrixInfinite[currentRowInfinite * 5 + 4];
+
+    /** TROPHY: SECRET WORD */
+    if (secretWordTr == false && inputWord == 'FELIZ'){
+      setState(() {
+        totalTrophies++;
+        goldTrophies++;
+        secretWordTr = true;
+      });
+      _save_trophy('secretwordtr', 'gold');
+    }
 
     List<String> correctLetterByLetter = ["", "", "", "", ""];
     for (var i = 0; i < 5; i++) {

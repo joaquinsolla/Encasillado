@@ -213,7 +213,7 @@ class _TrophiesState extends State<Trophies> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  trophiesRow('Todos los trofeos', 'Progreso: $totalTrophies de 12', diamondTrophy, allTrophiesTr),
+                  trophiesRow('Todos los trofeos', 'Progreso: $totalTrophies de 13', diamondTrophy, allTrophiesTr),
 
                   SizedBox(height: 15,),
                   // GOLD
@@ -232,6 +232,7 @@ class _TrophiesState extends State<Trophies> {
                   trophiesRowAdvanced(infiniteTag, '25.000 puntos', 'Mejor: $scoreRecord', goldTrophy, points25kTr),
                   trophiesRowAdvanced(infiniteTag, 'Racha de 25', 'Mejor: $streakRecord', goldTrophy, streak25Tr),
                   trophiesRowAdvanced(wotdTag, 'Juega 30 días seguidos', 'Actual: $consecutiveDaysWotd', goldTrophy, days30wotdTr),
+                  trophiesRowAdvanced(allTag, 'Introduce la palabra secreta', '?????', goldTrophy, secretWordTr),
 
                   SizedBox(height: 15,),
                   // SILVER
