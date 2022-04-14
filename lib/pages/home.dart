@@ -397,7 +397,7 @@ class _HomeState extends State<Home> {
         diamondTrophies = 1;
       });
 
-      diamondTrophyFlushbar(context);
+      rewardFlushbar(context);
 
     } else trophyFlushbar(context, msg);
 
@@ -1857,6 +1857,7 @@ class _HomeState extends State<Home> {
                                   canWriteWotd = true;
                                 });
                                 Navigator.pop(context);
+                                rewardFlushbar(context);
                               });
                             }
                             else {
@@ -1955,6 +1956,7 @@ class _HomeState extends State<Home> {
                                 canWriteInfinite = true;
                               });
                               Navigator.pop(context);
+                              rewardFlushbar(context);
                             });
                           }
                           else {

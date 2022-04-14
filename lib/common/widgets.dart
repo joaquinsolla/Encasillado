@@ -608,3 +608,12 @@ void diamondTrophyFlushbar(BuildContext context) {
     flushbarPosition: FlushbarPosition.TOP,
   ).show(context);
 }
+
+void rewardFlushbar(BuildContext context) {
+  Flushbar(
+    message: "¡Recompensa obtenida!",
+    duration: Duration(seconds: 8),
+    backgroundColor: Colors.orange,
+    flushbarPosition: FlushbarPosition.TOP,
+  ).show(context);
+}
