@@ -79,6 +79,18 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 10,),
+                  Text(
+                    "Palabras registradas: " + (selectedDatabase.length).toString(),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appBlack,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'RaleWay',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   SizedBox(
                     height: 15,
                   ),
@@ -148,33 +160,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   Text(
                     "Añadidos nuevos trofeos al juego. En actualizaiones futuras se "
                         "añadirán más todavía para hacer el juego más desafiante.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    "Modo 'La Palabra del Día' mejorado",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Ahora no podrás repetir la palabra una vez la hayas resuelto, "
-                        "tendrás que esperar al día siguiente para poder jugar la "
-                        "próxima, de esta forma se evitan trampas.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,
