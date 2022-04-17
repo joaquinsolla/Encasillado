@@ -1902,8 +1902,8 @@ class _HomeState extends State<Home> {
                 Text('Intento extra'),
               ],
             ),
-            content: Text('Tienes la posibilidad de un último intento para '
-                'resolver la palabra si ves un anuncio:'),
+            content: Text('Tienes la posibilidad de repetir el último intento '
+                'si ves un anuncio:'),
             actions: <Widget>[
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -2000,8 +2000,8 @@ class _HomeState extends State<Home> {
                 Text('Intento extra'),
               ],
             ),
-            content: Text('Tienes la posibilidad de un último intento para '
-                'resolver la palabra si ves un anuncio:'),
+            content: Text('Tienes la posibilidad de repetir el último intento '
+                'si ves un anuncio:'),
             actions: <Widget>[
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
