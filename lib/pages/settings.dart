@@ -190,6 +190,21 @@ class _SettingsState extends State<Settings> {
                       child: Text("AYUDA")),
                 ),
                 SizedBox(
+                  height: 7.5,
+                ),
+                settingsRowAdvanced(
+                  'Versión $appVersion', 'Consulta las notas de versión.',
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/release_notes');
+                      },
+                      style: TextButton.styleFrom(
+                        primary: appWhite,
+                        backgroundColor: appMainColor,
+                      ),
+                      child: Text("v$appVersion")),
+                ),
+                SizedBox(
                   height: 5,
                 ),
                 Divider(

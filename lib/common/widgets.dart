@@ -497,17 +497,17 @@ Container gameBannerOneButton(BuildContext context, String content, Widget butto
   );
 }
 
-TextButton releaseNotesButton(BuildContext context) {
+TextButton suggestButton(BuildContext context) {
   return TextButton(
     onPressed: () {
-      Navigator.pushNamed(context, '/release_notes');
+      Navigator.pushNamed(context, '/suggest');
     },
     style: TextButton.styleFrom(
       primary: appBlack,
       backgroundColor: keyColor,
     ),
     child: Text(
-      appVersion,
+      'Sugerir',
       style: TextStyle(color: appBlack),
     ),
   );

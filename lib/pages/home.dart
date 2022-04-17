@@ -746,7 +746,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        if (currentPage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), releaseNotesButton(context)),
+        if (currentPage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), suggestButton(context)),
         if (currentPage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
         if (currentPage == 0 && wotdDone == false) wotdLettersField(),
         if (currentPage == 1) infiniteLettersField(),

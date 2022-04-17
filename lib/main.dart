@@ -18,6 +18,7 @@ import 'package:Encasillado/pages/wotd_end.dart';
 import 'package:Encasillado/pages/user_stats.dart';
 import 'package:Encasillado/pages/tour.dart';
 import 'package:Encasillado/pages/trophies.dart';
+import 'package:Encasillado/pages/suggest.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -44,6 +45,7 @@ void main() {
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/release_notes': (context) => ReleaseNotes(),
+      '/suggest': (context) => Suggest(),
       '/tour': (context) => Tour(),
       '/trophies': (context) => Trophies(),
       '/user_stats': (context) => UserStats(),
