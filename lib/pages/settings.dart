@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -180,7 +181,7 @@ class _SettingsState extends State<Settings> {
                   'Cómo jugar', '¿Necesitas ayuda para jugar?',
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/help');
+                        Navigator.pushNamed(context, '/tour');
                       },
                       style: TextButton.styleFrom(
                         primary: appWhite,

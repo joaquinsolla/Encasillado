@@ -1,8 +1,8 @@
 /** APP VERSION */
-const String appVersion = "1.2.3";
+const String appVersion = "1.2.4 Beta";
 
 /** PERSISTENT DATA */
-bool everPlayed = false;
+bool everPlayed = true;
 bool colorBlind = false;
 bool darkMode = false;
 int streak = 0;

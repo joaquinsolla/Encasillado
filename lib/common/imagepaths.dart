@@ -47,3 +47,5 @@ const String wotdTagImgGrey = 'app_files/wotd_tag_grey.png';
 const String introIcon = 'app_files/intro_icon.png';
 const String introExplanation1 = 'app_files/intro_explanation1.png';
 const String introExplanation2 = 'app_files/intro_explanation2.png';
+const String introExplanation3 = 'app_files/intro_explanation3.png';
+const String introExplanation4 = 'app_files/intro_explanation4.png';

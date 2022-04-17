@@ -1860,15 +1860,15 @@ class _HomeState extends State<Home> {
           "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
               "Palabras Infinitas: Podrás jugar todas las palabras que quieras, además, "
               "tienes puntos y rachas para desafiarte a ti mismo y a tus amigos.",
-          image: Image.asset(introExplanation2),
+          image: Image.asset(introExplanation3),
         ),
         PageViewModel(
           title: "Trofeos",
           body:
-          "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
-              "Palabras Infinitas: Podrás jugar todas las palabras que quieras, además, "
-              "tienes puntos y rachas para desafiarte a ti mismo y a tus amigos.",
-          image: Image.asset(introExplanation2),
+          "El juego tiene un apartado en el que puedes consultar tus trofeos. A "
+              "medida que completes los desafíos indicados ganarás nuevos trofeos. "
+              "¡Si los consigues todos obtendrás el trofeo de diamante!",
+          image: Image.asset(introExplanation4),
         ),
       ],
       back: const Text('Anterior', style: TextStyle(color: Colors.grey),),
