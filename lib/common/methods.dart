@@ -6,6 +6,8 @@ import 'package:mailto/mailto.dart';
 import 'package:social_share/social_share.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/colors.dart';
@@ -45,6 +47,24 @@ void wotd_generate_word() {
   }
 
   if(terminalPrinting) print("[SYS] Wotd: " + wotdString);
+}
+
+Future<http.Response> sendSuggestedWord(String word) {
+  final now = DateTime.now();
+  String nowString = now.toString();
+
+  if (terminalPrinting) print('[SYS] Sending $word to database');
+
+  return http.post(
+    Uri.parse('https://api.jsonbin.io/v3/b'),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+      'X-Master-Key': '\$2b\$10\$0chIfOBlEqA8RGZtMyArSeOWFdYp/vBtKmJbwInTN1ZyR8F/dsgpa',
+    },
+    body: jsonEncode(<String, String>{
+      '$nowString': word,
+    }),
+  );
 }
 
 void check_diamond_trophy(){
