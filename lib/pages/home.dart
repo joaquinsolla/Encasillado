@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_version/new_version.dart';
 import 'package:intl/intl.dart';
@@ -22,6 +23,23 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   /** PERSISTENT DATA MANAGEMENT & TROPHIES*/
+  _read_ever_played() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'everplayed';
+    final value = prefs.getBool(key) ?? false;
+    if(terminalPrinting) print('[SYS] Read: $value for everplayed');
+    setState(() {
+      everPlayed = value;
+    });
+  }
+
+  _save_ever_played() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'everplayed';
+    prefs.setBool(key, true);
+    if(terminalPrinting) print('[SYS] Saved true on everplayed');
+  }
+
   _read_colorblind() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
@@ -592,6 +610,8 @@ class _HomeState extends State<Home> {
     );
     if (appStarted ==  false) statusCheck(newVersion);
 
+    _read_ever_played();
+
     if (showAds) {
       _initGoogleMobileAds();
       _bannerAd = BannerAd(
@@ -625,7 +645,7 @@ class _HomeState extends State<Home> {
 
     check_device();
 
-    if (appStarted == false) {
+    if (appStarted == false && everPlayed) {
       _read_colorblind();
       _read_darkmode();
       _read_infinite_score();
@@ -664,7 +684,7 @@ class _HomeState extends State<Home> {
       infinite_generate_word();
     }
 
-    return Scaffold(
+    if (everPlayed) return Scaffold(
       appBar: myAppBarWithButtonsWithoutBackArrow(context),
       backgroundColor: appWhite,
       body: Column(children: [
@@ -682,9 +702,9 @@ class _HomeState extends State<Home> {
                 child: TextButton(
                     onPressed: () {
                       if (currentPage == 1){
-                       setState(() {
-                         currentPage = 0;
-                       });
+                        setState(() {
+                          currentPage = 0;
+                        });
                       }
                     },
                     style: TextButton.styleFrom(
@@ -750,6 +770,9 @@ class _HomeState extends State<Home> {
         ),
       ]),
     );
+    else return IntroductionPage();
+
+
   }
 
   // KEYBOARD GENERATION
@@ -1799,6 +1822,66 @@ class _HomeState extends State<Home> {
   }
 
   // OTHERS
+
+  IntroductionScreen IntroductionPage() {
+    return IntroductionScreen(
+      showNextButton: true,
+      showBackButton: true,
+      pages: [
+        PageViewModel(
+          title: "¡Bienvenido a Encasillado!",
+          body:
+          "Vamos a dar un pequeño tour para aprender lo básico del juego. ¿Listo?",
+          image: Image.asset(introIcon),
+        ),
+        PageViewModel(
+          title: "¿Cómo jugar?",
+          body:
+          "Hay una palabra oculta, tienes 6 intentos para acertarla. Cada vez que pruebas "
+              "una palabra sus letras cambiarán de color para indicar tu progreso: \n"
+              "\nVerde: La palabra contiene esa letra en esa posición."
+              "\nAmarillo: La palabra contiene esa letra pero no en esa posición."
+              "\nGris: La palabra no contiene esa letra.",
+
+          image: Image.asset(introExplanation1),
+        ),
+        PageViewModel(
+          title: "El teclado",
+          body:
+          "Para probar una palabra debes pulsar la tecla 'PROBAR'. Las teclas del "
+              "teclado también cambian de color al probar palabras.\n\n"
+              "No son válidos los verbos conjugados ni los plurales. Las palabras "
+              "con tilde se escriben sin ella.",
+          image: Image.asset(introExplanation2),
+        ),
+        PageViewModel(
+          title: "Dos modos de juego",
+          body:
+          "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
+              "Palabras Infinitas: Podrás jugar todas las palabras que quieras, además, "
+              "tienes puntos y rachas para desafiarte a ti mismo y a tus amigos.",
+          image: Image.asset(introExplanation2),
+        ),
+        PageViewModel(
+          title: "Trofeos",
+          body:
+          "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
+              "Palabras Infinitas: Podrás jugar todas las palabras que quieras, además, "
+              "tienes puntos y rachas para desafiarte a ti mismo y a tus amigos.",
+          image: Image.asset(introExplanation2),
+        ),
+      ],
+      back: const Text('Anterior', style: TextStyle(color: Colors.grey),),
+      next: const Text('Siguiente'),
+      done: const Text('¡Vamos allá!', style: TextStyle(fontWeight: FontWeight.bold),),
+      onDone: () {
+        setState(() {
+          everPlayed = true;
+        });
+        _save_ever_played();
+      },
+    );
+  }
 
   void _showExtraTryDialogWotd() {
     if (_isRewardedAdReady == false) _loadRewardedAd();

@@ -39,6 +39,7 @@ dependencies:
   charts_flutter: ^0.12.0
   new_version: ^0.3.0
   slide_countdown_clock: ^1.0.3
+  introduction_screen: ^3.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

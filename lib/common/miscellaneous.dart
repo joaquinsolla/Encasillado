@@ -2,6 +2,7 @@
 const String appVersion = "1.2.3";
 
 /** PERSISTENT DATA */
+bool everPlayed = false;
 bool colorBlind = false;
 bool darkMode = false;
 int streak = 0;
