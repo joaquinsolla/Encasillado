@@ -118,7 +118,7 @@ class _SuggestState extends State<Suggest> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 50,),
+                    SizedBox(height: 30,),
                     TextField(
                       inputFormatters: [
                         UpperCaseTextFormatter(),
@@ -140,7 +140,7 @@ class _SuggestState extends State<Suggest> {
                         hintStyle: TextStyle(color: appBlack),
                       ),
                     ),
-                    SizedBox(height: 30,),
+                    SizedBox(height: 20,),
                     Container(
                       height: 50,
                       child: Row(

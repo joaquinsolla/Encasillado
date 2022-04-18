@@ -158,7 +158,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Añadidos nuevos trofeos al juego. En actualizaiones futuras se "
+                    "Añadidos nuevos trofeos al juego. En actualizaciones futuras se "
                         "añadirán más todavía para hacer el juego más desafiante.\n",
                     style: TextStyle(
                       fontSize: 15,

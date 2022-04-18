@@ -215,7 +215,7 @@ class _SettingsState extends State<Settings> {
                   children: [
                     smallText(
                         '\nSoy Joaquín, estudiante de ingeniería informática. '
-                            'Espero que disfrutes mi app tanto como yo he disfrutado hacerla.'
+                            'Espero que disfrutes mi app tanto como yo he disfrutado haciéndola.'
                             '\n\nPuedes encontrarme en:\n'),
                     socialsButton(
                         myInstagramUrl, instagramImg, 19.5, 'Instagram'),

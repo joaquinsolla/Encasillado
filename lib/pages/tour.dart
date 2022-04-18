@@ -63,11 +63,13 @@ class _TourState extends State<Tour> {
           image: Image.asset(introExplanation3),
         ),
         PageViewModel(
-          title: "Trofeos",
+          title: "Trofeos y estadísticas",
           body:
           "El juego tiene un apartado en el que puedes consultar tus trofeos. A "
               "medida que completes los desafíos indicados ganarás nuevos trofeos. "
-              "¡Si los consigues todos obtendrás el trofeo de diamante!",
+              "¡Si los consigues todos obtendrás el trofeo de diamante!\n\n"
+              "También dispones de un apartado para consultar tus estadísticas de"
+              " juego.",
           image: Image.asset(introExplanation4),
         ),
       ],
