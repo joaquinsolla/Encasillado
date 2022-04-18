@@ -19,6 +19,7 @@ import 'package:Encasillado/pages/user_stats.dart';
 import 'package:Encasillado/pages/tour.dart';
 import 'package:Encasillado/pages/trophies.dart';
 import 'package:Encasillado/pages/suggest.dart';
+import 'package:Encasillado/notificationservice.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -34,6 +35,10 @@ void main() {
 
   infinite_generate_word();
   wotd_generate_word();
+
+  /** NOTIFICATIONS MANAGEMENT */
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotification();
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,

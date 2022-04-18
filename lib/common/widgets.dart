@@ -507,7 +507,7 @@ TextButton suggestButton(BuildContext context) {
         primary: appBlack,
         backgroundColor: keyColor,
       ),
-      child: Image.asset(suggestImgDarkmode, scale: 18,),
+      child: Image.asset(suggestImgDarkmode, scale: 19,),
     );
   else
     return TextButton(
@@ -518,7 +518,7 @@ TextButton suggestButton(BuildContext context) {
         primary: appBlack,
         backgroundColor: keyColor,
       ),
-      child: Image.asset(suggestImgLightmode, scale: 18,),
+      child: Image.asset(suggestImgLightmode, scale: 19,),
     );
 }
 
