@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -49,13 +51,13 @@ void wotd_generate_word() {
   if(terminalPrinting) print("[SYS] Wotd: " + wotdString);
 }
 
-Future<http.Response> sendSuggestedWord(String word) {
+void sendSuggestedWord(String word, BuildContext context) async {
   final now = DateTime.now();
   String nowString = now.toString();
 
-  if (terminalPrinting) print('[SYS] Sending $word to database');
+  if (terminalPrinting) print('[SYS] Trying to send $word to online databasey');
 
-  return http.post(
+  var response = await http.post(
     Uri.parse('https://api.jsonbin.io/v3/b'),
     headers: <String, String>{
       'Content-Type': 'application/json',
@@ -65,6 +67,46 @@ Future<http.Response> sendSuggestedWord(String word) {
       '$nowString': word,
     }),
   );
+
+  try{
+    if (response.statusCode == 200) {
+      if (terminalPrinting) print('[SYS] $word sent (200)');
+      suggestedWords.add(word);
+      Flushbar(
+        message: "Palabra enviada. ¡Gracias por colaborar!",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.orange,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+
+    } else {
+      var statusCode = response.statusCode;
+      if (terminalPrinting) print("[ERR] couldn't send $word ($statusCode)");
+      Flushbar(
+        message: "Ha ocurrido un error, inténtalo de nuevo",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.red,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+    }
+  } on SocketException catch (e){
+    if (terminalPrinting) print("[ERR] couldn't send $word ($e)");
+    Flushbar(
+      message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.red,
+      flushbarPosition: FlushbarPosition.TOP,
+    ).show(context);
+  } on Exception catch (e){
+    if (terminalPrinting) print("[ERR] couldn't send $word ($e)");
+    Flushbar(
+      message: "Ha ocurrido un error, inténtalo de nuevo",
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.red,
+      flushbarPosition: FlushbarPosition.TOP,
+    ).show(context);
+  }
+
 }
 
 void check_diamond_trophy(){

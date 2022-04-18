@@ -163,16 +163,8 @@ class _SuggestState extends State<Suggest> {
                                       flushbarPosition: FlushbarPosition.TOP,
                                     ).show(context);
                                   } else {
-                                    suggestedWords.add(wordController.text);
-                                    sendSuggestedWord(wordController.text);
-                                    Flushbar(
-                                      message: "Palabra enviada. ¡Gracias por colaborar!",
-                                      duration: Duration(seconds: 3),
-                                      backgroundColor: Colors.orange,
-                                      flushbarPosition: FlushbarPosition.TOP,
-                                    ).show(context);
+                                    sendSuggestedWord(wordController.text, context);
                                   }
-
                                   FocusManager.instance.primaryFocus?.unfocus();
                                   wordController.text = '';
                                 }
