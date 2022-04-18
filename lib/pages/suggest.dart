@@ -12,6 +12,16 @@ class Suggest extends StatefulWidget {
   _SuggestState createState() => _SuggestState();
 }
 
+class UpperCaseTextFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+      text: newValue.text.toUpperCase(),
+      selection: newValue.selection,
+    );
+  }
+}
+
 class _SuggestState extends State<Suggest> {
 
   final wordController = TextEditingController();
@@ -93,7 +103,8 @@ class _SuggestState extends State<Suggest> {
                       alignment: WrapAlignment.start,
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
-                        Icon(Icons.security_rounded),
+                        Icon(Icons.security_rounded, color: appBlack,),
+                        SizedBox(width: 5,),
                         Text(
                           "Las palabras se envían de forma anónima.",
                           style: TextStyle(
@@ -109,11 +120,24 @@ class _SuggestState extends State<Suggest> {
                     ),
                     SizedBox(height: 50,),
                     TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
+                      maxLength: 5,
+                      style: TextStyle(color: appBlack),
                       controller: wordController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        counterStyle: TextStyle(color: appBlack),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: appBlack, width: 1),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: appMainColor, width: 1),
+                        ),
                         labelText: 'Palabra de 5 letras',
+                        labelStyle: TextStyle(color: appMainColor),
                         hintText: 'Sugiere una palabra...',
+                        hintStyle: TextStyle(color: appBlack),
                       ),
                     ),
                     SizedBox(height: 30,),
@@ -125,13 +149,32 @@ class _SuggestState extends State<Suggest> {
                           TextButton(
                               onPressed: () {
                                 if ((wordController.text).length == 5) {
-                                  sendSuggestedWord(wordController.text);
-                                  Flushbar(
-                                    message: "Palabra enviada. ¡Gracias por colaborar!",
-                                    duration: Duration(seconds: 3),
-                                    backgroundColor: Colors.orange,
-                                    flushbarPosition: FlushbarPosition.TOP,
-                                  ).show(context);
+                                  bool alreadySent = false;
+                                  for (var i = 0; i < suggestedWords.length; i++) {
+                                    if (wordController.text == suggestedWords[i])
+                                      alreadySent = true;
+                                  }
+
+                                  if (alreadySent) {
+                                    Flushbar(
+                                      message: "Ya has sugerido esta palabra",
+                                      duration: Duration(seconds: 3),
+                                      backgroundColor: Colors.red,
+                                      flushbarPosition: FlushbarPosition.TOP,
+                                    ).show(context);
+                                  } else {
+                                    suggestedWords.add(wordController.text);
+                                    sendSuggestedWord(wordController.text);
+                                    Flushbar(
+                                      message: "Palabra enviada. ¡Gracias por colaborar!",
+                                      duration: Duration(seconds: 3),
+                                      backgroundColor: Colors.orange,
+                                      flushbarPosition: FlushbarPosition.TOP,
+                                    ).show(context);
+                                  }
+
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                  wordController.text = '';
                                 }
                                 else Flushbar(
                                   message: "La palabra debe ser de 5 letras",

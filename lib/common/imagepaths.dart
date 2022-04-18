@@ -43,6 +43,8 @@ const String wotdTagImgDarkmode = 'app_files/wotd_tag_darkmode.png';
 const String allTagImgGrey = 'app_files/all_tag_grey.png';
 const String infiniteTagImgGrey = 'app_files/infinite_tag_grey.png';
 const String wotdTagImgGrey = 'app_files/wotd_tag_grey.png';
+const String suggestImgLightmode = 'app_files/suggest.png';
+const String suggestImgDarkmode = 'app_files/suggest_darkmode.png';
 
 const String introIcon = 'app_files/intro_icon.png';
 const String introExplanation1 = 'app_files/intro_explanation1.png';

@@ -59,7 +59,7 @@ Future<http.Response> sendSuggestedWord(String word) {
     Uri.parse('https://api.jsonbin.io/v3/b'),
     headers: <String, String>{
       'Content-Type': 'application/json',
-      'X-Master-Key': '\$2b\$10\$0chIfOBlEqA8RGZtMyArSeOWFdYp/vBtKmJbwInTN1ZyR8F/dsgpa',
+      'X-Master-Key': '\$2b\$10\$e5klPqwHbbDvgDVd3jPqDe7sWxWNcPiHKn15wQHojsv9pZzySdgjy',
     },
     body: jsonEncode(<String, String>{
       '$nowString': word,

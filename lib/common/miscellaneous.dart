@@ -68,6 +68,9 @@ bool extraTryWotd = false;
 bool extraTryInfinite = false;
 bool terminalPrinting = false;
 
+/** OTHERS - NON PERSISTENT */
+List<String> suggestedWords = [];
+
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;
 double deviceWidth = 0;

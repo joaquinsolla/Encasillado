@@ -498,19 +498,28 @@ Container gameBannerOneButton(BuildContext context, String content, Widget butto
 }
 
 TextButton suggestButton(BuildContext context) {
-  return TextButton(
-    onPressed: () {
-      Navigator.pushNamed(context, '/suggest');
-    },
-    style: TextButton.styleFrom(
-      primary: appBlack,
-      backgroundColor: keyColor,
-    ),
-    child: Text(
-      'Sugerir',
-      style: TextStyle(color: appBlack),
-    ),
-  );
+  if (darkMode)
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/suggest');
+      },
+      style: TextButton.styleFrom(
+        primary: appBlack,
+        backgroundColor: keyColor,
+      ),
+      child: Image.asset(suggestImgDarkmode, scale: 18,),
+    );
+  else
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/suggest');
+      },
+      style: TextButton.styleFrom(
+        primary: appBlack,
+        backgroundColor: keyColor,
+      ),
+      child: Image.asset(suggestImgLightmode, scale: 18,),
+    );
 }
 
 TextButton twitterBotButton(BuildContext context) {
