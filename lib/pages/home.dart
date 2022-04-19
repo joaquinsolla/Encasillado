@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_version/new_version.dart';
 import 'package:intl/intl.dart';
 import 'package:slide_countdown_clock/slide_countdown_clock.dart';
-import 'package:timezone/data/latest.dart' as tz;
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -15,7 +14,6 @@ import 'package:Encasillado/ad_helper.dart';
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/urls.dart';
-import 'package:Encasillado/notificationservice.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -604,9 +602,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // NOTIFICATIONS MANAGEMENT
-    tz.initializeTimeZones();
-    NotificationService().showNotification(1, "Encasillado", "¡Nueva palabra del día disponible!");
 
     // VERSION MANAGEMENT
     final newVersion = NewVersion(

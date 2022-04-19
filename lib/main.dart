@@ -5,6 +5,7 @@
  * */
 
 import 'package:flutter/material.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 import 'package:Encasillado/databases.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -39,6 +40,8 @@ void main() {
   /** NOTIFICATIONS MANAGEMENT */
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification();
+  tz.initializeTimeZones();
+  NotificationService().showNotification(1, "Encasillado", "¡Nueva palabra del día disponible!");
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
