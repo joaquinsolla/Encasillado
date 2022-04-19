@@ -152,31 +152,6 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 7.5,
                   ),
                   Text(
-                    "En desarrollo:",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  secondaryText('Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n'),
-                  mainText('Pistas'),
-                  secondaryText("Se está considerando la posibilidad de incorporar pistas a cambio de ver anuncios.\n"),
-                  SizedBox(height: 7.5,),
-                  mainText('Lista de palabras en proceso de mejora'),
-                  secondaryText("Continuamente se está aumentando la lista de palabras del juego."
-                  " Siempre puedes aportar sugerencias sobre nuevas palabras a través del apartado "
-                      "'Sugerir' en la pantalla principal.\n"),
-                  SizedBox(height: 7.5,),
-                  mainText('Nuevos trofeos'),
-                  secondaryText('Se están preparando nuevos trofeos para añadir más retos al juego.\n'),
-                  Text(
                     "\nGracias por jugar a Encasillado v$appVersion",
                     style: TextStyle(
                       fontSize: 12,
