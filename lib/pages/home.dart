@@ -1761,7 +1761,7 @@ class _HomeState extends State<Home> {
 
   // LETTERS FIELD MANAGEMENT
 
-  AnimatedContainer letterCell(String char, String col) {
+  AnimatedContainer letterCell(String char, String col, int duration) {
 
     Color? cellColor = appWhite;
     if (col == "V") cellColor = appGreen;
@@ -1769,7 +1769,7 @@ class _HomeState extends State<Home> {
     if (col == "G") cellColor = appGrey;
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 750),
+      duration: Duration(milliseconds: duration),
       curve: Curves.easeInOutCirc,
       width: ((deviceHeight * 0.46) / 6),
       height: ((deviceHeight * 0.46) / 6),
@@ -1815,11 +1815,11 @@ class _HomeState extends State<Home> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        letterCell(inputMatrixWotd[_from], colorsArrayWotd[_from]),
-        letterCell(inputMatrixWotd[_from + 1], colorsArrayWotd[_from + 1]),
-        letterCell(inputMatrixWotd[_from + 2], colorsArrayWotd[_from + 2]),
-        letterCell(inputMatrixWotd[_from + 3], colorsArrayWotd[_from + 3]),
-        letterCell(inputMatrixWotd[_from + 4], colorsArrayWotd[_from + 4]),
+        letterCell(inputMatrixWotd[_from], colorsArrayWotd[_from], 500),
+        letterCell(inputMatrixWotd[_from + 1], colorsArrayWotd[_from + 1], 575),
+        letterCell(inputMatrixWotd[_from + 2], colorsArrayWotd[_from + 2], 650),
+        letterCell(inputMatrixWotd[_from + 3], colorsArrayWotd[_from + 3], 725),
+        letterCell(inputMatrixWotd[_from + 4], colorsArrayWotd[_from + 4], 800),
       ],
     );
   }
@@ -1829,15 +1829,15 @@ class _HomeState extends State<Home> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        letterCell(inputMatrixInfinite[_from], colorsArrayInfinite[_from]),
+        letterCell(inputMatrixInfinite[_from], colorsArrayInfinite[_from], 500),
         letterCell(
-            inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1]),
+            inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1], 575),
         letterCell(
-            inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2]),
+            inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2], 650),
         letterCell(
-            inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3]),
+            inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3], 725),
         letterCell(
-            inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4]),
+            inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4], 800),
       ],
     );
   }

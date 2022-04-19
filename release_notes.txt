@@ -3,8 +3,8 @@ Palabras registradas: 1746
 
 Sugerir palabras: La pantalla principal cuenta ahora con el botón 'Sugerir', a través de este podrás
 sugerir nuevas palabras para que se añadan al juego.
-Notificaciones: Ahora recibirás una notificación cada vez que la Palabra del Día cambie, puedes
-desactivar esto en ajustes.
+Notificaciones: Ahora recibirás una notificación cada vez que una nueva palabra del día esté
+disponible, puedes desactivar esto en ajustes.
 Introducción al juego: Cuando se abre la aplicación por primera vez se muestra un tour para aprender
 lo básico de la aplicación. Puedes volver a ver este tour en 'Ajustes' en el apartado de 'Cómo jugar'.
 Intento extra: Se ha añadido la opción de repetir el último intento (en caso de fallarlo) a cambio
