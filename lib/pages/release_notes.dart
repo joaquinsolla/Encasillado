@@ -54,6 +54,34 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
       DeviceOrientation.portraitUp,
     ]);
 
+    Text mainText(String content){
+      return Text(
+        content,
+        style: TextStyle(
+          fontSize: 16,
+          color: appBlack,
+          fontWeight: FontWeight.bold,
+          decoration: TextDecoration.none,
+          fontFamily: 'RaleWay',
+        ),
+        textAlign: TextAlign.left,
+      );
+    }
+    
+    Text secondaryText(String content){
+      return Text(
+        content,
+        style: TextStyle(
+          fontSize: 15,
+          color: appBlack,
+          fontWeight: FontWeight.normal,
+          decoration: TextDecoration.none,
+          fontFamily: 'RaleWay',
+        ),
+        textAlign: TextAlign.left,
+      );
+    }
+    
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -94,106 +122,32 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    "Intento extra",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se ha añadido la opción de un séptimo intento para resolver "
-                        "las palabras a cambio de ver un anuncio.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  mainText('Sugerir palabras'),
+                  secondaryText("La pantalla principal cuenta ahora con el botón 'Sugerir', a través de "
+                      "este podrás sugerir nuevas palabras para que se añadan al juego.\n"),
                   SizedBox(
                     height: 7.5,
                   ),
-                  Text(
-                    "Mejoras de rendimiento",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se ha optimizado y mejorado el código de la aplicación para "
-                        "un funcionamiento más rápido y ligero.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  mainText('Notificaciones'),
+                  secondaryText('Ahora recibirás una notificación cada vez que la Palabra del Día '
+                      'cambie, puedes desactivar esto en ajustes.\n'),
                   SizedBox(
                     height: 7.5,
                   ),
-                  Text(
-                    "Nuevos trofeos",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Añadidos nuevos trofeos al juego. En actualizaciones futuras se "
-                        "añadirán más todavía para hacer el juego más desafiante.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  mainText('Introducción al juego'),
+                  secondaryText("Cuando se abre la aplicación por primera vez se muestra un tour para aprender "
+                      "lo básico de la aplicación. Puedes volver a ver este tour en 'Ajustes' en el apartado de 'Cómo jugar'.\n"),
                   SizedBox(
                     height: 7.5,
                   ),
-                  Text(
-                    "Lista de palabras actualizada",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
+                  mainText('Intento extra'),
+                  secondaryText('Se ha añadido la opción de repetir el último intento '
+                      '(en caso de fallarlo) a cambio de ver un anuncio.\n'),
+                  SizedBox(
+                    height: 7.5,
                   ),
-                  Text(
-                    "Se han añadido nuevas palabras al repertorio del juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  mainText('Lista de palabras actualizada'),
+                  secondaryText('Se han añadido nuevas palabras al repertorio del juego.\n'),
                   SizedBox(
                     height: 7.5,
                   ),
@@ -211,65 +165,17 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    "Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Lista de palabras en proceso de mejora",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Continuamente se está aumentando la lista de palabras del juego."
-                    " Siempre puedes aportar sugerencias sobre nuevas palabras contactando"
-                    " vía email en el apartado de ajustes.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  secondaryText('Actualmente se está trabajando para incorporar las siguientes funcionalidades al juego:\n'),
+                  mainText('Pistas'),
+                  secondaryText("Se está considerando la posibilidad de incorporar pistas a cambio de ver anuncios.\n"),
                   SizedBox(height: 7.5,),
-                  Text(
-                    "Nuevos trofeos",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Se están preparando nuevos trofeos para añadir más retos al "
-                        "juego.\n",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  mainText('Lista de palabras en proceso de mejora'),
+                  secondaryText("Continuamente se está aumentando la lista de palabras del juego."
+                  " Siempre puedes aportar sugerencias sobre nuevas palabras a través del apartado "
+                      "'Sugerir' en la pantalla principal.\n"),
+                  SizedBox(height: 7.5,),
+                  mainText('Nuevos trofeos'),
+                  secondaryText('Se están preparando nuevos trofeos para añadir más retos al juego.\n'),
                   Text(
                     "\nGracias por jugar a Encasillado v$appVersion",
                     style: TextStyle(
