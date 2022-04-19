@@ -1,5 +1,5 @@
-Versión 1.2.4 Beta
-Palabras registradas: 1746
+Versión 1.2.5
+Palabras registradas: 1762
 
 Sugerir palabras: La pantalla principal cuenta ahora con el botón 'Sugerir', a través de este podrás
 sugerir nuevas palabras para que se añadan al juego.

@@ -28,13 +28,13 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
 
     //TODO: Añadir con cada version
-    //prefs.remove("notes1.2.4");
+    prefs.remove("notes1.2.4");
     if (terminalPrinting) print('[SYS] Removed old notes controllers');
 
     //TODO: Cambiar con cada version
-    final key = 'notes1.2.4';
+    final key = 'notes1.2.5';
     final value = prefs.getBool(key) ?? true;
-    if (terminalPrinting) print('[SYS] Read: $value for notes1.2.4');
+    if (terminalPrinting) print('[SYS] Read: $value for notes1.2.5');
     setState(() {
       showNotes = value;
     });
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
 
   _save_release_notes() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'notes1.2.4';   //TODO: Cambiar con cada version
+    final key = 'notes1.2.5';   //TODO: Cambiar con cada version
     prefs.setBool(key, false);
     if(terminalPrinting) print('[SYS] Saved false on $key');
   }
