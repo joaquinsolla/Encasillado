@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:another_flushbar/flushbar.dart';
@@ -57,6 +58,9 @@ void sendSuggestedWord(String word, BuildContext context) async {
 
   if (terminalPrinting) print('[SYS] Trying to send $word to online databasey');
 
+  int timeout = 5;
+
+  try{
   var response = await http.post(
     Uri.parse('https://api.jsonbin.io/v3/b'),
     headers: <String, String>{
@@ -66,9 +70,8 @@ void sendSuggestedWord(String word, BuildContext context) async {
     body: jsonEncode(<String, String>{
       '$nowString': word,
     }),
-  );
+  ).timeout(Duration(seconds: timeout));;
 
-  try{
     if (response.statusCode == 200) {
       if (terminalPrinting) print('[SYS] $word sent (200)');
       suggestedWords.add(word);
@@ -89,6 +92,7 @@ void sendSuggestedWord(String word, BuildContext context) async {
         flushbarPosition: FlushbarPosition.TOP,
       ).show(context);
     }
+
   } on SocketException catch (e){
     if (terminalPrinting) print("[ERR] couldn't send $word ($e)");
     Flushbar(
@@ -97,7 +101,17 @@ void sendSuggestedWord(String word, BuildContext context) async {
       backgroundColor: Colors.red,
       flushbarPosition: FlushbarPosition.TOP,
     ).show(context);
-  } on Exception catch (e){
+
+  } on TimeoutException catch (e) {
+    if (terminalPrinting) print("[ERR] couldn't send $word ($e)");
+    Flushbar(
+      message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.red,
+      flushbarPosition: FlushbarPosition.TOP,
+    ).show(context);
+
+  } on Error catch (e){
     if (terminalPrinting) print("[ERR] couldn't send $word ($e)");
     Flushbar(
       message: "Ha ocurrido un error, inténtalo de nuevo",

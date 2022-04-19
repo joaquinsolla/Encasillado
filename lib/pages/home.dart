@@ -1955,8 +1955,7 @@ class _HomeState extends State<Home> {
                 Text('Versión $appVersion'),
               ],
             ),
-            content: Text('Ya está aquí la versión $appVersion. ¿Quieres ver qué novedades '
-                'trae?'),
+            content: Text('¡Ya está aquí la versión $appVersion! Consulta sus novedades:'),
             actions: <Widget>[
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,

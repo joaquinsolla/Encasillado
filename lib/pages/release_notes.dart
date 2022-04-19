@@ -129,8 +129,8 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 7.5,
                   ),
                   mainText('Notificaciones'),
-                  secondaryText('Ahora recibirás una notificación cada vez que la Palabra del Día '
-                      'cambie, puedes desactivar esto en ajustes.\n'),
+                  secondaryText('Ahora recibirás una notificación cada vez que una nueva palabra del día '
+                      'esté disponible, puedes desactivar esto en ajustes.\n'),
                   SizedBox(
                     height: 7.5,
                   ),
