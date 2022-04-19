@@ -1,8 +1,8 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+settings notifications
 
 -------OTHERS----------
-local notifications
 
 -------REVIEW----------

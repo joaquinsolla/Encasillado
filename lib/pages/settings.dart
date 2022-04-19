@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:Encasillado/notificationservice.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -79,6 +82,37 @@ class _SettingsState extends State<Settings> {
     prefs.setBool(key, value);
     if(terminalPrinting) print('[SYS] Saved $value for darkmode');
   }
+
+  _save_want_notifications(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'wantnotifications';
+    prefs.setBool(key, value);
+    if(terminalPrinting) print('[SYS] Saved $value for wantnotifications');
+  }
+
+  _read_want_notifications() async {
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'wantnotifications';
+    final value = prefs.getBool(key) ?? true;
+    if(terminalPrinting) print('[SYS] Read: $value for wantnotifications');
+    if (value == true){
+      setState(() {
+        wantNotifications = true;
+      });
+      WidgetsFlutterBinding.ensureInitialized();
+      NotificationService().initNotification();
+      tz.initializeTimeZones();
+      NotificationService().showNotification(1, "Encasillado", "¡Nueva palabra del día disponible!");
+    } else {
+      setState(() {
+        wantNotifications = false;
+      });
+      await flutterLocalNotificationsPlugin.cancel(1);
+      if(terminalPrinting) print('[SYS] Canceled notification with id 1');
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -122,6 +156,16 @@ class _SettingsState extends State<Settings> {
                     onChanged: (value) {
                       _save_darkmode(value);
                       _read_darkmode();
+                    },
+                  ),
+                ),
+                settingsRow(
+                  'Notificaciones:',
+                  Switch(
+                    value: wantNotifications,
+                    onChanged: (value) {
+                      _save_want_notifications(value);
+                      _read_want_notifications();
                     },
                   ),
                 ),

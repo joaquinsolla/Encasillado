@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -462,6 +463,26 @@ class _HomeState extends State<Home> {
     if(terminalPrinting) print('[SYS] Saved $value on consecutivedayswotd');
   }
 
+  _read_want_notifications() async {
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'wantnotifications';
+    final value = prefs.getBool(key) ?? true;
+    if(terminalPrinting) print('[SYS] Read: $value for wantnotifications');
+    if (value == true){
+      setState(() {
+        wantNotifications = true;
+      });
+    } else {
+      setState(() {
+        wantNotifications = false;
+      });
+      await flutterLocalNotificationsPlugin.cancel(1);
+      if(terminalPrinting) print('[SYS] Canceled notification with id 1');
+    }
+  }
+
   void check_wotd_days() {
 
     final format = DateFormat('yyyy-MM-dd');
@@ -655,6 +676,7 @@ class _HomeState extends State<Home> {
       _read_trophies();
       _read_last_day_wotd();
       _read_consecutive_days_wotd();
+      _read_want_notifications();
 
       check_settings();
 

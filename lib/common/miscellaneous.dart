@@ -5,6 +5,7 @@ const String appVersion = "1.2.4 Beta";
 bool everPlayed = true;
 bool colorBlind = false;
 bool darkMode = false;
+bool wantNotifications = true;
 int streak = 0;
 int infiniteScore = 0;
 int totalInfiniteGames = 0;
