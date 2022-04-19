@@ -29,6 +29,7 @@ class _HomeState extends State<Home> {
 
     //TODO: Añadir con cada version
     //prefs.remove("notes1.2.4");
+    if (terminalPrinting) print('[SYS] Removed old notes controllers');
 
     //TODO: Cambiar con cada version
     final key = 'notes1.2.4';

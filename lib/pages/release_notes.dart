@@ -97,7 +97,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     height: 5,
                   ),
                   Text(
-                    "Versión " + appVersion + ":",
+                    "Novedades v$appVersion:",
                     style: TextStyle(
                       fontSize: 25,
                       color: appBlack,
@@ -107,7 +107,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 15,),
                   Text(
                     "Palabras registradas: " + (selectedDatabase.length).toString(),
                     style: TextStyle(
