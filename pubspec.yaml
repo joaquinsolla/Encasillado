@@ -40,9 +40,10 @@ dependencies:
   new_version: ^0.3.0
   slide_countdown_clock: ^1.0.3
   introduction_screen: ^3.0.2
-  http: ^0.13.4
   flutter_local_notifications: ^9.4.0
   timezone: ^0.8.0
+  firebase_core: ^1.15.0
+  cloud_firestore: ^3.1.13
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

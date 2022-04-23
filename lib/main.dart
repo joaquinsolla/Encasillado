@@ -4,6 +4,7 @@
  * App repository: https://github.com/joaquinsolla/Encasillado
  * */
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -24,7 +25,10 @@ import 'package:Encasillado/notificationservice.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   /** DATABASE SELECTOR
    * 0 - gameDB
