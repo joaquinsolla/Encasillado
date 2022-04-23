@@ -32,7 +32,7 @@ void main() {
   selectedDatabase = databasesList[0];
 
   /** TERMINAL DEBUGGING */
-  terminalPrinting = false;
+  terminalPrinting = true;
 
   infinite_generate_word();
   wotd_generate_word();
