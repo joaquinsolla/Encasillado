@@ -125,56 +125,66 @@ class _SetUserNameState extends State<SetUserName> {
                 Center(
                   child: TextButton(
                       onPressed: () {
-                        FirebaseFirestore firestore = FirebaseFirestore.instance;
-                        CollectionReference users = firestore.collection('users');
-                        DateTime now = DateTime.now();
-                        String formattedDate = DateFormat('dd-MM-yyyy – kk:mm:ss').format(now);
-                        String newUserId = userNameController.text + formattedDate.substring(0,2) +
-                            formattedDate.substring(3,5) + formattedDate.substring(6,10) +
-                            formattedDate.substring(13,15) + formattedDate.substring(16,18) +
-                            formattedDate.substring(19) + (Random().nextInt(10)).toString();
+                        if (userNameController.text.length > 0) {
+                          FirebaseFirestore firestore = FirebaseFirestore.instance;
+                          CollectionReference users = firestore.collection('users');
+                          DateTime now = DateTime.now();
+                          String formattedDate = DateFormat('dd-MM-yyyy – kk:mm:ss').format(now);
+                          String newUserId = userNameController.text + formattedDate.substring(0,2) +
+                              formattedDate.substring(3,5) + formattedDate.substring(6,10) +
+                              formattedDate.substring(13,15) + formattedDate.substring(16,18) +
+                              formattedDate.substring(19) + (Random().nextInt(10)).toString();
 
-                        setState(() {
-                          userName = userNameController.text;
-                          userId = newUserId;
-                        });
-                        _save_user();
+                          setState(() {
+                            userName = userNameController.text;
+                            userId = newUserId;
+                          });
+                          _save_user();
 
-                        users
-                            .add({
-                          'name': userName,
-                          'id': userId,
-                          'scoreRecord': scoreRecord,
-                          'streakRecord': streakRecord,
-                        })
-                            .then((value) {
-                          FocusManager.instance.primaryFocus?.unfocus();
-                          Navigator.pushNamed(context, '/home');
+                          users
+                              .add({
+                            'name': userName,
+                            'id': userId,
+                            'scoreRecord': scoreRecord,
+                            'streakRecord': streakRecord,
+                          })
+                              .then((value) {
+                            FocusManager.instance.primaryFocus?.unfocus();
+                            Navigator.pushNamed(context, '/home');
+                            Flushbar(
+                              message: "¡Bienvenido $userName!",
+                              duration: Duration(seconds: 3),
+                              backgroundColor: Colors.orange,
+                              flushbarPosition: FlushbarPosition.TOP,
+                            ).show(context);
+                          })
+                              .timeout(Duration(seconds: 5), onTimeout: () {
+                            Flushbar(
+                              message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+                              duration: Duration(seconds: 3),
+                              backgroundColor: Colors.red,
+                              flushbarPosition: FlushbarPosition.TOP,
+                            ).show(context);
+                            if (terminalPrinting) print("[ERR] Failed to save name: Timeout");
+                          })
+                              .catchError((error) {
+                            Flushbar(
+                              message: "Algo ha fallado, inténtalo más tarde",
+                              duration: Duration(seconds: 3),
+                              backgroundColor: Colors.red,
+                              flushbarPosition: FlushbarPosition.TOP,
+                            ).show(context);
+                            if (terminalPrinting) print("[ERR] Failed to save name: $error");
+                          });
+                        } else {
                           Flushbar(
-                            message: "¡Bienvenido $userName!",
-                            duration: Duration(seconds: 3),
-                            backgroundColor: Colors.orange,
-                            flushbarPosition: FlushbarPosition.TOP,
-                          ).show(context);
-                        })
-                            .timeout(Duration(seconds: 5), onTimeout: () {
-                          Flushbar(
-                            message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+                            message: "Debes introducir un nombre",
                             duration: Duration(seconds: 3),
                             backgroundColor: Colors.red,
                             flushbarPosition: FlushbarPosition.TOP,
                           ).show(context);
-                          if (terminalPrinting) print("[ERR] Failed to save name: Timeout");
-                        })
-                            .catchError((error) {
-                          Flushbar(
-                            message: "Algo ha fallado, inténtalo más tarde",
-                            duration: Duration(seconds: 3),
-                            backgroundColor: Colors.red,
-                            flushbarPosition: FlushbarPosition.TOP,
-                          ).show(context);
-                          if (terminalPrinting) print("[ERR] Failed to save name: $error");
-                        });
+                        }
+
                       },
                       style: TextButton.styleFrom(
                         primary: appWhite,
