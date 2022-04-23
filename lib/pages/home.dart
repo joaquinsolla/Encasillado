@@ -23,30 +23,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  /** RELEASE NOTES MANAGEMENT */
-  _read_release_notes() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    //TODO: Añadir con cada version
-    prefs.remove("notes1.2.4");
-    if (terminalPrinting) print('[SYS] Removed old notes controllers');
-
-    //TODO: Cambiar con cada version
-    final key = 'notes1.2.5';
-    final value = prefs.getBool(key) ?? true;
-    if (terminalPrinting) print('[SYS] Read: $value for notes1.2.5');
-    setState(() {
-      showNotes = value;
-    });
-  }
-
-  _save_release_notes() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'notes1.2.5';   //TODO: Cambiar con cada version
-    prefs.setBool(key, false);
-    if(terminalPrinting) print('[SYS] Saved false on $key');
-  }
-
   /** PERSISTENT DATA MANAGEMENT & TROPHIES*/
   _read_user() async {
     final prefs = await SharedPreferences.getInstance();
@@ -706,7 +682,6 @@ class _HomeState extends State<Home> {
     check_device();
 
     if (appStarted == false && everPlayed) {
-      _read_release_notes();
       _read_colorblind();
       _read_darkmode();
       _read_infinite_score();
@@ -744,14 +719,6 @@ class _HomeState extends State<Home> {
     if (newInfiniteGame) {
       infinite_reset_variables();
       infinite_generate_word();
-    }
-
-    if (showNotes && everPlayed){
-      setState(() {
-        showNotes = false;
-      });
-      _save_release_notes();
-      Future.delayed(Duration.zero, () => _showReleaseNotesDialog());
     }
 
     if (everPlayed) return Scaffold(
@@ -1952,64 +1919,6 @@ class _HomeState extends State<Home> {
         Navigator.pushNamed(context, '/set_user_name');
       },
     );
-  }
-
-  void _showReleaseNotesDialog() {
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(Icons.fiber_new_rounded),
-                SizedBox(width: 5,),
-                Text('Versión $appVersion'),
-              ],
-            ),
-            content: Text('¡Ya está aquí la versión $appVersion! Consulta sus novedades:'),
-            actions: <Widget>[
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Container(height: 40,
-                        child: TextButton(
-                            style: TextButton.styleFrom(
-                              primary: Colors.white,
-                              backgroundColor: Colors.grey,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('NO')),),
-                    ),
-                    SizedBox(width: 5,),
-                    Expanded(
-                      flex: 2,
-                      child: Container(height: 40,
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: appMainColor,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.pushNamed(context, '/release_notes');
-                          },
-                          child: Text('NOTAS DE VERSIÓN'),
-                        ),),
-                    ),
-                  ]
-              ),
-            ],
-          );
-        });
   }
 
   void _showExtraTryDialogWotd() {

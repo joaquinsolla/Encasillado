@@ -70,7 +70,6 @@ bool showAds = true;
 bool extraTryWotd = false;
 bool extraTryInfinite = false;
 bool terminalPrinting = false;
-bool showNotes = false;
 
 /** OTHERS - NON PERSISTENT */
 List<String> suggestedWords = [];

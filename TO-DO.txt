@@ -1,8 +1,8 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-quitar release notes dialog
 
 -------OTHERS----------
+mover reads a initstate
 
 -------REVIEW----------
