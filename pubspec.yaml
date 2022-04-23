@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   another_flushbar: ^1.10.5
-  url_launcher: ^6.0.20
+  url_launcher: ^6.1.0
   mailto: ^2.0.0
   social_share: ^2.2.1
   twitter_intent: ^1.0.0

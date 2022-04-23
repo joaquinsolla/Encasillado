@@ -57,7 +57,7 @@ android {
     defaultConfig {
         applicationId "com.joa.encasillado"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
