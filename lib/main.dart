@@ -22,11 +22,13 @@ import 'package:Encasillado/pages/tour.dart';
 import 'package:Encasillado/pages/trophies.dart';
 import 'package:Encasillado/pages/suggest.dart';
 import 'package:Encasillado/notificationservice.dart';
+import 'package:Encasillado/pages/set_user_name.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
 Future<void> main() async {
 
+  /** FIREBASE INITIALIZATION */
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -57,6 +59,7 @@ Future<void> main() async {
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/release_notes': (context) => ReleaseNotes(),
+      '/set_user_name': (context) => SetUserName(),
       '/suggest': (context) => Suggest(),
       '/tour': (context) => Tour(),
       '/trophies': (context) => Trophies(),

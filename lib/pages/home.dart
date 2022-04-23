@@ -48,6 +48,20 @@ class _HomeState extends State<Home> {
   }
 
   /** PERSISTENT DATA MANAGEMENT & TROPHIES*/
+  _read_user() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key1 = 'username';
+    final key2 = 'userid';
+    final value1 = prefs.getString(key1) ?? null;
+    final value2 = prefs.getString(key2) ?? null;
+    if(terminalPrinting) print('[SYS] Read: $value1 for username');
+    if(terminalPrinting) print('[SYS] Read: $value2 for userid');
+    setState(() {
+      userName = value1;
+      userId = value2;
+    });
+  }
+
   _read_ever_played() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'everplayed';
@@ -656,6 +670,7 @@ class _HomeState extends State<Home> {
     if (appStarted ==  false) statusCheck(newVersion);
 
     _read_ever_played();
+    _read_user();
 
     if (showAds) {
       _initGoogleMobileAds();
@@ -1934,6 +1949,7 @@ class _HomeState extends State<Home> {
           everPlayed = true;
         });
         _save_ever_played();
+        Navigator.pushNamed(context, '/set_user_name');
       },
     );
   }

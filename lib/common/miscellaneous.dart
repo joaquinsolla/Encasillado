@@ -1,5 +1,5 @@
 /** APP VERSION */
-const String appVersion = "1.2.5";
+const String appVersion = "1.3.0 Beta";
 
 /** PERSISTENT DATA */
 bool everPlayed = true;
@@ -29,6 +29,8 @@ int scoreRecord = 0;
 String lastDayWotd = '2000-01-01';
 int consecutiveDaysWotd = 0;
 bool wotdDone = false;
+String? userName = null;
+String? userId = null;
 
 /** PERSISTENT TROPHIES */
 int totalTrophies = 0; // 13 - not diamond

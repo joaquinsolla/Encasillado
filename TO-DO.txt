@@ -1,7 +1,7 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-proguard
+quitar release notes dialog
 
 -------OTHERS----------
 
