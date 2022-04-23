@@ -439,6 +439,9 @@ class _HomeState extends State<Home> {
     } else trophyFlushbar(context, msg);
 
     if(terminalPrinting) print('[SYS] Saved: trophy');
+
+    // Save trophy on FB
+    updateFBTrophies();
   }
 
   _read_last_day_wotd() async {
@@ -2267,10 +2270,12 @@ class _HomeState extends State<Home> {
       if (infiniteScore > scoreRecord) {
         scoreRecord = infiniteScore;
         _save_score_record();
+        updateFBScoreRecord();
       }
       if (streak > streakRecord){
         streakRecord = streak;
         _save_streak_record();
+        updateFBStreakRecord();
       }
 
       /** SCORE RECORDS */

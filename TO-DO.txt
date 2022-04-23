@@ -1,6 +1,7 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+boton de sincronizar con la BD
 
 -------OTHERS----------
 mover reads a initstate

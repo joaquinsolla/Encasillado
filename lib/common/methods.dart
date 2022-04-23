@@ -184,3 +184,33 @@ void share_others(String stats, String emojis, String gameDuration) {
 
   SocialShare.shareOptions(text);
 }
+
+void updateFBScoreRecord(){
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  users
+      .doc(userId)
+      .update({'scoreRecord': scoreRecord})
+      .then((value) {if (terminalPrinting) print("[SYS] scoreRecord updated: $scoreRecord");})
+      .catchError((error) {if (terminalPrinting) print("[ERR] Failed to update scoreRecord");});
+}
+
+void updateFBStreakRecord(){
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  users
+      .doc(userId)
+      .update({'streakRecord': streakRecord})
+      .then((value) {if (terminalPrinting) print("[SYS] streakRecord updated: $streakRecord");})
+      .catchError((error) {if (terminalPrinting) print("[ERR] Failed to update streakRecord");});
+}
+
+void updateFBTrophies(){
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  users
+      .doc(userId)
+      .update({'trophies': totalTrophies})
+      .then((value) {if (terminalPrinting) print("[SYS] trophies updated: $totalTrophies");})
+      .catchError((error) {if (terminalPrinting) print("[ERR] Failed to update trophies");});
+}

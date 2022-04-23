@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -126,27 +125,20 @@ class _SetUserNameState extends State<SetUserName> {
                   child: TextButton(
                       onPressed: () {
                         if (userNameController.text.length > 0) {
-                          FirebaseFirestore firestore = FirebaseFirestore.instance;
-                          CollectionReference users = firestore.collection('users');
-                          DateTime now = DateTime.now();
-                          String formattedDate = DateFormat('dd-MM-yyyy – kk:mm:ss').format(now);
-                          String newUserId = userNameController.text + formattedDate.substring(0,2) +
-                              formattedDate.substring(3,5) + formattedDate.substring(6,10) +
-                              formattedDate.substring(13,15) + formattedDate.substring(16,18) +
-                              formattedDate.substring(19) + (Random().nextInt(10)).toString();
+                          String newId = FirebaseFirestore.instance.collection('users').doc().id;
 
                           setState(() {
                             userName = userNameController.text;
-                            userId = newUserId;
+                            userId = newId;
                           });
                           _save_user();
 
-                          users
-                              .add({
+                          FirebaseFirestore.instance.collection('users').doc(newId).set({
                             'name': userName,
                             'id': userId,
                             'scoreRecord': scoreRecord,
                             'streakRecord': streakRecord,
+                            'trophies': totalTrophies,
                           })
                               .then((value) {
                             FocusManager.instance.primaryFocus?.unfocus();
