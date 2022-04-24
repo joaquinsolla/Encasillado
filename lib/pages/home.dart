@@ -650,6 +650,18 @@ class _HomeState extends State<Home> {
 
     _read_ever_played();
     _read_user();
+    _read_colorblind();
+    _read_darkmode();
+    _read_infinite_score();
+    _read_streak();
+    _read_records();
+    _read_stats();
+    _read_trophies();
+    _read_last_day_wotd();
+    _read_consecutive_days_wotd();
+    _read_want_notifications();
+
+    check_settings();
 
     if (showAds) {
       _initGoogleMobileAds();
@@ -682,22 +694,8 @@ class _HomeState extends State<Home> {
       DeviceOrientation.portraitUp,
     ]);
 
-    check_device();
-
-    if (appStarted == false && everPlayed) {
-      _read_colorblind();
-      _read_darkmode();
-      _read_infinite_score();
-      _read_streak();
-      _read_records();
-      _read_stats();
-      _read_trophies();
-      _read_last_day_wotd();
-      _read_consecutive_days_wotd();
-      _read_want_notifications();
-
-      check_settings();
-
+    if (appStarted == false) {
+      check_device();
       setState(() {
         appStarted = true;
       });
@@ -723,6 +721,13 @@ class _HomeState extends State<Home> {
       infinite_reset_variables();
       infinite_generate_word();
     }
+
+    if (userId == null && everPlayed && shownSetName == false) Future.delayed(Duration.zero, () {
+      setState(() {
+        shownSetName = true;
+      });
+      Navigator.pushNamed(context, '/set_user_name');
+    });
 
     if (everPlayed) return Scaffold(
       appBar: myAppBarWithButtonsWithoutBackArrow(context),
@@ -1919,7 +1924,7 @@ class _HomeState extends State<Home> {
           everPlayed = true;
         });
         _save_ever_played();
-        Navigator.pushNamed(context, '/set_user_name');
+        //Navigator.pushNamed(context, '/set_user_name');
       },
     );
   }
