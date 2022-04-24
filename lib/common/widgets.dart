@@ -376,7 +376,26 @@ Column trophiesRowAdvanced(String tag,String mainText, String secondText, String
   }
 }
 
-TextButton socialsButton(String url, String image, double scale, String text) {
+Row socialsRow(List<Widget> buttons){
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: buttons,
+  );
+}
+
+TextButton socialsSmallButton(String url, String image, double scale) {
+  return TextButton(
+    onPressed: () {
+      url_launcher(url);
+    },
+    child: Image.asset(
+      image,
+      scale: scale,
+    ),
+  );
+}
+
+TextButton socialsBigButton(String url, String image, double scale, String text) {
   return TextButton(
     onPressed: () {
       url_launcher(url);

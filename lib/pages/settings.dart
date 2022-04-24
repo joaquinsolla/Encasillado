@@ -281,22 +281,12 @@ class _SettingsState extends State<Settings> {
                         '\nSoy Joaquín, estudiante de ingeniería informática. '
                             'Espero que disfrutes mi app tanto como yo he disfrutado haciéndola.'
                             '\n\nPuedes encontrarme en:\n'),
-                    socialsButton(
-                        myInstagramUrl, instagramImg, 19.5, 'Instagram'),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    socialsButton(myGitHubUrl, myGithubImage, 13.5, 'GitHub'),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    socialsButton(
-                        myWebsiteUrl, myWebsiteImg, 13.5, 'Mi página web'),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    socialsButton(
-                        myPlayStoreDevUrl, playStoreImg, 32.5, 'Play Store'),
+                    socialsRow([
+                      socialsSmallButton(myInstagramUrl, instagramImg, 19.5),
+                      socialsSmallButton(myGitHubUrl, myGithubImage, 13.5),
+                      socialsSmallButton(myWebsiteUrl, myWebsiteImg, 13.5),
+                      socialsSmallButton(myPlayStoreDevUrl, playStoreImg, 32.5),
+                    ]),
                     SizedBox(
                       height: 5,
                     ),
