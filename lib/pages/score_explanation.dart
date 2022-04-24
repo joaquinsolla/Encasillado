@@ -105,7 +105,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                     "Acertar palabras te sumará puntos.\n"
                         "Cuanto más rápido seas y menos intentos necesites, más puntos obtendrás.\n"
                         "Acertar al primer intento otorga 10.000 puntos.\n"
-                        "No acertar en los 6 intentos resta 300 puntos.\n",
+                        "No acertar en los 6 intentos resta 1.000 puntos.\n",
                     style: TextStyle(
                       fontSize: 15,
                       color: appBlack,

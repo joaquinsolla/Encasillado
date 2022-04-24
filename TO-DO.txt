@@ -5,7 +5,5 @@ sugerir: comprobar si ya existe
 boton de sincronizar con la BD
 
 -------OTHERS----------
-mover reads a initstate
-restar mas puntos
 
 -------REVIEW----------

@@ -2268,7 +2268,7 @@ class _HomeState extends State<Home> {
 
           streak++;
         } else {
-          infiniteScore -= 300;
+          infiniteScore -= 1000;
           streak=0;
         }
       });
