@@ -29,8 +29,8 @@ int scoreRecord = 0;
 String lastDayWotd = '2000-01-01';
 int consecutiveDaysWotd = 0;
 bool wotdDone = false;
-String? userName = null;
-String? userId = null;
+String? userName = '';
+String? userId = '';
 
 /** PERSISTENT TROPHIES */
 int totalTrophies = 0; // 13 - not diamond
@@ -70,7 +70,7 @@ bool showAds = true;
 bool extraTryWotd = false;
 bool extraTryInfinite = false;
 bool terminalPrinting = false;
-bool shownSetName = false;
+bool setNameWarned = false;
 
 /** OTHERS - NON PERSISTENT */
 List<String> suggestedWords = [];

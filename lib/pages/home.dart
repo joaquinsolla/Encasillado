@@ -722,11 +722,13 @@ class _HomeState extends State<Home> {
       infinite_generate_word();
     }
 
-    if (userId == null && everPlayed && shownSetName == false) Future.delayed(Duration.zero, () {
-      setState(() {
-        shownSetName = true;
-      });
-      Navigator.pushNamed(context, '/set_user_name');
+    Future.delayed(Duration.zero, () {
+      if (userId == null && setNameWarned == false){
+        setState(() {
+          setNameWarned = true;
+        });
+        Navigator.pushNamed(context, '/set_user_name');
+      }
     });
 
     if (everPlayed) return Scaffold(
