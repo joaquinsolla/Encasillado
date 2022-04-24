@@ -25,6 +25,7 @@ class UpperCaseTextFormatter extends TextInputFormatter {
 class _SuggestState extends State<Suggest> {
 
   final wordController = TextEditingController();
+  bool? anonymous = false;
 
   @override
   void dispose() {
@@ -83,8 +84,8 @@ class _SuggestState extends State<Suggest> {
                       height: 15,
                     ),
                     Text(
-                      "Sugiere palabras que falten en el juego. Todas las palabras "
-                          "deben ser de 5 letras.\n"
+                      "Sugiere palabras que falten en el juego.\n"
+                          "Todas las palabras deben ser de 5 letras.\n"
                           "Las palabras deben existir en el diccionario de la lengua "
                           "española.\n"
                           "Recuerda que no se aceptan verbos conjugados ni plurales.\n"
@@ -99,24 +100,37 @@ class _SuggestState extends State<Suggest> {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 15,),
-                    Wrap(
-                      alignment: WrapAlignment.start,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Icon(Icons.security_rounded, color: appBlack,),
-                        SizedBox(width: 5,),
-                        Text(
-                          "Las palabras se envían de forma anónima.",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
+                    Theme(
+                      data: ThemeData(unselectedWidgetColor: appBlack),
+                      child: CheckboxListTile(
+                      title: Wrap(
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Icon(Icons.security_rounded, color: appBlack,),
+                          SizedBox(width: 5,),
+                          Text(
+                            "Enviar de forma anónima",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
+                        ],
+                      ),
+                      value: anonymous,
+                      onChanged: (newValue) {
+                        setState(() {
+                          anonymous = newValue;
+                        });
+                      },
+                      controlAffinity: ListTileControlAffinity.leading,
+                        activeColor: appMainColor,
+                    ),
                     ),
                     SizedBox(height: 30,),
                     TextField(
@@ -163,7 +177,7 @@ class _SuggestState extends State<Suggest> {
                                       flushbarPosition: FlushbarPosition.TOP,
                                     ).show(context);
                                   } else {
-                                    sendSuggestedWord(wordController.text, context);
+                                    sendSuggestedWord(wordController.text, anonymous!, context);
                                   }
                                   FocusManager.instance.primaryFocus?.unfocus();
                                   wordController.text = '';

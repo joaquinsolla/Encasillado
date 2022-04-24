@@ -1,7 +1,7 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
-sugerir anonimo
+sugerir: comprobar si ya existe
 boton de sincronizar con la BD
 
 -------OTHERS----------
