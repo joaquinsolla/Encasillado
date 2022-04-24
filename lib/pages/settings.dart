@@ -220,6 +220,27 @@ class _SettingsState extends State<Settings> {
                 SizedBox(
                   height: 5,
                 ),
+                if (userName == null) settingsRowAdvanced('Anónimo', 'Ponte un nombre de juego', TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/set_user_name');
+                      },
+                      style: TextButton.styleFrom(
+                        primary: appWhite,
+                        backgroundColor: appMainColor,
+                      ),
+                      child: Text("NOMBRE")),),
+                if (userName != null) settingsRowAdvanced('Tú: $userName', 'Actualiza tu nombre de juego', TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/update_user_name');
+                    },
+                    style: TextButton.styleFrom(
+                      primary: appWhite,
+                      backgroundColor: appMainColor,
+                    ),
+                    child: Text("NOMBRE")),),
+                SizedBox(
+                  height: 7.5,
+                ),
                 settingsRowAdvanced(
                   'Cómo jugar', '¿Necesitas ayuda para jugar?',
                   TextButton(

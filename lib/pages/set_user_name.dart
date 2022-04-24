@@ -121,6 +121,7 @@ class _SetUserNameState extends State<SetUserName> {
                     ),
                   ),
                 ),
+                SizedBox(height: 5,),
                 Center(
                   child: TextButton(
                       onPressed: () {
@@ -193,6 +194,7 @@ class _SetUserNameState extends State<SetUserName> {
                 Center(
                   child: TextButton(
                       onPressed: () {
+                        FocusManager.instance.primaryFocus?.unfocus();
                         setState(() {
                           userName = null;
                           userId = null;
@@ -216,9 +218,9 @@ class _SetUserNameState extends State<SetUserName> {
                 ),
                 SizedBox(height: 20,),
                 Text(
-                  "Si desinstalas la app perderás el progreso del juego.\n"
+                  "Puedes volver a cambiar tu nombre en ajustes.\n"
+                      "Si desinstalas la app perderás el progreso del juego.\n"
                       "Puede haber varias personas con el mismo nombre.\n"
-                      "No podrás cambiar tu nombre una vez elegido.\n"
                       "Puede tomarse la decisión de eliminar tu nombre de los servidores "
                       "en caso de ser ofensivo o contener lenguaje soez.\n"
                       "No publiques información personal.",

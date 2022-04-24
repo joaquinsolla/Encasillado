@@ -1,9 +1,11 @@
 ##### TO-DO list #####
 
 -------PRIORITY--------
+sugerir anonimo
 boton de sincronizar con la BD
 
 -------OTHERS----------
 mover reads a initstate
+restar mas puntos
 
 -------REVIEW----------

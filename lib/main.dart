@@ -23,6 +23,7 @@ import 'package:Encasillado/pages/trophies.dart';
 import 'package:Encasillado/pages/suggest.dart';
 import 'package:Encasillado/notificationservice.dart';
 import 'package:Encasillado/pages/set_user_name.dart';
+import 'package:Encasillado/pages/update_user_name.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -63,6 +64,7 @@ Future<void> main() async {
       '/suggest': (context) => Suggest(),
       '/tour': (context) => Tour(),
       '/trophies': (context) => Trophies(),
+      '/update_user_name': (context) => UpdateUserName(),
       '/user_stats': (context) => UserStats(),
       '/wotd_end': (context) => WotdEnd(),
     },

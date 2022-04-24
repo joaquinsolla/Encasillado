@@ -1,4 +1,4 @@
-Versión 1.2.5
+Versión 2.0.0
 Palabras registradas: 1762
 
 Sugerir palabras: La pantalla principal cuenta ahora con el botón 'Sugerir', a través de este podrás
