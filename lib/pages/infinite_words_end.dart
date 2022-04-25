@@ -252,10 +252,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                               infinite_game_duration_string());
                         },
                         elevation: 1,
-                        child: Image.asset(
-                          clipboardImg,
-                          scale: 22.5,
-                        ),
+                        child: Icon(Icons.copy_rounded, color: Colors.white,),
                         fillColor: appGrey,
                         shape: CircleBorder(),
                       ),
@@ -265,10 +262,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                               infinite_game_duration_string());
                         },
                         elevation: 1,
-                        child: Image.asset(
-                          whatsappImg,
-                          scale: 60,
-                        ),
+                        child: Icon(Icons.whatsapp_rounded, color: Colors.white),
                         fillColor: wppColor,
                         shape: CircleBorder(),
                       ),
@@ -280,7 +274,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                         elevation: 1,
                         child: Image.asset(
                           twitterImg,
-                          scale: 47,
+                          scale: 52,
                         ),
                         fillColor: twitterColor,
                         shape: CircleBorder(),
@@ -299,10 +293,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                               infinite_game_duration_string());
                         },
                         elevation: 1,
-                        child: Image.asset(
-                          telegramImg,
-                          scale: 50,
-                        ),
+                        child: Icon(Icons.telegram_rounded, color: Colors.white, size: 27.5,),
                         fillColor: telegramColor,
                         shape: CircleBorder(),
                       ),

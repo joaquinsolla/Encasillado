@@ -1321,7 +1321,7 @@ class _HomeState extends State<Home> {
             style: TextButton.styleFrom(
               backgroundColor: mycolor,
             ),
-            child: Image.asset(backspaceImgDarkmode),
+            child: Icon(Icons.backspace_rounded, color: appBlack,),
             onPressed: () {
               if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
@@ -1352,7 +1352,7 @@ class _HomeState extends State<Home> {
             style: TextButton.styleFrom(
               backgroundColor: mycolor,
             ),
-            child: Image.asset(backspaceImgLightmode),
+            child: Icon(Icons.backspace_rounded, color: appBlack,),
             onPressed: () {
               if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
@@ -1388,7 +1388,7 @@ class _HomeState extends State<Home> {
             style: TextButton.styleFrom(
               backgroundColor: mycolor,
             ),
-            child: Image.asset(backspaceImgDarkmode),
+            child: Icon(Icons.backspace_rounded, color: appBlack,),
             onPressed: () {
               if (finishedInfinite == false) {
                 if (currentCellInfinite == 0 ||
@@ -1419,7 +1419,7 @@ class _HomeState extends State<Home> {
             style: TextButton.styleFrom(
               backgroundColor: mycolor,
             ),
-            child: Image.asset(backspaceImgLightmode),
+            child: Icon(Icons.backspace_rounded, color: appBlack),
             onPressed: () {
               if (finishedInfinite == false) {
                 if (currentCellInfinite == 0 ||

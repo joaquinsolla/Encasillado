@@ -62,7 +62,7 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
               Navigator.pushNamed(context, '/settings');
             },
             elevation: 0,
-            child: Image.asset(settingsImg, scale: 67.5,),
+            child: Icon(Icons.settings, color: Colors.white, size: 32,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
