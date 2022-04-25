@@ -14,7 +14,8 @@ class Suggest extends StatefulWidget {
 
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
     return TextEditingValue(
       text: newValue.text.toUpperCase(),
       selection: newValue.selection,
@@ -23,7 +24,6 @@ class UpperCaseTextFormatter extends TextInputFormatter {
 }
 
 class _SuggestState extends State<Suggest> {
-
   final wordController = TextEditingController();
   bool? anonymous = false;
 
@@ -43,18 +43,16 @@ class _SuggestState extends State<Suggest> {
     ]);
 
     return Scaffold(
-        appBar: myAppBarWithoutButtonsWithBackArrow(context),
-        backgroundColor: appWhite,
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
-          alignment: Alignment.topCenter,
-          child: Column(children: [
-            Expanded(
-              child: ListView(
-                  addAutomaticKeepAlives: true,
+      appBar: myAppBarWithoutButtonsWithBackArrow(context),
+      backgroundColor: appWhite,
+      body: ListView(addAutomaticKeepAlives: true, children: [
+            Container(
+                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                alignment: Alignment.topCenter,
+                child: Column(
                   children: [
                     SizedBox(
-                      height: 5,
+                      height: 20,
                     ),
                     Text(
                       "Sugerir nuevas palabras",
@@ -67,7 +65,9 @@ class _SuggestState extends State<Suggest> {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "Palabras registradas: " +
                           (selectedDatabase.length).toString(),
@@ -85,11 +85,11 @@ class _SuggestState extends State<Suggest> {
                     ),
                     Text(
                       "Sugiere palabras que falten en el juego.\n"
-                          "Todas las palabras deben ser de 5 letras.\n"
-                          "Las palabras deben existir en el diccionario de la lengua "
-                          "española.\n"
-                          "Recuerda que no se aceptan verbos conjugados ni plurales.\n"
-                          "Sí se admiten femeninos y nombres propios.",
+                      "Todas las palabras deben ser de 5 letras.\n"
+                      "Las palabras deben existir en el diccionario de la lengua "
+                      "española.\n"
+                      "Recuerda que no se aceptan verbos conjugados ni plurales.\n"
+                      "Sí se admiten femeninos y nombres propios.",
                       style: TextStyle(
                         fontSize: 15,
                         color: appBlack,
@@ -99,40 +99,49 @@ class _SuggestState extends State<Suggest> {
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Theme(
                       data: ThemeData(unselectedWidgetColor: appBlack),
                       child: CheckboxListTile(
-                      title: Wrap(
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Icon(Icons.security_rounded, color: appBlack,),
-                          SizedBox(width: 5,),
-                          Text(
-                            "Enviar de forma anónima",
-                            style: TextStyle(
-                              fontSize: 15,
+                        title: Wrap(
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.security_rounded,
                               color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
                             ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
-                      ),
-                      value: anonymous,
-                      onChanged: (newValue) {
-                        setState(() {
-                          anonymous = newValue;
-                        });
-                      },
-                      controlAffinity: ListTileControlAffinity.leading,
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Enviar de forma anónima",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ],
+                        ),
+                        value: anonymous,
+                        onChanged: (newValue) {
+                          setState(() {
+                            anonymous = newValue;
+                          });
+                        },
+                        controlAffinity: ListTileControlAffinity.leading,
                         activeColor: appMainColor,
+                      ),
                     ),
+                    SizedBox(
+                      height: 30,
                     ),
-                    SizedBox(height: 30,),
                     TextField(
                       inputFormatters: [
                         UpperCaseTextFormatter(),
@@ -154,7 +163,9 @@ class _SuggestState extends State<Suggest> {
                         hintStyle: TextStyle(color: appBlack),
                       ),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Container(
                       height: 50,
                       child: Row(
@@ -164,9 +175,11 @@ class _SuggestState extends State<Suggest> {
                               onPressed: () {
                                 if ((wordController.text).length == 5) {
                                   bool alreadySent = false;
-                                  for (var i = 0; i < suggestedWords.length; i++) {
-                                    if (wordController.text == suggestedWords[i])
-                                      alreadySent = true;
+                                  for (var i = 0;
+                                      i < suggestedWords.length;
+                                      i++) {
+                                    if (wordController.text ==
+                                        suggestedWords[i]) alreadySent = true;
                                   }
 
                                   if (alreadySent) {
@@ -177,17 +190,18 @@ class _SuggestState extends State<Suggest> {
                                       flushbarPosition: FlushbarPosition.TOP,
                                     ).show(context);
                                   } else {
-                                    sendSuggestedWord(wordController.text, anonymous!, context);
+                                    sendSuggestedWord(wordController.text,
+                                        anonymous!, context);
                                   }
                                   FocusManager.instance.primaryFocus?.unfocus();
                                   wordController.text = '';
-                                }
-                                else Flushbar(
-                                  message: "La palabra debe ser de 5 letras",
-                                  duration: Duration(seconds: 3),
-                                  backgroundColor: Colors.redAccent,
-                                  flushbarPosition: FlushbarPosition.TOP,
-                                ).show(context);
+                                } else
+                                  Flushbar(
+                                    message: "La palabra debe ser de 5 letras",
+                                    duration: Duration(seconds: 3),
+                                    backgroundColor: Colors.redAccent,
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                  ).show(context);
                               },
                               style: TextButton.styleFrom(
                                 primary: appWhite,
@@ -197,11 +211,8 @@ class _SuggestState extends State<Suggest> {
                         ],
                       ),
                     ),
-
-                  ]),
-            ),
-          ]),
-        )
-    );
+                  ],
+                )),
+          ]));
   }
 }

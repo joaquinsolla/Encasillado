@@ -8,6 +8,14 @@ import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/colors.dart';
 
+class listViewBehaviour extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+      BuildContext context, Widget child, ScrollableDetails details) {
+    return child;
+  }
+}
+
 AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)

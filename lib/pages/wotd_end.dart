@@ -87,7 +87,9 @@ class _WotdEndState extends State<WotdEnd> {
       backgroundColor: appWhite,
       body: Column(children: [
         Expanded(
-          child: ListView(
+          child: ScrollConfiguration(
+            behavior: listViewBehaviour(),
+            child:ListView(
             addAutomaticKeepAlives: true,
             children: [
               Container(
@@ -310,7 +312,7 @@ class _WotdEndState extends State<WotdEnd> {
                     ],
                   )),
             ],
-          ),
+          ),),
         ),
         if (_isBannerAdReady)
           Align(
