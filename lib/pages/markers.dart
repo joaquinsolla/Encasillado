@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
-
 
 class Markers extends StatefulWidget {
   @override
@@ -15,7 +13,6 @@ class Markers extends StatefulWidget {
 }
 
 class _MarkersState extends State<Markers> {
-
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
@@ -39,8 +36,9 @@ class _MarkersState extends State<Markers> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            if (terminalPrinting) print("[ERR] Failed to load a banner ad on "
-                "'trophies_stats.dart': ${err.message}");
+            if (terminalPrinting)
+              print("[ERR] Failed to load a banner ad on "
+                  "'trophies_stats.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },
@@ -87,354 +85,370 @@ class _MarkersState extends State<Markers> {
       trophiesDecoration = TextDecoration.underline;
     }
 
-    if (markersPage == 0) return Scaffold(
+    if (markersPage == 0)
+      return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
-        body: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 54,
-                color: appSecondColor,
-                padding: EdgeInsets.all(5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: pointsButtonColor,
-                          ),
-                          child: Text(
-                            "Puntos",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: pointsDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              markersPage = 1;
-                            });
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: streakButtonColor,
-                          ),
-                          child: Text(
-                            "Rachas",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: streakDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              markersPage = 2;
-                            });
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: trophiesButtonColor,
-                          ),
-                          child: Text(
-                            "Trofeos",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: trophiesDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),
-              ),
-
-              Expanded(child: Container(
-                alignment: Alignment.topCenter,
-                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                child: ListView(
-                  addAutomaticKeepAlives: true,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "PUNTOS",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-
-                  ],
-                ),
-              ),),
-
-              if (_isBannerAdReady) Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  width: _bannerAd.size.width.toDouble(),
-                  height: _bannerAd.size.height.toDouble(),
-                  child: AdWidget(ad: _bannerAd),
-                ),
-              ),
-            ],
-          ),
-        )
-    );
-    else if (markersPage == 1) return Scaffold(
-        appBar: myAppBarWithoutButtonsWithBackArrow(context),
-        backgroundColor: appWhite,
-        body: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 54,
-                color: appSecondColor,
-                padding: EdgeInsets.all(5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              markersPage = 0;
-                            });
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: pointsButtonColor,
-                          ),
-                          child: Text(
-                            "Puntos",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: pointsDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: streakButtonColor,
-                          ),
-                          child: Text(
-                            "Rachas",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: streakDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              markersPage = 2;
-                            });
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: trophiesButtonColor,
-                          ),
-                          child: Text(
-                            "Trofeos",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: trophiesDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),
-              ),
-
-              Expanded(child: Container(
-                alignment: Alignment.topCenter,
-                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                child: ListView(
-                  addAutomaticKeepAlives: true,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "RACHAS",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-
-                  ],
-                ),
-              ),),
-
-              if (_isBannerAdReady) Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  width: _bannerAd.size.width.toDouble(),
-                  height: _bannerAd.size.height.toDouble(),
-                  child: AdWidget(ad: _bannerAd),
-                ),
-              ),
-            ],
-          ),
-        )
-    );
-    else return Scaffold(
-          appBar: myAppBarWithoutButtonsWithBackArrow(context),
-          backgroundColor: appWhite,
-          body: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 54,
-                  color: appSecondColor,
-                  padding: EdgeInsets.all(5.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: TextButton(
-                            onPressed: () {
-                              setState(() {
-                                markersPage = 0;
-                              });
-                            },
-                            style: TextButton.styleFrom(
-                              backgroundColor: pointsButtonColor,
-                            ),
-                            child: Text(
-                              "Puntos",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                decoration: pointsDecoration,
-                              ),
-                            )),
-                      ),
-                      SizedBox(width: 4,),
-                      Expanded(
-                        child: TextButton(
-                            onPressed: () {
-                              setState(() {
-                                markersPage = 1;
-                              });
-                            },
-                            style: TextButton.styleFrom(
-                              backgroundColor: streakButtonColor,
-                            ),
-                            child: Text(
-                              "Rachas",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                decoration: streakDecoration,
-                              ),
-                            )),
-                      ),
-                      SizedBox(width: 4,),
-                      Expanded(
-                        child: TextButton(
-                            onPressed: () {
-                            },
-                            style: TextButton.styleFrom(
-                              backgroundColor: trophiesButtonColor,
-                            ),
-                            child: Text(
-                              "Trofeos",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                decoration: trophiesDecoration,
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                    ],
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 54,
+              color: appSecondColor,
+              padding: EdgeInsets.all(5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 5,
                   ),
-                ),
-
-                Expanded(child: Container(
-                  alignment: Alignment.topCenter,
-                  margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                  child: ListView(
-                    addAutomaticKeepAlives: true,
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "TROFEOS",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: appBlack,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          backgroundColor: pointsButtonColor,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-
-                    ],
+                        child: Text(
+                          "Puntos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: pointsDecoration,
+                          ),
+                        )),
                   ),
-                ),),
-
-                if (_isBannerAdReady) Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    width: _bannerAd.size.width.toDouble(),
-                    height: _bannerAd.size.height.toDouble(),
-                    child: AdWidget(ad: _bannerAd),
+                  SizedBox(
+                    width: 4,
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 1;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: streakButtonColor,
+                        ),
+                        child: Text(
+                          "Rachas",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: streakDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 2;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: trophiesButtonColor,
+                        ),
+                        child: Text(
+                          "Trofeos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: trophiesDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
             ),
-          )
+            Expanded(
+              child: ListView(
+                addAutomaticKeepAlives: true,
+                children: [
+                  Container(
+                      alignment: Alignment.topCenter,
+                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "PUNTOS",
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+            if (_isBannerAdReady)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: _bannerAd.size.width.toDouble(),
+                  height: _bannerAd.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd),
+                ),
+              ),
+          ],
+        ),
+      );
+    else if (markersPage == 1)
+      return Scaffold(
+        appBar: myAppBarWithoutButtonsWithBackArrow(context),
+        backgroundColor: appWhite,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 54,
+              color: appSecondColor,
+              padding: EdgeInsets.all(5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 0;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: pointsButtonColor,
+                        ),
+                        child: Text(
+                          "Puntos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: pointsDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          backgroundColor: streakButtonColor,
+                        ),
+                        child: Text(
+                          "Rachas",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: streakDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 2;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: trophiesButtonColor,
+                        ),
+                        child: Text(
+                          "Trofeos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: trophiesDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                addAutomaticKeepAlives: true,
+                children: [
+                  Container(
+                      alignment: Alignment.topCenter,
+                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "RACHAS",
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+            if (_isBannerAdReady)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: _bannerAd.size.width.toDouble(),
+                  height: _bannerAd.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd),
+                ),
+              ),
+          ],
+        ),
+      );
+    else
+      return Scaffold(
+        appBar: myAppBarWithoutButtonsWithBackArrow(context),
+        backgroundColor: appWhite,
+        body: Column(
+          children: [
+            Container(
+              height: 54,
+              color: appSecondColor,
+              padding: EdgeInsets.all(5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 0;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: pointsButtonColor,
+                        ),
+                        child: Text(
+                          "Puntos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: pointsDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            markersPage = 1;
+                          });
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: streakButtonColor,
+                        ),
+                        child: Text(
+                          "Rachas",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: streakDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          backgroundColor: trophiesButtonColor,
+                        ),
+                        child: Text(
+                          "Trofeos",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            decoration: trophiesDecoration,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                addAutomaticKeepAlives: true,
+                children: [
+                  Container(
+                      alignment: Alignment.topCenter,
+                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "TROFEOS",
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+            if (_isBannerAdReady)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: _bannerAd.size.width.toDouble(),
+                  height: _bannerAd.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd),
+                ),
+              ),
+          ],
+        ),
       );
   }
 }
