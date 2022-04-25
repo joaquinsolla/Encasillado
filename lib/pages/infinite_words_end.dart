@@ -74,13 +74,6 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
       gameText = "DERROTA";
     }
 
-    String restartImage;
-    if (darkMode) {
-      restartImage = restartImgDarkmode;
-    } else {
-      restartImage = restartImgLightmode;
-    }
-
     return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
@@ -224,10 +217,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                             SizedBox(
                               width: 6,
                             ),
-                            Image.asset(
-                              restartImage,
-                              scale: 1.3,
-                            ),
+                            Icon(Icons.restart_alt_rounded, color: appWhite,),
                           ],
                         )),
                   ]),
@@ -322,10 +312,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                               infinite_game_duration_string());
                         },
                         elevation: 1,
-                        child: Image.asset(
-                          otherShareImg,
-                          scale: 45,
-                        ),
+                        child: Icon(Icons.more_horiz_rounded, color: Colors.white,),
                         fillColor: othersColor,
                         shape: CircleBorder(),
                       ),

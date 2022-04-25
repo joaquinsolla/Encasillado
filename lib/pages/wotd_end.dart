@@ -277,10 +277,7 @@ class _WotdEndState extends State<WotdEnd> {
                               wotd_game_duration_string());
                         },
                         elevation: 1,
-                        child: Image.asset(
-                          otherShareImg,
-                          scale: 45,
-                        ),
+                        child: Icon(Icons.more_horiz_rounded, color: Colors.white,),
                         fillColor: othersColor,
                         shape: CircleBorder(),
                       ),
