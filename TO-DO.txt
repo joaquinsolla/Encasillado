@@ -3,6 +3,7 @@
 -------PRIORITY--------
 sugerir: comprobar si ya existe
 boton de sincronizar con la BD
+intro: trofeos, estadisticas y marcadores
 
 -------OTHERS----------
 

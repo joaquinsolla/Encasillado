@@ -218,6 +218,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                               ),
                             )),
                       ),
+                      SizedBox(width: 4,),
                       Expanded(
                         child: TextButton(
                             onPressed: () {
@@ -554,6 +555,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                 ),
                               )),
                         ),
+                        SizedBox(width: 4,),
                         Expanded(
                           child: TextButton(
                               onPressed: () {},

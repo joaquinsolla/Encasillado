@@ -23,6 +23,7 @@ import 'package:Encasillado/pages/suggest.dart';
 import 'package:Encasillado/notificationservice.dart';
 import 'package:Encasillado/pages/set_user_name.dart';
 import 'package:Encasillado/pages/update_user_name.dart';
+import 'package:Encasillado/pages/markers.dart';
 
 
 //TODO: RUN APP WITH ADITIONAL ARGS: --no-sound-null-safety
@@ -56,6 +57,7 @@ Future<void> main() async {
     routes: {
       '/home': (context) => Home(),
       '/infinite_words_end': (context) => InfiniteWordsEnd(),
+      '/markers': (context) => Markers(),
       '/score_explanation': (context) => ScoreExplanation(),
       '/settings': (context) => Settings(),
       '/release_notes': (context) => ReleaseNotes(),

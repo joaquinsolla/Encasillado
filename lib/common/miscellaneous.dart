@@ -56,6 +56,7 @@ bool secretWordTr = false;
 /** CONTROLLERS */
 int homePage = 0;
 int trophiesStatsPage = 0;
+int markersPage = 0;
 bool appStarted = false;
 bool canWriteWotd = true;
 bool finishedWotd = false;

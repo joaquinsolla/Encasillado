@@ -44,7 +44,7 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
           width: 40,
           child: RawMaterialButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/user_stats');
+              Navigator.pushNamed(context, '/markers');
             },
             elevation: 0,
             child: Image.asset(markersImg, scale: 35,),
