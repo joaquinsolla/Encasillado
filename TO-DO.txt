@@ -7,6 +7,7 @@ intro: trofeos, estadisticas y marcadores
 Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore
 google fonts
+color al pulsar backspace
 
 --------- DOING:
 quitar margen arriba en las paginas y meter sizedBox(h: 20)

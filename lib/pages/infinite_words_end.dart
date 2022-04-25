@@ -39,8 +39,9 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            if(terminalPrinting) print("[ERR] Failed to load a banner ad on "
-                "'infinite_words_end.dart': ${err.message}");
+            if (terminalPrinting)
+              print("[ERR] Failed to load a banner ad on "
+                  "'infinite_words_end.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },
@@ -75,270 +76,294 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
     }
 
     return Scaffold(
-        appBar: myAppBarWithoutButtonsWithBackArrow(context),
-        backgroundColor: appWhite,
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-          alignment: Alignment.topCenter,
-          child: Column(children: [
-            Expanded(
-              child: ListView(
-                addAutomaticKeepAlives: true,
-                children: [
-                  SizedBox(
-                    height: 15.0,
-                  ),
-                  Text(
-                    gameText,
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: appBlack,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    height: 100,
-                    child: Image.asset(gameImage),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Estadísticas:",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 7.5,
-                  ),
-                  Text(
-                    infoStatsInfinite,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    emojiStatsInfinite +
-                        "\nTiempo: " +
-                        infinite_game_duration_string(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: appBlack,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "¿No sabes el significado de la palabra?",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    TextButton(
-                        onPressed: () {
-                          url_launcher(infiniteDefinitionURL);
-                        },
-                        style: TextButton.styleFrom(
-                          primary: appWhite,
-                          backgroundColor: appMainColor,
-                        ),
-                        child: Text("Definición de " + infiniteString)),
-                  ]),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Empieza una partida nueva:",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    TextButton(
-                        onPressed: () {
-                          newInfiniteGame = true;
-                          Navigator.pushNamed(context, '/home');
-                        },
-                        style: TextButton.styleFrom(
-                          primary: appWhite,
-                          backgroundColor: appMainColor,
-                        ),
-                        child: Row(
-                          children: [
-                            Text("Nueva partida"),
-                            SizedBox(
-                              width: 6,
-                            ),
-                            Icon(Icons.restart_alt_rounded, color: appWhite,),
-                          ],
-                        )),
-                  ]),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "¡Compártelo con tus amigos!",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: appBlack,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.none,
-                        fontFamily: 'RaleWay',
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RawMaterialButton(
-                        onPressed: () {
-                          copy_to_clipboard(
-                              context,
-                              infoStatsInfinite,
-                              emojiStatsInfinite,
-                              infinite_game_duration_string());
-                        },
-                        elevation: 1,
-                        child: Icon(Icons.copy_rounded, color: Colors.white,),
-                        fillColor: appGrey,
-                        shape: CircleBorder(),
-                      ),
-                      RawMaterialButton(
-                        onPressed: () {
-                          share_whatsapp(infoStatsInfinite, emojiStatsInfinite,
-                              infinite_game_duration_string());
-                        },
-                        elevation: 1,
-                        child: Icon(Icons.whatsapp_rounded, color: Colors.white),
-                        fillColor: wppColor,
-                        shape: CircleBorder(),
-                      ),
-                      RawMaterialButton(
-                        onPressed: () {
-                          share_twitter(infoStatsInfinite, emojiStatsInfinite,
-                              infinite_game_duration_string());
-                        },
-                        elevation: 1,
-                        child: Image.asset(
-                          twitterImg,
-                          scale: 52,
-                        ),
-                        fillColor: twitterColor,
-                        shape: CircleBorder(),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RawMaterialButton(
-                        onPressed: () {
-                          share_telegram(infoStatsInfinite, emojiStatsInfinite,
-                              infinite_game_duration_string());
-                        },
-                        elevation: 1,
-                        child: Icon(Icons.telegram_rounded, color: Colors.white, size: 27.5,),
-                        fillColor: telegramColor,
-                        shape: CircleBorder(),
-                      ),
-                      RawMaterialButton(
-                        onPressed: () {
-                          share_others(infoStatsInfinite, emojiStatsInfinite,
-                              infinite_game_duration_string());
-                        },
-                        elevation: 1,
-                        child: Icon(Icons.more_horiz_rounded, color: Colors.white,),
-                        fillColor: othersColor,
-                        shape: CircleBorder(),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    "\nGracias por jugar a Encasillado v$appVersion",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: appGrey,
-                      fontWeight: FontWeight.normal,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RaleWay',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 20,),
-                ],
-              ),
-            ),
-            //if (_isBannerAdReady)SizedBox(height: 5,),
-            //if (_isBannerAdReady) smallText('ADVERTISING'),
-            if (_isBannerAdReady) Align(
+      appBar: myAppBarWithoutButtonsWithBackArrow(context),
+      backgroundColor: appWhite,
+      body: Column(children: [
+        Expanded(
+          child: ListView(
+            addAutomaticKeepAlives: true,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                 alignment: Alignment.topCenter,
-                child: Container(
-                  width: _bannerAd.size.width.toDouble(),
-                  height: _bannerAd.size.height.toDouble(),
-                  child: AdWidget(ad: _bannerAd),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      gameText,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: appBlack,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: Image.asset(gameImage),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Estadísticas:",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: appBlack,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          fontFamily: 'RaleWay',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 7.5,
+                    ),
+                    Text(
+                      infoStatsInfinite,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: appBlack,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      emojiStatsInfinite +
+                          "\nTiempo: " +
+                          infinite_game_duration_string(),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: appBlack,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "¿No sabes el significado de la palabra?",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: appBlack,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          fontFamily: 'RaleWay',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      TextButton(
+                          onPressed: () {
+                            url_launcher(infiniteDefinitionURL);
+                          },
+                          style: TextButton.styleFrom(
+                            primary: appWhite,
+                            backgroundColor: appMainColor,
+                          ),
+                          child: Text("Definición de " + infiniteString)),
+                    ]),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Empieza una partida nueva:",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: appBlack,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          fontFamily: 'RaleWay',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      TextButton(
+                          onPressed: () {
+                            newInfiniteGame = true;
+                            Navigator.pushNamed(context, '/home');
+                          },
+                          style: TextButton.styleFrom(
+                            primary: appWhite,
+                            backgroundColor: appMainColor,
+                          ),
+                          child: Row(
+                            children: [
+                              Text("Nueva partida"),
+                              SizedBox(
+                                width: 6,
+                              ),
+                              Icon(
+                                Icons.restart_alt_rounded,
+                                color: appWhite,
+                              ),
+                            ],
+                          )),
+                    ]),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "¡Compártelo con tus amigos!",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: appBlack,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          fontFamily: 'RaleWay',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RawMaterialButton(
+                          onPressed: () {
+                            copy_to_clipboard(
+                                context,
+                                infoStatsInfinite,
+                                emojiStatsInfinite,
+                                infinite_game_duration_string());
+                          },
+                          elevation: 1,
+                          child: Icon(
+                            Icons.copy_rounded,
+                            color: Colors.white,
+                          ),
+                          fillColor: appGrey,
+                          shape: CircleBorder(),
+                        ),
+                        RawMaterialButton(
+                          onPressed: () {
+                            share_whatsapp(
+                                infoStatsInfinite,
+                                emojiStatsInfinite,
+                                infinite_game_duration_string());
+                          },
+                          elevation: 1,
+                          child:
+                              Icon(Icons.whatsapp_rounded, color: Colors.white),
+                          fillColor: wppColor,
+                          shape: CircleBorder(),
+                        ),
+                        RawMaterialButton(
+                          onPressed: () {
+                            share_twitter(infoStatsInfinite, emojiStatsInfinite,
+                                infinite_game_duration_string());
+                          },
+                          elevation: 1,
+                          child: Image.asset(
+                            twitterImg,
+                            scale: 52,
+                          ),
+                          fillColor: twitterColor,
+                          shape: CircleBorder(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RawMaterialButton(
+                          onPressed: () {
+                            share_telegram(
+                                infoStatsInfinite,
+                                emojiStatsInfinite,
+                                infinite_game_duration_string());
+                          },
+                          elevation: 1,
+                          child: Icon(
+                            Icons.telegram_rounded,
+                            color: Colors.white,
+                            size: 27.5,
+                          ),
+                          fillColor: telegramColor,
+                          shape: CircleBorder(),
+                        ),
+                        RawMaterialButton(
+                          onPressed: () {
+                            share_others(infoStatsInfinite, emojiStatsInfinite,
+                                infinite_game_duration_string());
+                          },
+                          elevation: 1,
+                          child: Icon(
+                            Icons.more_horiz_rounded,
+                            color: Colors.white,
+                          ),
+                          fillColor: othersColor,
+                          shape: CircleBorder(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      "\nGracias por jugar a Encasillado v$appVersion",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: appGrey,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RaleWay',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
                 ),
               ),
-          ]),
-        ));
+            ],
+          ),
+        ),
+        if (_isBannerAdReady)
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              width: _bannerAd.size.width.toDouble(),
+              height: _bannerAd.size.height.toDouble(),
+              child: AdWidget(ad: _bannerAd),
+            ),
+          ),
+      ]),
+    );
   }
 
   // STATS MANAGEMENT
@@ -381,5 +406,4 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
 
     return (h + ":" + m + ":" + s);
   }
-
 }
