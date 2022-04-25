@@ -168,12 +168,12 @@ class _MarkersState extends State<Markers> {
 
               Expanded(child: Container(
                 alignment: Alignment.topCenter,
-                margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                 child: ListView(
                   addAutomaticKeepAlives: true,
                   children: [
                     SizedBox(
-                      height: 5,
+                      height: 20,
                     ),
                     Text(
                       "PUNTOS",
@@ -284,12 +284,12 @@ class _MarkersState extends State<Markers> {
 
               Expanded(child: Container(
                 alignment: Alignment.topCenter,
-                margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                 child: ListView(
                   addAutomaticKeepAlives: true,
                   children: [
                     SizedBox(
-                      height: 5,
+                      height: 20,
                     ),
                     Text(
                       "RACHAS",
@@ -401,12 +401,12 @@ class _MarkersState extends State<Markers> {
 
                 Expanded(child: Container(
                   alignment: Alignment.topCenter,
-                  margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+                  margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                   child: ListView(
                     addAutomaticKeepAlives: true,
                     children: [
                       SizedBox(
-                        height: 5,
+                        height: 20,
                       ),
                       Text(
                         "TROFEOS",
