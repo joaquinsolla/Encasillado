@@ -2,7 +2,6 @@
 
 --------- TO DO:
 color al pulsar backspace
-añadir scrollbar a listviews
 Al tocar el chart ver el número exacto
 sugerir: comprobar si ya existe
 boton de sincronizar con la BD
@@ -19,3 +18,4 @@ revisar imports unused
 En las nuevas páginas, quitar el margen arriba
 quitar margen arriba en las paginas y meter sizedBox(h: 20) + cuadrar bien margenes
 eliminar overscroll de listviews
+añadir scrollbar a listviews
