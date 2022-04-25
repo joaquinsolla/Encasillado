@@ -18,13 +18,12 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-
   _read_colorblind() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     final value = prefs.getBool(key) ?? false;
-    if(terminalPrinting) print('[SYS] Read: $value for colorblind');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for colorblind');
+    if (value == true) {
       setState(() {
         colorBlind = value;
         appGreen = Colors.orange;
@@ -47,15 +46,15 @@ class _SettingsState extends State<Settings> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     prefs.setBool(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value for colorblind');
+    if (terminalPrinting) print('[SYS] Saved $value for colorblind');
   }
 
   _read_darkmode() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     final value = prefs.getBool(key) ?? false;
-    if(terminalPrinting) print('[SYS] Read: $value for darkmode');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for darkmode');
+    if (value == true) {
       setState(() {
         darkMode = true;
         appBlack = Colors.white;
@@ -80,40 +79,42 @@ class _SettingsState extends State<Settings> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     prefs.setBool(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value for darkmode');
+    if (terminalPrinting) print('[SYS] Saved $value for darkmode');
   }
 
   _save_want_notifications(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'wantnotifications';
     prefs.setBool(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value for wantnotifications');
+    if (terminalPrinting) print('[SYS] Saved $value for wantnotifications');
   }
 
   _read_want_notifications() async {
-    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
 
     final prefs = await SharedPreferences.getInstance();
     final key = 'wantnotifications';
     final value = prefs.getBool(key) ?? true;
-    if(terminalPrinting) print('[SYS] Read: $value for wantnotifications');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for wantnotifications');
+    if (value == true) {
       setState(() {
         wantNotifications = true;
       });
       WidgetsFlutterBinding.ensureInitialized();
       NotificationService().initNotification();
       tz.initializeTimeZones();
-      NotificationService().showNotification(1, "Encasillado", "¡Nueva palabra del día disponible!");
+      NotificationService().showNotification(
+          1, "Encasillado", "¡Nueva palabra del día disponible!");
     } else {
       setState(() {
         wantNotifications = false;
       });
       await flutterLocalNotificationsPlugin.cancel(1);
-      if(terminalPrinting) print('[SYS] Canceled notification with id 1');
+      if (terminalPrinting) print('[SYS] Canceled notification with id 1');
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -128,9 +129,11 @@ class _SettingsState extends State<Settings> {
     }
 
     return Scaffold(
-      appBar: myAppBarWithoutButtonsAndBackArrow(context),
-      backgroundColor: appWhite,
-        body: ListView(
+        appBar: myAppBarWithoutButtonsAndBackArrow(context),
+        backgroundColor: appWhite,
+        body: ScrollConfiguration(
+            behavior: listViewBehaviour(),
+            child: ListView(
               addAutomaticKeepAlives: true,
               children: [
                 Container(
@@ -138,7 +141,9 @@ class _SettingsState extends State<Settings> {
                     alignment: Alignment.topCenter,
                     child: Column(
                       children: [
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         headerText('Ajustes'),
                         SizedBox(
                           height: 15,
@@ -151,7 +156,8 @@ class _SettingsState extends State<Settings> {
                               _save_colorblind(value);
                               _read_colorblind();
                             },
-                          ),),
+                          ),
+                        ),
                         settingsRow(
                           'Modo oscuro:',
                           Switch(
@@ -172,28 +178,31 @@ class _SettingsState extends State<Settings> {
                             },
                           ),
                         ),
-                        if (deviceWidth < 340) settingsRow(
-                          'Anuncios:',
-                          Switch(
-                            value: showAds,
-                            onChanged: (value) {
-                              setState(() {
-                                showAds = (!showAds);
-                              });
-                            },
+                        if (deviceWidth < 340)
+                          settingsRow(
+                            'Anuncios:',
+                            Switch(
+                              value: showAds,
+                              onChanged: (value) {
+                                setState(() {
+                                  showAds = (!showAds);
+                                });
+                              },
+                            ),
                           ),
-                        ),
-                        if (deviceWidth >= 340) settingsRowAdvanced(
-                          'Anuncios:', 'Apóyame como desarrollador independiente.',
-                          Switch(
-                            value: showAds,
-                            onChanged: (value) {
-                              setState(() {
-                                showAds = (!showAds);
-                              });
-                            },
+                        if (deviceWidth >= 340)
+                          settingsRowAdvanced(
+                            'Anuncios:',
+                            'Apóyame como desarrollador independiente.',
+                            Switch(
+                              value: showAds,
+                              onChanged: (value) {
+                                setState(() {
+                                  showAds = (!showAds);
+                                });
+                              },
+                            ),
                           ),
-                        ),
                         SizedBox(
                           height: 15,
                         ),
@@ -223,29 +232,42 @@ class _SettingsState extends State<Settings> {
                         SizedBox(
                           height: 5,
                         ),
-                        if (userName == null) settingsRowAdvanced('Anónimo', 'Ponte un nombre de juego', TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/set_user_name');
-                            },
-                            style: TextButton.styleFrom(
-                              primary: appWhite,
-                              backgroundColor: appMainColor,
-                            ),
-                            child: Text("NOMBRE")),),
-                        if (userName != null) settingsRowAdvanced('Tú: $userName', 'Actualiza tu nombre de juego', TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/update_user_name');
-                            },
-                            style: TextButton.styleFrom(
-                              primary: appWhite,
-                              backgroundColor: appMainColor,
-                            ),
-                            child: Text("NOMBRE")),),
+                        if (userName == null)
+                          settingsRowAdvanced(
+                            'Anónimo',
+                            'Ponte un nombre de juego',
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, '/set_user_name');
+                                },
+                                style: TextButton.styleFrom(
+                                  primary: appWhite,
+                                  backgroundColor: appMainColor,
+                                ),
+                                child: Text("NOMBRE")),
+                          ),
+                        if (userName != null)
+                          settingsRowAdvanced(
+                            'Tú: $userName',
+                            'Actualiza tu nombre de juego',
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, '/update_user_name');
+                                },
+                                style: TextButton.styleFrom(
+                                  primary: appWhite,
+                                  backgroundColor: appMainColor,
+                                ),
+                                child: Text("NOMBRE")),
+                          ),
                         SizedBox(
                           height: 7.5,
                         ),
                         settingsRowAdvanced(
-                          'Cómo jugar', '¿Necesitas ayuda para jugar?',
+                          'Cómo jugar',
+                          '¿Necesitas ayuda para jugar?',
                           TextButton(
                               onPressed: () {
                                 Navigator.pushNamed(context, '/tour');
@@ -260,7 +282,8 @@ class _SettingsState extends State<Settings> {
                           height: 7.5,
                         ),
                         settingsRowAdvanced(
-                          'Versión $appVersion', 'Consulta las notas de versión.',
+                          'Versión $appVersion',
+                          'Consulta las notas de versión.',
                           TextButton(
                               onPressed: () {
                                 Navigator.pushNamed(context, '/release_notes');
@@ -282,13 +305,17 @@ class _SettingsState extends State<Settings> {
                           children: [
                             smallText(
                                 '\nSoy Joaquín, estudiante de ingeniería informática. '
-                                    'Espero que disfrutes mi app tanto como yo he disfrutado haciéndola.'
-                                    '\n\nPuedes encontrarme en:\n'),
+                                'Espero que disfrutes mi app tanto como yo he disfrutado haciéndola.'
+                                '\n\nPuedes encontrarme en:\n'),
                             socialsWrap([
-                              socialsSmallButton(myInstagramUrl, instagramImg, 19.5),
-                              socialsSmallButton(myGitHubUrl, myGithubImage, 13.5),
-                              socialsSmallButton(myWebsiteUrl, myWebsiteImg, 13.5),
-                              socialsSmallButton(myPlayStoreDevUrl, playStoreImg, 32.5),
+                              socialsSmallButton(
+                                  myInstagramUrl, instagramImg, 19.5),
+                              socialsSmallButton(
+                                  myGitHubUrl, myGithubImage, 13.5),
+                              socialsSmallButton(
+                                  myWebsiteUrl, myWebsiteImg, 13.5),
+                              socialsSmallButton(
+                                  myPlayStoreDevUrl, playStoreImg, 32.5),
                             ]),
                             SizedBox(
                               height: 5,
@@ -373,6 +400,6 @@ class _SettingsState extends State<Settings> {
                       ],
                     )),
               ],
-            ));
+            )));
   }
 }

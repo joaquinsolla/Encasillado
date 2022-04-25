@@ -1,15 +1,16 @@
 ##### TO-DO list #####
 
 --------- TO DO:
+color al pulsar backspace
+añadir scrollbar a listviews
+Al tocar el chart ver el número exacto
 sugerir: comprobar si ya existe
 boton de sincronizar con la BD
 intro: trofeos, estadisticas y marcadores
 Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore
 google fonts
-color al pulsar backspace
-eliminar overscroll de listviews
-añadir scrollbar a listviews
+revisar imports unused
 
 --------- DOING:
 
@@ -17,3 +18,4 @@ añadir scrollbar a listviews
 --------- DONE:
 En las nuevas páginas, quitar el margen arriba
 quitar margen arriba en las paginas y meter sizedBox(h: 20) + cuadrar bien margenes
+eliminar overscroll de listviews

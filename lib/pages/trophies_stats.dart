@@ -13,14 +13,12 @@ import 'package:Encasillado/charts/wotd_series.dart';
 import 'package:Encasillado/charts/infinite_chart.dart';
 import 'package:Encasillado/charts/wotd_chart.dart';
 
-
 class TrophiesStats extends StatefulWidget {
   @override
   _TrophiesStatsState createState() => _TrophiesStatsState();
 }
 
 class _TrophiesStatsState extends State<TrophiesStats> {
-
   // ADMOB MANAGEMENT
   late BannerAd _bannerAd;
   bool _isBannerAdReady = false;
@@ -44,8 +42,9 @@ class _TrophiesStatsState extends State<TrophiesStats> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            if (terminalPrinting) print("[ERR] Failed to load a banner ad on "
-                "'trophies_stats.dart': ${err.message}");
+            if (terminalPrinting)
+              print("[ERR] Failed to load a banner ad on "
+                  "'trophies_stats.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },
@@ -75,8 +74,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
       statsButtonColor = appMainColor;
       trophiesDecoration = TextDecoration.underline;
       statsDecoration = TextDecoration.none;
-    }
-    else {
+    } else {
       trophiesButtonColor = appMainColor;
       statsButtonColor = appThirdColor;
       trophiesDecoration = TextDecoration.none;
@@ -106,9 +104,10 @@ class _TrophiesStatsState extends State<TrophiesStats> {
       infinitePercentage =
           ((infiniteHits / totalInfiniteGames) * 100).toStringAsFixed(1);
     }
-    if (totalInfiniteGames > 0) infiniteScoreRate =
-        (infiniteScore / totalInfiniteGames).toStringAsFixed(0) +
-            " pts/partida";
+    if (totalInfiniteGames > 0)
+      infiniteScoreRate =
+          (infiniteScore / totalInfiniteGames).toStringAsFixed(0) +
+              " pts/partida";
 
     // GENERATE CHART DATA
     final List<WotdSeries> wotdData = [
@@ -218,7 +217,9 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                           ),
                         )),
                   ),
-                  SizedBox(width: 4,),
+                  SizedBox(
+                    width: 4,
+                  ),
                   Expanded(
                     child: TextButton(
                         onPressed: () {
@@ -242,291 +243,353 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                     width: 5,
                   ),
                 ],
-              ),),
+              ),
+            ),
             Expanded(
-              child: ListView(
-                addAutomaticKeepAlives: true,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                    child: Column(
-
-                      children: [
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "Tus trofeos",
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+              child: ScrollConfiguration(
+                  behavior: listViewBehaviour(),
+                  child: ListView(
+                    addAutomaticKeepAlives: true,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                        child: Column(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(
-                                  3.0, 3.0, 3.0, 3.0),
-                              decoration: BoxDecoration(
-                                color: keyColor,
-                                borderRadius: BorderRadius.circular(5),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Tus trofeos",
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
                               ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "$diamondTrophies  ",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: appBlack,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.none,
-                                      fontFamily: 'RaleWay',
-                                    ),
-                                    textAlign: TextAlign.center,
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      3.0, 3.0, 3.0, 3.0),
+                                  decoration: BoxDecoration(
+                                    color: keyColor,
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
-                                  Image.asset(diamondTrophy, scale: 17.5,),
-                                ],
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "$diamondTrophies  ",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: appBlack,
+                                          fontWeight: FontWeight.bold,
+                                          decoration: TextDecoration.none,
+                                          fontFamily: 'RaleWay',
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Image.asset(
+                                        diamondTrophy,
+                                        scale: 17.5,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      3.0, 3.0, 3.0, 3.0),
+                                  decoration: BoxDecoration(
+                                    color: keyColor,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "$goldTrophies  ",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: appBlack,
+                                          fontWeight: FontWeight.bold,
+                                          decoration: TextDecoration.none,
+                                          fontFamily: 'RaleWay',
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Image.asset(
+                                        goldTrophy,
+                                        scale: 17.5,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      3.0, 3.0, 3.0, 3.0),
+                                  decoration: BoxDecoration(
+                                    color: keyColor,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "$silverTrophies  ",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: appBlack,
+                                          fontWeight: FontWeight.bold,
+                                          decoration: TextDecoration.none,
+                                          fontFamily: 'RaleWay',
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Image.asset(
+                                        silverTrophy,
+                                        scale: 17.5,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      3.0, 3.0, 3.0, 3.0),
+                                  decoration: BoxDecoration(
+                                    color: keyColor,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "$bronzeTrophies  ",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: appBlack,
+                                          fontWeight: FontWeight.bold,
+                                          decoration: TextDecoration.none,
+                                          fontFamily: 'RaleWay',
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Image.asset(
+                                        bronzeTrophy,
+                                        scale: 17.5,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            // DIAMOND
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Diamante",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.left,
                               ),
                             ),
-                            SizedBox(width: 8,),
+                            trophiesRow(
+                                'Todos los trofeos',
+                                'Progreso: $totalTrophies de 13',
+                                diamondTrophy,
+                                allTrophiesTr),
+
+                            SizedBox(
+                              height: 15,
+                            ),
+                            // GOLD
                             Container(
-                              padding: const EdgeInsets.fromLTRB(
-                                  3.0, 3.0, 3.0, 3.0),
-                              decoration: BoxDecoration(
-                                color: keyColor,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "$goldTrophies  ",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: appBlack,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.none,
-                                      fontFamily: 'RaleWay',
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.asset(goldTrophy, scale: 17.5,),
-                                ],
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Oro",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.left,
                               ),
                             ),
-                            SizedBox(width: 8,),
+                            trophiesRowAdvanced(allTag, 'Acierta a la primera',
+                                'Progreso: 0%', goldTrophy, atFirstTr),
+                            trophiesRowAdvanced(infiniteTag, '25.000 puntos',
+                                'Mejor: $scoreRecord', goldTrophy, points25kTr),
+                            trophiesRowAdvanced(infiniteTag, 'Racha de 25',
+                                'Mejor: $streakRecord', goldTrophy, streak25Tr),
+                            trophiesRowAdvanced(
+                                wotdTag,
+                                'Juega 30 días seguidos',
+                                'Actual: $consecutiveDaysWotd',
+                                goldTrophy,
+                                days30wotdTr),
+                            trophiesRowAdvanced(
+                                allTag,
+                                'Introduce la palabra secreta',
+                                '?????',
+                                goldTrophy,
+                                secretWordTr),
+
+                            SizedBox(
+                              height: 15,
+                            ),
+                            // SILVER
                             Container(
-                              padding: const EdgeInsets.fromLTRB(
-                                  3.0, 3.0, 3.0, 3.0),
-                              decoration: BoxDecoration(
-                                color: keyColor,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "$silverTrophies  ",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: appBlack,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.none,
-                                      fontFamily: 'RaleWay',
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.asset(silverTrophy, scale: 17.5,),
-                                ],
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Plata",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.left,
                               ),
                             ),
-                            SizedBox(width: 8,),
+                            trophiesRowAdvanced(allTag, 'Acierta en 2 intentos',
+                                'Progreso: 0%', silverTrophy, atSecondTr),
+                            trophiesRowAdvanced(
+                                infiniteTag,
+                                '10.000 puntos',
+                                'Mejor: $scoreRecord',
+                                silverTrophy,
+                                points10kTr),
+                            trophiesRowAdvanced(
+                                infiniteTag,
+                                'Racha de 10',
+                                'Mejor: $streakRecord',
+                                silverTrophy,
+                                streak10Tr),
+                            trophiesRowAdvanced(
+                                wotdTag,
+                                'Juega 15 días seguidos',
+                                'Actual: $consecutiveDaysWotd',
+                                silverTrophy,
+                                days15wotdTr),
+
+                            SizedBox(
+                              height: 15,
+                            ),
+                            // BRONZE
                             Container(
-                              padding: const EdgeInsets.fromLTRB(
-                                  3.0, 3.0, 3.0, 3.0),
-                              decoration: BoxDecoration(
-                                color: keyColor,
-                                borderRadius: BorderRadius.circular(5),
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Bronce",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "$bronzeTrophies  ",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: appBlack,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.none,
-                                      fontFamily: 'RaleWay',
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Image.asset(bronzeTrophy, scale: 17.5,),
-                                ],
+                            ),
+                            trophiesRowAdvanced(allTag, 'Tu primera partida',
+                                'Progreso: 0%', bronzeTrophy, firstPlayTr),
+                            trophiesRowAdvanced(
+                                infiniteTag,
+                                '5.000 puntos',
+                                'Mejor: $scoreRecord',
+                                bronzeTrophy,
+                                points5kTr),
+                            trophiesRowAdvanced(
+                                infiniteTag,
+                                'Racha de 5',
+                                'Mejor: $streakRecord',
+                                bronzeTrophy,
+                                streak5Tr),
+                            trophiesRowAdvanced(
+                                wotdTag,
+                                'Juega 7 días seguidos',
+                                'Actual: $consecutiveDaysWotd',
+                                bronzeTrophy,
+                                days7wotdTr),
+
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Image.asset(allTagImgGrey, scale: 15),
+                                smallText(' Todos los modos de juego.'),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Image.asset(infiniteTagImgGrey, scale: 15),
+                                smallText(' Solo en Palabras Infinitas.'),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Image.asset(wotdTagImgGrey, scale: 15),
+                                smallText(' Solo en La Palabra del Día.'),
+                              ],
+                            ),
+
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                              "\nGracias por jugar a Encasillado v$appVersion",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: appGrey,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
                               ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 20,
                             ),
                           ],
                         ),
-                        SizedBox(height: 15,),
-                        // DIAMOND
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Diamante",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        trophiesRow(
-                            'Todos los trofeos',
-                            'Progreso: $totalTrophies de 13',
-                            diamondTrophy, allTrophiesTr),
-
-                        SizedBox(height: 15,),
-                        // GOLD
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Oro",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.left,
-                          ),),
-                        trophiesRowAdvanced(
-                            allTag, 'Acierta a la primera', 'Progreso: 0%',
-                            goldTrophy, atFirstTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, '25.000 puntos', 'Mejor: $scoreRecord',
-                            goldTrophy, points25kTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, 'Racha de 25', 'Mejor: $streakRecord',
-                            goldTrophy, streak25Tr),
-                        trophiesRowAdvanced(wotdTag, 'Juega 30 días seguidos',
-                            'Actual: $consecutiveDaysWotd', goldTrophy,
-                            days30wotdTr),
-                        trophiesRowAdvanced(
-                            allTag, 'Introduce la palabra secreta', '?????',
-                            goldTrophy, secretWordTr),
-
-                        SizedBox(height: 15,),
-                        // SILVER
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Plata",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.left,
-                          ),),
-                        trophiesRowAdvanced(
-                            allTag, 'Acierta en 2 intentos', 'Progreso: 0%',
-                            silverTrophy, atSecondTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, '10.000 puntos', 'Mejor: $scoreRecord',
-                            silverTrophy, points10kTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, 'Racha de 10', 'Mejor: $streakRecord',
-                            silverTrophy, streak10Tr),
-                        trophiesRowAdvanced(wotdTag, 'Juega 15 días seguidos',
-                            'Actual: $consecutiveDaysWotd', silverTrophy,
-                            days15wotdTr),
-
-                        SizedBox(height: 15,),
-                        // BRONZE
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Bronce",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.left,
-                          ),),
-                        trophiesRowAdvanced(
-                            allTag, 'Tu primera partida', 'Progreso: 0%',
-                            bronzeTrophy, firstPlayTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, '5.000 puntos', 'Mejor: $scoreRecord',
-                            bronzeTrophy, points5kTr),
-                        trophiesRowAdvanced(
-                            infiniteTag, 'Racha de 5', 'Mejor: $streakRecord',
-                            bronzeTrophy, streak5Tr),
-                        trophiesRowAdvanced(wotdTag, 'Juega 7 días seguidos',
-                            'Actual: $consecutiveDaysWotd', bronzeTrophy,
-                            days7wotdTr),
-
-                        SizedBox(height: 15,),
-                        Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(allTagImgGrey, scale: 15),
-                            smallText(' Todos los modos de juego.'),
-                          ],),
-                        Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(infiniteTagImgGrey, scale: 15),
-                            smallText(' Solo en Palabras Infinitas.'),
-                          ],),
-                        Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(wotdTagImgGrey, scale: 15),
-                            smallText(' Solo en La Palabra del Día.'),
-                          ],),
-
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          "\nGracias por jugar a Encasillado v$appVersion",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: appGrey,
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 20,),
-                      ],
-                    ),
-
-                  ),
-                ],),
+                      ),
+                    ],
+                  )),
             ),
-            if (_isBannerAdReady) Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                width: _bannerAd.size.width.toDouble(),
-                height: _bannerAd.size.height.toDouble(),
-                child: AdWidget(ad: _bannerAd),
+            if (_isBannerAdReady)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: _bannerAd.size.width.toDouble(),
+                  height: _bannerAd.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd),
+                ),
               ),
-            ),
           ],
         ),
       );
@@ -534,60 +597,63 @@ class _TrophiesStatsState extends State<TrophiesStats> {
       return Scaffold(
         appBar: myAppBarWithoutButtonsWithBackArrow(context),
         backgroundColor: appWhite,
-        body: Column(
-            children: [
-              Container(
-                height: 54,
-                color: appSecondColor,
-                padding: EdgeInsets.all(5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              trophiesStatsPage = 0;
-                            });
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: trophiesButtonColor,
-                          ),
-                          child: Text(
-                            "Trofeos",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: trophiesDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: statsButtonColor,
-                          ),
-                          child: Text(
-                            "Estadísticas",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              decoration: statsDecoration,
-                            ),
-                          )),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),),
-
-              Expanded(
+        body: Column(children: [
+          Container(
+            height: 54,
+            color: appSecondColor,
+            padding: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {
+                        setState(() {
+                          trophiesStatsPage = 0;
+                        });
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: trophiesButtonColor,
+                      ),
+                      child: Text(
+                        "Trofeos",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          decoration: trophiesDecoration,
+                        ),
+                      )),
+                ),
+                SizedBox(
+                  width: 4,
+                ),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: statsButtonColor,
+                      ),
+                      child: Text(
+                        "Estadísticas",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          decoration: statsDecoration,
+                        ),
+                      )),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ScrollConfiguration(
+                behavior: listViewBehaviour(),
                 child: ListView(
                   addAutomaticKeepAlives: true,
                   children: [
@@ -629,11 +695,13 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
-                                    SizedBox(height: 5,),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
                                     Text(
                                       "Partidas totales: $totalWotdGames ($wotdPercentage%)\n"
-                                          "Victorias: $wotdHits\n"
-                                          "Derrotas: $defeatsAtWotd",
+                                      "Victorias: $wotdHits\n"
+                                      "Derrotas: $defeatsAtWotd",
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: appBlack,
@@ -643,11 +711,12 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
-                                  ],)),
+                                  ],
+                                )),
                             Center(
                                 child: WotdChart(
-                                  wotdData: wotdData,
-                                )),
+                              wotdData: wotdData,
+                            )),
                             SizedBox(
                               height: 10,
                             ),
@@ -667,14 +736,16 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
-                                    SizedBox(height: 5,),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
                                     Text(
                                       "Partidas totales: $totalInfiniteGames ($infinitePercentage%)\n"
-                                          "Victorias: $infiniteHits\n"
-                                          "Derrotas: $defeatsAtInfinite\n"
-                                          "Récord de puntuación: $scoreRecord\n"
-                                          "Récord de racha: $streakRecord\n"
-                                          "Tasa de puntos: $infiniteScoreRate",
+                                      "Victorias: $infiniteHits\n"
+                                      "Derrotas: $defeatsAtInfinite\n"
+                                      "Récord de puntuación: $scoreRecord\n"
+                                      "Récord de racha: $streakRecord\n"
+                                      "Tasa de puntos: $infiniteScoreRate",
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: appBlack,
@@ -684,11 +755,12 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
-                                  ]),),
+                                  ]),
+                            ),
                             Center(
                                 child: InfiniteChart(
-                                  infiniteData: infiniteData,
-                                )),
+                              infiniteData: infiniteData,
+                            )),
                             Container(
                               alignment: Alignment.topLeft,
                               child: Text(
@@ -701,8 +773,11 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                   fontFamily: 'RaleWay',
                                 ),
                                 textAlign: TextAlign.left,
-                              ),),
-                            SizedBox(height: 7.5,),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 7.5,
+                            ),
                             Text(
                               "\nGracias por jugar a Encasillado v$appVersion",
                               style: TextStyle(
@@ -714,22 +789,24 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 20,),
+                            SizedBox(
+                              height: 20,
+                            ),
                           ],
                         )),
                   ],
-                ),
+                )),
+          ),
+          if (_isBannerAdReady)
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: _bannerAd.size.width.toDouble(),
+                height: _bannerAd.size.height.toDouble(),
+                child: AdWidget(ad: _bannerAd),
               ),
-
-              if (_isBannerAdReady)Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  width: _bannerAd.size.width.toDouble(),
-                  height: _bannerAd.size.height.toDouble(),
-                  child: AdWidget(ad: _bannerAd),
-                ),
-              ),
-            ]),
+            ),
+        ]),
       );
   }
 }

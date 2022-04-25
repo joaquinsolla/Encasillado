@@ -68,69 +68,23 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
       backgroundColor: appWhite,
       body: Column(children: [
         Expanded(
-          child: ListView(
-            addAutomaticKeepAlives: true,
-            children: [
-              Container(
-                  margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
-                  alignment: Alignment.topCenter,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Puntuación y rachas",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: appBlack,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Puntuación",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      Text(
-                        "Acertar palabras te sumará puntos.\n"
-                        "Cuanto más rápido seas y menos intentos necesites, más puntos obtendrás.\n"
-                        "Acertar al primer intento otorga 10.000 puntos.\n"
-                        "No acertar en los 6 intentos resta 1.000 puntos.\n",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: appBlack,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+          child: ScrollConfiguration(
+              behavior: listViewBehaviour(),
+              child: ListView(
+                addAutomaticKeepAlives: true,
+                children: [
+                  Container(
+                      margin: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+                      alignment: Alignment.topCenter,
+                      child: Column(
                         children: [
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
-                            "Tu puntuación actual: ",
+                            "Puntuación y rachas",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 25,
                               color: appBlack,
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.none,
@@ -138,91 +92,63 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                             ),
                             textAlign: TextAlign.center,
                           ),
+                          SizedBox(
+                            height: 15,
+                          ),
                           Container(
-                            padding:
-                                const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
+                            alignment: Alignment.topLeft,
                             child: Text(
-                              infiniteScore.toString(),
+                              "Puntuación",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: appBlack,
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.none,
                                 fontFamily: 'RaleWay',
                               ),
+                              textAlign: TextAlign.left,
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Rachas",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      Text(
-                        "Las rachas actúan de pequeños multiplicadores para la puntuación.\n"
-                        "Obtendrás una racha acertando palabras consecutivamente.\n"
-                        "Perder una partida supone regresar a una racha de 0.\n",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: appBlack,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
                           Text(
-                            "Tu racha actual:  ",
+                            "Acertar palabras te sumará puntos.\n"
+                            "Cuanto más rápido seas y menos intentos necesites, más puntos obtendrás.\n"
+                            "Acertar al primer intento otorga 10.000 puntos.\n"
+                            "No acertar en los 6 intentos resta 1.000 puntos.\n",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: appBlack,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.normal,
                               decoration: TextDecoration.none,
                               fontFamily: 'RaleWay',
                             ),
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.left,
                           ),
-                          Container(
-                            padding:
-                                const EdgeInsets.fromLTRB(3.0, 2.0, 3.0, 2.0),
-                            decoration: BoxDecoration(
-                              color: keyColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  myStreakGif,
-                                  scale: 15,
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Tu puntuación actual: ",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
                                 ),
-                                Text(
-                                  " ×" + streak.toString(),
+                                textAlign: TextAlign.center,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(
+                                    3.0, 2.0, 3.0, 2.0),
+                                decoration: BoxDecoration(
+                                  color: keyColor,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Text(
+                                  infiniteScore.toString(),
                                   style: TextStyle(
                                     fontSize: 18,
                                     color: appBlack,
@@ -231,49 +157,125 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                                     fontFamily: 'RaleWay',
                                   ),
                                 ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Rachas",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ),
+                          Text(
+                            "Las rachas actúan de pequeños multiplicadores para la puntuación.\n"
+                            "Obtendrás una racha acertando palabras consecutivamente.\n"
+                            "Perder una partida supone regresar a una racha de 0.\n",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: appBlack,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Tu racha actual:  ",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(
+                                    3.0, 2.0, 3.0, 2.0),
+                                decoration: BoxDecoration(
+                                  color: keyColor,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      myStreakGif,
+                                      scale: 15,
+                                    ),
+                                    Text(
+                                      " ×" + streak.toString(),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: appBlack,
+                                        fontWeight: FontWeight.bold,
+                                        decoration: TextDecoration.none,
+                                        fontFamily: 'RaleWay',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            height: 50,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: TextButton.styleFrom(
+                                      primary: appWhite,
+                                      backgroundColor: appMainColor,
+                                    ),
+                                    child: Text("VALE")),
                               ],
                             ),
                           ),
+                          Text(
+                            "\nGracias por jugar a Encasillado v$appVersion",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: appGrey,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                         ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                style: TextButton.styleFrom(
-                                  primary: appWhite,
-                                  backgroundColor: appMainColor,
-                                ),
-                                child: Text("VALE")),
-                          ],
-                        ),
-                      ),
-                      Text(
-                        "\nGracias por jugar a Encasillado v$appVersion",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: appGrey,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  )),
-            ],
-          ),
+                      )),
+                ],
+              )),
         ),
         if (_isBannerAdReady)
           Align(

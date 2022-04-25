@@ -168,32 +168,35 @@ class _MarkersState extends State<Markers> {
               ),
             ),
             Expanded(
-              child: ListView(
-                addAutomaticKeepAlives: true,
-                children: [
-                  Container(
-                      alignment: Alignment.topCenter,
-                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "PUNTOS",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
-                ],
-              ),
+              child: ScrollConfiguration(
+                  behavior: listViewBehaviour(),
+                  child: ListView(
+                    addAutomaticKeepAlives: true,
+                    children: [
+                      Container(
+                          alignment: Alignment.topCenter,
+                          margin:
+                              const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "PUNTOS",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )),
+                    ],
+                  )),
             ),
             if (_isBannerAdReady)
               Align(
@@ -290,32 +293,35 @@ class _MarkersState extends State<Markers> {
               ),
             ),
             Expanded(
-              child: ListView(
-                addAutomaticKeepAlives: true,
-                children: [
-                  Container(
-                      alignment: Alignment.topCenter,
-                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "RACHAS",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
-                ],
-              ),
+              child: ScrollConfiguration(
+                  behavior: listViewBehaviour(),
+                  child: ListView(
+                    addAutomaticKeepAlives: true,
+                    children: [
+                      Container(
+                          alignment: Alignment.topCenter,
+                          margin:
+                              const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "RACHAS",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )),
+                    ],
+                  )),
             ),
             if (_isBannerAdReady)
               Align(
@@ -411,32 +417,35 @@ class _MarkersState extends State<Markers> {
               ),
             ),
             Expanded(
-              child: ListView(
-                addAutomaticKeepAlives: true,
-                children: [
-                  Container(
-                      alignment: Alignment.topCenter,
-                      margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "TROFEOS",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: appBlack,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.none,
-                              fontFamily: 'RaleWay',
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
-                ],
-              ),
+              child: ScrollConfiguration(
+                  behavior: listViewBehaviour(),
+                  child: ListView(
+                    addAutomaticKeepAlives: true,
+                    children: [
+                      Container(
+                          alignment: Alignment.topCenter,
+                          margin:
+                              const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "TROFEOS",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )),
+                    ],
+                  )),
             ),
             if (_isBannerAdReady)
               Align(
