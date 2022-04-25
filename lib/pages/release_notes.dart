@@ -90,7 +90,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
         Expanded(
           child: ScrollConfiguration(
               behavior: listViewBehaviour(),
-              child: ListView(
+              child: myScrollbar(ListView(
                 addAutomaticKeepAlives: true,
                 children: [
                   Container(
@@ -181,7 +181,7 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                         ],
                       )),
                 ],
-              )),
+              ))),
         ),
         if (_isBannerAdReady)
           Align(

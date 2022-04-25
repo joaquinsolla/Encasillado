@@ -248,7 +248,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
             Expanded(
               child: ScrollConfiguration(
                   behavior: listViewBehaviour(),
-                  child: ListView(
+                  child: myScrollbar(ListView(
                     addAutomaticKeepAlives: true,
                     children: [
                       Container(
@@ -579,7 +579,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                         ),
                       ),
                     ],
-                  )),
+                  ))),
             ),
             if (_isBannerAdReady)
               Align(
@@ -654,7 +654,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
           Expanded(
             child: ScrollConfiguration(
                 behavior: listViewBehaviour(),
-                child: ListView(
+                child: myScrollbar(ListView(
                   addAutomaticKeepAlives: true,
                   children: [
                     Container(
@@ -795,7 +795,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                           ],
                         )),
                   ],
-                )),
+                ))),
           ),
           if (_isBannerAdReady)
             Align(

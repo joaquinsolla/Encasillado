@@ -88,231 +88,241 @@ class _WotdEndState extends State<WotdEnd> {
       body: Column(children: [
         Expanded(
           child: ScrollConfiguration(
-            behavior: listViewBehaviour(),
-            child:ListView(
-            addAutomaticKeepAlives: true,
-            children: [
-              Container(
-                  margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                  alignment: Alignment.topCenter,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        gameText,
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: appBlack,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      SizedBox(
-                        height: 100,
-                        child: Image.asset(gameImage),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Estadísticas:",
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 7.5,
-                      ),
-                      Text(
-                        infoStatsWotd,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: appBlack,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        emojiStatsWotd +
-                            "\nTiempo: " +
-                            wotd_game_duration_string(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: appBlack,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "La palabra oculta de hoy: " + wotdString,
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+              behavior: listViewBehaviour(),
+              child: myScrollbar(
+                ListView(
+                  addAutomaticKeepAlives: true,
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+                        alignment: Alignment.topCenter,
+                        child: Column(
                           children: [
-                            TextButton(
-                                onPressed: () {
-                                  url_launcher(wotdDefinitionURL);
-                                },
-                                style: TextButton.styleFrom(
-                                  primary: appWhite,
-                                  backgroundColor: appMainColor,
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              gameText,
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: appBlack,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            SizedBox(
+                              height: 100,
+                              child: Image.asset(gameImage),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Estadísticas:",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
                                 ),
-                                child: Text("Definición de " + wotdString)),
-                          ]),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "¡Compártelo con tus amigos!",
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: appBlack,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none,
-                            fontFamily: 'RaleWay',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RawMaterialButton(
-                            onPressed: () {
-                              copy_to_clipboard(context, infoStatsWotd,
-                                  emojiStatsWotd, wotd_game_duration_string());
-                            },
-                            elevation: 1,
-                            child: Icon(
-                              Icons.copy_rounded,
-                              color: Colors.white,
+                              ),
                             ),
-                            fillColor: appGrey,
-                            shape: CircleBorder(),
-                          ),
-                          RawMaterialButton(
-                            onPressed: () {
-                              share_whatsapp(infoStatsWotd, emojiStatsWotd,
-                                  wotd_game_duration_string());
-                            },
-                            elevation: 1,
-                            child: Icon(Icons.whatsapp_rounded,
-                                color: Colors.white),
-                            fillColor: wppColor,
-                            shape: CircleBorder(),
-                          ),
-                          RawMaterialButton(
-                            onPressed: () {
-                              share_twitter(infoStatsWotd, emojiStatsWotd,
-                                  wotd_game_duration_string());
-                            },
-                            elevation: 1,
-                            child: Image.asset(
-                              twitterImg,
-                              scale: 52,
+                            SizedBox(
+                              height: 7.5,
                             ),
-                            fillColor: twitterColor,
-                            shape: CircleBorder(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RawMaterialButton(
-                            onPressed: () {
-                              share_telegram(infoStatsWotd, emojiStatsWotd,
-                                  wotd_game_duration_string());
-                            },
-                            elevation: 1,
-                            child: Icon(
-                              Icons.telegram_rounded,
-                              color: Colors.white,
-                              size: 27.5,
+                            Text(
+                              infoStatsWotd,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: appBlack,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            fillColor: telegramColor,
-                            shape: CircleBorder(),
-                          ),
-                          RawMaterialButton(
-                            onPressed: () {
-                              share_others(infoStatsWotd, emojiStatsWotd,
-                                  wotd_game_duration_string());
-                            },
-                            elevation: 1,
-                            child: Icon(
-                              Icons.more_horiz_rounded,
-                              color: Colors.white,
+                            SizedBox(
+                              height: 10,
                             ),
-                            fillColor: othersColor,
-                            shape: CircleBorder(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        "\nGracias por jugar a Encasillado v$appVersion",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: appGrey,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none,
-                          fontFamily: 'RaleWay',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  )),
-            ],
-          ),),
+                            Text(
+                              emojiStatsWotd +
+                                  "\nTiempo: " +
+                                  wotd_game_duration_string(),
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: appBlack,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "La palabra oculta de hoy: " + wotdString,
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  TextButton(
+                                      onPressed: () {
+                                        url_launcher(wotdDefinitionURL);
+                                      },
+                                      style: TextButton.styleFrom(
+                                        primary: appWhite,
+                                        backgroundColor: appMainColor,
+                                      ),
+                                      child:
+                                          Text("Definición de " + wotdString)),
+                                ]),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "¡Compártelo con tus amigos!",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: appBlack,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'RaleWay',
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RawMaterialButton(
+                                  onPressed: () {
+                                    copy_to_clipboard(
+                                        context,
+                                        infoStatsWotd,
+                                        emojiStatsWotd,
+                                        wotd_game_duration_string());
+                                  },
+                                  elevation: 1,
+                                  child: Icon(
+                                    Icons.copy_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  fillColor: appGrey,
+                                  shape: CircleBorder(),
+                                ),
+                                RawMaterialButton(
+                                  onPressed: () {
+                                    share_whatsapp(
+                                        infoStatsWotd,
+                                        emojiStatsWotd,
+                                        wotd_game_duration_string());
+                                  },
+                                  elevation: 1,
+                                  child: Icon(Icons.whatsapp_rounded,
+                                      color: Colors.white),
+                                  fillColor: wppColor,
+                                  shape: CircleBorder(),
+                                ),
+                                RawMaterialButton(
+                                  onPressed: () {
+                                    share_twitter(infoStatsWotd, emojiStatsWotd,
+                                        wotd_game_duration_string());
+                                  },
+                                  elevation: 1,
+                                  child: Image.asset(
+                                    twitterImg,
+                                    scale: 52,
+                                  ),
+                                  fillColor: twitterColor,
+                                  shape: CircleBorder(),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RawMaterialButton(
+                                  onPressed: () {
+                                    share_telegram(
+                                        infoStatsWotd,
+                                        emojiStatsWotd,
+                                        wotd_game_duration_string());
+                                  },
+                                  elevation: 1,
+                                  child: Icon(
+                                    Icons.telegram_rounded,
+                                    color: Colors.white,
+                                    size: 27.5,
+                                  ),
+                                  fillColor: telegramColor,
+                                  shape: CircleBorder(),
+                                ),
+                                RawMaterialButton(
+                                  onPressed: () {
+                                    share_others(infoStatsWotd, emojiStatsWotd,
+                                        wotd_game_duration_string());
+                                  },
+                                  elevation: 1,
+                                  child: Icon(
+                                    Icons.more_horiz_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  fillColor: othersColor,
+                                  shape: CircleBorder(),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                              "\nGracias por jugar a Encasillado v$appVersion",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: appGrey,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'RaleWay',
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                          ],
+                        )),
+                  ],
+                ),
+              )),
         ),
         if (_isBannerAdReady)
           Align(

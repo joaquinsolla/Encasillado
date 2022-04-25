@@ -16,6 +16,13 @@ class listViewBehaviour extends ScrollBehavior {
   }
 }
 
+Scrollbar myScrollbar(ListView listview){
+  return Scrollbar(
+    isAlwaysShown: false,
+    child: listview,
+  );
+}
+
 AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
   double imageScale;
   if (deviceWidth < 340)

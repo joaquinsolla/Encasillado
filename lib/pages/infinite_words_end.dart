@@ -82,7 +82,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
         Expanded(
           child: ScrollConfiguration(
             behavior: listViewBehaviour(),
-            child: ListView(
+            child: myScrollbar(ListView(
               addAutomaticKeepAlives: true,
               children: [
                 Container(
@@ -361,7 +361,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                   ),
                 ),
               ],
-            ),
+            )),
           ),
         ),
         if (_isBannerAdReady)

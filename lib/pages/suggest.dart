@@ -47,7 +47,8 @@ class _SuggestState extends State<Suggest> {
         backgroundColor: appWhite,
         body: ScrollConfiguration(
             behavior: listViewBehaviour(),
-            child: ListView(addAutomaticKeepAlives: true, children: [
+            child:
+                myScrollbar(ListView(addAutomaticKeepAlives: true, children: [
               Container(
                   margin: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                   alignment: Alignment.topCenter,
@@ -218,6 +219,6 @@ class _SuggestState extends State<Suggest> {
                       ),
                     ],
                   )),
-            ])));
+            ]))));
   }
 }

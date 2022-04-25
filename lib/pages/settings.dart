@@ -133,7 +133,7 @@ class _SettingsState extends State<Settings> {
         backgroundColor: appWhite,
         body: ScrollConfiguration(
             behavior: listViewBehaviour(),
-            child: ListView(
+            child: myScrollbar(ListView(
               addAutomaticKeepAlives: true,
               children: [
                 Container(
@@ -400,6 +400,6 @@ class _SettingsState extends State<Settings> {
                       ],
                     )),
               ],
-            )));
+            ))));
   }
 }

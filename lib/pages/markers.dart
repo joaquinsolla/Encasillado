@@ -170,7 +170,7 @@ class _MarkersState extends State<Markers> {
             Expanded(
               child: ScrollConfiguration(
                   behavior: listViewBehaviour(),
-                  child: ListView(
+                  child: myScrollbar(ListView(
                     addAutomaticKeepAlives: true,
                     children: [
                       Container(
@@ -196,7 +196,7 @@ class _MarkersState extends State<Markers> {
                             ],
                           )),
                     ],
-                  )),
+                  ))),
             ),
             if (_isBannerAdReady)
               Align(
@@ -295,7 +295,7 @@ class _MarkersState extends State<Markers> {
             Expanded(
               child: ScrollConfiguration(
                   behavior: listViewBehaviour(),
-                  child: ListView(
+                  child: myScrollbar(ListView(
                     addAutomaticKeepAlives: true,
                     children: [
                       Container(
@@ -321,7 +321,7 @@ class _MarkersState extends State<Markers> {
                             ],
                           )),
                     ],
-                  )),
+                  ))),
             ),
             if (_isBannerAdReady)
               Align(
@@ -419,7 +419,7 @@ class _MarkersState extends State<Markers> {
             Expanded(
               child: ScrollConfiguration(
                   behavior: listViewBehaviour(),
-                  child: ListView(
+                  child: myScrollbar(ListView(
                     addAutomaticKeepAlives: true,
                     children: [
                       Container(
@@ -445,7 +445,7 @@ class _MarkersState extends State<Markers> {
                             ],
                           )),
                     ],
-                  )),
+                  ))),
             ),
             if (_isBannerAdReady)
               Align(

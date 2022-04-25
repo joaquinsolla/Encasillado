@@ -70,7 +70,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
         Expanded(
           child: ScrollConfiguration(
               behavior: listViewBehaviour(),
-              child: ListView(
+              child: myScrollbar(ListView(
                 addAutomaticKeepAlives: true,
                 children: [
                   Container(
@@ -275,7 +275,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                         ],
                       )),
                 ],
-              )),
+              ))),
         ),
         if (_isBannerAdReady)
           Align(
