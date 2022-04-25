@@ -281,7 +281,7 @@ class _SettingsState extends State<Settings> {
                         '\nSoy Joaquín, estudiante de ingeniería informática. '
                             'Espero que disfrutes mi app tanto como yo he disfrutado haciéndola.'
                             '\n\nPuedes encontrarme en:\n'),
-                    socialsRow([
+                    socialsWrap([
                       socialsSmallButton(myInstagramUrl, instagramImg, 19.5),
                       socialsSmallButton(myGitHubUrl, myGithubImage, 13.5),
                       socialsSmallButton(myWebsiteUrl, myWebsiteImg, 13.5),

@@ -54,7 +54,8 @@ bool days30wotdTr = false;
 bool secretWordTr = false;
 
 /** CONTROLLERS */
-int currentPage = 0;
+int homePage = 0;
+int trophiesStatsPage = 0;
 bool appStarted = false;
 bool canWriteWotd = true;
 bool finishedWotd = false;

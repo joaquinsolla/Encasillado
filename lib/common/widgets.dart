@@ -31,10 +31,10 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
           child: RawMaterialButton(
             onPressed: () {
               check_diamond_trophy();
-              Navigator.pushNamed(context, '/trophies');
+              Navigator.pushNamed(context, '/trophies_stats');
             },
             elevation: 0,
-            child: Image.asset(trophiesImg, scale: 35,),
+            child: Image.asset(trophiesStatsImg, scale: 35,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
@@ -47,7 +47,7 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
               Navigator.pushNamed(context, '/user_stats');
             },
             elevation: 0,
-            child: Image.asset(userStatsImg, scale: 35,),
+            child: Image.asset(markersImg, scale: 35,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),
@@ -376,9 +376,9 @@ Column trophiesRowAdvanced(String tag,String mainText, String secondText, String
   }
 }
 
-Row socialsRow(List<Widget> buttons){
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
+Wrap socialsWrap(List<Widget> buttons){
+  return Wrap(
+    alignment: WrapAlignment.center,
     children: buttons,
   );
 }

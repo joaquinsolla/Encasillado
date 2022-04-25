@@ -705,7 +705,7 @@ class _HomeState extends State<Home> {
     Color infiniteButtonColor = appMainColor;
     TextDecoration wotdDecoration = TextDecoration.underline;
     TextDecoration infiniteDecoration = TextDecoration.none;
-    if (currentPage == 0){
+    if (homePage == 0){
       wotdButtonColor = appThirdColor;
       infiniteButtonColor = appMainColor;
       wotdDecoration = TextDecoration.underline;
@@ -748,9 +748,9 @@ class _HomeState extends State<Home> {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      if (currentPage == 1){
+                      if (homePage == 1){
                         setState(() {
-                          currentPage = 0;
+                          homePage = 0;
                         });
                       }
                     },
@@ -769,9 +769,9 @@ class _HomeState extends State<Home> {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      if (currentPage == 0){
+                      if (homePage == 0){
                         setState(() {
-                          currentPage = 1;
+                          homePage = 1;
                         });
                       }
                     },
@@ -793,13 +793,13 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        if (currentPage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), suggestButton(context)),
-        if (currentPage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
-        if (currentPage == 0 && wotdDone == false) wotdLettersField(),
-        if (currentPage == 1) infiniteLettersField(),
-        if (currentPage == 0 && wotdDone == true) wotdDoneWaiting(),
-        if (currentPage == 0 && wotdDone == false) Expanded(child: Text(""),),
-        if (currentPage == 1) Expanded(child: Text(""),),
+        if (homePage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), suggestButton(context)),
+        if (homePage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
+        if (homePage == 0 && wotdDone == false) wotdLettersField(),
+        if (homePage == 1) infiniteLettersField(),
+        if (homePage == 0 && wotdDone == true) wotdDoneWaiting(),
+        if (homePage == 0 && wotdDone == false) Expanded(child: Text(""),),
+        if (homePage == 1) Expanded(child: Text(""),),
         if (_isBannerAdReady) smallText('ADVERTISING'),
         if (_isBannerAdReady) Align(
           alignment: Alignment.topCenter,
@@ -810,8 +810,8 @@ class _HomeState extends State<Home> {
           ),
         ),
         SizedBox(height: 15,),
-        if (currentPage == 0) wotdKeyboard(context),
-        if (currentPage == 1) infiniteKeyboard(context),
+        if (homePage == 0) wotdKeyboard(context),
+        if (homePage == 1) infiniteKeyboard(context),
         SizedBox(
           height: 2.5,
         ),

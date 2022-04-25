@@ -17,9 +17,8 @@ import 'package:Encasillado/pages/settings.dart';
 import 'package:Encasillado/pages/release_notes.dart';
 import 'package:Encasillado/pages/home.dart';
 import 'package:Encasillado/pages/wotd_end.dart';
-import 'package:Encasillado/pages/user_stats.dart';
 import 'package:Encasillado/pages/tour.dart';
-import 'package:Encasillado/pages/trophies.dart';
+import 'package:Encasillado/pages/trophies_stats.dart';
 import 'package:Encasillado/pages/suggest.dart';
 import 'package:Encasillado/notificationservice.dart';
 import 'package:Encasillado/pages/set_user_name.dart';
@@ -63,9 +62,8 @@ Future<void> main() async {
       '/set_user_name': (context) => SetUserName(),
       '/suggest': (context) => Suggest(),
       '/tour': (context) => Tour(),
-      '/trophies': (context) => Trophies(),
+      '/trophies_stats': (context) => TrophiesStats(),
       '/update_user_name': (context) => UpdateUserName(),
-      '/user_stats': (context) => UserStats(),
       '/wotd_end': (context) => WotdEnd(),
     },
   ));
