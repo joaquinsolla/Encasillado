@@ -1,7 +1,6 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-quitar margen arriba en las paginas y meter sizedBox(h: 20)
 sugerir: comprobar si ya existe
 boton de sincronizar con la BD
 intro: trofeos, estadisticas y marcadores
@@ -9,6 +8,7 @@ Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore
 
 --------- DOING:
+quitar margen arriba en las paginas y meter sizedBox(h: 20)
 
 --------- DONE:
 En las nuevas páginas, quitar el margen arriba
