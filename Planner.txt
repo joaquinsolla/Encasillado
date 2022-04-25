@@ -1,7 +1,6 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-color al pulsar backspace
 Al tocar el chart ver el número exacto
 sugerir: comprobar si ya existe
 boton de sincronizar con la BD
@@ -19,3 +18,4 @@ En las nuevas páginas, quitar el margen arriba
 quitar margen arriba en las paginas y meter sizedBox(h: 20) + cuadrar bien margenes
 eliminar overscroll de listviews
 añadir scrollbar a listviews
+color al pulsar backspace

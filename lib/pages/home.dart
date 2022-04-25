@@ -22,7 +22,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   /** PERSISTENT DATA MANAGEMENT & TROPHIES*/
   _read_user() async {
     final prefs = await SharedPreferences.getInstance();
@@ -30,8 +29,8 @@ class _HomeState extends State<Home> {
     final key2 = 'userid';
     final value1 = prefs.getString(key1) ?? null;
     final value2 = prefs.getString(key2) ?? null;
-    if(terminalPrinting) print('[SYS] Read: $value1 for username');
-    if(terminalPrinting) print('[SYS] Read: $value2 for userid');
+    if (terminalPrinting) print('[SYS] Read: $value1 for username');
+    if (terminalPrinting) print('[SYS] Read: $value2 for userid');
     setState(() {
       userName = value1;
       userId = value2;
@@ -42,7 +41,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'everplayed';
     final value = prefs.getBool(key) ?? false;
-    if(terminalPrinting) print('[SYS] Read: $value for everplayed');
+    if (terminalPrinting) print('[SYS] Read: $value for everplayed');
     setState(() {
       everPlayed = value;
     });
@@ -52,15 +51,15 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'everplayed';
     prefs.setBool(key, true);
-    if(terminalPrinting) print('[SYS] Saved true on everplayed');
+    if (terminalPrinting) print('[SYS] Saved true on everplayed');
   }
 
   _read_colorblind() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'colorblind';
     final value = prefs.getBool(key) ?? false;
-    if(terminalPrinting) print('[SYS] Read: $value for colorblind');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for colorblind');
+    if (value == true) {
       setState(() {
         colorBlind = value;
         appGreen = Colors.orange;
@@ -83,8 +82,8 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'darkmode';
     final value = prefs.getBool(key) ?? false;
-    if(terminalPrinting) print('[SYS] Read: $value for darkmode');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for darkmode');
+    if (value == true) {
       setState(() {
         darkMode = true;
         appBlack = Colors.white;
@@ -109,24 +108,24 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'infinitescore';
     final value = prefs.getInt(key) ?? 0;
-    if(terminalPrinting) print('[SYS] Read: $value for infinitescore');
-      setState(() {
-        infiniteScore = value;
-      });
+    if (terminalPrinting) print('[SYS] Read: $value for infinitescore');
+    setState(() {
+      infiniteScore = value;
+    });
   }
 
   _save_infinite_score(int value) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'infinitescore';
     prefs.setInt(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value on infinitescore');
+    if (terminalPrinting) print('[SYS] Saved $value on infinitescore');
   }
 
   _read_streak() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streak';
     final value = prefs.getInt(key) ?? 0;
-    if(terminalPrinting) print('[SYS] Read: $value for streak');
+    if (terminalPrinting) print('[SYS] Read: $value for streak');
     setState(() {
       streak = value;
     });
@@ -136,7 +135,7 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streak';
     prefs.setInt(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value on streak');
+    if (terminalPrinting) print('[SYS] Saved $value on streak');
   }
 
   _read_records() async {
@@ -153,21 +152,21 @@ class _HomeState extends State<Home> {
       streakRecord = streakRecordValue;
     });
 
-    if(terminalPrinting) print('[SYS] Read: records');
+    if (terminalPrinting) print('[SYS] Read: records');
   }
 
   _save_streak_record() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'streakrecord';
     prefs.setInt(key, streakRecord);
-    if(terminalPrinting) print('[SYS] Saved $streakRecord on streakrecord');
+    if (terminalPrinting) print('[SYS] Saved $streakRecord on streakrecord');
   }
 
   _save_score_record() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'scorerecord';
     prefs.setInt(key, scoreRecord);
-    if(terminalPrinting) print('[SYS] Saved $scoreRecord on scorerecord');
+    if (terminalPrinting) print('[SYS] Saved $scoreRecord on scorerecord');
   }
 
   _read_stats() async {
@@ -204,13 +203,15 @@ class _HomeState extends State<Home> {
     final winsAtFirstInfiniteValue = prefs.getInt(winsAtFirstInfiniteKey) ?? 0;
 
     final winsAtSecondInfiniteKey = 'winsatsecondinfinite';
-    final winsAtSecondInfiniteValue = prefs.getInt(winsAtSecondInfiniteKey) ?? 0;
+    final winsAtSecondInfiniteValue =
+        prefs.getInt(winsAtSecondInfiniteKey) ?? 0;
 
     final winsAtThirdInfiniteKey = 'winsatthirdinfinite';
     final winsAtThirdInfiniteValue = prefs.getInt(winsAtThirdInfiniteKey) ?? 0;
 
     final winsAtFourthInfiniteKey = 'winsatfourthinfinite';
-    final winsAtFourthInfiniteValue = prefs.getInt(winsAtFourthInfiniteKey) ?? 0;
+    final winsAtFourthInfiniteValue =
+        prefs.getInt(winsAtFourthInfiniteKey) ?? 0;
 
     final winsAtFifthInfiniteKey = 'winsatfifthinfinite';
     final winsAtFifthInfiniteValue = prefs.getInt(winsAtFifthInfiniteKey) ?? 0;
@@ -241,29 +242,30 @@ class _HomeState extends State<Home> {
       defeatsAtInfinite = defeatsAtInfiniteValue;
     });
 
-    if(terminalPrinting) print('[SYS] Read: stats');
+    if (terminalPrinting) print('[SYS] Read: stats');
   }
 
-  _save_wotd_stats(int variableSelector, int variableValue, int totalValue) async {
+  _save_wotd_stats(
+      int variableSelector, int variableValue, int totalValue) async {
     final prefs = await SharedPreferences.getInstance();
     final key1;
     final key2 = 'totalwotdgames';
-    if (variableSelector == 1){
+    if (variableSelector == 1) {
       key1 = 'winsatfirstwotd';
     } else {
-      if (variableSelector == 2){
+      if (variableSelector == 2) {
         key1 = 'winsatsecondwotd';
       } else {
-        if (variableSelector == 3){
+        if (variableSelector == 3) {
           key1 = 'winsatthirdwotd';
         } else {
-          if (variableSelector == 4){
+          if (variableSelector == 4) {
             key1 = 'winsatfourthwotd';
           } else {
-            if (variableSelector == 5){
+            if (variableSelector == 5) {
               key1 = 'winsatfifthwotd';
             } else {
-              if (variableSelector == 6){
+              if (variableSelector == 6) {
                 key1 = 'winsatsixthwotd';
               } else {
                 key1 = 'defeatsatwotd';
@@ -276,29 +278,30 @@ class _HomeState extends State<Home> {
 
     prefs.setInt(key1, variableValue);
     prefs.setInt(key2, totalValue);
-    if(terminalPrinting) print('[SYS] Saved wotd_stats');
+    if (terminalPrinting) print('[SYS] Saved wotd_stats');
   }
 
-  _save_infinite_stats(int variableSelector, int variableValue, int totalValue) async {
+  _save_infinite_stats(
+      int variableSelector, int variableValue, int totalValue) async {
     final prefs = await SharedPreferences.getInstance();
     final key1;
     final key2 = 'totalinfinitegames';
-    if (variableSelector == 1){
+    if (variableSelector == 1) {
       key1 = 'winsatfirstinfinite';
     } else {
-      if (variableSelector == 2){
+      if (variableSelector == 2) {
         key1 = 'winsatsecondinfinite';
       } else {
-        if (variableSelector == 3){
+        if (variableSelector == 3) {
           key1 = 'winsatthirdinfinite';
         } else {
-          if (variableSelector == 4){
+          if (variableSelector == 4) {
             key1 = 'winsatfourthinfinite';
           } else {
-            if (variableSelector == 5){
+            if (variableSelector == 5) {
               key1 = 'winsatfifthinfinite';
             } else {
-              if (variableSelector == 6){
+              if (variableSelector == 6) {
                 key1 = 'winsatsixthinfinite';
               } else {
                 key1 = 'defeatsatinfinite';
@@ -312,7 +315,7 @@ class _HomeState extends State<Home> {
     prefs.setInt(key1, variableValue);
     prefs.setInt(key2, totalValue);
 
-    if(terminalPrinting) print('[SYS] Saved: infinite_stats');
+    if (terminalPrinting) print('[SYS] Saved: infinite_stats');
   }
 
   _read_trophies() async {
@@ -395,7 +398,7 @@ class _HomeState extends State<Home> {
       secretWordTr = secretWordTrValue;
     });
 
-    if(terminalPrinting) print('[SYS] Read: trophies');
+    if (terminalPrinting) print('[SYS] Read: trophies');
   }
 
   _save_trophy(String trophyKey, String trophyType) async {
@@ -407,17 +410,17 @@ class _HomeState extends State<Home> {
 
     String msg = '';
 
-    if (trophyType == 'gold'){
+    if (trophyType == 'gold') {
       key2 = 'goldtrophies';
       prefs.setInt(key2, goldTrophies);
       msg = '¡Trofeo de oro conseguido!';
     } else {
-      if (trophyType == 'silver'){
+      if (trophyType == 'silver') {
         key2 = 'silvertrophies';
         prefs.setInt(key2, silverTrophies);
         msg = '¡Trofeo de plata conseguido!';
       } else {
-        if (trophyType == 'bronze'){
+        if (trophyType == 'bronze') {
           key2 = 'bronzetrophies';
           prefs.setInt(key2, bronzeTrophies);
           msg = '¡Trofeo de bronce conseguido!';
@@ -428,27 +431,27 @@ class _HomeState extends State<Home> {
     prefs.setBool(key1, true);
     prefs.setInt(key3, totalTrophies);
 
-    if (totalTrophies >= 12){
+    if (totalTrophies >= 12) {
       setState(() {
         allTrophiesTr = true;
         diamondTrophies = 1;
       });
 
       rewardFlushbar(context);
+    } else
+      trophyFlushbar(context, msg);
 
-    } else trophyFlushbar(context, msg);
-
-    if(terminalPrinting) print('[SYS] Saved: trophy');
+    if (terminalPrinting) print('[SYS] Saved: trophy');
 
     // Save trophy on FB
-    if (userId!=null) updateFBTrophies();
+    if (userId != null) updateFBTrophies();
   }
 
   _read_last_day_wotd() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'lastdaywotd';
     final value = prefs.getString(key) ?? '2000-01-01';
-    if(terminalPrinting) print('[SYS] Read: $value for lastdaywotd');
+    if (terminalPrinting) print('[SYS] Read: $value for lastdaywotd');
     setState(() {
       lastDayWotd = value;
     });
@@ -460,14 +463,14 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'lastdaywotd';
     prefs.setString(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value on lastdaywotd');
+    if (terminalPrinting) print('[SYS] Saved $value on lastdaywotd');
   }
 
   _read_consecutive_days_wotd() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'consecutivedayswotd';
     final value = prefs.getInt(key) ?? 0;
-    if(terminalPrinting) print('[SYS] Read: $value for consecutivedayswotd');
+    if (terminalPrinting) print('[SYS] Read: $value for consecutivedayswotd');
     setState(() {
       consecutiveDaysWotd = value;
     });
@@ -477,17 +480,18 @@ class _HomeState extends State<Home> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'consecutivedayswotd';
     prefs.setInt(key, value);
-    if(terminalPrinting) print('[SYS] Saved $value on consecutivedayswotd');
+    if (terminalPrinting) print('[SYS] Saved $value on consecutivedayswotd');
   }
 
   _read_want_notifications() async {
-    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
 
     final prefs = await SharedPreferences.getInstance();
     final key = 'wantnotifications';
     final value = prefs.getBool(key) ?? true;
-    if(terminalPrinting) print('[SYS] Read: $value for wantnotifications');
-    if (value == true){
+    if (terminalPrinting) print('[SYS] Read: $value for wantnotifications');
+    if (value == true) {
       setState(() {
         wantNotifications = true;
       });
@@ -496,12 +500,11 @@ class _HomeState extends State<Home> {
         wantNotifications = false;
       });
       await flutterLocalNotificationsPlugin.cancel(1);
-      if(terminalPrinting) print('[SYS] Canceled notification with id 1');
+      if (terminalPrinting) print('[SYS] Canceled notification with id 1');
     }
   }
 
   void check_wotd_days() {
-
     final format = DateFormat('yyyy-MM-dd');
     final now = format.format(DateTime.now());
 
@@ -510,21 +513,19 @@ class _HomeState extends State<Home> {
 
     var yesterday = new DateTime(today.year, today.month, today.day - 1);
 
-    if(yesterday.compareTo(lastDay) == 0){
-      if(terminalPrinting) print('[SYS] Last wotd game was yesterday');
+    if (yesterday.compareTo(lastDay) == 0) {
+      if (terminalPrinting) print('[SYS] Last wotd game was yesterday');
       setState(() {
         consecutiveDaysWotd++;
       });
-
     } else {
-      if(terminalPrinting) print("[SYS] Last wotd game wasn't yesterday");
-      if(today.compareTo(lastDay) == 0){}
-      else {
+      if (terminalPrinting) print("[SYS] Last wotd game wasn't yesterday");
+      if (today.compareTo(lastDay) == 0) {
+      } else {
         setState(() {
-          consecutiveDaysWotd=1;
+          consecutiveDaysWotd = 1;
         });
       }
-
     }
 
     setState(() {
@@ -559,31 +560,29 @@ class _HomeState extends State<Home> {
         _save_trophy('days30wotdtr', 'gold');
       });
     }
-
   }
 
   void check_wotd_done() {
-
     final format = DateFormat('yyyy-MM-dd');
     final now = format.format(DateTime.now());
 
     DateTime today = DateTime.parse(now);
     DateTime lastDay = DateTime.parse(lastDayWotd);
 
-    if(today.compareTo(lastDay) == 0){
-      if(terminalPrinting) print('[SYS] Wotd done ($today = $lastDay)');
+    if (today.compareTo(lastDay) == 0) {
+      if (terminalPrinting) print('[SYS] Wotd done ($today = $lastDay)');
       setState(() {
         canWriteWotd = false;
         wotdDone = true;
       });
     } else {
-      if(terminalPrinting) print('[SYS] Wotd not done (LastDay: $lastDay != Today: $today)');
+      if (terminalPrinting)
+        print('[SYS] Wotd not done (LastDay: $lastDay != Today: $today)');
       setState(() {
         canWriteWotd = true;
         wotdDone = false;
       });
     }
-
   }
 
   // ADMOB MANAGEMENT
@@ -614,7 +613,9 @@ class _HomeState extends State<Home> {
           });
         },
         onAdFailedToLoad: (err) {
-          if(terminalPrinting) print("[ERR] Failed to load a rewarded ad on 'home.dart': ${err.message}");
+          if (terminalPrinting)
+            print(
+                "[ERR] Failed to load a rewarded ad on 'home.dart': ${err.message}");
           setState(() {
             _isRewardedAdReady = false;
           });
@@ -640,13 +641,12 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-
     // VERSION MANAGEMENT
     final newVersion = NewVersion(
       iOSId: '',
       androidId: 'com.joa.encasillado',
     );
-    if (appStarted ==  false) statusCheck(newVersion);
+    if (appStarted == false) statusCheck(newVersion);
 
     _read_ever_played();
     _read_user();
@@ -676,7 +676,9 @@ class _HomeState extends State<Home> {
             });
           },
           onAdFailedToLoad: (ad, err) {
-            if(terminalPrinting) print("[ERR] Failed to load a banner ad on 'home.dart': ${err.message}");
+            if (terminalPrinting)
+              print(
+                  "[ERR] Failed to load a banner ad on 'home.dart': ${err.message}");
             _isBannerAdReady = false;
             ad.dispose();
           },
@@ -705,7 +707,7 @@ class _HomeState extends State<Home> {
     Color infiniteButtonColor = appMainColor;
     TextDecoration wotdDecoration = TextDecoration.underline;
     TextDecoration infiniteDecoration = TextDecoration.none;
-    if (homePage == 0){
+    if (homePage == 0) {
       wotdButtonColor = appThirdColor;
       infiniteButtonColor = appMainColor;
       wotdDecoration = TextDecoration.underline;
@@ -723,7 +725,7 @@ class _HomeState extends State<Home> {
     }
 
     Future.delayed(Duration.zero, () {
-      if (userId == null && setNameWarned == false){
+      if (userId == null && setNameWarned == false) {
         setState(() {
           setNameWarned = true;
         });
@@ -731,95 +733,108 @@ class _HomeState extends State<Home> {
       }
     });
 
-    if (everPlayed) return Scaffold(
-      appBar: myAppBarWithButtonsWithoutBackArrow(context),
-      backgroundColor: appWhite,
-      body: Column(children: [
-        Container(
-          height: 54,
-          color: appSecondColor,
-          padding: EdgeInsets.all(5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 5,
-              ),
-              Expanded(
-                child: TextButton(
-                    onPressed: () {
-                      if (homePage == 1){
-                        setState(() {
-                          homePage = 0;
-                        });
-                      }
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: wotdButtonColor,
-                    ),
-                    child: Text(
-                      "¡La palabra del día!",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        decoration: wotdDecoration,
+    if (everPlayed)
+      return Scaffold(
+        appBar: myAppBarWithButtonsWithoutBackArrow(context),
+        backgroundColor: appWhite,
+        body: Column(children: [
+          Container(
+            height: 54,
+            color: appSecondColor,
+            padding: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {
+                        if (homePage == 1) {
+                          setState(() {
+                            homePage = 0;
+                          });
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: wotdButtonColor,
                       ),
-                    )),
-              ),
-              Expanded(
-                child: TextButton(
-                    onPressed: () {
-                      if (homePage == 0){
-                        setState(() {
-                          homePage = 1;
-                        });
-                      }
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: infiniteButtonColor,
-                    ),
-                    child: Text(
-                      "Palabras infinitas",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        decoration: infiniteDecoration,
+                      child: Text(
+                        "¡La palabra del día!",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          decoration: wotdDecoration,
+                        ),
+                      )),
+                ),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {
+                        if (homePage == 0) {
+                          setState(() {
+                            homePage = 1;
+                          });
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: infiniteButtonColor,
                       ),
-                    )),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-            ],
+                      child: Text(
+                        "Palabras infinitas",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          decoration: infiniteDecoration,
+                        ),
+                      )),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+              ],
+            ),
           ),
-        ),
-        if (homePage == 0) gameBannerTwoButtons(context, '¡La palabra del día!', twitterBotButton(context), suggestButton(context)),
-        if (homePage == 1) gameBannerOneButton(context, 'Palabras infinitas', scoreButton(context)),
-        if (homePage == 0 && wotdDone == false) wotdLettersField(),
-        if (homePage == 1) infiniteLettersField(),
-        if (homePage == 0 && wotdDone == true) wotdDoneWaiting(),
-        if (homePage == 0 && wotdDone == false) Expanded(child: Text(""),),
-        if (homePage == 1) Expanded(child: Text(""),),
-        if (_isBannerAdReady) smallText('ADVERTISING'),
-        if (_isBannerAdReady) Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            width: _bannerAd.size.width.toDouble(),
-            height: _bannerAd.size.height.toDouble(),
-            child: AdWidget(ad: _bannerAd),
+          if (homePage == 0)
+            gameBannerTwoButtons(context, '¡La palabra del día!',
+                twitterBotButton(context), suggestButton(context)),
+          if (homePage == 1)
+            gameBannerOneButton(
+                context, 'Palabras infinitas', scoreButton(context)),
+          if (homePage == 0 && wotdDone == false) wotdLettersField(),
+          if (homePage == 1) infiniteLettersField(),
+          if (homePage == 0 && wotdDone == true) wotdDoneWaiting(),
+          if (homePage == 0 && wotdDone == false)
+            Expanded(
+              child: Text(""),
+            ),
+          if (homePage == 1)
+            Expanded(
+              child: Text(""),
+            ),
+          if (_isBannerAdReady) smallText('ADVERTISING'),
+          if (_isBannerAdReady)
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: _bannerAd.size.width.toDouble(),
+                height: _bannerAd.size.height.toDouble(),
+                child: AdWidget(ad: _bannerAd),
+              ),
+            ),
+          SizedBox(
+            height: 15,
           ),
-        ),
-        SizedBox(height: 15,),
-        if (homePage == 0) wotdKeyboard(context),
-        if (homePage == 1) infiniteKeyboard(context),
-        SizedBox(
-          height: 2.5,
-        ),
-      ]),
-    );
-    else return IntroductionPage();
-
-
+          if (homePage == 0) wotdKeyboard(context),
+          if (homePage == 1) infiniteKeyboard(context),
+          SizedBox(
+            height: 2.5,
+          ),
+        ]),
+      );
+    else
+      return IntroductionPage();
   }
 
   // KEYBOARD GENERATION
@@ -858,7 +873,7 @@ class _HomeState extends State<Home> {
             backgroundColor: mycolor,
           ),
           onPressed: () {
-            if(timeStartedWotd == false) {
+            if (timeStartedWotd == false) {
               setState(() {
                 startDateWotd = DateTime.now();
                 timeStartedWotd = true;
@@ -923,7 +938,7 @@ class _HomeState extends State<Home> {
             backgroundColor: mycolor,
           ),
           onPressed: () {
-            if(timeStartedInfinite == false) {
+            if (timeStartedInfinite == false) {
               setState(() {
                 startDateInfinite = DateTime.now();
                 timeStartedInfinite = true;
@@ -964,11 +979,17 @@ class _HomeState extends State<Home> {
             "PROBAR",
             style: TextStyle(fontSize: 12),
           ),
-          style:
-          TextButton.styleFrom(primary: appBlack, backgroundColor: keyColor),
+          style: TextButton.styleFrom(
+              primary: appBlack, backgroundColor: keyColor),
           onPressed: () {
             // Si está al final de alguna fila
-            if ((currentCellWotd == 5 || currentCellWotd == 10 || currentCellWotd == 15 || currentCellWotd == 20 || currentCellWotd == 25 || currentCellWotd == 30) && canWriteWotd == false) {
+            if ((currentCellWotd == 5 ||
+                    currentCellWotd == 10 ||
+                    currentCellWotd == 15 ||
+                    currentCellWotd == 20 ||
+                    currentCellWotd == 25 ||
+                    currentCellWotd == 30) &&
+                canWriteWotd == false) {
               // Si la palabra existe
               if (wotd_word_exists()) {
                 // Si acierta la palabra
@@ -980,13 +1001,13 @@ class _HomeState extends State<Home> {
                       wonGameWotd = true;
                       totalWotdGames++;
                     });
-                    if ((currentRowWotd+1) == 1) {
+                    if ((currentRowWotd + 1) == 1) {
                       setState(() {
                         winsAtFirstWotd++;
                       });
                       _save_wotd_stats(1, winsAtFirstWotd, totalWotdGames);
                       /** TROPHY: A LA PRIMERA */
-                      if (atFirstTr == false){
+                      if (atFirstTr == false) {
                         setState(() {
                           totalTrophies++;
                           goldTrophies++;
@@ -995,13 +1016,13 @@ class _HomeState extends State<Home> {
                         _save_trophy('atfirsttr', 'gold');
                       }
                     }
-                    if ((currentRowWotd+1) == 2) {
+                    if ((currentRowWotd + 1) == 2) {
                       setState(() {
                         winsAtSecondWotd++;
                       });
                       _save_wotd_stats(2, winsAtSecondWotd, totalWotdGames);
                       /** TROPHY: A LA SEGUNDA */
-                      if (atSecondTr == false){
+                      if (atSecondTr == false) {
                         setState(() {
                           totalTrophies++;
                           silverTrophies++;
@@ -1010,25 +1031,25 @@ class _HomeState extends State<Home> {
                         _save_trophy('atsecondtr', 'silver');
                       }
                     }
-                    if ((currentRowWotd+1) == 3) {
+                    if ((currentRowWotd + 1) == 3) {
                       setState(() {
                         winsAtThirdWotd++;
                       });
                       _save_wotd_stats(3, winsAtThirdWotd, totalWotdGames);
                     }
-                    if ((currentRowWotd+1) == 4) {
+                    if ((currentRowWotd + 1) == 4) {
                       setState(() {
                         winsAtFourthWotd++;
                       });
                       _save_wotd_stats(4, winsAtFourthWotd, totalWotdGames);
                     }
-                    if ((currentRowWotd+1) == 5) {
+                    if ((currentRowWotd + 1) == 5) {
                       setState(() {
                         winsAtFifthWotd++;
                       });
                       _save_wotd_stats(5, winsAtFifthWotd, totalWotdGames);
                     }
-                    if ((currentRowWotd+1) == 6) {
+                    if ((currentRowWotd + 1) == 6) {
                       setState(() {
                         winsAtSixthWotd++;
                       });
@@ -1038,7 +1059,7 @@ class _HomeState extends State<Home> {
                     check_wotd_days();
                   }
                   /** TROPHY FIRST PLAY */
-                  if (firstPlayTr == false){
+                  if (firstPlayTr == false) {
                     setState(() {
                       totalTrophies++;
                       bronzeTrophies++;
@@ -1083,7 +1104,7 @@ class _HomeState extends State<Home> {
                     // Si ya se ha presentado la 7a oportunidad
                     else {
                       // Si no se ha marcado como finalizado el juego
-                      if (finishedWotd == false){
+                      if (finishedWotd == false) {
                         /** TROPHY FIRST PLAY */
                         if (firstPlayTr == false) {
                           setState(() {
@@ -1119,7 +1140,8 @@ class _HomeState extends State<Home> {
               }
 
               // Si la palabra no existe
-              else wordDoesNotExistFlushbar(context);
+              else
+                wordDoesNotExistFlushbar(context);
             }
 
             // Si ha acabado y aún no se ha medido el tiempo
@@ -1147,29 +1169,36 @@ class _HomeState extends State<Home> {
             "PROBAR",
             style: TextStyle(fontSize: 12),
           ),
-          style:
-          TextButton.styleFrom(primary: appBlack, backgroundColor: keyColor),
+          style: TextButton.styleFrom(
+              primary: appBlack, backgroundColor: keyColor),
           onPressed: () {
-            if ((currentCellInfinite == 5 || currentCellInfinite == 10 || currentCellInfinite == 15 || currentCellInfinite == 20 || currentCellInfinite == 25 || currentCellInfinite == 30) && canWriteInfinite == false) {
+            if ((currentCellInfinite == 5 ||
+                    currentCellInfinite == 10 ||
+                    currentCellInfinite == 15 ||
+                    currentCellInfinite == 20 ||
+                    currentCellInfinite == 25 ||
+                    currentCellInfinite == 30) &&
+                canWriteInfinite == false) {
               if (infinite_word_exists()) {
                 if (infinite_check_word()) {
                   if (finishedInfinite == false) {
-
                     setState(() {
                       finishedInfinite = true;
                       wonGameInfinite = true;
                       endDateInfinite = DateTime.now();
-                      playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+                      playSecondsInfinite =
+                          endDateInfinite.difference(startDateInfinite);
                       totalInfiniteGames++;
                     });
 
-                    if ((currentRowInfinite+1) == 1) {
+                    if ((currentRowInfinite + 1) == 1) {
                       setState(() {
                         winsAtFirstInfinite++;
                       });
-                      _save_infinite_stats(1, winsAtFirstInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          1, winsAtFirstInfinite, totalInfiniteGames);
                       /** TROPHY: A LA PRIMERA */
-                      if (atFirstTr == false){
+                      if (atFirstTr == false) {
                         setState(() {
                           totalTrophies++;
                           goldTrophies++;
@@ -1178,13 +1207,14 @@ class _HomeState extends State<Home> {
                         _save_trophy('atfirsttr', 'gold');
                       }
                     }
-                    if ((currentRowInfinite+1) == 2) {
+                    if ((currentRowInfinite + 1) == 2) {
                       setState(() {
                         winsAtSecondInfinite++;
                       });
-                      _save_infinite_stats(2, winsAtSecondInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          2, winsAtSecondInfinite, totalInfiniteGames);
                       /** TROPHY: A LA SEGUNDA */
-                      if (atSecondTr == false){
+                      if (atSecondTr == false) {
                         setState(() {
                           totalTrophies++;
                           silverTrophies++;
@@ -1193,35 +1223,39 @@ class _HomeState extends State<Home> {
                         _save_trophy('atsecondtr', 'silver');
                       }
                     }
-                    if ((currentRowInfinite+1) == 3) {
+                    if ((currentRowInfinite + 1) == 3) {
                       setState(() {
                         winsAtThirdInfinite++;
                       });
-                      _save_infinite_stats(3, winsAtThirdInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          3, winsAtThirdInfinite, totalInfiniteGames);
                     }
-                    if ((currentRowInfinite+1) == 4) {
+                    if ((currentRowInfinite + 1) == 4) {
                       setState(() {
                         winsAtFourthInfinite++;
                       });
-                      _save_infinite_stats(4, winsAtFourthInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          4, winsAtFourthInfinite, totalInfiniteGames);
                     }
-                    if ((currentRowInfinite+1) == 5) {
+                    if ((currentRowInfinite + 1) == 5) {
                       setState(() {
                         winsAtFifthInfinite++;
                       });
-                      _save_infinite_stats(5, winsAtFifthInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          5, winsAtFifthInfinite, totalInfiniteGames);
                     }
-                    if ((currentRowInfinite+1) == 6) {
+                    if ((currentRowInfinite + 1) == 6) {
                       setState(() {
                         winsAtSixthInfinite++;
                       });
-                      _save_infinite_stats(6, winsAtSixthInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          6, winsAtSixthInfinite, totalInfiniteGames);
                     }
 
                     infinite_update_score();
                   }
                   /** TROPHY FIRST PLAY */
-                  if (firstPlayTr == false){
+                  if (firstPlayTr == false) {
                     setState(() {
                       totalTrophies++;
                       bronzeTrophies++;
@@ -1249,20 +1283,20 @@ class _HomeState extends State<Home> {
                         finishedInfinite = true;
                         wonGameInfinite = false;
                         endDateInfinite = DateTime.now();
-                        playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+                        playSecondsInfinite =
+                            endDateInfinite.difference(startDateInfinite);
                         totalInfiniteGames++;
                         defeatsAtInfinite++;
                         oldScore = infiniteScore;
                         oldStreak = streak;
                       });
 
-                      _save_infinite_stats(0, defeatsAtInfinite, totalInfiniteGames);
+                      _save_infinite_stats(
+                          0, defeatsAtInfinite, totalInfiniteGames);
                       infinite_update_score();
 
                       _showExtraTryDialogInfinite();
-                    }
-
-                    else {
+                    } else {
                       if (finishedInfinite == false) {
                         /** TROPHY FIRST PLAY */
                         if (firstPlayTr == false) {
@@ -1278,8 +1312,8 @@ class _HomeState extends State<Home> {
                           finishedInfinite = true;
                           wonGameInfinite = false;
                           endDateInfinite = DateTime.now();
-                          playSecondsInfinite = endDateInfinite.difference(
-                              startDateInfinite);
+                          playSecondsInfinite =
+                              endDateInfinite.difference(startDateInfinite);
                           totalInfiniteGames++;
                           defeatsAtInfinite++;
                         });
@@ -1290,19 +1324,16 @@ class _HomeState extends State<Home> {
                       }
                       Navigator.pushNamed(context, '/infinite_words_end');
                     }
-                  }
-
-                  else {
+                  } else {
                     setState(() {
                       currentRowInfinite++;
                       canWriteInfinite = true;
                     });
                   }
                 }
-              }
-              else wordDoesNotExistFlushbar(context);
+              } else
+                wordDoesNotExistFlushbar(context);
             }
-
           },
         ),
       ),
@@ -1310,7 +1341,6 @@ class _HomeState extends State<Home> {
   }
 
   SizedBox wotdBackspaceKey() {
-    Color? mycolor = keyColor;
     if (darkMode) {
       return SizedBox(
         height: keyHeight,
@@ -1319,9 +1349,11 @@ class _HomeState extends State<Home> {
           margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: mycolor,
+                primary: appBlack, backgroundColor: keyColor),
+            child: Icon(
+              Icons.backspace_outlined,
+              color: appBlack,
             ),
-            child: Icon(Icons.backspace_outlined, color: appBlack,),
             onPressed: () {
               if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
@@ -1350,9 +1382,11 @@ class _HomeState extends State<Home> {
           margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: mycolor,
+                primary: appBlack, backgroundColor: keyColor),
+            child: Icon(
+              Icons.backspace_outlined,
+              color: appBlack,
             ),
-            child: Icon(Icons.backspace_outlined, color: appBlack,),
             onPressed: () {
               if (finishedWotd == false) {
                 if (currentCellWotd == 0 ||
@@ -1377,7 +1411,6 @@ class _HomeState extends State<Home> {
   }
 
   SizedBox infiniteBackspaceKey() {
-    Color? mycolor = keyColor;
     if (darkMode) {
       return SizedBox(
         height: keyHeight,
@@ -1386,9 +1419,11 @@ class _HomeState extends State<Home> {
           margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: mycolor,
+                primary: appBlack, backgroundColor: keyColor),
+            child: Icon(
+              Icons.backspace_outlined,
+              color: appBlack,
             ),
-            child: Icon(Icons.backspace_outlined, color: appBlack,),
             onPressed: () {
               if (finishedInfinite == false) {
                 if (currentCellInfinite == 0 ||
@@ -1417,8 +1452,7 @@ class _HomeState extends State<Home> {
           margin: const EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 1.0),
           child: TextButton(
             style: TextButton.styleFrom(
-              backgroundColor: mycolor,
-            ),
+                primary: appBlack, backgroundColor: keyColor),
             child: Icon(Icons.backspace_outlined, color: appBlack),
             onPressed: () {
               if (finishedInfinite == false) {
@@ -1562,7 +1596,7 @@ class _HomeState extends State<Home> {
         inputMatrixWotd[currentRowWotd * 5 + 4];
 
     /** TROPHY: SECRET WORD */
-    if (secretWordTr == false && inputWord == 'FELIZ'){
+    if (secretWordTr == false && inputWord == 'FELIZ') {
       setState(() {
         totalTrophies++;
         goldTrophies++;
@@ -1648,7 +1682,7 @@ class _HomeState extends State<Home> {
         inputMatrixInfinite[currentRowInfinite * 5 + 4];
 
     /** TROPHY: SECRET WORD */
-    if (secretWordTr == false && inputWord == 'FELIZ'){
+    if (secretWordTr == false && inputWord == 'FELIZ') {
       setState(() {
         totalTrophies++;
         goldTrophies++;
@@ -1754,7 +1788,6 @@ class _HomeState extends State<Home> {
   // LETTERS FIELD MANAGEMENT
 
   AnimatedContainer letterCell(String char, String col, int duration) {
-
     Color? cellColor = appWhite;
     if (col == "V") cellColor = appGreen;
     if (col == "A") cellColor = appYellow;
@@ -1775,13 +1808,12 @@ class _HomeState extends State<Home> {
       child: Text(
         char,
         style:
-        TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
+            TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
       ),
     );
   }
 
   AnimatedContainer doneLetterCell(String char) {
-
     return AnimatedContainer(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOutCirc,
@@ -1797,7 +1829,7 @@ class _HomeState extends State<Home> {
       child: Text(
         char,
         style:
-        TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
+            TextStyle(fontSize: ((deviceHeight * 0.335) / 6), color: appBlack),
       ),
     );
   }
@@ -1822,14 +1854,14 @@ class _HomeState extends State<Home> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         letterCell(inputMatrixInfinite[_from], colorsArrayInfinite[_from], 500),
-        letterCell(
-            inputMatrixInfinite[_from + 1], colorsArrayInfinite[_from + 1], 575),
-        letterCell(
-            inputMatrixInfinite[_from + 2], colorsArrayInfinite[_from + 2], 650),
-        letterCell(
-            inputMatrixInfinite[_from + 3], colorsArrayInfinite[_from + 3], 725),
-        letterCell(
-            inputMatrixInfinite[_from + 4], colorsArrayInfinite[_from + 4], 800),
+        letterCell(inputMatrixInfinite[_from + 1],
+            colorsArrayInfinite[_from + 1], 575),
+        letterCell(inputMatrixInfinite[_from + 2],
+            colorsArrayInfinite[_from + 2], 650),
+        letterCell(inputMatrixInfinite[_from + 3],
+            colorsArrayInfinite[_from + 3], 725),
+        letterCell(inputMatrixInfinite[_from + 4],
+            colorsArrayInfinite[_from + 4], 800),
       ],
     );
   }
@@ -1878,24 +1910,23 @@ class _HomeState extends State<Home> {
         PageViewModel(
           title: "¡Bienvenido a Encasillado!",
           body:
-          "Vamos a dar un pequeño tour para aprender lo básico del juego. ¿Listo?",
+              "Vamos a dar un pequeño tour para aprender lo básico del juego. ¿Listo?",
           image: Image.asset(introIcon),
         ),
         PageViewModel(
           title: "¿Cómo jugar?",
           body:
-          "Hay una palabra oculta, tienes 6 intentos para acertarla. Cada vez que pruebas "
+              "Hay una palabra oculta, tienes 6 intentos para acertarla. Cada vez que pruebas "
               "una palabra sus letras cambiarán de color para indicar tu progreso: \n"
               "\nVerde: La palabra contiene esa letra en esa posición."
               "\nAmarillo: La palabra contiene esa letra pero no en esa posición."
               "\nGris: La palabra no contiene esa letra.",
-
           image: Image.asset(introExplanation1),
         ),
         PageViewModel(
           title: "El teclado",
           body:
-          "Para probar una palabra debes pulsar la tecla 'PROBAR'. Las teclas del "
+              "Para probar una palabra debes pulsar la tecla 'PROBAR'. Las teclas del "
               "teclado también cambian de color al probar palabras.\n\n"
               "No son válidos los verbos conjugados ni los plurales. Las palabras "
               "con tilde se escriben sin ella.",
@@ -1904,7 +1935,7 @@ class _HomeState extends State<Home> {
         PageViewModel(
           title: "Dos modos de juego",
           body:
-          "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
+              "La Palabra del Día: Una palabra cada día. ¡La misma para todos los jugadores!\n\n"
               "Palabras Infinitas: Podrás jugar todas las palabras que quieras, además, "
               "tienes puntos y rachas para desafiarte a ti mismo y a tus amigos.",
           image: Image.asset(introExplanation3),
@@ -1912,15 +1943,21 @@ class _HomeState extends State<Home> {
         PageViewModel(
           title: "Trofeos",
           body:
-          "El juego tiene un apartado en el que puedes consultar tus trofeos. A "
+              "El juego tiene un apartado en el que puedes consultar tus trofeos. A "
               "medida que completes los desafíos indicados ganarás nuevos trofeos. "
               "¡Si los consigues todos obtendrás el trofeo de diamante!",
           image: Image.asset(introExplanation4),
         ),
       ],
-      back: const Text('Anterior', style: TextStyle(color: Colors.grey),),
+      back: const Text(
+        'Anterior',
+        style: TextStyle(color: Colors.grey),
+      ),
       next: const Text('Siguiente'),
-      done: const Text('¡Vamos allá!', style: TextStyle(fontWeight: FontWeight.bold),),
+      done: const Text(
+        '¡Vamos allá!',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       onDone: () {
         setState(() {
           everPlayed = true;
@@ -1934,7 +1971,6 @@ class _HomeState extends State<Home> {
   void _showExtraTryDialogWotd() {
     if (_isRewardedAdReady == false) _loadRewardedAd();
     showDialog(
-
         barrierDismissible: false,
         context: context,
         builder: (context) {
@@ -1945,8 +1981,13 @@ class _HomeState extends State<Home> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(adImg, scale: 18,),
-                SizedBox(width: 5,),
+                Image.asset(
+                  adImg,
+                  scale: 18,
+                ),
+                SizedBox(
+                  width: 5,
+                ),
                 Text('Intento extra'),
               ],
             ),
@@ -1957,21 +1998,26 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
-                      child: Container(height: 40,
-                          child: TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.white,
-                                backgroundColor: Colors.grey,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                                Navigator.pushNamed(context, '/wotd_end');
-                              },
-                              child: Text('NO')),),
+                      child: Container(
+                        height: 40,
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.grey,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.pushNamed(context, '/wotd_end');
+                            },
+                            child: Text('NO')),
+                      ),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Expanded(
-                      child: Container(height: 40,
+                      child: Container(
+                        height: 40,
                         child: TextButton(
                           style: TextButton.styleFrom(
                             primary: Colors.white,
@@ -1979,10 +2025,8 @@ class _HomeState extends State<Home> {
                           ),
                           onPressed: () {
                             if (_isRewardedAdReady) {
-                              _rewardedAd.show(onUserEarnedReward: (
-                                  RewardedAd ad,
-                                  RewardItem reward) {
-
+                              _rewardedAd.show(onUserEarnedReward:
+                                  (RewardedAd ad, RewardItem reward) {
                                 // Retrocedemos las variables 1 intento
                                 setState(() {
                                   finishedWotd = false;
@@ -2014,17 +2058,16 @@ class _HomeState extends State<Home> {
                                 Navigator.pop(context);
                                 rewardFlushbar(context);
                               });
-                            }
-                            else {
+                            } else {
                               _loadRewardedAd();
                               loadingAdFlushbar(context);
                             }
                           },
                           child: Text('VALE'),
-                        ),),
+                        ),
+                      ),
                     ),
-                  ]
-              ),
+                  ]),
             ],
           );
         });
@@ -2043,8 +2086,13 @@ class _HomeState extends State<Home> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(adImg, scale: 18,),
-                SizedBox(width: 5,),
+                Image.asset(
+                  adImg,
+                  scale: 18,
+                ),
+                SizedBox(
+                  width: 5,
+                ),
                 Text('Intento extra'),
               ],
             ),
@@ -2055,7 +2103,8 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
-                      child: Container(height: 40,
+                      child: Container(
+                        height: 40,
                         child: TextButton(
                             style: TextButton.styleFrom(
                               primary: Colors.white,
@@ -2066,75 +2115,81 @@ class _HomeState extends State<Home> {
                               Navigator.pushNamed(
                                   context, '/infinite_words_end');
                             },
-                            child: Text('NO')),),
+                            child: Text('NO')),
+                      ),
                     ),
-                    SizedBox(width: 5,),
-                    Expanded(child: Container(height: 40,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: appMainColor,
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 40,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: appMainColor,
+                          ),
+                          onPressed: () {
+                            if (_isRewardedAdReady) {
+                              _rewardedAd.show(onUserEarnedReward:
+                                  (RewardedAd ad, RewardItem reward) {
+                                // Retrocedemos las variables 1 intento
+                                setState(() {
+                                  finishedInfinite = false;
+                                  wonGameInfinite = false;
+                                  totalInfiniteGames--;
+                                  defeatsAtInfinite--;
+                                  infiniteScore = oldScore;
+                                  streak = oldStreak;
+                                });
+                                _save_infinite_stats(
+                                    0, defeatsAtInfinite, totalInfiniteGames);
+
+                                // Damos la recompensa
+                                setState(() {
+                                  currentCellInfinite = 25;
+
+                                  inputMatrixInfinite[25] = "";
+                                  inputMatrixInfinite[26] = "";
+                                  inputMatrixInfinite[27] = "";
+                                  inputMatrixInfinite[28] = "";
+                                  inputMatrixInfinite[29] = "";
+
+                                  colorsArrayInfinite[25] = "B";
+                                  colorsArrayInfinite[26] = "B";
+                                  colorsArrayInfinite[27] = "B";
+                                  colorsArrayInfinite[28] = "B";
+                                  colorsArrayInfinite[29] = "B";
+
+                                  canWriteInfinite = true;
+                                });
+                                Navigator.pop(context);
+                                rewardFlushbar(context);
+                              });
+                            } else {
+                              _loadRewardedAd();
+                              loadingAdFlushbar(context);
+                            }
+                          },
+                          child: Text('VALE'),
                         ),
-                        onPressed: () {
-                          if (_isRewardedAdReady) {
-                            _rewardedAd.show(onUserEarnedReward: (RewardedAd ad,
-                                RewardItem reward) {
-
-                              // Retrocedemos las variables 1 intento
-                              setState(() {
-                                finishedInfinite = false;
-                                wonGameInfinite = false;
-                                totalInfiniteGames--;
-                                defeatsAtInfinite--;
-                                infiniteScore = oldScore;
-                                streak = oldStreak;
-                              });
-                              _save_infinite_stats(
-                                  0, defeatsAtInfinite, totalInfiniteGames);
-
-                              // Damos la recompensa
-                              setState(() {
-                                currentCellInfinite = 25;
-
-                                inputMatrixInfinite[25] = "";
-                                inputMatrixInfinite[26] = "";
-                                inputMatrixInfinite[27] = "";
-                                inputMatrixInfinite[28] = "";
-                                inputMatrixInfinite[29] = "";
-
-                                colorsArrayInfinite[25] = "B";
-                                colorsArrayInfinite[26] = "B";
-                                colorsArrayInfinite[27] = "B";
-                                colorsArrayInfinite[28] = "B";
-                                colorsArrayInfinite[29] = "B";
-
-                                canWriteInfinite = true;
-                              });
-                              Navigator.pop(context);
-                              rewardFlushbar(context);
-                            });
-                          }
-                          else {
-                            _loadRewardedAd();
-                            loadingAdFlushbar(context);
-                          }
-                        },
-                        child: Text('VALE'),
-                      ),),),
-                  ]
-              ),
+                      ),
+                    ),
+                  ]),
             ],
           );
         });
   }
 
-  Expanded wotdDoneWaiting(){
-
+  Expanded wotdDoneWaiting() {
     final tomorrowDate = DateTime.now().add(new Duration(days: 1));
-    final tomorrowDay = tomorrowDate.day.toString().padLeft(2, '0');;
-    final tomorrowMonth = tomorrowDate.month.toString().padLeft(2, '0');;
+    final tomorrowDay = tomorrowDate.day.toString().padLeft(2, '0');
+    ;
+    final tomorrowMonth = tomorrowDate.month.toString().padLeft(2, '0');
+    ;
     final tomorrowYear = tomorrowDate.year;
-    final tomorrow = DateTime.parse("$tomorrowYear-$tomorrowMonth-$tomorrowDay 00:00:00.000000");
+    final tomorrow = DateTime.parse(
+        "$tomorrowYear-$tomorrowMonth-$tomorrowDay 00:00:00.000000");
 
     final differenceSeconds = tomorrow.difference(DateTime.now()).inSeconds;
 
@@ -2153,7 +2208,9 @@ class _HomeState extends State<Home> {
               fontFamily: 'RaleWay',
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -2165,7 +2222,9 @@ class _HomeState extends State<Home> {
               doneLetterCell(wotdArray[4]),
             ],
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Text(
             'Una palabra nueva en:',
             style: TextStyle(
@@ -2176,7 +2235,9 @@ class _HomeState extends State<Home> {
               fontFamily: 'RaleWay',
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           SlideCountdownClock(
             duration: Duration(seconds: differenceSeconds),
             slideDirection: SlideDirection.Up,
@@ -2207,7 +2268,10 @@ class _HomeState extends State<Home> {
   void check_device() {
     setState(() {
       deviceWidth = MediaQuery.of(context).size.width;
-      deviceHeight = MediaQuery.of(context).size.height - 168.5 - 60 - 15; // 161.5 static px + 60 Ad + 15 Ad Margin
+      deviceHeight = MediaQuery.of(context).size.height -
+          168.5 -
+          60 -
+          15; // 161.5 static px + 60 Ad + 15 Ad Margin
       keyHeight = (deviceHeight) * 0.1;
     });
   }
@@ -2248,192 +2312,191 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void infinite_update_score(){
+  void infinite_update_score() {
+    int seconds = playSecondsInfinite.inSeconds;
 
-      int seconds = playSecondsInfinite.inSeconds;
+    setState(() {
+      if (wonGameInfinite) {
+        if (seconds < 300) {
+          if (currentRowInfinite == 0) {
+            infiniteScore += 10000;
+          } else {
+            infiniteScore += ((300 - seconds) *
+                        (6 - currentRowInfinite) *
+                        ((streak + 1) * 0.1 + 1))
+                    .toInt() +
+                100;
+          }
+          if (infiniteScore > 9999999) infiniteScore = 9999999;
+        } else
+          infiniteScore += 100;
 
+        streak++;
+      } else {
+        infiniteScore -= 1000;
+        streak = 0;
+      }
+    });
+    _save_infinite_score(infiniteScore);
+    _save_streak(streak);
+    if (infiniteScore > scoreRecord) {
+      scoreRecord = infiniteScore;
+      _save_score_record();
+      if (userId != null) updateFBScoreRecord();
+    }
+    if (streak > streakRecord) {
+      streakRecord = streak;
+      _save_streak_record();
+      if (userId != null) updateFBStreakRecord();
+    }
+
+    /** SCORE RECORDS */
+    if (points5kTr == false && infiniteScore >= 5000) {
       setState(() {
-        if (wonGameInfinite) {
-          if (seconds < 300) {
-            if (currentRowInfinite == 0){
-              infiniteScore += 10000;
-            } else {
-              infiniteScore += ((300 - seconds) *
-                  (6 - currentRowInfinite) *
-                  ((streak + 1) * 0.1 + 1))
-                  .toInt() + 100;
-            }
-            if (infiniteScore > 9999999) infiniteScore = 9999999;
-          } else infiniteScore += 100;
-
-          streak++;
-        } else {
-          infiniteScore -= 1000;
-          streak=0;
-        }
+        totalTrophies++;
+        bronzeTrophies++;
+        points5kTr = true;
       });
-      _save_infinite_score(infiniteScore);
-      _save_streak(streak);
-      if (infiniteScore > scoreRecord) {
-        scoreRecord = infiniteScore;
-        _save_score_record();
-        if (userId!=null) updateFBScoreRecord();
-      }
-      if (streak > streakRecord){
-        streakRecord = streak;
-        _save_streak_record();
-        if (userId!=null) updateFBStreakRecord();
-      }
+      _save_trophy('points5ktr', 'bronze');
+    }
+    if (points10kTr == false && infiniteScore >= 10000) {
+      setState(() {
+        totalTrophies++;
+        silverTrophies++;
+        points10kTr = true;
+      });
+      _save_trophy('points10ktr', 'silver');
+    }
+    if (points25kTr == false && infiniteScore >= 25000) {
+      setState(() {
+        totalTrophies++;
+        goldTrophies++;
+        points25kTr = true;
+      });
+      _save_trophy('points25ktr', 'gold');
+    }
 
-      /** SCORE RECORDS */
-      if (points5kTr == false && infiniteScore >= 5000){
-        setState(() {
-          totalTrophies++;
-          bronzeTrophies++;
-          points5kTr = true;
-        });
-        _save_trophy('points5ktr', 'bronze');
-      }
-      if (points10kTr == false && infiniteScore >= 10000){
-        setState(() {
-          totalTrophies++;
-          silverTrophies++;
-          points10kTr = true;
-        });
-        _save_trophy('points10ktr', 'silver');
-      }
-      if (points25kTr == false && infiniteScore >= 25000){
-        setState(() {
-          totalTrophies++;
-          goldTrophies++;
-          points25kTr = true;
-        });
-        _save_trophy('points25ktr', 'gold');
-      }
-
-      /** STREAK RECORDS */
-      if (streak5Tr == false && streak >= 5){
-        setState(() {
-          totalTrophies++;
-          bronzeTrophies++;
-          streak5Tr = true;
-        });
-        _save_trophy('streak5tr', 'bronze');
-      }
-      if (streak10Tr == false && streak >= 10){
-        setState(() {
-          totalTrophies++;
-          silverTrophies++;
-          streak10Tr = true;
-        });
-        _save_trophy('streak10tr', 'silver');
-      }
-      if (streak25Tr == false && streak >= 25){
-        setState(() {
-          totalTrophies++;
-          goldTrophies++;
-          streak25Tr = true;
-        });
-        _save_trophy('streak25tr', 'gold');
-      }
-
+    /** STREAK RECORDS */
+    if (streak5Tr == false && streak >= 5) {
+      setState(() {
+        totalTrophies++;
+        bronzeTrophies++;
+        streak5Tr = true;
+      });
+      _save_trophy('streak5tr', 'bronze');
+    }
+    if (streak10Tr == false && streak >= 10) {
+      setState(() {
+        totalTrophies++;
+        silverTrophies++;
+        streak10Tr = true;
+      });
+      _save_trophy('streak10tr', 'silver');
+    }
+    if (streak25Tr == false && streak >= 25) {
+      setState(() {
+        totalTrophies++;
+        goldTrophies++;
+        streak25Tr = true;
+      });
+      _save_trophy('streak25tr', 'gold');
+    }
   }
 
   void infinite_reset_variables() {
     setState(() {
-    newInfiniteGame = false;
+      newInfiniteGame = false;
 
-    extraTryInfinite = false;
+      extraTryInfinite = false;
 
-    currentCellInfinite = 0;
-    currentRowInfinite = 0;
-    canWriteInfinite = true;
-    finishedInfinite = false;
+      currentCellInfinite = 0;
+      currentRowInfinite = 0;
+      canWriteInfinite = true;
+      finishedInfinite = false;
 
-    infiniteArray = ["", "", "", "", ""];
-    infiniteString = "";
-    infiniteDefinitionURL = "https://dle.rae.es/";
+      infiniteArray = ["", "", "", "", ""];
+      infiniteString = "";
+      infiniteDefinitionURL = "https://dle.rae.es/";
 
-    wonGameInfinite = false;
-    infoStatsInfinite = "";
-    emojiStatsInfinite = "";
-    startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
-    endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
-    playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
-    timeStartedInfinite = false;
-    timeStartedWotd = false;
+      wonGameInfinite = false;
+      infoStatsInfinite = "";
+      emojiStatsInfinite = "";
+      startDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+      endDateInfinite = DateTime.parse("2000-01-01 00:00:00.000000");
+      playSecondsInfinite = endDateInfinite.difference(startDateInfinite);
+      timeStartedInfinite = false;
+      timeStartedWotd = false;
 
-    greenKeysInfinite = [];
-    yellowKeysInfinite = [];
-    greyKeysInfinite = [];
+      greenKeysInfinite = [];
+      yellowKeysInfinite = [];
+      greyKeysInfinite = [];
 
-    inputMatrixInfinite = [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ];
+      inputMatrixInfinite = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ];
 
-    colorsArrayInfinite = [
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B",
-      "B"
-    ];
+      colorsArrayInfinite = [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ];
     });
-    if(terminalPrinting) print("[SYS] Infinite variables reset");
+    if (terminalPrinting) print("[SYS] Infinite variables reset");
   }
-
 }
