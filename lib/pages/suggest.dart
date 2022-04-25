@@ -194,14 +194,30 @@ class _SuggestState extends State<Suggest> {
                                         flushbarPosition: FlushbarPosition.TOP,
                                       ).show(context);
                                     } else {
-                                      sendSuggestedWord(wordController.text,
-                                          anonymous!, context);
+                                      bool alreadyExists = false;
+                                      for (var i = 0; i < selectedDatabase.length; i++) {
+                                        if (selectedDatabase[i] == wordController.text){
+                                          alreadyExists = true;
+                                          break;
+                                        }
+                                      }
+
+                                      if (alreadyExists){
+                                        Flushbar(
+                                          message:
+                                          "Esta palabra ya figura en el juego",
+                                          duration: Duration(seconds: 3),
+                                          backgroundColor: Colors.redAccent,
+                                          flushbarPosition: FlushbarPosition.TOP,
+                                        ).show(context);
+                                      }
+                                      else sendSuggestedWord(wordController.text, anonymous!, context);
                                     }
                                     FocusManager.instance.primaryFocus
                                         ?.unfocus();
                                     wordController.text = '';
-                                  } else
-                                    Flushbar(
+                                  }
+                                  else Flushbar(
                                       message:
                                           "La palabra debe ser de 5 letras",
                                       duration: Duration(seconds: 3),

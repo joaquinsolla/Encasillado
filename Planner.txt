@@ -1,14 +1,14 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-Al tocar el chart ver el número exacto
-sugerir: comprobar si ya existe
+OPT: Al tocar el chart ver el número exacto
 boton de sincronizar con la BD
 intro: trofeos, estadisticas y marcadores
 Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore
 google fonts
 revisar imports unused
+FINAL: actulizar release notes (ambos)
 
 --------- DOING:
 
@@ -19,3 +19,4 @@ quitar margen arriba en las paginas y meter sizedBox(h: 20) + cuadrar bien marge
 eliminar overscroll de listviews
 añadir scrollbar a listviews
 color al pulsar backspace
+sugerir: comprobar si ya existe
