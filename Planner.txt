@@ -1,6 +1,7 @@
 ##### TO-DO list #####
 
 --------- TO DO:
+actualizar lista de palabras
 FINAL: actulizar release notes (ambos)
 
 --------- DOING:
