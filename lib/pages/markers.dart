@@ -69,6 +69,17 @@ class _MarkersState extends State<Markers> {
         .orderBy('name', descending: false)
         .snapshots();
 
+    double headerHeight = 165;
+    if (userId==null){
+      setState(() {
+        headerHeight = 115;
+      });
+    } else {
+      setState(() {
+        headerHeight = 165;
+      });
+    }
+
     return Scaffold(
       appBar: myAppBarWithoutButtonsWithBackArrow(context),
       backgroundColor: appWhite,
@@ -150,7 +161,7 @@ class _MarkersState extends State<Markers> {
               ],
             ),
           ),
-          if (markersPage == 0) Container(height: 165, child: Column(
+          if (markersPage == 0) Container(height: headerHeight, child: Column(
               children: [
                 Container(
                     margin: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0.0),
@@ -491,7 +502,7 @@ class _MarkersState extends State<Markers> {
               ],
             ),
           ),
-          if (markersPage == 1) Container(height: 165, child: Column(
+          if (markersPage == 1) Container(height: headerHeight, child: Column(
               children: [
                 Container(
                     margin: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0.0),
@@ -832,7 +843,7 @@ class _MarkersState extends State<Markers> {
               ],
             ),
           ),
-          if (markersPage == 2) Container(height: 165, child: Column(
+          if (markersPage == 2) Container(height: headerHeight, child: Column(
               children: [
                 Container(
                     margin: const EdgeInsets.fromLTRB(30.0, 0, 30.0, 0.0),
