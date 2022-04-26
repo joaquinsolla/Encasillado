@@ -1,6 +1,7 @@
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -147,15 +148,10 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                                   color: keyColor,
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                child: Text(
-                                  infiniteScore.toString(),
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: appBlack,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.none,
-                                    fontFamily: 'RaleWay',
-                                  ),
+
+                                child: Text(infiniteScore.toString(),
+                                  style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 15,),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
@@ -223,15 +219,9 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                                       myStreakGif,
                                       scale: 15,
                                     ),
-                                    Text(
-                                      " ×" + streak.toString(),
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: appBlack,
-                                        fontWeight: FontWeight.bold,
-                                        decoration: TextDecoration.none,
-                                        fontFamily: 'RaleWay',
-                                      ),
+                                    Text(" x" + streak.toString(),
+                                      style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 15,),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ],
                                 ),

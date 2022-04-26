@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:twitter_intent/twitter_intent.dart';
 import 'package:loading_animations/loading_animations.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
@@ -25,11 +26,6 @@ Scrollbar myScrollbar(ListView listview){
 }
 
 AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
 
   return AppBar(
     automaticallyImplyLeading: false,
@@ -37,9 +33,9 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
+        Text('Encasillado',
+          style: GoogleFonts.paytoneOne(color: Colors.white, fontSize: 24,),
+          textAlign: TextAlign.left,
         ),
         Expanded(child: Text("")),
         Container(
@@ -89,20 +85,14 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
 }
 
 AppBar myAppBarWithoutButtonsWithBackArrow(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
-
   return AppBar(
     backgroundColor: appMainColor,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
+        Text('Encasillado',
+          style: GoogleFonts.paytoneOne(color: Colors.white, fontSize: 24,),
+          textAlign: TextAlign.left,
         ),
       ],
     ),
@@ -110,21 +100,15 @@ AppBar myAppBarWithoutButtonsWithBackArrow(BuildContext context) {
 }
 
 AppBar myAppBarWithoutButtonsAndBackArrow(BuildContext context) {
-  double imageScale;
-  if (deviceWidth < 340)
-    imageScale = 11;
-  else
-    imageScale = 8;
-
   return AppBar(
     automaticallyImplyLeading: false,
     backgroundColor: appMainColor,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Image.asset(
-          bannerImg,
-          scale: imageScale,
+        Text('Encasillado',
+          style: GoogleFonts.paytoneOne(color: Colors.white, fontSize: 24,),
+          textAlign: TextAlign.left,
         ),
       ],
     ),
@@ -585,34 +569,22 @@ Container gameBannerOneButton(BuildContext context, String content, Widget butto
 }
 
 TextButton suggestButton(BuildContext context) {
-  if (darkMode)
-    return TextButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/suggest');
-      },
-      style: TextButton.styleFrom(
-        primary: appBlack,
-        backgroundColor: keyColor,
-      ),
-      child: Image.asset(suggestImgDarkmode, scale: 19,),
-    );
-  else
-    return TextButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/suggest');
-      },
-      style: TextButton.styleFrom(
-        primary: appBlack,
-        backgroundColor: keyColor,
-      ),
-      child: Image.asset(suggestImgLightmode, scale: 19,),
-    );
+  return TextButton(
+    onPressed: () {
+      Navigator.pushNamed(context, '/suggest');
+    },
+    style: TextButton.styleFrom(
+      primary: appBlack,
+      backgroundColor: keyColor,
+    ),
+    child: Text('Sugerir',
+      style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
+      textAlign: TextAlign.center,
+    ),
+  );
 }
 
 TextButton twitterBotButton(BuildContext context) {
-  String img;
-  if (darkMode) img = twitterBotImgDarkmode;
-  else img = twitterBotImgLightmode;
 
   final botLink = FollowUserIntent(username: 'encasillado_bot');
 
@@ -624,7 +596,16 @@ TextButton twitterBotButton(BuildContext context) {
       primary: appBlack,
       backgroundColor: keyColor,
     ),
-    child: Image.asset(img, scale: 58,),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(twitterImg, scale: 55,),
+        Text(' Bot',
+          style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
+          textAlign: TextAlign.center,
+        )
+      ],
+    ),
   );
 }
 
@@ -637,7 +618,7 @@ TextButton scoreButton(BuildContext context) {
     myStreakGif = streakGifLightmode;
   }
 
-  String streakCount = "×" + streak.toString();
+  String streakCount = "x" + streak.toString();
 
   return TextButton(
     onPressed: () {
@@ -649,28 +630,16 @@ TextButton scoreButton(BuildContext context) {
     ),
     child: Row(
       children: [
-        Text(
-          " Puntos: " + infiniteScore.toString() + "  ",
-          style: TextStyle(
-            fontSize: 15,
-            color: appBlack,
-            fontWeight: FontWeight.normal,
-            decoration: TextDecoration.none,
-            fontFamily: 'RaleWay',
-          ),
+        Text("Puntos: " + infiniteScore.toString() + "   ",
+          style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
+          textAlign: TextAlign.center,
         ),
         Image.asset(
           myStreakGif,
         ),
-        Text(
-          streakCount,
-          style: TextStyle(
-            fontSize: 15,
-            color: appBlack,
-            fontWeight: FontWeight.normal,
-            decoration: TextDecoration.none,
-            fontFamily: 'RaleWay',
-          ),
+        Text(streakCount,
+          style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
+          textAlign: TextAlign.center,
         ),
       ],
     ),

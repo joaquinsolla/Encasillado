@@ -1,7 +1,6 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-Arreglar botón actualizar PlayStore
 google fonts
 revisar imports unused
 FINAL: actulizar release notes (ambos)

@@ -256,7 +256,7 @@ class _WotdEndState extends State<WotdEnd> {
                                   },
                                   elevation: 1,
                                   child: Image.asset(
-                                    twitterImg,
+                                    twitterIconImg,
                                     scale: 52,
                                   ),
                                   fillColor: twitterColor,

@@ -1,5 +1,4 @@
 const String adImg = 'app_files/ad_icon.png';
-const String bannerImg = 'app_files/banner_logo.png';
 const String defeatImg = 'app_files/defeat_image.png';
 const String githubImgLightmode = 'app_files/github_image.png';
 const String githubImgDarkmode = 'app_files/github_image_darkmode.png';
@@ -14,9 +13,8 @@ const String playStoreImg = 'app_files/play_store_image.png';
 const String streakGifLightmode = 'app_files/streak_gif.gif';
 const String streakGifDarkmode = 'app_files/streak_gif_darkmode.gif';
 const String trophiesStatsImg = 'app_files/trophies_stats_icon.png';
-const String twitterImg = 'app_files/twitter_icon.png';
-const String twitterBotImgLightmode = 'app_files/twitter_bot_image.png';
-const String twitterBotImgDarkmode = 'app_files/twitter_bot_image_darkmode.png';
+const String twitterIconImg = 'app_files/twitter_icon.png';
+const String twitterImg = 'app_files/twitter_image.png';
 const String markersImg = 'app_files/markers_icon.png';
 const String victoryImg = 'app_files/victory_image.png';
 const String allTagImgLightmode = 'app_files/all_tag.png';
@@ -28,8 +26,6 @@ const String wotdTagImgDarkmode = 'app_files/wotd_tag_darkmode.png';
 const String allTagImgGrey = 'app_files/all_tag_grey.png';
 const String infiniteTagImgGrey = 'app_files/infinite_tag_grey.png';
 const String wotdTagImgGrey = 'app_files/wotd_tag_grey.png';
-const String suggestImgLightmode = 'app_files/suggest.png';
-const String suggestImgDarkmode = 'app_files/suggest_darkmode.png';
 
 const String introIcon = 'app_files/intro_icon.png';
 const String introExplanation1 = 'app_files/intro_explanation1.png';

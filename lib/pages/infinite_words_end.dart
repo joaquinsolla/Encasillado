@@ -293,7 +293,7 @@ class _InfiniteWordsEndState extends State<InfiniteWordsEnd> {
                             },
                             elevation: 1,
                             child: Image.asset(
-                              twitterImg,
+                              twitterIconImg,
                               scale: 52,
                             ),
                             fillColor: twitterColor,
