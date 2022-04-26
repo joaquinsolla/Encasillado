@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:new_version/new_version.dart';
-import 'package:intl/intl.dart';
 import 'package:slide_countdown_clock/slide_countdown_clock.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
@@ -2334,7 +2334,7 @@ class _HomeState extends State<Home> {
 
         streak++;
       } else {
-        infiniteScore -= 1000;
+        infiniteScore -= 5000;
         streak = 0;
       }
     });

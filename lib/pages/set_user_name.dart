@@ -1,12 +1,12 @@
-import 'package:Encasillado/common/miscellaneous.dart';
-import 'package:another_flushbar/flushbar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:another_flushbar/flushbar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:Encasillado/common/colors.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:Encasillado/common/widgets.dart';
+import 'package:Encasillado/common/miscellaneous.dart';
 
 class SetUserName extends StatefulWidget {
   @override

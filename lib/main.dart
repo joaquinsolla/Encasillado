@@ -4,8 +4,8 @@
  * App repository: https://github.com/joaquinsolla/Encasillado
  * */
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 import 'package:Encasillado/databases.dart';

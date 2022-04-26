@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:Encasillado/notificationservice.dart';
 
 import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
@@ -10,7 +10,7 @@ import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
 import 'package:Encasillado/common/urls.dart';
-import 'package:flutter/services.dart';
+import 'package:Encasillado/notificationservice.dart';
 
 class Settings extends StatefulWidget {
   @override

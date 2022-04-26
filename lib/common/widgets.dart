@@ -1,9 +1,9 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:twitter_intent/twitter_intent.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:another_flushbar/flushbar.dart';
 
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
@@ -630,7 +630,7 @@ TextButton scoreButton(BuildContext context) {
     ),
     child: Row(
       children: [
-        Text("Puntos: " + infiniteScore.toString() + "   ",
+        Text("Pts: " + infiniteScore.toString() + "   ",
           style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
           textAlign: TextAlign.center,
         ),

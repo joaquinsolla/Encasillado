@@ -1,11 +1,11 @@
-import 'package:Encasillado/common/methods.dart';
-import 'package:Encasillado/common/miscellaneous.dart';
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:another_flushbar/flushbar.dart';
 
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
+import 'package:Encasillado/common/methods.dart';
+import 'package:Encasillado/common/miscellaneous.dart';
 
 class Suggest extends StatefulWidget {
   @override

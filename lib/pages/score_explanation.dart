@@ -1,4 +1,3 @@
-import 'package:Encasillado/common/imagepaths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +7,7 @@ import 'package:Encasillado/common/miscellaneous.dart';
 import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/ad_helper.dart';
+import 'package:Encasillado/common/imagepaths.dart';
 
 class ScoreExplanation extends StatefulWidget {
   @override
@@ -114,7 +114,7 @@ class _ScoreExplanationState extends State<ScoreExplanation> {
                             "Acertar palabras te sumará puntos.\n"
                             "Cuanto más rápido seas y menos intentos necesites, más puntos obtendrás.\n"
                             "Acertar al primer intento otorga 10.000 puntos.\n"
-                            "No acertar en los 6 intentos resta 1.000 puntos.\n",
+                            "No acertar en los 6 intentos resta 5.000 puntos.\n",
                             style: TextStyle(
                               fontSize: 15,
                               color: appBlack,

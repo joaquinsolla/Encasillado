@@ -1,8 +1,6 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-google fonts
-revisar imports unused
 FINAL: actulizar release notes (ambos)
 
 --------- DOING:
@@ -17,3 +15,5 @@ sugerir: comprobar si ya existe
 spinner carga marcadores + error marcadores
 suggest eliminar palabra
 intro: trofeos, estadisticas y marcadores
+google fonts
+revisar imports unused
