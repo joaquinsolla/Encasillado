@@ -1,8 +1,6 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-OPT: Al tocar el chart ver el número exacto
-intro: trofeos, estadisticas y marcadores
 Arreglar botón actualizar PlayStore
 google fonts
 revisar imports unused
@@ -19,3 +17,4 @@ color al pulsar backspace
 sugerir: comprobar si ya existe
 spinner carga marcadores + error marcadores
 suggest eliminar palabra
+intro: trofeos, estadisticas y marcadores

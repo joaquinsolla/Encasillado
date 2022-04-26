@@ -1916,7 +1916,7 @@ class _HomeState extends State<Home> {
         PageViewModel(
           title: "¿Cómo jugar?",
           body:
-              "Hay una palabra oculta, tienes 6 intentos para acertarla. Cada vez que pruebas "
+              "Hay una palabra oculta y tienes 6 intentos para acertarla. Cada vez que pruebas "
               "una palabra sus letras cambiarán de color para indicar tu progreso: \n"
               "\nVerde: La palabra contiene esa letra en esa posición."
               "\nAmarillo: La palabra contiene esa letra pero no en esa posición."
@@ -1929,7 +1929,8 @@ class _HomeState extends State<Home> {
               "Para probar una palabra debes pulsar la tecla 'PROBAR'. Las teclas del "
               "teclado también cambian de color al probar palabras.\n\n"
               "No son válidos los verbos conjugados ni los plurales. Las palabras "
-              "con tilde se escriben sin ella.",
+              "con tilde se escriben sin ella.\n\n"
+                  "Sí se admiten palabras en femenino y nombres propios.",
           image: Image.asset(introExplanation2),
         ),
         PageViewModel(
@@ -1941,11 +1942,11 @@ class _HomeState extends State<Home> {
           image: Image.asset(introExplanation3),
         ),
         PageViewModel(
-          title: "Trofeos",
+          title: "¡Explora el juego!",
           body:
-              "El juego tiene un apartado en el que puedes consultar tus trofeos. A "
-              "medida que completes los desafíos indicados ganarás nuevos trofeos. "
-              "¡Si los consigues todos obtendrás el trofeo de diamante!",
+              "La app cuenta con un sistema de trofeos, estadísticas y hasta marcadores globales, "
+                  "en los que figuran los mejores jugadores. ¿Podrás estar entre ellos?\n\n"
+                  "También puedes sugerir palabras nuevas a través del apartado 'Sugerir'.",
           image: Image.asset(introExplanation4),
         ),
       ],
