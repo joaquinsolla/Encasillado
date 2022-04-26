@@ -392,10 +392,23 @@ class _MarkersState extends State<Markers> {
                                       .none,
                                   fontFamily: 'RaleWay',
                                 ),),),
-                            Expanded(
+                            if (userName != null) Expanded(
                               flex: 3,
                               child: Text(
                                 '$userName',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: appBlack,
+                                  fontWeight: FontWeight
+                                      .bold,
+                                  decoration: TextDecoration
+                                      .none,
+                                  fontFamily: 'RaleWay',
+                                ),),),
+                            if (userName == null) Expanded(
+                              flex: 3,
+                              child: Text(
+                                'Anónimo',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: appBlack,
@@ -733,10 +746,23 @@ class _MarkersState extends State<Markers> {
                                       .none,
                                   fontFamily: 'RaleWay',
                                 ),),),
-                            Expanded(
+                            if (userName != null) Expanded(
                               flex: 3,
                               child: Text(
                                 '$userName',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: appBlack,
+                                  fontWeight: FontWeight
+                                      .bold,
+                                  decoration: TextDecoration
+                                      .none,
+                                  fontFamily: 'RaleWay',
+                                ),),),
+                            if (userName == null) Expanded(
+                              flex: 3,
+                              child: Text(
+                                'Anónimo',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: appBlack,
@@ -1075,10 +1101,23 @@ class _MarkersState extends State<Markers> {
                                       .none,
                                   fontFamily: 'RaleWay',
                                 ),),),
-                            Expanded(
+                            if (userName != null) Expanded(
                               flex: 3,
                               child: Text(
                                 '$userName',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: appBlack,
+                                  fontWeight: FontWeight
+                                      .bold,
+                                  decoration: TextDecoration
+                                      .none,
+                                  fontFamily: 'RaleWay',
+                                ),),),
+                            if (userName == null) Expanded(
+                              flex: 3,
+                              child: Text(
+                                'Anónimo',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: appBlack,
