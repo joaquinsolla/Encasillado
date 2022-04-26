@@ -24,12 +24,14 @@ class UpperCaseTextFormatter extends TextInputFormatter {
 }
 
 class _SuggestState extends State<Suggest> {
-  final wordController = TextEditingController();
+  final addController = TextEditingController();
+  final removeController = TextEditingController();
   bool? anonymous = false;
 
   @override
   void dispose() {
-    wordController.dispose();
+    addController.dispose();
+    removeController.dispose();
     super.dispose();
   }
 
@@ -58,7 +60,7 @@ class _SuggestState extends State<Suggest> {
                         height: 20,
                       ),
                       Text(
-                        "Sugerir nuevas palabras",
+                        "Sugerir palabras",
                         style: TextStyle(
                           fontSize: 25,
                           color: appBlack,
@@ -87,10 +89,10 @@ class _SuggestState extends State<Suggest> {
                         height: 15,
                       ),
                       Text(
-                        "Sugiere palabras que falten en el juego.\n"
-                        "Todas las palabras deben ser de 5 letras.\n"
-                        "Las palabras deben existir en el diccionario de la lengua "
-                        "española.\n"
+                        "Sugiere palabras que se deban añadir o eliminar del juego.\n"
+                        "Todas las palabras deben ser de 5 letras y sin tildes.\n"
+                        "Las palabras deben existir en el diccionario de la RAE y deben "
+                            "pertenecer al castellano.\n"
                         "Recuerda que no se aceptan verbos conjugados ni plurales.\n"
                         "Sí se admiten femeninos y nombres propios.",
                         style: TextStyle(
@@ -145,94 +147,219 @@ class _SuggestState extends State<Suggest> {
                       SizedBox(
                         height: 30,
                       ),
-                      TextField(
-                        inputFormatters: [
-                          UpperCaseTextFormatter(),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.check_rounded, color: appBlack,),
+                          Text(
+                            " Añadir palabras",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.left,
+                          )
                         ],
-                        maxLength: 5,
-                        style: TextStyle(color: appBlack),
-                        controller: wordController,
-                        decoration: InputDecoration(
-                          counterStyle: TextStyle(color: appBlack),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: appBlack, width: 1),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(flex: 3,
+                          child: TextField(
+                            inputFormatters: [
+                              UpperCaseTextFormatter(),
+                            ],
+                            maxLength: 5,
+                            style: TextStyle(color: appBlack),
+                            controller: addController,
+                            decoration: InputDecoration(
+                              counter: Offstage(),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: appBlack, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
                                 BorderSide(color: appMainColor, width: 1),
-                          ),
-                          labelText: 'Palabra de 5 letras',
-                          labelStyle: TextStyle(color: appMainColor),
-                          hintText: 'Sugiere una palabra...',
-                          hintStyle: TextStyle(color: appBlack),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                                onPressed: () {
-                                  if ((wordController.text).length == 5) {
-                                    bool alreadySent = false;
-                                    for (var i = 0;
-                                        i < suggestedWords.length;
-                                        i++) {
-                                      if (wordController.text ==
-                                          suggestedWords[i]) alreadySent = true;
+                              ),
+
+                              hintText: 'Añadir...',
+                              hintStyle: TextStyle(color: appBlack),
+                            ),
+                          ),),
+                          SizedBox(width: 10,),
+                          Expanded(flex: 1,
+                            child: TextButton(
+                              onPressed: () {
+                                if ((addController.text).length == 5) {
+                                  bool alreadySent = false;
+                                  for (var i = 0;
+                                  i < suggestedWords.length;
+                                  i++) {
+                                    if (addController.text ==
+                                        suggestedWords[i]) alreadySent = true;
+                                  }
+
+                                  if (alreadySent) {
+                                    Flushbar(
+                                      message: "Ya has sugerido esta palabra",
+                                      duration: Duration(seconds: 3),
+                                      backgroundColor: Colors.red,
+                                      flushbarPosition: FlushbarPosition.TOP,
+                                    ).show(context);
+                                  } else {
+                                    bool alreadyExists = false;
+                                    for (var i = 0; i < selectedDatabase.length; i++) {
+                                      if (selectedDatabase[i] == addController.text){
+                                        alreadyExists = true;
+                                        break;
+                                      }
                                     }
 
-                                    if (alreadySent) {
+                                    if (alreadyExists){
                                       Flushbar(
-                                        message: "Ya has sugerido esta palabra",
+                                        message:
+                                        "Esta palabra ya figura en el juego",
                                         duration: Duration(seconds: 3),
-                                        backgroundColor: Colors.red,
+                                        backgroundColor: Colors.redAccent,
                                         flushbarPosition: FlushbarPosition.TOP,
                                       ).show(context);
-                                    } else {
-                                      bool alreadyExists = false;
-                                      for (var i = 0; i < selectedDatabase.length; i++) {
-                                        if (selectedDatabase[i] == wordController.text){
-                                          alreadyExists = true;
-                                          break;
-                                        }
+                                    }
+                                    else sendSuggestedAdd(addController.text, anonymous!, context);
+                                  }
+                                  FocusManager.instance.primaryFocus
+                                      ?.unfocus();
+                                  addController.text = '';
+                                }
+                                else Flushbar(
+                                  message:
+                                  "La palabra debe ser de 5 letras",
+                                  duration: Duration(seconds: 3),
+                                  backgroundColor: Colors.redAccent,
+                                  flushbarPosition: FlushbarPosition.TOP,
+                                ).show(context);
+                              },
+                              style: TextButton.styleFrom(
+                                primary: appWhite,
+                                backgroundColor: appMainColor,
+                              ),
+                              child: Text("ENVIAR"))),
+                        ],
+                      ),
+
+                      SizedBox(
+                        height: 30,
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.close_rounded, color: appBlack,),
+                          Text(
+                            " Eliminar palabras",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),
+                            textAlign: TextAlign.left,
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(flex: 3,
+                            child: TextField(
+                              inputFormatters: [
+                                UpperCaseTextFormatter(),
+                              ],
+                              maxLength: 5,
+                              style: TextStyle(color: appBlack),
+                              controller: removeController,
+                              decoration: InputDecoration(
+                                counter: Offstage(),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: appBlack, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.redAccent, width: 1),
+                                ),
+
+                                hintText: 'Eliminar...',
+                                hintStyle: TextStyle(color: appBlack),
+                              ),
+                            ),),
+                          SizedBox(width: 10,),
+                          Expanded(flex: 1,
+                              child: TextButton(
+                                  onPressed: () {
+                                    if ((removeController.text).length == 5) {
+                                      bool alreadySent = false;
+                                      for (var i = 0;
+                                      i < suggestedWords.length;
+                                      i++) {
+                                        if (removeController.text ==
+                                            suggestedWords[i]) alreadySent = true;
                                       }
 
-                                      if (alreadyExists){
+                                      if (alreadySent) {
                                         Flushbar(
-                                          message:
-                                          "Esta palabra ya figura en el juego",
+                                          message: "Ya has sugerido esta palabra",
                                           duration: Duration(seconds: 3),
-                                          backgroundColor: Colors.redAccent,
+                                          backgroundColor: Colors.red,
                                           flushbarPosition: FlushbarPosition.TOP,
                                         ).show(context);
+                                      } else {
+                                        bool doesntExist = true;
+                                        for (var i = 0; i < selectedDatabase.length; i++) {
+                                          if (selectedDatabase[i] == removeController.text){
+                                            doesntExist = false;
+                                            break;
+                                          }
+                                        }
+
+                                        if (doesntExist){
+                                          Flushbar(
+                                            message:
+                                            "Esta palabra no está en el juego",
+                                            duration: Duration(seconds: 3),
+                                            backgroundColor: Colors.redAccent,
+                                            flushbarPosition: FlushbarPosition.TOP,
+                                          ).show(context);
+                                        }
+                                        else sendSuggestedRemove(removeController.text, anonymous!, context);
                                       }
-                                      else sendSuggestedWord(wordController.text, anonymous!, context);
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                      removeController.text = '';
                                     }
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                    wordController.text = '';
-                                  }
-                                  else Flushbar(
+                                    else Flushbar(
                                       message:
-                                          "La palabra debe ser de 5 letras",
+                                      "La palabra debe ser de 5 letras",
                                       duration: Duration(seconds: 3),
                                       backgroundColor: Colors.redAccent,
                                       flushbarPosition: FlushbarPosition.TOP,
                                     ).show(context);
-                                },
-                                style: TextButton.styleFrom(
-                                  primary: appWhite,
-                                  backgroundColor: appMainColor,
-                                ),
-                                child: Text("ENVIAR PALABRA")),
-                          ],
-                        ),
+                                  },
+                                  style: TextButton.styleFrom(
+                                    primary: appWhite,
+                                    backgroundColor: Colors.redAccent,
+                                  ),
+                                  child: Text("ENVIAR"))),
+                        ],
                       ),
+
                     ],
                   )),
             ]))));

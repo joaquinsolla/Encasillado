@@ -1,18 +1,14 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-spinner carga marcadores + error marcadores
-suggest eliminar palabra
 OPT: Al tocar el chart ver el número exacto
 intro: trofeos, estadisticas y marcadores
-Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore
 google fonts
 revisar imports unused
 FINAL: actulizar release notes (ambos)
 
 --------- DOING:
-
 
 --------- DONE:
 En las nuevas páginas, quitar el margen arriba
@@ -21,3 +17,5 @@ eliminar overscroll de listviews
 añadir scrollbar a listviews
 color al pulsar backspace
 sugerir: comprobar si ya existe
+spinner carga marcadores + error marcadores
+suggest eliminar palabra

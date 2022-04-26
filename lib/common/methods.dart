@@ -48,9 +48,90 @@ void wotd_generate_word() {
   if(terminalPrinting) print("[SYS] Wotd: " + wotdString);
 }
 
-void sendSuggestedWord(String word, bool anonymous,BuildContext context) async {
+void sendSuggestedAdd(String word, bool anonymous,BuildContext context) async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  CollectionReference suggestions = firestore.collection('wordSuggestions');
+  CollectionReference suggestions = firestore.collection('wordsToAdd');
+
+  DateTime now = DateTime.now();
+  String formattedDate = DateFormat('dd-MM-yyyy – kk:mm').format(now);
+
+  if (anonymous == false && userId != null) {
+    suggestions
+        .add({
+      'word': word,
+      'user': userName,
+      'time': formattedDate
+    })
+        .then((value) {
+      suggestedWords.add(word);
+      Flushbar(
+        message: "Palabra enviada. ¡Gracias por colaborar!",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.orange,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[SYS] Suggestion sent");
+    })
+        .timeout(Duration(seconds: 5), onTimeout: () {
+      Flushbar(
+        message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.red,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[ERR] Failed to suggest word: Timeout");
+    })
+        .catchError((error) {
+      Flushbar(
+        message: "Algo ha fallado, inténtalo más tarde",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.red,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[ERR] Failed to suggest word: $error");
+    });
+  } else {
+    suggestions
+        .add({
+      'word': word,
+      'user': null,
+      'time': formattedDate
+    })
+        .then((value) {
+      suggestedWords.add(word);
+      Flushbar(
+        message: "Palabra enviada. ¡Gracias por colaborar!",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.orange,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[SYS] Suggestion sent");
+    })
+        .timeout(Duration(seconds: 5), onTimeout: () {
+      Flushbar(
+        message: "Revisa tu conexión a Internet e inténtalo de nuevo",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.red,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[ERR] Failed to suggest word: Timeout");
+    })
+        .catchError((error) {
+      Flushbar(
+        message: "Algo ha fallado, inténtalo más tarde",
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.red,
+        flushbarPosition: FlushbarPosition.TOP,
+      ).show(context);
+      if (terminalPrinting) print("[ERR] Failed to suggest word: $error");
+    });
+  }
+
+}
+
+void sendSuggestedRemove(String word, bool anonymous,BuildContext context) async {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference suggestions = firestore.collection('wordsToRemove');
 
   DateTime now = DateTime.now();
   String formattedDate = DateFormat('dd-MM-yyyy – kk:mm').format(now);
