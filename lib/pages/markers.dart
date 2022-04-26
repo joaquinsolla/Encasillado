@@ -31,6 +31,17 @@ class _MarkersState extends State<Markers> {
     TextDecoration streakDecoration = TextDecoration.none;
     TextDecoration trophiesDecoration = TextDecoration.none;
     int topNumber = 0;
+    double headerHeight = 165;
+
+    if (userId==null){
+      setState(() {
+        headerHeight = 115;
+      });
+    } else {
+      setState(() {
+        headerHeight = 165;
+      });
+    }
 
     if (markersPage == 0) {
       pointsButtonColor = appThirdColor;
@@ -68,17 +79,6 @@ class _MarkersState extends State<Markers> {
         'trophies', descending: true)
         .orderBy('name', descending: false)
         .snapshots();
-
-    double headerHeight = 165;
-    if (userId==null){
-      setState(() {
-        headerHeight = 115;
-      });
-    } else {
-      setState(() {
-        headerHeight = 165;
-      });
-    }
 
     return Scaffold(
       appBar: myAppBarWithoutButtonsWithBackArrow(context),
@@ -281,11 +281,11 @@ class _MarkersState extends State<Markers> {
                                           AsyncSnapshot<
                                               QuerySnapshot> snapshot) {
                                         if (snapshot.hasError) {
-                                          return Text('Something went wrong');
+                                          return myErrorAnimation();
                                         }
                                         if (snapshot.connectionState ==
                                             ConnectionState.waiting) {
-                                          return Text("Loading");
+                                          return myLoadingAnimation();
                                         }
 
                                         return Column(
@@ -622,11 +622,11 @@ class _MarkersState extends State<Markers> {
                                           AsyncSnapshot<
                                               QuerySnapshot> snapshot) {
                                         if (snapshot.hasError) {
-                                          return Text('Something went wrong');
+                                          return myErrorAnimation();
                                         }
                                         if (snapshot.connectionState ==
                                             ConnectionState.waiting) {
-                                          return Text("Loading");
+                                          return myLoadingAnimation();
                                         }
 
                                         return Column(
@@ -963,11 +963,11 @@ class _MarkersState extends State<Markers> {
                                           AsyncSnapshot<
                                               QuerySnapshot> snapshot) {
                                         if (snapshot.hasError) {
-                                          return Text('Something went wrong');
+                                          return myErrorAnimation();
                                         }
                                         if (snapshot.connectionState ==
                                             ConnectionState.waiting) {
-                                          return Text("Loading");
+                                          return myLoadingAnimation();
                                         }
 
                                         return Column(

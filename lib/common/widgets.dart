@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:twitter_intent/twitter_intent.dart';
+import 'package:loading_animations/loading_animations.dart';
 
 import 'package:Encasillado/common/imagepaths.dart';
 import 'package:Encasillado/common/methods.dart';
@@ -389,6 +390,58 @@ Column trophiesRowAdvanced(String tag,String mainText, String secondText, String
       ],
     );
   }
+}
+
+Column myLoadingAnimation(){
+  return Column(
+    // Vertically center the widget inside the column
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(height: deviceHeight*0.15,),
+      Text(
+        'Cargando...',
+        style: TextStyle(
+          fontSize: 16,
+          color: appBlack,
+          fontWeight: FontWeight.w700,
+          decoration: TextDecoration.none,
+          fontFamily: 'RaleWay',
+        ),
+      ),
+      SizedBox(height: 5,),
+      LoadingBouncingLine.circle(
+        size: 50,
+        backgroundColor: appSecondColor,
+      ),
+    ],
+  );
+}
+
+Column myErrorAnimation(){
+  return Column(
+    // Vertically center the widget inside the column
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(height: deviceHeight*0.15,),
+      Text(
+        'Ha ocurrido un error, inténtalo más tarde.',
+        style: TextStyle(
+          fontSize: 16,
+          color: appBlack,
+          fontWeight: FontWeight.w700,
+          decoration: TextDecoration.none,
+          fontFamily: 'RaleWay',
+        ),
+      ),
+      SizedBox(height: 5,),
+      LoadingBouncingLine.circle(
+        size: 50,
+        backgroundColor: appSecondColor,
+      ),
+    ],
+  );
 }
 
 Wrap socialsWrap(List<Widget> buttons){
