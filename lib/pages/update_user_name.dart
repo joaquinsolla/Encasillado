@@ -105,7 +105,7 @@ class _UpdateUserNameState extends State<UpdateUserName> {
                         ),
                         Center(
                           child: TextField(
-                            maxLength: 20,
+                            maxLength: 15,
                             style: TextStyle(color: appBlack),
                             controller: userNameController,
                             decoration: InputDecoration(

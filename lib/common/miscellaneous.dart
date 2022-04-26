@@ -73,6 +73,7 @@ bool extraTryWotd = false;
 bool extraTryInfinite = false;
 bool terminalPrinting = false;
 bool setNameWarned = false;
+bool bdAlreadySynchronized = false;
 
 /** OTHERS - NON PERSISTENT */
 List<String> suggestedWords = [];
