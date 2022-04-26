@@ -797,8 +797,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           if (homePage == 0)
-            gameBannerTwoButtons(context, '¡La palabra del día!',
-                twitterBotButton(context), suggestButton(context)),
+            gameBannerOneButton(context, '¡La palabra del día!', suggestButton(context)),
           if (homePage == 1)
             gameBannerOneButton(
                 context, 'Palabras infinitas', scoreButton(context)),

@@ -14,7 +14,6 @@ const String streakGifLightmode = 'app_files/streak_gif.gif';
 const String streakGifDarkmode = 'app_files/streak_gif_darkmode.gif';
 const String trophiesStatsImg = 'app_files/trophies_stats_icon.png';
 const String twitterIconImg = 'app_files/twitter_icon.png';
-const String twitterImg = 'app_files/twitter_image.png';
 const String markersImg = 'app_files/markers_icon.png';
 const String victoryImg = 'app_files/victory_image.png';
 const String allTagImgLightmode = 'app_files/all_tag.png';

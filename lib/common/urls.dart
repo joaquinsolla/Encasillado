@@ -2,7 +2,6 @@ const String encasilladoPlayStoreUrl = "https://play.google.com/store/apps/detai
 const String wordleUrl = "https://www.powerlanguage.co.uk/wordle/";
 const String joshWardleUrl = "https://www.powerlanguage.co.uk/";
 const String privacyPolicyUrl = "https://www.privacypolicies.com/live/02b4f35d-f52e-4885-bfc9-fc70741e0211";
-const String twitterBotUrl = "https://twitter.com/encasillado_bot";
 
 const String myInstagramUrl = "https://instagram.com/joako.peke";
 const String myGitHubUrl = "https://www.github.com/joaquinsolla";

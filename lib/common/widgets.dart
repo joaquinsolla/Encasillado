@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:twitter_intent/twitter_intent.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:another_flushbar/flushbar.dart';
@@ -580,31 +579,6 @@ TextButton suggestButton(BuildContext context) {
     child: Text('Sugerir',
       style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
       textAlign: TextAlign.center,
-    ),
-  );
-}
-
-TextButton twitterBotButton(BuildContext context) {
-
-  final botLink = FollowUserIntent(username: 'encasillado_bot');
-
-  return TextButton(
-    onPressed: () {
-      url_launcher('$botLink');
-    },
-    style: TextButton.styleFrom(
-      primary: appBlack,
-      backgroundColor: keyColor,
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(twitterImg, scale: 55,),
-        Text(' Bot',
-          style: GoogleFonts.paytoneOne(color: appBlack, fontSize: 14,),
-          textAlign: TextAlign.center,
-        )
-      ],
     ),
   );
 }
