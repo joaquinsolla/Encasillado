@@ -33,7 +33,8 @@ String? userName = '';
 String? userId = '';
 
 /** PERSISTENT TROPHIES */
-int totalTrophies = 0; // 13 - not diamond
+int userTrophies = 0; // 13 - not diamond
+int trophies = 13;
 int diamondTrophies = 0;
 int goldTrophies = 0;
 int silverTrophies = 0;

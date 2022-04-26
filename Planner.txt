@@ -1,8 +1,9 @@
 ##### TO-DO list #####
 
 --------- TO DO:
+spinner carga marcadores + error marcadores
+suggest eliminar palabra
 OPT: Al tocar el chart ver el número exacto
-boton de sincronizar con la BD
 intro: trofeos, estadisticas y marcadores
 Añadir círculos de carga a las cosas de FB
 Arreglar botón actualizar PlayStore

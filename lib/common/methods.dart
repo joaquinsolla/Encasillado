@@ -130,7 +130,7 @@ void sendSuggestedWord(String word, bool anonymous,BuildContext context) async {
 }
 
 void check_diamond_trophy(){
-  if (totalTrophies == 13) {
+  if (userTrophies == trophies) {
     diamondTrophies = 1;
     allTrophiesTr = true;
   } else {
@@ -249,7 +249,7 @@ void updateFBTrophies(){
 
   users
       .doc(userId)
-      .update({'trophies': totalTrophies})
-      .then((value) {if (terminalPrinting) print("[SYS] trophies updated: $totalTrophies");})
+      .update({'trophies': userTrophies})
+      .then((value) {if (terminalPrinting) print("[SYS] trophies updated: $userTrophies");})
       .catchError((error) {if (terminalPrinting) print("[ERR] Failed to update trophies");});
 }

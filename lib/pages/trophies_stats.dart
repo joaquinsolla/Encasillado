@@ -414,7 +414,7 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                             ),
                             trophiesRow(
                                 'Todos los trofeos',
-                                'Progreso: $totalTrophies de 13',
+                                'Progreso: $userTrophies de $trophies',
                                 diamondTrophy,
                                 allTrophiesTr),
 

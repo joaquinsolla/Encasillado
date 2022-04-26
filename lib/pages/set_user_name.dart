@@ -151,7 +151,7 @@ class _SetUserNameState extends State<SetUserName> {
                                     'id': userId,
                                     'scoreRecord': scoreRecord,
                                     'streakRecord': streakRecord,
-                                    'trophies': totalTrophies,
+                                    'trophies': userTrophies,
                                   }).then((value) {
                                     FocusManager.instance.primaryFocus
                                         ?.unfocus();

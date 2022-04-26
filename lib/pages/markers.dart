@@ -356,8 +356,7 @@ class _MarkersState extends State<Markers> {
                                                     ],
                                                   ))
                                             ],);
-                                          // data['name']
-                                          // (data['scoreRecord']).toString()
+
                                         }).toList(),
                                       );
                                     },
@@ -635,8 +634,7 @@ class _MarkersState extends State<Markers> {
                                                     ],
                                                   ))
                                             ],);
-                                          // data['name']
-                                          // (data['scoreRecord']).toString()
+
                                         }).toList(),
                                       );
                                     },
@@ -901,7 +899,7 @@ class _MarkersState extends State<Markers> {
                                                         flex: 2,
                                                         child: Text(
                                                           (data['trophies'])
-                                                              .toString(),
+                                                              .toString() + '/$trophies',
                                                           style: TextStyle(
                                                             fontSize: 15,
                                                             color: appBlack,
@@ -914,8 +912,7 @@ class _MarkersState extends State<Markers> {
                                                     ],
                                                   ))
                                             ],);
-                                          // data['name']
-                                          // (data['scoreRecord']).toString()
+
                                         }).toList(),
                                       );
                                     },
