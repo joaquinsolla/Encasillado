@@ -6,7 +6,7 @@ A letter game.
 
 PlayStore link: https://play.google.com/store/apps/details?id=com.joa.encasillado
 
- > Current Google Play Store version: 27 (2.0.0) [_release notes_](release_notes.txt)
+ > Current Google Play Store version: 28 (2.0.1) [_release notes_](release_notes.txt)
  
  > Latest Beta version: 23 (1.2.4)
 

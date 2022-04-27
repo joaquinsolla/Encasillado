@@ -1,5 +1,5 @@
 Idioma predeterminado: es-ES
-Versión 2.0.0
+Versión 2.0.1
 Palabras registradas: 1785
 
 Nombre de jugador: Ahora puedes ponerte un nombre de jugador con el que los demás podrán

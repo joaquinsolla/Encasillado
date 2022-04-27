@@ -13,14 +13,14 @@ if (flutterRoot == null) {
 
 /** AUMENTAR CON CADA UPDATE */
 //def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-def flutterVersionCode = 27
+def flutterVersionCode = 28
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
 
 /** CAMBIAR CON CADA UPDATE */
 //def flutterVersionName = localProperties.getProperty('flutter.versionName')
-def flutterVersionName = '2.0.0'
+def flutterVersionName = '2.0.1'
 if (flutterVersionName == null) {
     flutterVersionName = '1.0.0'
 }
@@ -58,7 +58,7 @@ android {
     defaultConfig {
         applicationId "com.joa.encasillado"
         minSdkVersion 26
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
