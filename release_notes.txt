@@ -1,3 +1,4 @@
+Idioma predeterminado: es-ES
 Versión 2.0.0
 Palabras registradas: 1785
 
