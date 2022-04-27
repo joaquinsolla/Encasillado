@@ -2,6 +2,8 @@ Idioma predeterminado: es-ES
 Versión 2.0.1
 Palabras registradas: 1785
 
+*SOLUCIONADO PROBLEMA DE COMPATIBILIDAD CON ANDROID 12*
+
 Nombre de jugador: Ahora puedes ponerte un nombre de jugador con el que los demás podrán
 identificarte.
 Marcadores globales: Se han incorporado al juego los marcadores, en los que figurarán los mejores
