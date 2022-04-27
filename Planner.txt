@@ -1,20 +1,7 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-actualizar lista de palabras
-FINAL: actulizar release notes (ambos)
 
 --------- DOING:
 
 --------- DONE:
-En las nuevas páginas, quitar el margen arriba
-quitar margen arriba en las paginas y meter sizedBox(h: 20) + cuadrar bien margenes
-eliminar overscroll de listviews
-añadir scrollbar a listviews
-color al pulsar backspace
-sugerir: comprobar si ya existe
-spinner carga marcadores + error marcadores
-suggest eliminar palabra
-intro: trofeos, estadisticas y marcadores
-google fonts
-revisar imports unused

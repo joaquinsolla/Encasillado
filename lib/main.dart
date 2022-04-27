@@ -39,7 +39,7 @@ Future<void> main() async {
   selectedDatabase = databasesList[0];
 
   /** TERMINAL DEBUGGING */
-  terminalPrinting = true;
+  terminalPrinting = false;
 
   infinite_generate_word();
   wotd_generate_word();
