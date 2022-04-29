@@ -80,6 +80,7 @@ bool bdAlreadySynchronized = false;
 List<String> suggestedWords = [];
 String markersLimitText = 'Top 10';
 int markersLimit = 10;
+int topOrderNumber = 0;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;

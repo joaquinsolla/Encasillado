@@ -31,6 +31,7 @@ class _MarkersState extends State<Markers> {
       onChanged: (String? newValue) {
         setState(() {
           markersLimitText = newValue!;
+          topOrderNumber = 0;
           if (newValue == 'Top 10') markersLimit = 10;
           if (newValue == 'Top 20') markersLimit = 20;
           if (newValue == 'Top 50') markersLimit = 50;
@@ -54,7 +55,11 @@ class _MarkersState extends State<Markers> {
   }
 
   @override
-  void initState() {}
+  void initState() {
+    setState(() {
+      topOrderNumber = 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +73,6 @@ class _MarkersState extends State<Markers> {
     TextDecoration pointsDecoration = TextDecoration.underline;
     TextDecoration streakDecoration = TextDecoration.none;
     TextDecoration trophiesDecoration = TextDecoration.none;
-    int topNumber = 0;
     double headerHeight = 165;
 
     if (userId == null) {
@@ -161,6 +165,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 1;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -183,6 +188,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 2;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -350,7 +356,7 @@ class _MarkersState extends State<Markers> {
                                   return Column(
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
-                                      topNumber++;
+                                      topOrderNumber++;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -367,7 +373,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topNumber.toString(),
+                                                      topOrderNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
@@ -497,6 +503,7 @@ class _MarkersState extends State<Markers> {
                     height: 10,
                   ),
                 ])),
+
           if (markersPage == 1)
             Container(
               height: 54,
@@ -513,6 +520,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 0;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -553,6 +561,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 2;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -719,7 +728,7 @@ class _MarkersState extends State<Markers> {
                                   return Column(
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
-                                      topNumber++;
+                                      topOrderNumber++;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -736,7 +745,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topNumber.toString(),
+                                                      topOrderNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
@@ -866,6 +875,7 @@ class _MarkersState extends State<Markers> {
                     height: 10,
                   ),
                 ])),
+
           if (markersPage == 2)
             Container(
               height: 54,
@@ -882,6 +892,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 0;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -904,6 +915,7 @@ class _MarkersState extends State<Markers> {
                         onPressed: () {
                           setState(() {
                             markersPage = 1;
+                            topOrderNumber = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -1088,7 +1100,7 @@ class _MarkersState extends State<Markers> {
                                   return Column(
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
-                                      topNumber++;
+                                      topOrderNumber++;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -1105,7 +1117,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topNumber.toString(),
+                                                      topOrderNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
