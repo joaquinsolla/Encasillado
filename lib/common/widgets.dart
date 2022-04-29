@@ -58,7 +58,7 @@ AppBar myAppBarWithButtonsWithoutBackArrow(BuildContext context) {
               Navigator.pushNamed(context, '/markers');
             },
             elevation: 0,
-            child: Image.asset(markersImg, scale: 35,),
+            child: Icon(Icons.public_rounded, color: Colors.white, size: 32,),
             fillColor: appSecondColor,
             shape: CircleBorder(),
           ),

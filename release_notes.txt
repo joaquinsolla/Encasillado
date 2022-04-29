@@ -1,5 +1,5 @@
 Idioma predeterminado: es-ES
-Versión 2.0.1
+Versión 2.0.2
 Palabras registradas: 1785
 
 *SOLUCIONADO PROBLEMA DE COMPATIBILIDAD CON ANDROID 12*

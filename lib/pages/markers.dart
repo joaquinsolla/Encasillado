@@ -8,12 +8,51 @@ import 'package:Encasillado/common/widgets.dart';
 import 'package:Encasillado/common/colors.dart';
 import 'package:Encasillado/common/methods.dart';
 
+import '../common/imagepaths.dart';
+
 class Markers extends StatefulWidget {
   @override
   _MarkersState createState() => _MarkersState();
 }
 
 class _MarkersState extends State<Markers> {
+
+  DropdownButton topSelector(){
+
+    return DropdownButton<String>(
+      dropdownColor: appWhite,
+      focusColor: appWhite,
+      value: markersLimitText,
+      icon: const Icon(Icons.expand_more_rounded, color: appSecondColor, size: 22,),
+      elevation: 16,
+      underline: Container(
+        height: 0,
+      ),
+      onChanged: (String? newValue) {
+        setState(() {
+          markersLimitText = newValue!;
+          if (newValue == 'Top 10') markersLimit = 10;
+          if (newValue == 'Top 20') markersLimit = 20;
+          if (newValue == 'Top 50') markersLimit = 50;
+        });
+      },
+      items: <String>['Top 10', 'Top 20', 'Top 50']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value,
+            style: TextStyle(
+              fontSize: 16,
+              color: appBlack,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.none,
+              fontFamily: 'RaleWay',
+            ),),
+        );
+      }).toList(),
+    );
+  }
+
   @override
   void initState() {}
 
@@ -34,7 +73,7 @@ class _MarkersState extends State<Markers> {
 
     if (userId == null) {
       setState(() {
-        headerHeight = 115;
+        headerHeight = 116;
       });
     } else {
       setState(() {
@@ -67,17 +106,17 @@ class _MarkersState extends State<Markers> {
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     final Stream<QuerySnapshot> scoreRecordStream = users
-        .limit(20)
+        .limit(markersLimit)
         .orderBy('scoreRecord', descending: true)
         .orderBy('name', descending: false)
         .snapshots();
     final Stream<QuerySnapshot> streakRecordStream = users
-        .limit(20)
+        .limit(markersLimit)
         .orderBy('streakRecord', descending: true)
         .orderBy('name', descending: false)
         .snapshots();
     final Stream<QuerySnapshot> trophiesStream = users
-        .limit(20)
+        .limit(markersLimit)
         .orderBy('trophies', descending: true)
         .orderBy('name', descending: false)
         .snapshots();
@@ -173,11 +212,25 @@ class _MarkersState extends State<Markers> {
                     alignment: Alignment.topCenter,
                     child: Column(children: [
                       SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-                      headerText('Mejores puntuaciones'),
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.public_rounded, color: appBlack),
+                        Text(' Puntuación',
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: appBlack,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.none,
+                            fontFamily: 'RaleWay',
+                          ),),
+                        Expanded(child: Text(''),),
+                        topSelector(),
+                      ],),
+
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       if (userId != null && bdAlreadySynchronized == true)
                         settingsRowAdvanced(
@@ -220,7 +273,7 @@ class _MarkersState extends State<Markers> {
                                   Icons.restart_alt_rounded,
                                   color: appWhite,
                                 ))),
-                      SizedBox(height: 10),
+                      SizedBox(height: 15),
                       Container(
                           height: deviceHeight * 0.045,
                           child: Row(
@@ -529,11 +582,24 @@ class _MarkersState extends State<Markers> {
                     alignment: Alignment.topCenter,
                     child: Column(children: [
                       SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-                      headerText('Mejores rachas'),
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.public_rounded, color: appBlack),
+                          Text(' Rachas',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),),
+                          Expanded(child: Text(''),),
+                          topSelector(),
+                        ],),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       if (userId != null && bdAlreadySynchronized == true)
                         settingsRowAdvanced(
@@ -576,7 +642,7 @@ class _MarkersState extends State<Markers> {
                                   Icons.restart_alt_rounded,
                                   color: appWhite,
                                 ))),
-                      SizedBox(height: 10),
+                      SizedBox(height: 15),
                       Container(
                           height: deviceHeight * 0.045,
                           child: Row(
@@ -885,11 +951,24 @@ class _MarkersState extends State<Markers> {
                     alignment: Alignment.topCenter,
                     child: Column(children: [
                       SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-                      headerText('Top trofeos'),
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.public_rounded, color: appBlack),
+                          Text(' Trofeos',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: appBlack,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                              fontFamily: 'RaleWay',
+                            ),),
+                          Expanded(child: Text(''),),
+                          topSelector(),
+                        ],),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       if (userId != null && bdAlreadySynchronized == true)
                         settingsRowAdvanced(
@@ -932,7 +1011,7 @@ class _MarkersState extends State<Markers> {
                                   Icons.restart_alt_rounded,
                                   color: appWhite,
                                 ))),
-                      SizedBox(height: 10),
+                      SizedBox(height: 15),
                       Container(
                           height: deviceHeight * 0.045,
                           child: Row(

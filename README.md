@@ -8,7 +8,7 @@ PlayStore link: https://play.google.com/store/apps/details?id=com.joa.encasillad
 
  > Current Google Play Store version: 28 (2.0.1) [_release notes_](release_notes.txt)
  
- > Latest Beta version: 23 (1.2.4)
+ > Latest Beta version: 29 (2.0.2)
 
  > Versions control: [_app_versions.txt_](app_versions.txt) 
 

@@ -1,5 +1,5 @@
 /** APP VERSION */
-const String appVersion = "2.0.1";
+const String appVersion = "2.0.2";
 
 /** PERSISTENT DATA */
 bool everPlayed = true;
@@ -78,6 +78,8 @@ bool bdAlreadySynchronized = false;
 
 /** OTHERS - NON PERSISTENT */
 List<String> suggestedWords = [];
+String markersLimitText = 'Top 10';
+int markersLimit = 10;
 
 /** DEVICE REQUIREMENTS */
 double deviceHeight = 0;
