@@ -438,10 +438,10 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                             ),
                             trophiesRowAdvanced(allTag, 'Acierta a la primera',
                                 'Progreso: 0%', goldTrophy, atFirstTr),
-                            trophiesRowAdvanced(infiniteTag, '25.000 puntos',
-                                'Mejor: $scoreRecord', goldTrophy, points25kTr),
-                            trophiesRowAdvanced(infiniteTag, 'Racha de 25',
-                                'Mejor: $streakRecord', goldTrophy, streak25Tr),
+                            trophiesRowAdvanced(infiniteTag, '1.000.000 puntos',
+                                'Mejor: $scoreRecord', goldTrophy, points1MTr),
+                            trophiesRowAdvanced(infiniteTag, 'Racha de 500',
+                                'Venga Jorge consigue este', goldTrophy, streak500Tr),
                             trophiesRowAdvanced(
                                 wotdTag,
                                 'Juega 30 días seguidos',
@@ -454,6 +454,10 @@ class _TrophiesStatsState extends State<TrophiesStats> {
                                 '?????',
                                 goldTrophy,
                                 secretWordTr),
+                            trophiesRowAdvanced(infiniteTag, '25.000 puntos',
+                                'Mejor: $scoreRecord', goldTrophy, points25kTr),
+                            trophiesRowAdvanced(infiniteTag, 'Racha de 25',
+                                'Mejor: $streakRecord', goldTrophy, streak25Tr),
 
                             SizedBox(
                               height: 15,

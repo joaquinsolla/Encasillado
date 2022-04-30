@@ -377,6 +377,12 @@ class _HomeState extends State<Home> {
     final secretWordTrKey = 'secretwordtr';
     final secretWordTrValue = prefs.getBool(secretWordTrKey) ?? false;
 
+    final points1MTrKey = 'points1mtr';
+    final points1MTrValue = prefs.getBool(points1MTrKey) ?? false;
+
+    final streak500TrKey = 'streak500tr';
+    final streak500TrValue = prefs.getBool(streak500TrKey) ?? false;
+
     setState(() {
       userTrophies = totalTrophiesValue;
       goldTrophies = goldTrophiesValue;
@@ -396,6 +402,8 @@ class _HomeState extends State<Home> {
       days15wotdTr = days15wotdTrValue;
       days30wotdTr = days30wotdTrValue;
       secretWordTr = secretWordTrValue;
+      points1MTr = points1MTrValue;
+      streak500Tr = streak500TrValue;
     });
 
     if (terminalPrinting) print('[SYS] Read: trophies');
@@ -431,7 +439,7 @@ class _HomeState extends State<Home> {
     prefs.setBool(key1, true);
     prefs.setInt(key3, userTrophies);
 
-    if (userTrophies >= 12) {
+    if (userTrophies >= trophies) {
       setState(() {
         allTrophiesTr = true;
         diamondTrophies = 1;
@@ -2374,6 +2382,14 @@ class _HomeState extends State<Home> {
       });
       _save_trophy('points25ktr', 'gold');
     }
+    if (points1MTr == false && infiniteScore >= 1000000) {
+      setState(() {
+        userTrophies++;
+        goldTrophies++;
+        points1MTr = true;
+      });
+      _save_trophy('points1mtr', 'gold');
+    }
 
     /** STREAK RECORDS */
     if (streak5Tr == false && streak >= 5) {
@@ -2399,6 +2415,14 @@ class _HomeState extends State<Home> {
         streak25Tr = true;
       });
       _save_trophy('streak25tr', 'gold');
+    }
+    if (streak500Tr == false && streak >= 500) {
+      setState(() {
+        userTrophies++;
+        goldTrophies++;
+        streak500Tr = true;
+      });
+      _save_trophy('streak500tr', 'gold');
     }
   }
 

@@ -34,7 +34,7 @@ String? userId = '';
 
 /** PERSISTENT TROPHIES */
 int userTrophies = 0; // 13 - not diamond
-int trophies = 13;
+int trophies = 15;
 int diamondTrophies = 0;
 int goldTrophies = 0;
 int silverTrophies = 0;
@@ -53,6 +53,8 @@ bool days7wotdTr = false;
 bool days15wotdTr = false;
 bool days30wotdTr = false;
 bool secretWordTr = false;
+bool points1MTr = false;
+bool streak500Tr = false;
 
 /** CONTROLLERS */
 int homePage = 0;
