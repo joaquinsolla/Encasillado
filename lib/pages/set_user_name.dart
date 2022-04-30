@@ -15,6 +15,7 @@ class SetUserName extends StatefulWidget {
 
 class _SetUserNameState extends State<SetUserName> {
   final userNameController = TextEditingController();
+  bool buttonAlreadyPressed = false;
 
   @override
   void dispose() {
@@ -131,7 +132,12 @@ class _SetUserNameState extends State<SetUserName> {
                         Center(
                           child: TextButton(
                               onPressed: () {
-                                if (userNameController.text.length > 0) {
+                                if (userNameController.text.length > 0 && buttonAlreadyPressed == false) {
+
+                                  setState(() {
+                                    buttonAlreadyPressed = true;
+                                  });
+
                                   String newId = FirebaseFirestore.instance
                                       .collection('users')
                                       .doc()
@@ -187,10 +193,16 @@ class _SetUserNameState extends State<SetUserName> {
                                           "[ERR] Failed to save name: $error");
                                   });
                                 } else {
-                                  Flushbar(
+                                  if (userNameController.text.length == 0) Flushbar(
                                     message: "Debes introducir un nombre",
                                     duration: Duration(seconds: 3),
                                     backgroundColor: Colors.red,
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                  ).show(context);
+                                  else Flushbar(
+                                    message: "Registrando usuario...",
+                                    duration: Duration(seconds: 3),
+                                    backgroundColor: Colors.black,
                                     flushbarPosition: FlushbarPosition.TOP,
                                   ).show(context);
                                 }
