@@ -1,7 +1,11 @@
 ##### TO-DO list #####
 
 --------- TO DO:
+quitar query_all_packages
+limitar racha
+añadir trofeos
 
 --------- DOING:
+arreglar indice markers
 
 --------- DONE:

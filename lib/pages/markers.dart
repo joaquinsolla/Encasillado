@@ -31,10 +31,12 @@ class _MarkersState extends State<Markers> {
       onChanged: (String? newValue) {
         setState(() {
           markersLimitText = newValue!;
-          topOrderNumber = 0;
           if (newValue == 'Top 10') markersLimit = 10;
           if (newValue == 'Top 20') markersLimit = 20;
           if (newValue == 'Top 50') markersLimit = 50;
+        });
+        setState(() {
+          topOrderNumber = 0;
         });
       },
       items: <String>['Top 10', 'Top 20', 'Top 50']
@@ -164,8 +166,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 1;
                             topOrderNumber = 0;
+                            markersPage = 1;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -187,8 +189,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 2;
                             topOrderNumber = 0;
+                            markersPage = 2;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -345,6 +347,7 @@ class _MarkersState extends State<Markers> {
                                 stream: scoreRecordStream,
                                 builder: (BuildContext context,
                                     AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  topOrderNumber = 0;
                                   if (snapshot.hasError) {
                                     return myErrorAnimation();
                                   }
@@ -357,6 +360,8 @@ class _MarkersState extends State<Markers> {
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
                                       topOrderNumber++;
+                                      int topNumber = topOrderNumber%markersLimit;
+                                      if (topNumber == 0) topNumber = markersLimit;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -373,7 +378,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topOrderNumber.toString(),
+                                                      topNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
@@ -519,8 +524,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 0;
                             topOrderNumber = 0;
+                            markersPage = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -560,8 +565,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 2;
                             topOrderNumber = 0;
+                            markersPage = 2;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -717,6 +722,7 @@ class _MarkersState extends State<Markers> {
                                 stream: streakRecordStream,
                                 builder: (BuildContext context,
                                     AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  topOrderNumber = 0;
                                   if (snapshot.hasError) {
                                     return myErrorAnimation();
                                   }
@@ -729,6 +735,8 @@ class _MarkersState extends State<Markers> {
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
                                       topOrderNumber++;
+                                      int topNumber = topOrderNumber%markersLimit;
+                                      if (topNumber == 0) topNumber = markersLimit;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -745,7 +753,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topOrderNumber.toString(),
+                                                      topNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
@@ -891,8 +899,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 0;
                             topOrderNumber = 0;
+                            markersPage = 0;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -914,8 +922,8 @@ class _MarkersState extends State<Markers> {
                     child: TextButton(
                         onPressed: () {
                           setState(() {
-                            markersPage = 1;
                             topOrderNumber = 0;
+                            markersPage = 1;
                           });
                         },
                         style: TextButton.styleFrom(
@@ -1089,6 +1097,7 @@ class _MarkersState extends State<Markers> {
                                 stream: trophiesStream,
                                 builder: (BuildContext context,
                                     AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  topOrderNumber = 0;
                                   if (snapshot.hasError) {
                                     return myErrorAnimation();
                                   }
@@ -1101,6 +1110,8 @@ class _MarkersState extends State<Markers> {
                                     children: snapshot.data!.docs
                                         .map((DocumentSnapshot document) {
                                       topOrderNumber++;
+                                      int topNumber = topOrderNumber%markersLimit;
+                                      if (topNumber == 0) topNumber = markersLimit;
                                       Map<String, dynamic> data = document
                                           .data()! as Map<String, dynamic>;
                                       return Column(
@@ -1117,7 +1128,7 @@ class _MarkersState extends State<Markers> {
                                                   Expanded(
                                                     flex: 1,
                                                     child: Text(
-                                                      topOrderNumber.toString(),
+                                                      topNumber.toString(),
                                                       style: TextStyle(
                                                         fontSize: 15,
                                                         color: appBlack,
