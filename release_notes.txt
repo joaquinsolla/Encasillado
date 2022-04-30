@@ -1,5 +1,5 @@
 Idioma predeterminado: es-ES
-Versión 2.0.2
+Versión 2.0.3
 Palabras registradas: 1812
 
 Nombre de jugador: Ahora puedes ponerte un nombre de jugador con el que los demás podrán
@@ -13,4 +13,5 @@ se restaban anteriormente, se ha modificado la forma en la que las rachas bonifi
 Lista de palabras actualizada: Gracias a vuestra colaboración se han añadido 28 palabras más al
 juego.
 Nuevos trofeos: Se han añadido dos trofeos nuevos.
-Corrección de errores: Corregido el bug del índice de los marcadores.
+Corrección de errores: Corregido el bug del índice de los marcadores. Corregido error que producía
+registros duplicados.
