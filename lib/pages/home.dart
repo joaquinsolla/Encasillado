@@ -2322,10 +2322,9 @@ class _HomeState extends State<Home> {
             infiniteScore += 10000;
           } else {
             infiniteScore += ((300 - seconds) *
-                        (6 - currentRowInfinite) *
-                        ((streak + 1) * 0.1 + 1))
+                        (6 - currentRowInfinite))
                     .toInt() +
-                100;
+                100 + streak;
           }
           if (infiniteScore > 9999999) infiniteScore = 9999999;
         } else
