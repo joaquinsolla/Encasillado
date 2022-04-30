@@ -1,8 +1,6 @@
 Idioma predeterminado: es-ES
 Versión 2.0.2
-Palabras registradas: 1785
-
-*SOLUCIONADO PROBLEMA DE COMPATIBILIDAD CON ANDROID 12*
+Palabras registradas: 1812
 
 Nombre de jugador: Ahora puedes ponerte un nombre de jugador con el que los demás podrán
 identificarte.
@@ -10,12 +8,9 @@ Marcadores globales: Se han incorporado al juego los marcadores, en los que figu
 jugadores. Para tener la posibilidad de aparecer en ellos debes ponerte un nombre de jugador.
 Sistema de sugerencias mejorado: Pueden sugerirse palabras para añadir y también para eliminar.
 También se ha abandonado la base de datos antigua para integrar la app con Firebase.
-Interfaz actualizada: Cambios estéticos y funcionales en la interfaz que hacen la aplicación más
-atractiva visualmente y más fácil de usar. También se han movido de sitio botones como el del
-apartado de estadísticas.
 Sistema de puntuación actualizado: Fallar una palabra resta ahora 5.000 puntos frente a los 300 que
-se restaban anteriormente.
-Mejoras de rendimiento: Se han hecho cambios en el funcionamiento interno de la app para que esta
-sea más rápida y ligera a la hora de usarse.
-Lista de palabras actualizada: Gracias a vuestra colaboración, se han recibido 42 sugerencias de
-palabras nuevas de las cuales 23 han sido añadidas al juego.
+se restaban anteriormente, se ha modificado la forma en la que las rachas bonifican.
+Lista de palabras actualizada: Gracias a vuestra colaboración se han añadido 28 palabras más al
+juego.
+Nuevos trofeos: Se han añadido dos trofeos nuevos.
+Corrección de errores: Corregido el bug del índice de los marcadores.

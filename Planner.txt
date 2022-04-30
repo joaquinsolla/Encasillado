@@ -1,12 +1,12 @@
 ##### TO-DO list #####
 
 --------- TO DO:
-limitar racha
-añadir trofeos
 
 --------- DOING:
-
 
 --------- DONE:
 arreglar indice markers
 quitar query_all_packages
+limitar racha
+añadir trofeos
+añadir palabras

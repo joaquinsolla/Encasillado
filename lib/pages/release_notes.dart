@@ -130,6 +130,13 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                           SizedBox(
                             height: 15,
                           ),
+                          mainText('Nuevos trofeos'),
+                          secondaryText(
+                              "Se han añadido dos trofeos nuevos al juego: 1.000.000 de puntos y racha"
+                                  " de 500.\n"),
+                          SizedBox(
+                            height: 7.5,
+                          ),
                           mainText('Nombre de jugador'),
                           secondaryText(
                               "Ahora puedes ponerte un nombre de jugador con el que los demás "
@@ -175,8 +182,13 @@ class _ReleaseNotesState extends State<ReleaseNotes> {
                           ),
                           mainText('Lista de palabras actualizada'),
                           secondaryText(
-                              "Gracias a vuestra colaboración, se han recibido 42 sugerencias de palabras nuevas de las cuales 23 han sido "
-                                  "añadidas al juego.\n"),
+                              "Gracias a vuestra colaboración se han añadido 28 palabras más al juego.\n"),
+                          SizedBox(
+                            height: 7.5,
+                          ),
+                          mainText('Corrección de errores'),
+                          secondaryText(
+                              "Corregido el bug del índice de los marcadores.\n"),
                           SizedBox(
                             height: 7.5,
                           ),
