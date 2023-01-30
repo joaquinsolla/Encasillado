@@ -15,3 +15,6 @@ PlayStore link: https://play.google.com/store/apps/details?id=com.joa.encasillad
 ## Game's Twitter bot
 
 https://twitter.com/encasillado_bot (disabled)
+
+<br>
+&copy; <i>Joaquín Solla Vázquez<i>
